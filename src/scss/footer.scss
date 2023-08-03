@@ -1,0 +1,96 @@
+﻿@import 'variables.scss';
+
+//Sticky footer solution:
+//https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 0px;
+    text-align: center;
+    background-color: $light-secondary-background-colour;
+    transition: color $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out, border-color $global-animation-time ease-in-out;
+    will-change: color, background-color, border-color;
+    padding: 30px 0px;
+
+    > div {
+        max-width: $content-max-width;
+        width: 100%;
+    }
+
+    ul.footer-navlinks {
+        list-style: none;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        flex-wrap: wrap;
+        display: none; // Not necessary as navbar is always viewable.
+
+        > li {
+            padding: 0px 10px;
+
+            @media (max-width: 768px) {
+                padding: 0px 5px;
+            }
+
+            > a {
+                font-size: 21px;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .contact-info-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+
+        > a {
+            margin: 0 10px;
+            text-decoration: none;
+
+            > div {
+                background-color: #292929;
+                border-radius: 15px;
+                width: 45px;
+                height: 45px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                > i {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        > a:hover, a:active {
+            text-decoration: underline;
+        }
+    }
+
+    .copyright-text {
+        font-size: 14px;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 28px;
+    }
+
+    h4 {
+    }
+}
+
+.theme-container.dark-theme {
+    footer {
+        background-color: $dark-navbar-background-colour;
+        transition: color $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+        will-change: color, background-color;
+    }
+}

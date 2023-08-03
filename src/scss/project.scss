@@ -1,0 +1,220 @@
+﻿@import 'variables.scss';
+
+.project-summary-tiles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .project-summary-tile {
+        flex-direction: row;
+        display: flex;
+        width: 100%;
+        max-width: calc(50% - 30px);
+        border-radius: 5px;
+        max-height: 210px;
+        height: 210px;
+        margin: 15px;
+        box-shadow: 4px 4px 12px -4px rgba(0,0,0,0.75);
+        position: relative;
+        min-width: 600px;
+
+        @media (max-width: 698px) {
+            width: 100%;
+            max-width: 100%;
+            flex: 1 1 auto;
+            flex-direction: column;
+            display: flex;
+            height: 100%;
+            max-height: 100%;
+            min-width: 100%;
+            margin: 15px 0px;
+        }
+
+        @media (max-width: 520px) {
+            min-width: 100%;
+        }
+
+        .project-summary-img-container {
+            max-width: 200px;
+            width: 100%;
+            display: flex;
+            flex: 1 0 auto; // Required for IE 11
+
+            @media (max-width: 698px) {
+                max-width: 100%;
+            }
+
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+        }
+
+        .project-summary-tile-content {
+            padding: 15px 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-summary-tile-title {
+            font-weight: bold;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        //https://stackoverflow.com/a/53156390/5547950
+        $font-size: 14px;
+        $line-height: 1.4;
+        $lines-to-show: 5;
+
+        .project-summary-tile-desc {
+            display: -webkit-box;
+            font-size: $font-size;
+            line-height: $line-height;
+            -webkit-line-clamp: $lines-to-show;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            flex: 1; //https://stackoverflow.com/questions/11960636/how-to-make-a-div-stretch-its-height-between-two-other-divs-and-center-its-conte
+        }
+
+        .project-summary-tile-other {
+            display: flex;
+            flex-direction: row;
+
+            .project-summary-tile-techs {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                width: 100%; // Required for IE 11
+
+                .project-summary-logo-container {
+                    max-width: 30px;
+                    max-height: 30px;
+                    margin-right: 15px;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 5px;
+
+                    @media (max-width: 520px) {
+                        max-width: 25px;
+                        max-height: 25px;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .project-summary-logo {
+                        width: auto;
+                        height: auto;
+                        max-width: 30px;
+                        max-height: 30px;
+
+                        @media (max-width: 520px) {
+                            max-width: 25px;
+                            max-height: 25px;
+                        }
+                    }
+                }
+            }
+
+            .project-summary-tile-links {
+                display: flex;
+                flex: 1;
+                align-items: flex-end;
+                justify-content: flex-end;
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin: 15px;
+
+                @media (max-width: 698px) {
+                    position: relative;
+                    margin: 0px;
+                }
+
+                > a {
+                    margin-left: 10px;
+
+                    > i {
+                        font-size: 22px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.project-summary {
+    display: flex;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .proj-content-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-links {
+            flex-direction: row;
+
+            > a:first-of-type {
+                margin-right: 10px;
+            }
+        }
+
+        .project-image {
+            max-width: 200px;
+            max-height: 200px;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    .project-desc {
+        margin-top: 35px;
+        margin-bottom: 35px;
+    }
+
+    .project-subtitle {
+        font-weight: bold;
+        margin-right: 5px;
+        margin-bottom: 0px;
+    }
+
+    .project-title-section {
+        height: 150px;
+
+        h1 {
+            margin: 0px;
+            margin-right: 5px;
+        }
+    }
+}

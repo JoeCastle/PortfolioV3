@@ -1,0 +1,415 @@
+﻿@import 'navbar.scss';
+@import 'variables.scss';
+@import 'contact.scss';
+@import 'project.scss';
+@import 'skill.scss';
+@import 'footer.scss';
+@import 'fourzerofour.scss';
+@import 'skillarea.scss';
+@import 'react-image-lightbox-styles.scss';
+
+// Intersection observer doesn't work on touch screen devices, so we want to show content by default.
+.content-container {
+    @media (hover: none) and (pointer: coarse) {
+        opacity: 1 !important;
+    }
+}
+
+* {
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 16px;
+    font-display: swap;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+    width: 12px
+}
+
+::-webkit-scrollbar-track {
+    background: $light-primary-background-colour;
+    border-radius: 0px
+}
+
+::-webkit-scrollbar-thumb {
+    background: $standard-blue-background;
+    border-radius: 0px
+}
+
+html {
+    font-size: 100%;
+}
+
+html, body, #react-app, #root > .container-fluid, #page-parent {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+// Fixes scrolling issues.
+body, #root {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+body {
+    overflow: hidden;
+}
+
+a {
+    color: $global-hyperlink-colour;
+}
+
+main {
+    width: 100%;
+    flex: 1 0 auto;
+    padding-bottom: 0px;
+    width: calc(100vw - 18px)
+}
+
+#page-parent {
+    height: calc(100% - #{$navbar-height});
+    overflow: auto;
+    margin-top: 62px;
+    display: flex;
+    flex-direction: column;
+
+    #scroll-to-top-btn {
+        box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+        border: none;
+        color: #ffffff;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        border-radius: 4px;
+        background-color: $standard-blue-background;
+        position: fixed;
+        bottom: 36px;
+        right: 50px;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity $global-animation-time ease-in-out, visibility $global-animation-time ease-in-out;
+        will-change: opacity, visibility;
+
+        @media (max-width: 450px) {
+            bottom: 20px;
+            right: 30px;
+        }
+    }
+
+    #scroll-to-top-btn.show {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity $global-animation-time ease-in-out, visibility $global-animation-time ease-in-out;
+        will-change: opacity, visibility;
+    }
+
+    #theme-changer-btn {
+        position: fixed;
+        bottom: 28px;
+        left: 28px;
+        color: $standard-blue-background;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        outline: 0;
+
+        > i {
+            font-size: 18px
+        }
+    }
+}
+
+#Projects, #Skills {
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        height: auto !important;
+    }
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: calc(100vh - #{$navbar-height});
+    
+    // Required to vertically center items for IE11 - https://medium.com/codeart-mk/internet-explorer-hacks-796200e5741c
+    // Target IE11 only as this will break other browsers.
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        height: 1px;
+    }
+
+    @media (max-width: 325px) {
+        padding: 20px 10px;
+    }
+
+    .content-container {
+        .section-title-wrapper {
+            text-align: center;
+
+            h2 {
+                font-weight: bold;
+                text-align: center;
+                font-size: 42px;
+                margin-bottom: 30px;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+                display: inline-block;
+
+                @media (max-width: 450px) {
+                    font-size: 30px;
+                    padding-bottom: 5px;
+                    margin: 10px 0px;
+                }
+            }
+        }
+    }
+}
+
+.section.about {
+    min-height: calc(100vh - #{$navbar-height});
+}
+
+.contact-info {
+    > a {
+        text-decoration: none;
+    }
+
+    > a:hover, a:active {
+        text-decoration: underline;
+    }
+}
+
+.content-container {
+    max-width: $content-max-width;
+    width: 100%;
+    transition: opacity .4s ease-in;
+}
+
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+.disabled-link {
+    color: inherit;
+}
+
+.disabled-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.opacity-show {
+    opacity: 1 !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-default {
+    cursor: default;
+}
+
+.theme-container {
+    color: $light-primary-font-colour;
+    background-color: $light-primary-background-colour;
+    transition: color $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+    will-change: color, background-color;
+
+    .content-container {
+        h2 {
+            border-bottom: 3px solid $light-navbar-font-colour-hover;
+            transition: border-bottom $global-animation-time ease-in-out;
+            will-change: border-bottom;
+        }
+    }
+
+    input, textarea {
+        background-color: #ffffff;
+        color: $light-primary-font-colour;
+        transition: color $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+        will-change: color, background-color;
+    }
+
+    .form-control {
+        border: 1px solid #ccc;
+        background: #ffffff;
+        transition: border $global-animation-time ease-in-out, background $global-animation-time ease-in-out;
+        will-change: border, background;
+    }
+
+    .project-summary-tile {
+        background-color: $light-secondary-background-colour;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+        transition: border $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+        will-change: border, background-color, box-shadow;
+    }
+
+    .skill-summary-tile {
+        background-color: $light-secondary-background-colour;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+        transition: border $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+        will-change: border, background-color, box-shadow;
+    }
+
+    .skillarea-summary-tile {
+        background-color: $light-secondary-background-colour;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+        transition: border $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+        will-change: border, background-color, box-shadow;
+    }
+
+    .about {
+        .contact-info {
+            > a {
+                > div {
+                    background: $light-secondary-background-colour;
+                    border: 2px solid rgba(204, 204, 204, 0.1);
+                    box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.3);
+                    transition: border $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+                    will-change: border, background, box-shadow;
+                }
+            }
+        }
+    }
+
+    ul.skillarea-summary-tile-techs {
+        > li {
+            color: $standard-blue-background;
+            transition: color $global-animation-time ease-in-out;
+            will-change: color;
+
+            > span {
+                color: $light-primary-font-colour;
+                transition: color $global-animation-time ease-in-out;
+                will-change: color;
+            }
+        }
+    }
+
+    footer {
+        a {
+            color: $standard-blue-background;
+            transition: color $global-animation-time ease-in-out;
+            will-change: color;
+        }
+
+        .contact-info-footer {
+            > a {
+                > div {
+                    background-color: $light-secondary-background-colour;
+                    transition: background-color $global-animation-time ease-in-out;
+                    will-change: background-color;
+                }
+            }
+        }
+    }
+}
+
+.theme-container.dark-theme {
+    color: $dark-primary-font-colour;
+    background-color: $dark-primary-background-colour;
+    transition: color $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+    will-change: color, background-color;
+
+    .content-container {
+        h2 {
+            border-bottom: 3px solid $dark-navbar-font-colour-hover;
+            transition: border-bottom $global-animation-time ease-in-out;
+            will-change: border-bottom;
+        }
+    }
+
+    input, textarea {
+        background-color: transparent;
+        color: $dark-primary-font-colour;
+        transition: color $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+        will-change: color, background-color;
+    }
+
+    .form-control {
+        border: 2px solid rgba(204,204,204,0.1);
+        background: $dark-secondary-background-colour;
+        transition: border $global-animation-time ease-in-out, background $global-animation-time ease-in-out;
+        will-change: border, background;
+    }
+
+    .project-summary-tile {
+        background-color: $dark-secondary-background-colour;
+        border: 2px solid rgba(204, 204, 204, 0.1);
+        transition: border $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+        will-change: border, background-color;
+    }
+
+    .skill-summary-tile {
+        background-color: $dark-secondary-background-colour;
+        border: 2px solid rgba(204, 204, 204, 0.1);
+        transition: border $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+        will-change: border, background-color;
+    }
+
+    .skillarea-summary-tile {
+        background-color: $dark-secondary-background-colour;
+        border: 2px solid rgba(204, 204, 204, 0.1);
+        transition: border $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+        will-change: border, background-color;
+    }
+
+    .about {
+        .contact-info {
+            > a {
+                > div {
+                    background: $dark-secondary-background-colour;
+                    border: 2px solid rgba(204, 204, 204, 0.1);
+                    transition: border $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+                    will-change: border, background;
+                }
+            }
+        }
+    }
+
+    ul.skillarea-summary-tile-techs {
+        > li {
+            color: $standard-blue-background;
+            transition: color $global-animation-time ease-in-out;
+            will-change: color;
+
+            > span {
+                color: $dark-primary-font-colour;
+                transition: color $global-animation-time ease-in-out;
+                will-change: color;
+            }
+        }
+    }
+
+    footer {
+        a {
+            color: $dark-primary-font-colour;
+            transition: color $global-animation-time ease-in-out;
+            will-change: color;
+        }
+
+        .contact-info-footer {
+            > a {
+                > div {
+                    background-color: $dark-secondary-background-colour;
+                    transition: background-color $global-animation-time ease-in-out;
+                    will-change: background-color;
+                }
+            }
+        }
+    }
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+#introduction-content-container {
+    max-width: 950px;
+}

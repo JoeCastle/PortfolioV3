@@ -1,0 +1,52 @@
+﻿// Commented out currently unused variables.
+
+$mobile-max-width-breakpoint: 767px;
+$mobile-min-width-breakpoint: 768px;
+$content-max-width: 1350px;
+$navbar-height: 62px;
+$footer-height: 100px;
+
+$global-animation-time: 0.4s;
+
+$global-hyperlink-colour: #2975f5;
+
+/* ### Default (dark) theme. ### */
+// Background
+$dark-primary-background-colour: #202020;
+$dark-secondary-background-colour: #292929;
+//$dark-tertiary-background-colour: #ffffff;
+
+// Font
+$dark-primary-font-colour: #BDC2CC;
+/*$dark-secondary-font-colour: #ffffff;
+$dark-tertiary-font-colour: #ffffff;*/
+
+// Borders
+//$dark-primary-border-colour: rgba(128, 128, 128, 0.3);
+//$dark-primary-border-colour-hover: rgba(128, 128, 128, 0.1);
+//$dark-secondary-border-colour: rgba(128, 128, 128, 0.1);
+//$dark-tertiary-border-colour: #ffffff;
+
+
+/* ### Secondary (light) theme ### */
+// Background
+$light-primary-background-colour: #E3E3E3;
+$light-secondary-background-colour: #ececec;
+//$light-tertiary-background-colour: #ffffff;
+
+// Font
+$light-primary-font-colour: #454545;
+//$light-secondary-font-colour: #1c6ef7;
+//$light-tertiary-font-colour: #ffffff;
+
+$standard-blue-background: #1c6ef7;
+
+/* ### General variables ### */
+// Navbar
+$dark-navbar-background-colour: #131313;
+$dark-navbar-font-colour: #c1c6d0;
+$dark-navbar-font-colour-hover: #ffffff;
+
+$light-navbar-background-colour: $light-secondary-background-colour;
+$light-navbar-font-colour: #454545;
+$light-navbar-font-colour-hover: #1c6ef7;
