@@ -10,6 +10,12 @@ interface IProjectProps {
 
 interface Props extends IProjectProps {
 }
+
+/**
+ * The project page. Currently unused.
+ * @param props 
+ * @returns 
+ */
 export const Project: React.FC<Props> = (props) => {
     const { projectName } = props;
 
@@ -23,7 +29,7 @@ export const Project: React.FC<Props> = (props) => {
     }, []);
 
     const handleScrollReset = () => {
-        let element = document.getElementById('page-parent');
+        let element: HTMLElement | null = document.getElementById('page-parent');
         element!.scrollTop = 0;
     }
 
@@ -56,7 +62,7 @@ export const Project: React.FC<Props> = (props) => {
                 </div>
                 <div className='proj-content-wrapper'>
                     <div className='project-image-container'>
-                        <img className='project-image' src={project!.attributes.img} alt={project!.attributes.imgAlt} referrerPolicy="no-referrer" />
+                        <img className='project-image' src={project!.attributes.thumbnail.src} alt={project!.attributes.thumbnail.alt} referrerPolicy="no-referrer" />
                     </div>
                     <div>
                         <ul><span className='project-subtitle'>Techs:</span> {project!.attributes.technologies!.map((item, i) => (<li key={i}> {(i ? ', ' : '') + item}</li>))}</ul>

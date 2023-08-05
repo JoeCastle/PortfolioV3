@@ -1,4 +1,4 @@
-﻿import { ISkill } from '../../data/skills';
+﻿import { ISkill } from '../../../data/skills';
 
 interface ISkillProps {
     skill: ISkill;
@@ -7,6 +7,11 @@ interface ISkillProps {
 interface Props extends ISkillProps {
 }
 
+/**
+ * A skill summary tile for the skills section.
+ * @param props 
+ * @returns 
+ */
 export const SkillsSummaryTile = (props: Props): JSX.Element => {
     const skill: ISkill = props.skill;
 

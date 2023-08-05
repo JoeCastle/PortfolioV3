@@ -7,6 +7,11 @@ interface Props {
     isDarkMode: boolean;
 }
 
+/**
+ * The navbar at the top of the page.
+ * @param props 
+ * @returns 
+ */
 export const NavMenu: React.FC<Props> = (props) => {
     const { isDarkMode } = props;
 
@@ -34,7 +39,6 @@ export const NavMenu: React.FC<Props> = (props) => {
                                 <NavLink id={NavLinkIdTypes.Skills} smooth to='/#Skills' className={({ isActive }) => (isActive ? " isActive" : "")}><i className='fas fa-code'></i> Skills</NavLink>
                             </li>
                             <li>
-                                {/* <NavLink id={NavLinkIdTypes.Contact} smooth to='/#Contact' className={`${(navData: any) => (navData.isActive ? 'isActive' : '')}`}><i className='fas fa-envelope'></i> Contact</NavLink> */}
                                 <NavLink id={NavLinkIdTypes.Contact} smooth to='/#Contact' className={({ isActive }) => (isActive ? " isActive" : "")}><i className='fas fa-envelope'></i> Contact</NavLink>
                             </li>
                         </ul>

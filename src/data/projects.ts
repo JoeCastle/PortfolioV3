@@ -25,9 +25,8 @@ interface IAttributes {
     summary?: string; //A short description, probably used on the home page.
     technologies: ISkill[];
     tags: string[];
-    img: string;
-    imgAlt: string;
-    carouselImages?: ICarouselImages[];
+    thumbnail: IImage;
+    carouselImages?: IImage[];
     readMoreLink: string;
     routeURL: string;
     sourceCode: string;
@@ -43,22 +42,25 @@ export interface IProject {
     attributes: IAttributes;
 }
 
-export interface ICarouselImages {
+export interface IImage {
     src: string;
     alt: string;
     title: string;
 }
 
-let getProjectRouteURL = (projectName: string): string => {
+const getProjectRouteURL = (projectName: string): string => {
     return `Projects/${projectName}`;
 }
 
-let getProjectReadMoreLink = (projectName: string): string => {
+const getProjectReadMoreLink = (projectName: string): string => {
     return `/${getProjectRouteURL(projectName)}`;
 }
 
-// Images are hosted on Google Drive
-let projects: IProject[] = [
+// Images are hosted on Cloudinary.com
+/**
+ * List of all projects.
+ */
+const projects: IProject[] = [
     {
         projectName: 'portfolio',
         attributes: {
@@ -71,8 +73,11 @@ let projects: IProject[] = [
             ],
             technologies: getSkills(['reactjs', 'sass', 'typescript', 'aspnetcore', 'visualstudio']),
             tags: ['tag1', 'tag2', 'tag3'],
-            img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955389/PortfolioScreenshots/Portfolio/Thumbnail/Projects_section_yu5fko.jpg',
-            imgAlt: 'Projects section of portfolio',
+            thumbnail: {
+                src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955389/PortfolioScreenshots/Portfolio/Thumbnail/Projects_section_yu5fko.jpg', 
+                alt: 'Projects section of portfolio', 
+                title: 'Projects section of portfolio'
+            },
             carouselImages: [
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955388/PortfolioScreenshots/Portfolio/Full/4.%20Final/Projects_section_lqmdbl.png', alt: "Screenshot of the projects section of my portfolio.", title: "Portfolio - Projects"},
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955388/PortfolioScreenshots/Portfolio/Full/4.%20Final/Skills_section_m7nvli.png', alt: "Screenshot of the skills section of my portfolio.", title: "Portfolio - Skills"},
@@ -87,7 +92,7 @@ let projects: IProject[] = [
             nonLiveDemo: '',
             projectType: ProjType.Personal,
             isDeleted: false,
-            yearCompleted: "2021"
+            yearCompleted: "2023"
         }
     },
     {
@@ -98,8 +103,11 @@ let projects: IProject[] = [
             description: ['The Training App was built for the project section of my university dissertation. Its purpose was to support the arguments I made within my report and demonstrate many of the features of web accessibility that I discovered during my research.', 'The web application itself allows trainers to create multiple choice quizzes for trainees that are assigned to their group.', 'It demonstrates a variety of web accessibility features such as ...', 'In order to test the accessibility level of the application I used multiple online automatic accessbility testing tools which include ...'],
             technologies: getSkills(['reactjs', 'mobx', 'sass', 'typescript', 'aspnetcore', 'visualstudio', 'tsql', 'sqlservermanagementstudio']),
             tags: ['tag1', 'tag2', 'tag3'],
-            img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955382/PortfolioScreenshots/DissertationArtefact/Thumbnail/Artefact1_ebgs1l.png',
-            imgAlt: 'Homepage of training app',
+            thumbnail: {
+                src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955382/PortfolioScreenshots/DissertationArtefact/Thumbnail/Artefact1_ebgs1l.png', 
+                alt: 'Homepage of training app', 
+                title: 'Homepage of training app'
+            },
             carouselImages: [
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955382/PortfolioScreenshots/DissertationArtefact/Full/4.%20Final/Artefact1_xwy01d.png', alt: "Screenshot of the projects section of my portfolio.", title: ""},
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/DissertationArtefact/Full/4.%20Final/Artefact2_cwfyey.png', alt: "Screenshot of the projects section of my portfolio.", title: ""},
@@ -135,8 +143,11 @@ let projects: IProject[] = [
             ],
             technologies: getSkills(['c/c++', 'arduino']),
             tags: ['tag1', 'tag2', 'tag3'],
-            img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955381/PortfolioScreenshots/ArduinoTempSensor/Thumbnail/ArduinoCircuit4_plu0xi.jpg',
-            imgAlt: 'Arduino board and circuit.',
+            thumbnail: {
+                src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955381/PortfolioScreenshots/ArduinoTempSensor/Thumbnail/ArduinoCircuit4_plu0xi.jpg', 
+                alt: 'Arduino board and circuit.', 
+                title: 'Arduino board and circuit.'
+            },
             carouselImages: [
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/ArduinoTempSensor/Full/Final/ArduinoCircuit4_tgmcdj.jpg', alt: "Screenshot of the projects section of my portfolio.", title: ""},
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955383/PortfolioScreenshots/ArduinoTempSensor/Full/Final/ArduinoCircuit1_z1jnoh.jpg', alt: "Screenshot of the projects section of my portfolio.", title: ""},
@@ -168,9 +179,11 @@ let projects: IProject[] = [
             ],
             technologies: getSkills(['html', 'css', 'javascript', 'visualstudiocode']),
             tags: ['tag1', 'tag2', 'tag3'],
-            //img: projectImages.startPageImages.startpageImg1Thumbnail,
-            img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955383/PortfolioScreenshots/Startpage/Thumbnail/startpage_img_1_z5rcxh.jpg',
-            imgAlt: 'Start page bookmarks',
+            thumbnail: {
+                src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955383/PortfolioScreenshots/Startpage/Thumbnail/startpage_img_1_z5rcxh.jpg', 
+                alt: 'Start page bookmarks', 
+                title: 'Start page bookmarks'
+            },
             carouselImages: [
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_1_mtsibz.jpg', alt: "Screenshot of the projects section of my portfolio.", title: ""},
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_2_sy9tvt.jpg', alt: "Screenshot of the projects section of my portfolio.", title: ""},
@@ -200,9 +213,11 @@ let projects: IProject[] = [
             ],
             technologies: getSkills(['mitappinventor']),
             tags: ['tag1', 'tag2', 'tag3'],
-            //img: projectImages.jlaImages.jla_designerThumbnail,
-            img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955379/PortfolioScreenshots/JavaLearningApp/Thumbnail/jla_designer_qkuo2u.jpg',
-            imgAlt: 'App designer',
+            thumbnail: {
+                src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955379/PortfolioScreenshots/JavaLearningApp/Thumbnail/jla_designer_qkuo2u.jpg', 
+                alt: 'App designer', 
+                title: 'App designer'
+            },
             carouselImages: [
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955385/PortfolioScreenshots/JavaLearningApp/Full/Final/jla_designer_rmn8i3.jpg', alt: "Screenshot of the projects section of my portfolio.", title: ""},
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/JavaLearningApp/Full/Final/jla_code1_jnezr1.jpg', alt: "Screenshot of the projects section of my portfolio.", title: ""},
@@ -232,8 +247,11 @@ let projects: IProject[] = [
             description: ['desc', 'test', 'test'],
             technologies: [getSkill('reactjs'), getSkill('sass'), getSkill('typescript'), getSkill('aspnetcore'), getSkill('visualstudio')],
             tags: ['tag1', 'tag2', 'tag3'],
-            img: "",
-            imgAlt: 'Home page of the FizzBuzz coding task.',
+            thumbnail: {
+                src: '', 
+                alt: 'Home page of the FizzBuzz coding task.', 
+                title: 'Home page of the FizzBuzz coding task.'
+            },
             readMoreLink: getProjectReadMoreLink('FizzBuzzTask'),
             routeURL: getProjectRouteURL('FizzBuzzTask'),
             sourceCode: 'https://github.com/JoeCastle/FizzBuzzTask',
@@ -252,8 +270,11 @@ let projects: IProject[] = [
             description: ['A robot built for the Robocode programming game, that utilizes advanced features such as circling, strafing, linear predictive targeting, wall avoidance, opponent detection, following, evading and dodging.'],
             technologies: getSkills(['java']),
             tags: ['tag1', 'tag2', 'tag3'],
-            img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955380/PortfolioScreenshots/Robocode/Thumbnail/Robocode1_o4avab.jpg',
-            imgAlt: 'Robocode robot in battle.',
+            thumbnail: {
+                src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955380/PortfolioScreenshots/Robocode/Thumbnail/Robocode1_o4avab.jpg', 
+                alt: 'Robocode robot in battle.', 
+                title: 'Robocode robot in battle.'
+            },
             carouselImages: [
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955389/PortfolioScreenshots/Robocode/Full/4.%20Final/Robocode1_egy0wr.png', alt: "Screenshot of the projects section of my portfolio.", title: ""},
                 {src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955389/PortfolioScreenshots/Robocode/Full/4.%20Final/Robocode2_qj7d9y.png', alt: "Screenshot of the projects section of my portfolio.", title: ""},
@@ -274,7 +295,13 @@ let projects: IProject[] = [
 
 export default projects;
 
-export let getProjectSkills = (project: IProject, displayNumber: number): ISkill[] => {
+/**
+ * Gets a list of ISkills fora project.
+ * @param project The project.
+ * @param displayNumber The number of skills to return.
+ * @returns An array of ISkill items.
+ */
+export const getProjectSkills = (project: IProject, displayNumber: number): ISkill[] => {
     return project.attributes.technologies
         .slice(0, displayNumber)
         .filter(item => item.skillName !== 'default');

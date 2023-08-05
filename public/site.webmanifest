@@ -7,7 +7,7 @@
   "background_color": "#131313",
   "display": "standalone",
   "scope": "/",
-  "start_url": "https://joeportfoliov2.azurewebsites.net",
+  "start_url": "/",
   "icons": [
     {
       "src": "android-chrome-192x192.png",

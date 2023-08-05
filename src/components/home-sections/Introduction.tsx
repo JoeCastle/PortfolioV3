@@ -5,6 +5,11 @@ import globals from '../../utils/globals';
 interface Props {
 }
 
+/**
+ * The introduction (about) section on the homepage.
+ * @param props 
+ * @returns 
+ */
 export const Introduction: React.FC<Props> = (props) => {
     const ref: React.MutableRefObject<HTMLInputElement> = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     useOnScreen(ref, '-300px');
@@ -21,7 +26,7 @@ export const Introduction: React.FC<Props> = (props) => {
             <p>Proficient in a diverse range of technologies, including React, .NET, and SQL Server, I approach projects with precision and creativity, ensuring the best possible technical outcomes.</p>
 
             <div className='contact-info'>
-                <a target='_blank' rel='noopener noreferrer' href={globals.LinkedInData.URL} title={'LinkedIn - ' + globals.LinkedInData.DisplayName} aria-label='LinkedIn link.'>
+                <a target='_blank' rel='noopener noreferrer' href={globals.linkedInData.url} title={'LinkedIn - ' + globals.linkedInData.displayName} aria-label='LinkedIn link.'>
                     <div>
                         <i className='fab fa-linkedin-in'></i>
                     </div>
@@ -33,7 +38,7 @@ export const Introduction: React.FC<Props> = (props) => {
                         <i className='fas fa-at'></i>
                     </div>
                 </a>
-                <a target='_blank' rel='noopener noreferrer' href={globals.GitHubData.URL} title={'GitHub - ' + globals.GitHubData.DisplayName} aria-label='GitHub link.'>
+                <a target='_blank' rel='noopener noreferrer' href={globals.gitHubData.url} title={'GitHub - ' + globals.gitHubData.displayName} aria-label='GitHub link.'>
                     <div>
                         <i className='fab fa-github'></i>
                     </div>

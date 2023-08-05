@@ -13,6 +13,11 @@ interface IEmailModel {
 interface Props {
 }
 
+/**
+ * The contact form section on the homepage.
+ * @param props 
+ * @returns 
+ */
 export const ContactForm: React.FC<Props> = (props) => {
 
     const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -43,7 +48,7 @@ export const ContactForm: React.FC<Props> = (props) => {
             setIsLoading(true);
 
             if (typeof window !== 'undefined') {
-                const address = utils.decodeHTML(globals.ObsfucatedEmailAddress)
+                const address = utils.decodeHTML(globals.obsfucatedEmailAddress)
                 window.location.href = `mailto:${address}?subject=${subject}&body=${body}`;
 
                 setInitialValues();
@@ -105,9 +110,9 @@ export const ContactForm: React.FC<Props> = (props) => {
             <div className='contact-form-info'>
 
                 <div className='contact-info'>
-                    <a target='_blank' rel='noopener noreferrer' href={globals.LinkedInData.URL} aria-label='LinkedIn link.'><i className='fab fa-linkedin-in'></i> <div>LinkedIn</div></a>
+                    <a target='_blank' rel='noopener noreferrer' href={globals.linkedInData.url} aria-label='LinkedIn link.'><i className='fab fa-linkedin-in'></i> <div>LinkedIn</div></a>
                     <a href='&#109;ailto&#58;&#106;&#37;&#54;Fe&#64;t&#99;a&#115;t%&#54;C%65%&#50;&#69;c%6F%&#50;Euk' aria-label='Email address.'><i className='fas fa-at'></i> <div>Email</div></a>
-                    <a target='_blank' rel='noopener noreferrer' href={globals.GitHubData.URL} aria-label='GitHub link.'><i className='fab fa-github'></i> <div>GitHub</div></a>
+                    <a target='_blank' rel='noopener noreferrer' href={globals.gitHubData.url} aria-label='GitHub link.'><i className='fab fa-github'></i> <div>GitHub</div></a>
                 </div>
 
                 <div className='contact-form'>

@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { ISkillArea } from '../../data/skillAreas';
+import { ISkillArea } from '../../../data/skillAreas';
 
 interface ISkillAreaProps {
     skillArea: ISkillArea;
@@ -8,6 +8,11 @@ interface ISkillAreaProps {
 interface Props extends ISkillAreaProps {
 }
 
+/**
+ * A skill area tile for the skills section.
+ * @param props 
+ * @returns 
+ */
 export const SkillAreasTile = (props: Props): JSX.Element => {
     const skillArea: ISkillArea = props.skillArea;
 

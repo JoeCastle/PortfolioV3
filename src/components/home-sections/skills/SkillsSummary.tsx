@@ -1,8 +1,13 @@
 ﻿import React from 'react';
 import { SkillsSummaryTile } from './SkillsSummaryTile';
-import skills from '../../data/skills';
-import useOnScreen, { PageSectionIdTypes } from "../../hooks/useOnScreen";
+import skills from '../../../data/skills';
+import useOnScreen, { PageSectionIdTypes } from "../../../hooks/useOnScreen";
 
+/**
+ * The skills (skill summary) sections on the homepage. Currently unused.
+ * @param props 
+ * @returns 
+ */
 export const SkillsSummary = (): JSX.Element => {
     const ref: React.MutableRefObject<HTMLInputElement> = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     useOnScreen(ref, "-300px");

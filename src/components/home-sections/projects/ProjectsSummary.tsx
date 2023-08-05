@@ -1,18 +1,23 @@
 ﻿import React from 'react';
 import { ProjectsSummaryTile } from './ProjectsSummaryTile';
-import projects from '../../data/projects';
-import useOnScreen, { PageSectionIdTypes } from "../../hooks/useOnScreen";
-import globals from '../../utils/globals';
+import projects from '../../../data/projects';
+import useOnScreen, { PageSectionIdTypes } from "../../../hooks/useOnScreen";
+import globals from '../../../utils/globals';
 
 interface Props {
 }
 
+/**
+ * The project summary section on the homepage.
+ * @param props 
+ * @returns 
+ */
 export const ProjectsSummary: React.FC<Props> = (props) => {
     const ref: React.MutableRefObject<HTMLInputElement> = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     useOnScreen(ref, "-300px");
 
     const summaryProjects: JSX.Element[] = projects
-        .slice(0, globals.NumOfSummaryProjectsToDisplay + 1)
+        .slice(0, globals.numOfSummaryProjectsToDisplay + 1)
         .filter(item =>
             item.projectName !== 'default' &&
             item.attributes.isDeleted === false)

@@ -1,11 +1,16 @@
 ﻿import React from 'react';
 import { SkillAreasTile } from './SkillAreasTile';
-import skillAreas from '../../data/skillAreas';
-import useOnScreen from "../../hooks/useOnScreen";
+import skillAreas from '../../../data/skillAreas';
+import useOnScreen from "../../../hooks/useOnScreen";
 
 interface Props {
 }
 
+/**
+ * The skills (skill areas) sections on the homepage.
+ * @param props 
+ * @returns 
+ */
 export const SkillAreas: React.FC<Props> = (props) => {
     const ref: React.MutableRefObject<HTMLInputElement> = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     useOnScreen(ref, "-300px");

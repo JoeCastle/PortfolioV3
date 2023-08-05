@@ -5,7 +5,11 @@ import globals from '../../utils/globals';
 interface Props {
 }
 
-
+/**
+ * The footer component at the bottom of every page.
+ * @param props 
+ * @returns 
+ */
 export const Footer: React.FC<Props> = (props) => {
     return ( 
         <div>
@@ -13,7 +17,7 @@ export const Footer: React.FC<Props> = (props) => {
                 <h3>Joseph Castle</h3>
                 <h4>Software Developer</h4>
                 <div className='contact-info-footer'>
-                    <a target='_blank' rel='noopener noreferrer' href={globals.LinkedInData.URL} title={'LinkedIn - ' + globals.LinkedInData.DisplayName} aria-label='LinkedIn link.'>
+                    <a target='_blank' rel='noopener noreferrer' href={globals.linkedInData.url} title={'LinkedIn - ' + globals.linkedInData.displayName} aria-label='LinkedIn link.'>
                         <div>
                             <i className='fab fa-linkedin-in'></i>
                         </div>
@@ -25,7 +29,7 @@ export const Footer: React.FC<Props> = (props) => {
                             <i className='fas fa-at'></i>
                         </div>
                     </a>
-                    <a target='_blank' rel='noopener noreferrer' href={globals.GitHubData.URL} title={'GitHub - ' + globals.GitHubData.DisplayName} aria-label='GitHub link.'>
+                    <a target='_blank' rel='noopener noreferrer' href={globals.gitHubData.url} title={'GitHub - ' + globals.gitHubData.displayName} aria-label='GitHub link.'>
                         <div>
                             <i className='fab fa-github'></i>
                         </div>
@@ -37,18 +41,10 @@ export const Footer: React.FC<Props> = (props) => {
 
             <ul className='footer-navlinks' id='footer-navlinks'>
                 {/* https://css-tricks.com/snippets/jquery/smooth-scrolling/ */}
-                <li>
-                    <NavLink smooth to='/#About'>About</NavLink>
-                </li>
-                <li>
-                    <NavLink smooth to='/#Projects'>Projects</NavLink>
-                </li>
-                <li>
-                    <NavLink smooth to='/#Skills'>Skills</NavLink>
-                </li>
-                <li>
-                    <NavLink smooth to='/#Contact'>Contact</NavLink>
-                </li>
+                <li><NavLink smooth to='/#About'>About</NavLink></li>
+                <li><NavLink smooth to='/#Projects'>Projects</NavLink></li>
+                <li><NavLink smooth to='/#Skills'>Skills</NavLink></li>
+                <li><NavLink smooth to='/#Contact'>Contact</NavLink></li>
             </ul>
             
             <p className='copyright-text'>Copyright &copy; {new Date().getFullYear()} Joseph Castle. All Rights Reserved.</p>
