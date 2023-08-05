@@ -58,21 +58,26 @@ export const ContactForm: React.FC<Props> = (props) => {
     };
 
     const validateForm = (model: IEmailModel): boolean => {
+        let fieldErrors: string[] = [];
         if (model.fullName === "") {
-            setFormError("Full name is missing.");
-
-            return false;
+            fieldErrors.push("Full name");
         }
 
         if (model.subject === "") {
-            setFormError("Subject is missing.");
-
-            return false;
+            fieldErrors.push("Subject");
         }
 
         if (model.message === "") {
+            fieldErrors.push("Message");
+        }
 
-            setFormError("Message is missing.");
+        if (fieldErrors.length > 0) {
+            const formatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
+            let fieldsErrorString: string = formatter.format(fieldErrors);
+
+            const pluralConnector: string = fieldErrors.length > 1 ? "are" : "is";
+
+            setFormError(fieldsErrorString + " " + pluralConnector + " missing.");
 
             return false;
         }
@@ -108,7 +113,7 @@ export const ContactForm: React.FC<Props> = (props) => {
                 <div className='contact-form'>
                     <Form>
                         <div className='form-input-wrapper'>
-                            <FormGroup>
+                            <FormGroup className='form-group'>
                                 <Label for='fullName'>Full name: </Label>
                                 <Input
                                     type='text'
@@ -119,7 +124,7 @@ export const ContactForm: React.FC<Props> = (props) => {
                                     value={fullName}
                                     onChange={(e) => setFullName(e.target.value)} />
                             </FormGroup>
-                            <FormGroup>
+                            <FormGroup className='form-group'>
                                 <Label for='subject'>Subject: </Label>
                                 <Input
                                     type='text'
@@ -131,7 +136,7 @@ export const ContactForm: React.FC<Props> = (props) => {
                                     onChange={(e) => setSubject(e.target.value)} />
                             </FormGroup>
                         </div>
-                        <FormGroup>
+                        <FormGroup className='form-group'>
                             <Label for='message'>Message: </Label>
                             <Input
                                 type='textarea'

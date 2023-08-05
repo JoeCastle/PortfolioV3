@@ -83,7 +83,6 @@
     }
 }
 
-
 .contact-form-info-container {
     .contact-form-info {
         display: flex;
@@ -98,6 +97,10 @@
 .contact-info-form-info {
     display: flex;
     flex-direction: row;
+}
+
+.form-control::placeholder {
+    color: #6c757d !important;
 }
 
 .form-input-wrapper {
