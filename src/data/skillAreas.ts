@@ -1,16 +1,12 @@
 ﻿import { ISkill, getFrontendSkills, getBackendSkills, getOtherSkills } from './skills';
 
-export type SkillAreaTypes =
-    'default' |
-    'frontend' |
-    'backend' |
-    'other';
+export type SkillAreaTypes = 'default' | 'frontend' | 'backend' | 'other';
 
 enum skillAreaType {
     default = 0,
     frontEnd = 1,
     backEnd = 2,
-    other = 3
+    other = 3,
 }
 
 export interface ISkillArea {
@@ -31,7 +27,7 @@ let skillAreas: ISkillArea[] = [
         fontAwesomeIconClass: '',
         type: skillAreaType.other,
         skills: getOtherSkills(),
-        itemsTitle: 'Languages'
+        itemsTitle: 'Languages',
     },
     {
         skillAreaName: 'frontend',
@@ -40,7 +36,7 @@ let skillAreas: ISkillArea[] = [
         fontAwesomeIconClass: 'fas fa-code',
         type: skillAreaType.frontEnd,
         skills: getFrontendSkills(),
-        itemsTitle: 'Languages'
+        itemsTitle: 'Languages',
     },
     {
         skillAreaName: 'backend',
@@ -49,7 +45,7 @@ let skillAreas: ISkillArea[] = [
         fontAwesomeIconClass: 'fas fa-code-branch',
         type: skillAreaType.backEnd,
         skills: getBackendSkills(),
-        itemsTitle: 'Languages'
+        itemsTitle: 'Languages',
     },
     {
         skillAreaName: 'other',
@@ -58,8 +54,8 @@ let skillAreas: ISkillArea[] = [
         fontAwesomeIconClass: 'fas fa-terminal',
         type: skillAreaType.other,
         skills: getOtherSkills(),
-        itemsTitle: 'Software'
-    }
+        itemsTitle: 'Software',
+    },
 ];
 
 export default skillAreas;

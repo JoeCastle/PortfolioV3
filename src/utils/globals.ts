@@ -7,13 +7,13 @@ type SocialDataType = {
 
 const gitHubData: SocialDataType = {
     url: 'https://github.com/JoeCastle',
-    displayName: 'JoeCastle'
-}
+    displayName: 'JoeCastle',
+};
 
 const linkedInData: SocialDataType = {
     url: 'https://linkedin.com/in/joseph-castle-19170b188',
-    displayName: 'Joseph Castle'
-}
+    displayName: 'Joseph Castle',
+};
 
 /** The number of project tiles to display in the projects section on the homepage. */
 const numOfSummaryProjectsToDisplay: number = 8;
@@ -26,7 +26,7 @@ const globals = {
     gitHubData,
     linkedInData,
     numOfSummaryProjectsToDisplay,
-    numOfTechsToDisplayPerProject
-}
+    numOfTechsToDisplayPerProject,
+};
 
 export default globals;

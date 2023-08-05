@@ -10,7 +10,10 @@ footer {
     margin-top: 0px;
     text-align: center;
     background-color: $light-secondary-background-colour;
-    transition: color $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out, border-color $global-animation-time ease-in-out;
+    transition:
+        color $global-animation-time ease-in-out,
+        background-color $global-animation-time ease-in-out,
+        border-color $global-animation-time ease-in-out;
     will-change: color, background-color, border-color;
     padding: 30px 0px;
 
@@ -69,7 +72,8 @@ footer {
             }
         }
 
-        > a:hover, a:active {
+        > a:hover,
+        a:active {
             text-decoration: underline;
         }
     }
@@ -90,7 +94,9 @@ footer {
 .theme-container.dark-theme {
     footer {
         background-color: $dark-navbar-background-colour;
-        transition: color $global-animation-time ease-in-out, background-color $global-animation-time ease-in-out;
+        transition:
+            color $global-animation-time ease-in-out,
+            background-color $global-animation-time ease-in-out;
         will-change: color, background-color;
     }
 }

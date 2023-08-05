@@ -1,30 +1,30 @@
 ﻿//https://stackoverflow.com/questions/61951380/intersection-observer-fails-sometimes-when-i-scroll-fast
 //https://www.smashingmagazine.com/2018/01/deferring-lazy-loading-intersection-observer-api/
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 /**
  * NavLink ids.
  */
 export enum NavLinkIdTypes {
-    About = "about-navlink",
-    Projects = "projects-navlink",
-    Skills = "skills-navlink",
-    Contact = "contact-navlink"
+    About = 'about-navlink',
+    Projects = 'projects-navlink',
+    Skills = 'skills-navlink',
+    Contact = 'contact-navlink',
 }
 
 /**
  * Page section component ids.
  */
 export enum PageSectionIdTypes {
-    About = "introduction-content-container",
-    Projects = "project-summary-content-container",
-    Skills = "skills-summary-content-container",
-    Contact = "contact-content-container",
-    FourZeroFour = "404-content-container"
+    About = 'introduction-content-container',
+    Projects = 'project-summary-content-container',
+    Skills = 'skills-summary-content-container',
+    Contact = 'contact-content-container',
+    FourZeroFour = '404-content-container',
 }
 
 // See - https://usehooks.com/useOnScreen/
-export default function useOnScreen<T extends Element>(ref: React.MutableRefObject<T>, rootMargin = "0px"): boolean {
+export default function useOnScreen<T extends Element>(ref: React.MutableRefObject<T>, rootMargin = '0px'): boolean {
     // State and setter for storing whether element is visible
     const [isIntersecting, setIntersecting] = useState<boolean>(false);
 
@@ -39,8 +39,8 @@ export default function useOnScreen<T extends Element>(ref: React.MutableRefObje
                 }
             },
             {
-                rootMargin
-            }
+                rootMargin,
+            },
         );
 
         if (observerRef.current) {
@@ -78,7 +78,7 @@ const setClasses = <T extends Element>(ref: React.MutableRefObject<T>): void => 
             setActiveClass(null);
             break;
     }
-}
+};
 
 /**
  * Add the "active" CSS class to the NavLink of the matching Id. Remove "active" class from other NavLinks.
@@ -95,10 +95,10 @@ const setActiveClass = (elementId: NavLinkIdTypes | null): void => {
     elements.forEach((element: HTMLElement | null) => {
         if (element) {
             if (element.id === elementId && elementId !== null) {
-                element.classList.add("active");
+                element.classList.add('active');
             } else {
-                element.classList.remove("active");
+                element.classList.remove('active');
             }
         }
-    })
-}
+    });
+};

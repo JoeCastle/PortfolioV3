@@ -16,20 +16,29 @@ interface Props {
 
 /**
  * The home page. Contains many sections including projects and skills.
- * @param props 
- * @returns 
+ * @param props
+ * @returns
  */
 export const Home: React.FC<Props> = (props) => {
     return (
         <div id="Home">
             <Helmet>
                 <title>Joseph Castle | Full-Stack Software Developer</title>
-                <meta name="description" content="Joseph Castle is a full-stack software developer with experience building websites and web applications using React, .NET and SQL." />
+                <meta
+                    name="description"
+                    content="Joseph Castle is a full-stack software developer with experience building websites and web applications using React, .NET and SQL."
+                />
                 <meta property="og:title" content="Joseph Castle | Full-Stack Software Developer" />
-                <meta property="og:description" content="Joseph Castle is a full-stack software developer with experience building websites and web applications using React, .NET and SQL." />
+                <meta
+                    property="og:description"
+                    content="Joseph Castle is a full-stack software developer with experience building websites and web applications using React, .NET and SQL."
+                />
                 <meta property="og:image" content={process.env.PUBLIC_URL + `/Projects_section.jpg`} />
                 <meta name="twitter:title" content="Joseph Castle | Full-Stack Software Developer" />
-                <meta name="twitter:description" content="Joseph Castle is a full-stack software developer with experience building websites and web applications using React, .NET and SQL." />
+                <meta
+                    name="twitter:description"
+                    content="Joseph Castle is a full-stack software developer with experience building websites and web applications using React, .NET and SQL."
+                />
                 <meta name="twitter:image" content={process.env.PUBLIC_URL + `/Projects_section.jpg`} />
             </Helmet>
             {/*<meta name="theme-color" content={this.props.isDarkMode ? "#000000" : "#000000"} />*/}
@@ -38,6 +47,5 @@ export const Home: React.FC<Props> = (props) => {
             <SkillAreas {...props} />
             <ContactForm {...props} />
         </div>
-    )
-}
-
+    );
+};

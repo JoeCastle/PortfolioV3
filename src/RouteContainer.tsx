@@ -9,9 +9,7 @@ import { Footer } from './components/shared/Footer';
 //Query strings
 //https://tylermcginnis.com/react-router-query-strings/
 
-interface Props {
-
-}
+interface Props {}
 
 interface State {
     isDarkMode: boolean;
@@ -31,20 +29,20 @@ export const RouteContainer = (props: Props, state: State) => {
 
     useEffect(() => {
         if (hasMounted === true) {
-            const themeType = typeof window !== 'undefined' ? localStorage.getItem("isDarkMode") : null;
+            const themeType = typeof window !== 'undefined' ? localStorage.getItem('isDarkMode') : null;
             let isDarkMode = isDarkModeDefault;
 
             if (themeType !== null && themeType !== undefined) {
-                if (themeType === "true") {
+                if (themeType === 'true') {
                     isDarkMode = true;
-                } else if (themeType === "false") {
+                } else if (themeType === 'false') {
                     isDarkMode = false;
                 }
             }
 
             setIsDarkMode(isDarkMode);
         }
-    }, [hasMounted])
+    }, [hasMounted]);
 
     //Scroll to the top of the page.
     const handleScrollToTop = () => {
@@ -57,7 +55,7 @@ export const RouteContainer = (props: Props, state: State) => {
 
             element.classList.remove('smooth-scroll');
         }
-    }
+    };
 
     //Only show the scroll to top button when scrolled.
     const handleScrollToTopButtonVisibility = (e: any) => {
@@ -70,34 +68,34 @@ export const RouteContainer = (props: Props, state: State) => {
                 element.classList.remove('show');
             }
         }
-    }
+    };
 
     //Change theme
     const handleChangeTheme = () => {
         if (isDarkMode === true) {
             setIsDarkMode(false);
             if (typeof window !== 'undefined') {
-                localStorage.setItem("isDarkMode", "false");
+                localStorage.setItem('isDarkMode', 'false');
             }
         } else {
             setIsDarkMode(true);
 
             if (typeof window !== 'undefined') {
-                localStorage.setItem("isDarkMode", "true");
+                localStorage.setItem('isDarkMode', 'true');
             }
         }
-    }
+    };
 
-    return <div id='page-parent' className={`theme-container${isDarkMode === true ? ' dark-theme' : ''}`} onScroll={handleScrollToTopButtonVisibility}>
+    return (
+        <div id="page-parent" className={`theme-container${isDarkMode === true ? ' dark-theme' : ''}`} onScroll={handleScrollToTopButtonVisibility}>
+            <NavMenu isDarkMode={isDarkMode} {...props} />
 
-        <NavMenu isDarkMode={isDarkMode} {...props} />
+            <main>
+                <Routes>
+                    <Route path={`/`} element={<Home {...props} isDarkMode={state.isDarkMode} />} />
 
-        <main>
-            <Routes>
-                <Route path={`/`} element={<Home {...props} isDarkMode={state.isDarkMode} />} />
-
-                {/*https://www.codereadability.com/replacing-if-statements-with-object-lookups/ */}
-                {/*{projects
+                    {/*https://www.codereadability.com/replacing-if-statements-with-object-lookups/ */}
+                    {/*{projects
                     .filter(item =>
                         item.projectName != 'default')
                     .map((item, i) =>
@@ -115,29 +113,24 @@ export const RouteContainer = (props: Props, state: State) => {
                         />
                     )}*/}
 
-                {/* Will catch any route not defined and redirect to the 404 page. */}
-                <Route path={`/404`} element={<FourZeroFour {...props} />} />
-                <Route path={`*`} element={<Navigate to="/404" replace />} />
-            </Routes>
-        </main>
-        <footer>
-            <Footer {...props} />
-        </footer>
+                    {/* Will catch any route not defined and redirect to the 404 page. */}
+                    <Route path={`/404`} element={<FourZeroFour {...props} />} />
+                    <Route path={`*`} element={<Navigate to="/404" replace />} />
+                </Routes>
+            </main>
+            <footer>
+                <Footer {...props} />
+            </footer>
 
-        <button
-            id='scroll-to-top-btn'
-            onClick={handleScrollToTop}
-            title='Scroll to top'>
-            <i className='fas fa-arrow-up'></i>
-        </button>
-
-        {hasMounted === true && (
-            <button
-                id='theme-changer-btn'
-                onClick={handleChangeTheme}
-                title={isDarkMode === true ? 'Switch to light mode' : 'Switch to dark mode'}>
-                <i className={`fas ${isDarkMode === true ? 'fa-moon' : 'fa-sun'}`}></i>
+            <button id="scroll-to-top-btn" onClick={handleScrollToTop} title="Scroll to top">
+                <i className="fas fa-arrow-up"></i>
             </button>
-        )}
-    </div>;
-}
+
+            {hasMounted === true && (
+                <button id="theme-changer-btn" onClick={handleChangeTheme} title={isDarkMode === true ? 'Switch to light mode' : 'Switch to dark mode'}>
+                    <i className={`fas ${isDarkMode === true ? 'fa-moon' : 'fa-sun'}`}></i>
+                </button>
+            )}
+        </div>
+    );
+};

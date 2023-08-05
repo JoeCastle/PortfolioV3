@@ -15,7 +15,7 @@ interface GenericSlide {
 
 interface SlideImage extends GenericSlide {
     /** image slide type */
-    type?: "image";
+    type?: 'image';
     /** image URL */
     src: string;
     /** image 'alt' attribute */
@@ -43,4 +43,4 @@ interface ImageSource {
     height: number;
 }
 
-type ImageFit = "contain" | "cover";
+type ImageFit = 'contain' | 'cover';

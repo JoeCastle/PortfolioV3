@@ -3,16 +3,16 @@
  * @param imageIds
  */
 const getGoogleImageExportURL = (imageId: string): string => {
-    if (imageId !== "" && imageId !== null && imageId !== undefined) {
+    if (imageId !== '' && imageId !== null && imageId !== undefined) {
         //return "https://drive.google.com/uc?export=view&id=" + imageId;
-        return "https://drive.google.com/uc?id=" + imageId;
+        return 'https://drive.google.com/uc?id=' + imageId;
     }
 
-    return "";
-}
+    return '';
+};
 
 /**
- * @depricated This function should not be used. 
+ * @depricated This function should not be used.
  * @param imageIds
  */
 const getGoogleImageExportURLs = (imageIds: string[]): string[] => {
@@ -22,20 +22,20 @@ const getGoogleImageExportURLs = (imageIds: string[]): string[] => {
         for (let i = 0; i < imageIds.length; i++) {
             let url = getGoogleImageExportURL(imageIds[i]);
 
-            if (url !== "") {
+            if (url !== '') {
                 urls.push(url);
             }
         }
     }
 
     return urls;
-}
+};
 
 // https://gomakethings.com/decoding-html-entities-with-vanilla-javascript/
 const decodeHTML = (html: any): string => {
     var txt = document.createElement('textarea');
     txt.innerHTML = html;
-    txt.id = 'temporary-textarea'
+    txt.id = 'temporary-textarea';
     var val = txt.value;
     txt.remove();
     return val;
@@ -44,7 +44,7 @@ const decodeHTML = (html: any): string => {
 const utils = {
     getGoogleImageExportURL,
     getGoogleImageExportURLs,
-    decodeHTML
-}
+    decodeHTML,
+};
 
 export default utils;

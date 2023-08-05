@@ -6,8 +6,6 @@ export interface LayoutProps {
 
 export class Layout extends React.Component<LayoutProps, any> {
     public render() {
-        return <div className='container-fluid'>
-            {this.props.children}
-        </div>;
+        return <div className="container-fluid">{this.props.children}</div>;
     }
 }

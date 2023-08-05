@@ -1,44 +1,43 @@
 ﻿export type SkillTypes =
-    'default' |
-    'html' |
-    'css' |
-    'sass' |
-    'less' |
-    'javascript' |
-    'typescript' |
-    'aspnetcore' |
-    'csharp' |
-    'visualstudio' |
-    'visualstudiocode' |
-    'reactjs' |
-    'mobx' |
-    'sql' |
-    'tsql' |
-    'mssqlserver' |
-    'sqlservermanagementstudio' |
-    'java' |
-    'eclipse' |
-    'knockoutjs' |
-    'azure' |
-    'azuredevops' |
-    'arduino' |
-    'c/c++' |
-    'mitappinventor' |
-    'arduino' |
-    'gitgithub'
-;
+    | 'default'
+    | 'html'
+    | 'css'
+    | 'sass'
+    | 'less'
+    | 'javascript'
+    | 'typescript'
+    | 'aspnetcore'
+    | 'csharp'
+    | 'visualstudio'
+    | 'visualstudiocode'
+    | 'reactjs'
+    | 'mobx'
+    | 'sql'
+    | 'tsql'
+    | 'mssqlserver'
+    | 'sqlservermanagementstudio'
+    | 'java'
+    | 'eclipse'
+    | 'knockoutjs'
+    | 'azure'
+    | 'azuredevops'
+    | 'arduino'
+    | 'c/c++'
+    | 'mitappinventor'
+    | 'arduino'
+    | 'gitgithub';
 
 enum SkillType {
     Language = 0,
     Software = 1,
     OperatingSystem = 2,
-    Other = 3
+    Other = 3,
 }
 
 enum SkillAreaType {
     FrontEnd = 0,
     BackEnd = 1,
-    Other = 2
+    Other = 2,
 }
 
 export interface ISkill {
@@ -66,7 +65,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/HTML5_Logo_512_g2wzbj.png',
         altTag: 'html logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.FrontEnd
+        skillArea: SkillAreaType.FrontEnd,
     },
     {
         skillName: 'css',
@@ -74,7 +73,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/CSS3_logo_aoxm2w.png',
         altTag: 'css logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.FrontEnd
+        skillArea: SkillAreaType.FrontEnd,
     },
     {
         skillName: 'sass',
@@ -82,7 +81,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/SASS_logo_rvd8vv.png',
         altTag: 'sass logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.FrontEnd
+        skillArea: SkillAreaType.FrontEnd,
     },
     {
         skillName: 'less',
@@ -90,7 +89,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/Less_logo_rxyq98.png',
         altTag: 'less logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.FrontEnd
+        skillArea: SkillAreaType.FrontEnd,
     },
     {
         skillName: 'javascript',
@@ -98,7 +97,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/JavaScript_logo_pp1fw7.png',
         altTag: 'javascript logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.FrontEnd
+        skillArea: SkillAreaType.FrontEnd,
     },
     {
         skillName: 'typescript',
@@ -106,7 +105,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/Typescript_logo_jfy09t.png',
         altTag: 'typescript logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.FrontEnd
+        skillArea: SkillAreaType.FrontEnd,
     },
     {
         skillName: 'aspnetcore',
@@ -115,7 +114,7 @@ const skills: ISkill[] = [
         imgSource: 'https://github.com/campusMVP/dotnetCoreLogoPack',
         altTag: 'aspnetcore logo',
         type: SkillType.Other,
-        skillArea: SkillAreaType.BackEnd
+        skillArea: SkillAreaType.BackEnd,
     },
     {
         skillName: 'csharp',
@@ -123,7 +122,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Csharp_logo_gx7nfp.png',
         altTag: 'c# logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.BackEnd
+        skillArea: SkillAreaType.BackEnd,
     },
     {
         skillName: 'visualstudio',
@@ -132,7 +131,7 @@ const skills: ISkill[] = [
         imgSource: 'https://logos.fandom.com/wiki/Microsoft_Visual_Studio',
         altTag: 'visual studio logo',
         type: SkillType.Software,
-        skillArea: SkillAreaType.Other
+        skillArea: SkillAreaType.Other,
     },
     {
         skillName: 'visualstudiocode',
@@ -140,7 +139,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/Visualstudiocode_logo_xsstui.png',
         altTag: 'visual studio code logo',
         type: SkillType.Software,
-        skillArea: SkillAreaType.Other
+        skillArea: SkillAreaType.Other,
     },
     {
         skillName: 'reactjs',
@@ -148,7 +147,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/React_logo_aicspt.png',
         altTag: 'reactjs logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.FrontEnd
+        skillArea: SkillAreaType.FrontEnd,
     },
     {
         skillName: 'mobx',
@@ -156,7 +155,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Mobx_logo_aricjz.png',
         altTag: 'mobx logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.FrontEnd
+        skillArea: SkillAreaType.FrontEnd,
     },
     {
         skillName: 'sql',
@@ -165,7 +164,7 @@ const skills: ISkill[] = [
         imgSource: 'https://www.kisspng.com/png-oracle-database-computer-icons-logo-encapsulated-p-852860/download-png.html',
         altTag: 'sql logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.BackEnd
+        skillArea: SkillAreaType.BackEnd,
     },
     {
         skillName: 'tsql',
@@ -174,7 +173,7 @@ const skills: ISkill[] = [
         imgSource: 'https://www.kisspng.com/png-oracle-database-computer-icons-logo-encapsulated-p-852860/download-png.html',
         altTag: 'tsql logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.BackEnd
+        skillArea: SkillAreaType.BackEnd,
     },
     {
         skillName: 'mssqlserver',
@@ -182,7 +181,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Mssqlserver_logo_brlbri.png',
         altTag: 'mssqlserver logo',
         type: SkillType.Software,
-        skillArea: SkillAreaType.Other
+        skillArea: SkillAreaType.Other,
     },
     {
         skillName: 'sqlservermanagementstudio',
@@ -191,7 +190,7 @@ const skills: ISkill[] = [
         imgSource: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Database_logo_s7tzjp.png',
         altTag: 'sql logo',
         type: SkillType.Software,
-        skillArea: SkillAreaType.Other
+        skillArea: SkillAreaType.Other,
     },
     {
         skillName: 'java',
@@ -199,7 +198,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/Java_logo_i5y8ct.png',
         altTag: 'java logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.BackEnd
+        skillArea: SkillAreaType.BackEnd,
     },
     {
         skillName: 'eclipse',
@@ -207,7 +206,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Eclipse_logo_hag6hu.png',
         altTag: 'eclipse logo',
         type: SkillType.Software,
-        skillArea: SkillAreaType.Other
+        skillArea: SkillAreaType.Other,
     },
     //{
     //    skillName: 'knockoutjs',
@@ -224,7 +223,7 @@ const skills: ISkill[] = [
         imgSource: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg',
         altTag: 'azure logo',
         type: SkillType.Other,
-        skillArea: SkillAreaType.Other
+        skillArea: SkillAreaType.Other,
     },
     {
         skillName: 'azuredevops',
@@ -232,7 +231,7 @@ const skills: ISkill[] = [
         img: '',
         altTag: 'azuredevops logo',
         type: SkillType.Other,
-        skillArea: SkillAreaType.Other
+        skillArea: SkillAreaType.Other,
     },
     {
         skillName: 'arduino',
@@ -240,7 +239,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/Arduino_logo_tq24vc.png',
         altTag: 'Arduino logo',
         type: SkillType.Other,
-        skillArea: SkillAreaType.Other
+        skillArea: SkillAreaType.Other,
     },
     {
         skillName: 'c/c++',
@@ -248,7 +247,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/C__Logo_agunhv.png',
         altTag: 'C/C++ logo',
         type: SkillType.Language,
-        skillArea: SkillAreaType.BackEnd
+        skillArea: SkillAreaType.BackEnd,
     },
     {
         skillName: 'mitappinventor',
@@ -256,7 +255,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/AppInventor_logo_oqzbsm.png',
         altTag: 'MIT App Inventor logo',
         type: SkillType.Other,
-        skillArea: SkillAreaType.Other
+        skillArea: SkillAreaType.Other,
     },
     {
         skillName: 'gitgithub',
@@ -264,27 +263,27 @@ const skills: ISkill[] = [
         img: '',
         altTag: 'Git/GitHub logo',
         type: SkillType.Other,
-        skillArea: SkillAreaType.Other
+        skillArea: SkillAreaType.Other,
     },
 ];
 
 export default skills;
 
 export const getFrontendSkills = (): ISkill[] => {
-    return skills.filter(skill => skill.skillArea === SkillAreaType.FrontEnd && skill.skillName !== 'default');
-}
+    return skills.filter((skill) => skill.skillArea === SkillAreaType.FrontEnd && skill.skillName !== 'default');
+};
 
 export const getBackendSkills = (): ISkill[] => {
-    return skills.filter(skill => skill.skillArea === SkillAreaType.BackEnd && skill.skillName !== 'default');
-}
+    return skills.filter((skill) => skill.skillArea === SkillAreaType.BackEnd && skill.skillName !== 'default');
+};
 
 export const getOtherSkills = (): ISkill[] => {
-    return skills.filter(skill => skill.skillArea === SkillAreaType.Other && skill.skillName !== 'default');
-}
+    return skills.filter((skill) => skill.skillArea === SkillAreaType.Other && skill.skillName !== 'default');
+};
 
 export const getSkill = (skillName: SkillTypes): ISkill => {
-    return skills.find(skill => skill.skillName === skillName)!;
-}
+    return skills.find((skill) => skill.skillName === skillName)!;
+};
 
 export const getSkills = (skillNames: SkillTypes[]): ISkill[] => {
     let skills: ISkill[] = [];
@@ -294,4 +293,4 @@ export const getSkills = (skillNames: SkillTypes[]): ISkill[] => {
     }
 
     return skills;
-}
+};
