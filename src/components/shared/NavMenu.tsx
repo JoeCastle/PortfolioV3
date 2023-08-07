@@ -40,24 +40,23 @@ export const NavMenu: React.FC<Props> = (props) => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="nav navbar-nav" id="navmenu-ul">
                             {/* https://css-tricks.com/snippets/jquery/smooth-scrolling/ */}
-                            {/* Changed activeClassName to 'isActive' so that I can set 'active' manually. Leaving it blank had the same effect as setting activeClassName to 'active' */}
                             <li>
-                                <NavLink id={NavLinkIdTypes.About} smooth to="/#About" className={({ isActive }) => (isActive ? ' isActive' : '')}>
+                                <NavLink id={NavLinkIdTypes.About} smooth to="/#About" className={({ isActive }) => 'nav-link' + (isActive ? ' activated' : '')}>
                                     <i className="fas fa-info"></i> About
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink id={NavLinkIdTypes.Projects} smooth to="/#Projects" className={({ isActive }) => (isActive ? ' isActive' : '')}>
+                                <NavLink id={NavLinkIdTypes.Projects} smooth to="/#Projects" className={({ isActive }) => 'nav-link' + (isActive ? ' activated' : '')}>
                                     <i className="fas fa-laptop-code"></i> Projects
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink id={NavLinkIdTypes.Skills} smooth to="/#Skills" className={({ isActive }) => (isActive ? ' isActive' : '')}>
+                                <NavLink id={NavLinkIdTypes.Skills} smooth to="/#Skills" className={({ isActive }) => 'nav-link' + (isActive ? ' activated' : '')}>
                                     <i className="fas fa-code"></i> Skills
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink id={NavLinkIdTypes.Contact} smooth to="/#Contact" className={({ isActive }) => (isActive ? ' isActive' : '')}>
+                                <NavLink id={NavLinkIdTypes.Contact} smooth to="/#Contact" className={({ isActive }) => 'nav-link' + (isActive ? ' activated' : '')}>
                                     <i className="fas fa-envelope"></i> Contact
                                 </NavLink>
                             </li>

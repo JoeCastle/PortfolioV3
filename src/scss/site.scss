@@ -6,6 +6,7 @@
 @import 'footer.scss';
 @import 'fourzerofour.scss';
 @import 'skillarea.scss';
+@import 'yarl.scss';
 
 // Intersection observer doesn't work on touch screen devices, so we want to show content by default.
 .content-container {
@@ -74,7 +75,7 @@ main {
 #page-parent {
     height: calc(100% - #{$navbar-height});
     overflow: auto;
-    margin-top: 62px;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
 
@@ -452,18 +453,6 @@ main {
 
 #introduction-content-container {
     max-width: 950px;
-}
-
-.yarl__container {
-    --yarl__color_backdrop: rgba(0, 0, 0, 0.8);
-}
-
-.yarl__slide_description {
-    padding-right: 70px;
-}
-
-.yarl__slide {
-    padding: 60px;
 }
 
 /* Provide sufficient contrast against white background */

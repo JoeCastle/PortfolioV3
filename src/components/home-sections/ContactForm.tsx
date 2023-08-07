@@ -1,4 +1,4 @@
-﻿import utils from '../../utils/utils';
+import utils from '../../utils/utils';
 import globals from '../../utils/globals';
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
@@ -27,7 +27,11 @@ export const ContactForm: React.FC<Props> = (props) => {
     const ref: React.MutableRefObject<HTMLInputElement> = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     useOnScreen(ref, '-300px');
 
-    const handleSubmit = (e: any): void => {
+    const handleSubmit = (e: React.MouseEvent<HTMLButtonElement> | undefined): void => {
+        if (!e) {
+            return;
+        }
+
         e.preventDefault();
 
         const emailDto: IEmailModel = {
@@ -37,16 +41,16 @@ export const ContactForm: React.FC<Props> = (props) => {
         };
 
         //https://stackoverflow.com/questions/54071421/preserve-line-break-in-textarea-when-using-mailto
-        const lineBreakMessage = message.replace(/\r\n|\r|\n/g, '%0D%0A');
+        const lineBreakMessage: string = message.replace(/\r\n|\r|\n/g, '%0D%0A');
 
         //https://stackoverflow.com/questions/10219781/javascript-adding-linebreak-in-mailto-body
-        const body = `Hi Joe, %0D%0A%0D%0A${lineBreakMessage} %0D%0A%0D%0ARegards,%0D%0A${fullName}`;
+        const body: string = `Hi Joe, %0D%0A%0D%0A${lineBreakMessage} %0D%0A%0D%0ARegards,%0D%0A${fullName}`;
 
         if (validateForm(emailDto)) {
             setIsLoading(true);
 
             if (typeof window !== 'undefined') {
-                const address = utils.decodeHTML(globals.obsfucatedEmailAddress);
+                const address: string = utils.decodeHTML(globals.obfuscatedEmailAddress);
                 window.location.href = `mailto:${address}?subject=${subject}&body=${body}`;
 
                 setInitialValues();
@@ -55,31 +59,30 @@ export const ContactForm: React.FC<Props> = (props) => {
             }
 
             setIsLoading(false);
-        } else {
         }
     };
 
     const validateForm = (model: IEmailModel): boolean => {
         let fieldErrors: string[] = [];
-        if (model.fullName === '') {
+        if (model.fullName.replace(' ', '') === '') {
             fieldErrors.push('Full name');
         }
 
-        if (model.subject === '') {
+        if (model.subject.replace(' ', '') === '') {
             fieldErrors.push('Subject');
         }
 
-        if (model.message === '') {
+        if (model.message.replace(' ', '') === '') {
             fieldErrors.push('Message');
         }
 
         if (fieldErrors.length > 0) {
-            const formatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
+            const formatter: Intl.ListFormat = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
             let fieldsErrorString: string = formatter.format(fieldErrors);
 
             const pluralConnector: string = fieldErrors.length > 1 ? 'are' : 'is';
 
-            setFormError(fieldsErrorString + ' ' + pluralConnector + ' missing.');
+            setFormError(fieldsErrorString + ' ' + pluralConnector + ' missing or invalid.');
 
             return false;
         }

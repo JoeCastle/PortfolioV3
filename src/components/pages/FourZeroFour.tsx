@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { PageSectionIdTypes } from '../../hooks/useOnScreen';
@@ -9,7 +9,6 @@ import { PageSectionIdTypes } from '../../hooks/useOnScreen';
  */
 export const FourZeroFour = (): JSX.Element => {
     const ref: React.MutableRefObject<HTMLInputElement> = React.useRef() as React.MutableRefObject<HTMLInputElement>;
-    const onScreen = true;
 
     return (
         <div className="page not-found-page">

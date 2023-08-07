@@ -1,0 +1,13 @@
+// Overrides for yarl component (yet-another-react-lightbox).
+
+.yarl__container {
+    --yarl__color_backdrop: rgba(0, 0, 0, 0.8);
+}
+
+.yarl__slide_description {
+    padding-right: 70px;
+}
+
+.yarl__slide {
+    padding: 60px;
+}

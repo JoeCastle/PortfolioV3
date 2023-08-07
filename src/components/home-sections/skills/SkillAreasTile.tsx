@@ -1,4 +1,3 @@
-﻿import React from 'react';
 import { ISkillArea } from '../../../data/skillAreas';
 
 interface ISkillAreaProps {

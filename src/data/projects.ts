@@ -1,4 +1,4 @@
-﻿import { ISkill, getSkill, getSkills } from './skills';
+import { ISkill, getSkill, getSkills } from './skills';
 
 export type ProjectTypes = 'default' | 'portfolio' | 'trainingApp' | 'arduinoTemperatureSensor' | 'startPage' | 'jla' | 'fizzBuzzTask' | 'robocoderobot';
 
@@ -67,39 +67,39 @@ const projects: IProject[] = [
             tags: ['tag1', 'tag2', 'tag3'],
             thumbnail: {
                 src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955389/PortfolioScreenshots/Portfolio/Thumbnail/Projects_section_yu5fko.jpg',
-                alt: 'Projects section of portfolio',
-                title: 'Projects section of portfolio',
+                alt: 'Screenshot of the projects section of my portfolio.',
+                title: 'Projects - Portfolio',
             },
             carouselImages: [
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955388/PortfolioScreenshots/Portfolio/Full/4.%20Final/Projects_section_lqmdbl.png',
                     alt: 'Screenshot of the projects section of my portfolio.',
-                    title: 'Portfolio - Projects',
+                    title: 'Projects - Portfolio',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955388/PortfolioScreenshots/Portfolio/Full/4.%20Final/Skills_section_m7nvli.png',
                     alt: 'Screenshot of the skills section of my portfolio.',
-                    title: 'Portfolio - Skills',
+                    title: 'Skills - Portfolio',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955388/PortfolioScreenshots/Portfolio/Full/4.%20Final/Footer_section_dgwcic.png',
                     alt: 'Screenshot of the footer section of my portfolio.',
-                    title: 'Portfolio - Footer',
+                    title: 'Footer - Portfolio',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955388/PortfolioScreenshots/Portfolio/Full/4.%20Final/Projects_section_mobile_zeazq8.png',
                     alt: 'Screenshot of the projects section of my portfolio when viewed on a mobile.',
-                    title: 'Portfolio - Projects mobile view',
+                    title: 'Projects mobile view - Portfolio',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955388/PortfolioScreenshots/Portfolio/Full/4.%20Final/Skills_section_mobile_c1zspe.png',
                     alt: 'Screenshot of the skills section of my portfolio when viewed on a mobile.',
-                    title: 'Portfolio - Skills mobile view',
+                    title: 'Skills mobile view - Portfolio',
                 },
             ],
             readMoreLink: getProjectReadMoreLink('Portfolio'),
             routeURL: getProjectRouteURL('Portfolio'),
-            sourceCode: '',
+            sourceCode: 'https://github.com/JoeCastle/PortfolioV3',
             liveDemo: '',
             nonLiveDemo: '',
             projectType: ProjType.Personal,
@@ -116,55 +116,55 @@ const projects: IProject[] = [
                 'The Training App was built for the project section of my university dissertation. Its purpose was to support the arguments I made within my report and demonstrate many of the features of web accessibility that I discovered during my research.',
                 'The web application itself allows trainers to create multiple choice quizzes for trainees that are assigned to their group.',
                 'It demonstrates a variety of web accessibility features such as ...',
-                'In order to test the accessibility level of the application I used multiple online automatic accessbility testing tools which include ...',
+                'In order to test the accessibility level of the application I used multiple online automatic accessibility testing tools which include ...',
             ],
             technologies: getSkills(['reactjs', 'mobx', 'sass', 'typescript', 'aspnetcore', 'visualstudio', 'tsql', 'sqlservermanagementstudio']),
             tags: ['tag1', 'tag2', 'tag3'],
             thumbnail: {
                 src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955382/PortfolioScreenshots/DissertationArtefact/Thumbnail/Artefact1_ebgs1l.png',
-                alt: 'Homepage of training app',
-                title: 'Homepage of training app',
+                alt: 'Screenshot of the homepage of the training app.',
+                title: 'Homepage - Training App',
             },
             carouselImages: [
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955382/PortfolioScreenshots/DissertationArtefact/Full/4.%20Final/Artefact1_xwy01d.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the homepage of the training app.',
+                    title: 'Homepage - Training App',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/DissertationArtefact/Full/4.%20Final/Artefact2_cwfyey.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the group page of the training app.',
+                    title: 'Add to group - Training App',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/DissertationArtefact/Full/4.%20Final/Artefact3_visddq.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the view quiz page of the training app.',
+                    title: 'View quiz - Training App',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/DissertationArtefact/Full/4.%20Final/Artefact4_dg6xux.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the create quiz page of the training app.',
+                    title: 'Create a quiz - Training App',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/DissertationArtefact/Full/4.%20Final/Artefact5_l6u84z.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the group results page of the training app.',
+                    title: 'Group results list - Training App',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/DissertationArtefact/Full/4.%20Final/Artefact6_d4cbgs.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the view quiz page of the training app, with high contrast theme.',
+                    title: 'View quiz, with high contrast theme - Training App',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/DissertationArtefact/Full/4.%20Final/Artefact7_w6dxvb.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the start quiz page of the training app.',
+                    title: 'Start quiz - Training App',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/DissertationArtefact/Full/4.%20Final/Artefact8_zb6e9c.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the view  quiz results page of the training app.',
+                    title: 'View quiz results - Training App',
                 },
             ],
             readMoreLink: getProjectReadMoreLink('TrainingApp'),
@@ -185,7 +185,7 @@ const projects: IProject[] = [
             description: [
                 'This was completed as part of a group project for my university course. The primary goal of the module was not just programming, but collaborative development between a group of students. Working together with other students do develop a product from start to finish, with communication between group members as a key aspect. This involved planning sprints, allocating tasks and weekly meetings.',
                 'As collaboration was the core focus, we would meet weekly, communicate frequently and use version control to manage the code between developers.',
-                'My role on the project was Embeded Developer. It was my job to design and build the arduine circuit, as well as write the code to collect the temperature data, act on the readings, and post the results to a webpage. Other roles in the group included web developers, project manager, business manager and database administrator.',
+                'My role on the project was Embedded Developer. It was my job to design and build the Arduino circuit, as well as write the code to collect the temperature data, act on the readings, and post the results to a webpage. Other roles in the group included web developers, project manager, business manager and database administrator.',
                 'I thoroughly enjoyed this module as it was the first time at university that I was able to collaborate with other students in this way. I also learned something new, as I had never use an Arduino before and had no experience with electrical engineering.',
                 'The product itself was simple. We were given a pre-defined project brief, an Arduino kit, and randomly assigned roles and responsibilities. We had to create and design a system that would read the temperature of a room, light an LED depending on the temperature (Green = cold, yellow = fine, red = hot), and send the data to a webpage where to use could visualize the historical data. The user would also be able to define which temperature was considered too hot or too cold.',
                 "Unfortunately I wasn't given access to the website code, as that was the responsibility of the web developers, so to demonstrate this project I'd need to re-create the website from scratch. I'd also need to purchase my own Arduino kit.",
@@ -200,7 +200,7 @@ const projects: IProject[] = [
             carouselImages: [
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/ArduinoTempSensor/Full/Final/ArduinoCircuit4_tgmcdj.jpg',
-                    alt: 'Screenshot of the projects section of my portfolio.',
+                    alt: 'Photo of the full Arduino board and circuit for the temperature sensor.',
                     title: '',
                 },
                 {
@@ -211,7 +211,7 @@ const projects: IProject[] = [
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955382/PortfolioScreenshots/ArduinoTempSensor/Full/Final/Circuit_Image_V2_wlzrvi.png',
                     alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    title: 'Arduino Temperature Sensor - Photo of Arduino board and circuit.',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955380/PortfolioScreenshots/ArduinoTempSensor/Full/Final/Circuit_Diagram_V2_ek7iri.png',
@@ -302,7 +302,7 @@ const projects: IProject[] = [
             disclaimer: '',
             description: [
                 'A prototype mobile application designed to help students learn the Java programming language. Built using MIT App Inventor. The app includes a wiki, tutorials and quizzes for a fully contained learning experience. Though in reality the app was a proof of concept MVP rather than a fully fledged application, as there was only a few weeks to accomplish everything.',
-                'I created this as part of my university course. The goal of this module was to design, create and evaluate a piece of software by following the software development lifecycle. This helped me to appreciate how valubale analysis and design are when developing software.',
+                'I created this as part of my university course. The goal of this module was to design, create and evaluate a piece of software by following the software development lifecycle. This helped me to appreciate how valuable analysis and design are when developing software.',
             ],
             technologies: getSkills(['mitappinventor']),
             tags: ['tag1', 'tag2', 'tag3'],

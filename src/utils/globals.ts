@@ -1,4 +1,4 @@
-﻿const obsfucatedEmailAddress = 'joe&#64;&#116;c&#97;s&#116;&#108;e&#46;co&#46;u&#107;';
+const obfuscatedEmailAddress = 'joe&#64;&#116;c&#97;s&#116;&#108;e&#46;co&#46;u&#107;';
 
 type SocialDataType = {
     url: string;
@@ -22,7 +22,7 @@ const numOfSummaryProjectsToDisplay: number = 8;
 const numOfTechsToDisplayPerProject: number = 7;
 
 const globals = {
-    obsfucatedEmailAddress,
+    obfuscatedEmailAddress,
     gitHubData,
     linkedInData,
     numOfSummaryProjectsToDisplay,

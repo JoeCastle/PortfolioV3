@@ -1,5 +1,5 @@
-﻿/**
- * @depricated This function should not be used.
+/**
+ * @deprecated This function should not be used.
  * @param imageIds
  */
 const getGoogleImageExportURL = (imageId: string): string => {
@@ -12,7 +12,7 @@ const getGoogleImageExportURL = (imageId: string): string => {
 };
 
 /**
- * @depricated This function should not be used.
+ * @deprecated This function should not be used.
  * @param imageIds
  */
 const getGoogleImageExportURLs = (imageIds: string[]): string[] => {
@@ -32,7 +32,7 @@ const getGoogleImageExportURLs = (imageIds: string[]): string[] => {
 };
 
 // https://gomakethings.com/decoding-html-entities-with-vanilla-javascript/
-const decodeHTML = (html: any): string => {
+const decodeHTML = (html: string): string => {
     var txt = document.createElement('textarea');
     txt.innerHTML = html;
     txt.id = 'temporary-textarea';

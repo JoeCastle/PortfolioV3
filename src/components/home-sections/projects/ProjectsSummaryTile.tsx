@@ -1,4 +1,4 @@
-﻿import globals from '../../../utils/globals';
+import globals from '../../../utils/globals';
 import React from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import Counter from 'yet-another-react-lightbox/plugins/counter';
@@ -9,7 +9,7 @@ import 'yet-another-react-lightbox/plugins/counter.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
 import { getProjectSkills, IImage, IProject } from '../../../data/projects';
 
-//Clicking on the summary tile will navigate to a seperate page.
+//Clicking on the summary tile will navigate to a separate page.
 //Should be able to navigate to the page directly using URL.
 interface IProjectProps {
     project: IProject;
@@ -26,9 +26,9 @@ export const ProjectsSummaryTile = (props: Props): JSX.Element => {
     const project: IProject = props.project;
 
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
-    const [hasImages, setHasImages] = React.useState<boolean>(project.attributes.carouselImages !== undefined && project.attributes.carouselImages.length > 0);
-    const [isLive, setIsLive] = React.useState<boolean>(project.attributes.liveDemo !== '');
-    const [hasSource, setHasSource] = React.useState<boolean>(project.attributes.sourceCode !== '');
+    const [hasImages] = React.useState<boolean>(project.attributes.carouselImages !== undefined && project.attributes.carouselImages.length > 0);
+    const [isLive] = React.useState<boolean>(project.attributes.liveDemo !== '');
+    const [hasSource] = React.useState<boolean>(project.attributes.sourceCode !== '');
 
     const techs: JSX.Element[] = getProjectSkills(project, globals.numOfTechsToDisplayPerProject).map((item, i) => (
         <div key={i} className="project-summary-logo-container">

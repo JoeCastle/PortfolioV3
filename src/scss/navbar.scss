@@ -15,7 +15,7 @@
     }
 
     nav.navbar li a {
-        padding: 10px 16px;
+        padding: 10px 16px !important;
         border-radius: 4px;
     }
 }
@@ -27,7 +27,7 @@ nav.navbar {
     display: flex;
     justify-content: center;
     width: 100%;
-    min-height: 62px;
+    min-height: 70px;
     padding: 5px 0px;
     margin-bottom: 0px;
     border-radius: 0px;
@@ -132,6 +132,7 @@ nav.navbar {
                 cursor: pointer;
                 position: relative;
                 text-decoration: none;
+                font-size: 16px;
 
                 @media (max-width: $mobile-max-width-breakpoint) {
                     padding: 10px 20px;
