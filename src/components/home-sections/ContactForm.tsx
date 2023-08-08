@@ -2,7 +2,7 @@ import utils from '../../utils/utils';
 import globals from '../../utils/globals';
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import useOnScreen, { PageSectionIdTypes } from '../../hooks/useOnScreen';
+import useOnScreen, { PageSectionIdType } from '../../hooks/useOnScreen';
 
 interface IEmailModel {
     fullName: string;
@@ -24,7 +24,7 @@ export const ContactForm: React.FC<Props> = (props) => {
     const [message, setMessage] = React.useState<string>('');
     const [formError, setFormError] = React.useState<string>('');
 
-    const ref: React.MutableRefObject<HTMLInputElement> = React.useRef() as React.MutableRefObject<HTMLInputElement>;
+    const ref: React.MutableRefObject<HTMLDivElement> = React.useRef() as React.MutableRefObject<HTMLDivElement>;
     useOnScreen(ref, '-300px');
 
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement> | undefined): void => {
@@ -101,7 +101,7 @@ export const ContactForm: React.FC<Props> = (props) => {
 
     return (
         <div className="contact-form-info-container section" id="Contact">
-            <div className="content-container" id={`${PageSectionIdTypes.Contact}`} ref={ref}>
+            <div className="content-container" id={`${PageSectionIdType.Contact}`} ref={ref}>
                 <div className="section-title-wrapper">
                     <h2>Contact</h2>
                 </div>

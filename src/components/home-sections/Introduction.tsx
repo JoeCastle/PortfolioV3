@@ -1,5 +1,5 @@
-﻿import React from 'react';
-import useOnScreen, { PageSectionIdTypes } from '../../hooks/useOnScreen';
+import React from 'react';
+import useOnScreen, { PageSectionIdType } from '../../hooks/useOnScreen';
 import globals from '../../utils/globals';
 
 interface Props {}
@@ -10,12 +10,12 @@ interface Props {}
  * @returns
  */
 export const Introduction: React.FC<Props> = (props) => {
-    const ref: React.MutableRefObject<HTMLInputElement> = React.useRef() as React.MutableRefObject<HTMLInputElement>;
+    const ref: React.MutableRefObject<HTMLDivElement> = React.useRef() as React.MutableRefObject<HTMLDivElement>;
     useOnScreen(ref, '-300px');
 
     return (
         <div className="section about" id="About">
-            <div className="content-container" id={`${PageSectionIdTypes.About}`} ref={ref}>
+            <div className="content-container" id={`${PageSectionIdType.About}`} ref={ref}>
                 <p>
                     Hey there, I'm Joe, a full-stack software developer based in the UK. With extensive hands-on experience in crafting high-quality, bespoke enterprise web
                     applications, I have a deep understanding of effectively addressing complex technical requirements.

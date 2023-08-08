@@ -1,0 +1,228 @@
+@import 'variables.scss';
+// Theme styling.
+
+// Light theme.
+.theme-container {
+    color: $light-primary-font-colour;
+    background-color: $light-primary-background-colour;
+    transition:
+        color $global-animation-time ease-in-out,
+        background-color $global-animation-time ease-in-out;
+    will-change: color, background-color;
+
+    .content-container {
+        h2 {
+            border-bottom: 3px solid $light-navbar-font-colour-hover;
+            transition: border-bottom $global-animation-time ease-in-out;
+            will-change: border-bottom;
+        }
+    }
+
+    input,
+    textarea {
+        background-color: #ffffff;
+        color: $light-primary-font-colour;
+        transition:
+            color $global-animation-time ease-in-out,
+            background-color $global-animation-time ease-in-out;
+        will-change: color, background-color;
+    }
+
+    .form-control {
+        border: 1px solid #ccc;
+        background: #ffffff;
+        transition:
+            border $global-animation-time ease-in-out,
+            background $global-animation-time ease-in-out;
+        will-change: border, background;
+    }
+
+    .project-summary-tile {
+        background-color: $light-secondary-background-colour;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+        transition:
+            border $global-animation-time ease-in-out,
+            background-color $global-animation-time ease-in-out;
+        will-change: border, background-color, box-shadow;
+    }
+
+    .skill-summary-tile {
+        background-color: $light-secondary-background-colour;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+        transition:
+            border $global-animation-time ease-in-out,
+            background-color $global-animation-time ease-in-out;
+        will-change: border, background-color, box-shadow;
+    }
+
+    .skillarea-summary-tile {
+        background-color: $light-secondary-background-colour;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+        transition:
+            border $global-animation-time ease-in-out,
+            background-color $global-animation-time ease-in-out;
+        will-change: border, background-color, box-shadow;
+    }
+
+    .about {
+        .contact-info {
+            > a {
+                > div {
+                    background: $light-secondary-background-colour;
+                    border: 2px solid rgba(204, 204, 204, 0.1);
+                    box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.3);
+                    transition:
+                        border $global-animation-time ease-in-out,
+                        background-color $global-animation-time ease-in-out;
+                    will-change: border, background, box-shadow;
+                }
+            }
+        }
+    }
+
+    ul.skillarea-summary-tile-techs {
+        > li {
+            color: $standard-blue-background;
+            transition: color $global-animation-time ease-in-out;
+            will-change: color;
+
+            > span {
+                color: $light-primary-font-colour;
+                transition: color $global-animation-time ease-in-out;
+                will-change: color;
+            }
+        }
+    }
+
+    footer {
+        a {
+            color: $standard-blue-background;
+            transition: color $global-animation-time ease-in-out;
+            will-change: color;
+        }
+
+        .contact-info-footer {
+            > a {
+                > div {
+                    background-color: $light-secondary-background-colour;
+                    transition: background-color $global-animation-time ease-in-out;
+                    will-change: background-color;
+                }
+            }
+        }
+    }
+}
+
+// Dark theme.
+.theme-container.dark-theme {
+    color: $dark-primary-font-colour;
+    background-color: $dark-primary-background-colour;
+    transition:
+        color $global-animation-time ease-in-out,
+        background-color $global-animation-time ease-in-out;
+    will-change: color, background-color;
+
+    .content-container {
+        h2 {
+            border-bottom: 3px solid $dark-navbar-font-colour-hover;
+            transition: border-bottom $global-animation-time ease-in-out;
+            will-change: border-bottom;
+        }
+    }
+
+    input,
+    textarea {
+        background-color: transparent;
+        color: $dark-primary-font-colour;
+        transition:
+            color $global-animation-time ease-in-out,
+            background-color $global-animation-time ease-in-out;
+        will-change: color, background-color;
+    }
+
+    .form-control {
+        border: 2px solid rgba(204, 204, 204, 0.1);
+        background: $dark-secondary-background-colour;
+        transition:
+            border $global-animation-time ease-in-out,
+            background $global-animation-time ease-in-out;
+        will-change: border, background;
+    }
+
+    .project-summary-tile {
+        background-color: $dark-secondary-background-colour;
+        border: 2px solid rgba(204, 204, 204, 0.1);
+        transition:
+            border $global-animation-time ease-in-out,
+            background-color $global-animation-time ease-in-out;
+        will-change: border, background-color;
+    }
+
+    .skill-summary-tile {
+        background-color: $dark-secondary-background-colour;
+        border: 2px solid rgba(204, 204, 204, 0.1);
+        transition:
+            border $global-animation-time ease-in-out,
+            background-color $global-animation-time ease-in-out;
+        will-change: border, background-color;
+    }
+
+    .skillarea-summary-tile {
+        background-color: $dark-secondary-background-colour;
+        border: 2px solid rgba(204, 204, 204, 0.1);
+        transition:
+            border $global-animation-time ease-in-out,
+            background-color $global-animation-time ease-in-out;
+        will-change: border, background-color;
+    }
+
+    .about {
+        .contact-info {
+            > a {
+                > div {
+                    background: $dark-secondary-background-colour;
+                    border: 2px solid rgba(204, 204, 204, 0.1);
+                    transition:
+                        border $global-animation-time ease-in-out,
+                        background-color $global-animation-time ease-in-out;
+                    will-change: border, background;
+                }
+            }
+        }
+    }
+
+    ul.skillarea-summary-tile-techs {
+        > li {
+            color: $standard-blue-background;
+            transition: color $global-animation-time ease-in-out;
+            will-change: color;
+
+            > span {
+                color: $dark-primary-font-colour;
+                transition: color $global-animation-time ease-in-out;
+                will-change: color;
+            }
+        }
+    }
+
+    footer {
+        a {
+            color: $dark-primary-font-colour;
+            transition: color $global-animation-time ease-in-out;
+            will-change: color;
+        }
+
+        .contact-info-footer {
+            > a {
+                > div {
+                    background-color: $dark-secondary-background-colour;
+                    transition: background-color $global-animation-time ease-in-out;
+                    will-change: background-color;
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { SkillsSummaryTile } from './SkillsSummaryTile';
 import skills from '../../../data/skills';
-import useOnScreen, { PageSectionIdTypes } from '../../../hooks/useOnScreen';
+import useOnScreen, { PageSectionIdType } from '../../../hooks/useOnScreen';
 
 /**
  * The skills (skill summary) sections on the homepage. Currently unused.
@@ -21,7 +21,7 @@ export const SkillsSummary = (): JSX.Element => {
 
     return (
         <div className="section" id="Skills">
-            <div className="content-container" id={`${PageSectionIdTypes.Skills}`} ref={ref}>
+            <div className="content-container" id={`${PageSectionIdType.Skills}`} ref={ref}>
                 <div className="section-title-wrapper">
                     <h2>Skills</h2>
                 </div>

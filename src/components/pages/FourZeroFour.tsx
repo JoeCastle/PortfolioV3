@@ -1,15 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { PageSectionIdTypes } from '../../hooks/useOnScreen';
 
 /**
  * The 404 page displayed when no page exists.
  * @returns
  */
-export const FourZeroFour = (): JSX.Element => {
-    const ref: React.MutableRefObject<HTMLInputElement> = React.useRef() as React.MutableRefObject<HTMLInputElement>;
-
+export const FourZeroFour: React.FC = () => {
     return (
         <div className="page not-found-page">
             <Helmet>
@@ -22,7 +19,7 @@ export const FourZeroFour = (): JSX.Element => {
             </Helmet>
 
             <div className="fourzerofour" id="404">
-                <div className="content-container" id={`${PageSectionIdTypes.FourZeroFour}`} ref={ref}>
+                <div className="content-container">
                     <div className="">
                         <h1>Oops! This page could not be found!</h1>
                     </div>

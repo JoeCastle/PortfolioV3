@@ -1,4 +1,4 @@
-﻿export type SkillTypes =
+export type SkillTypes =
     | 'default'
     | 'html'
     | 'css'

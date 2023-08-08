@@ -1,4 +1,4 @@
-﻿import { ISkill } from '../../../data/skills';
+import { ISkill } from '../../../data/skills';
 
 interface ISkillProps {
     skill: ISkill;

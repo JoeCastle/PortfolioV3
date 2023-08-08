@@ -1,8 +1,8 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import projects, { IProject, ProjectTypes } from '../../data/projects';
 import { Helmet } from 'react-helmet';
 
-//Clicking on the summary tile will navigate to a seperate page.
+//Clicking on the summary tile will navigate to a separate page.
 //Should be able to navigate to the page directly using URL.
 interface IProjectProps {
     projectName: ProjectTypes;

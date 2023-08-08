@@ -1,4 +1,4 @@
-﻿import { ISkill, getFrontendSkills, getBackendSkills, getOtherSkills } from './skills';
+import { ISkill, getFrontendSkills, getBackendSkills, getOtherSkills } from './skills';
 
 export type SkillAreaTypes = 'default' | 'frontend' | 'backend' | 'other';
 
