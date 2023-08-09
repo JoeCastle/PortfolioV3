@@ -22,6 +22,7 @@ interface IAttributes {
     readMoreLink: string;
     routeURL: string;
     sourceCode: string;
+    sourceTitle: string;
     liveDemo: string;
     nonLiveDemo: string; // For snapshots, videos or other examples. (If the site has been taken down or changed.)
     projectType: ProjType; //University, Personal, Work, Freelance
@@ -100,6 +101,7 @@ const projects: IProject[] = [
             readMoreLink: getProjectReadMoreLink('Portfolio'),
             routeURL: getProjectRouteURL('Portfolio'),
             sourceCode: 'https://github.com/JoeCastle/PortfolioV3',
+            sourceTitle: 'GitHub',
             liveDemo: '',
             nonLiveDemo: '',
             projectType: ProjType.Personal,
@@ -170,6 +172,7 @@ const projects: IProject[] = [
             readMoreLink: getProjectReadMoreLink('TrainingApp'),
             routeURL: getProjectRouteURL('TrainingApp'),
             sourceCode: 'https://github.com/JoeCastle/WebAppProj',
+            sourceTitle: 'GitHub',
             liveDemo: '',
             nonLiveDemo: '',
             projectType: ProjType.University,
@@ -195,7 +198,7 @@ const projects: IProject[] = [
             thumbnail: {
                 src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955381/PortfolioScreenshots/ArduinoTempSensor/Thumbnail/ArduinoCircuit4_plu0xi.jpg',
                 alt: 'Photo of Arduino board and circuit.',
-                title: 'Arduino board and circuit.',
+                title: 'Arduino board and circuit',
             },
             carouselImages: [
                 {
@@ -227,6 +230,7 @@ const projects: IProject[] = [
             readMoreLink: getProjectReadMoreLink('ArduinoTemperatureSensor'),
             routeURL: getProjectRouteURL('ArduinoTemperatureSensor'),
             sourceCode: 'https://github.com/JoeCastle/ArduinoTemperatureSensor',
+            sourceTitle: 'GitHub',
             liveDemo: '',
             nonLiveDemo: '',
             projectType: ProjType.University,
@@ -250,8 +254,8 @@ const projects: IProject[] = [
             tags: ['tag1', 'tag2', 'tag3'],
             thumbnail: {
                 src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955383/PortfolioScreenshots/Startpage/Thumbnail/startpage_img_1_z5rcxh.jpg',
-                alt: 'Start page bookmarks',
-                title: 'Start page bookmarks',
+                alt: 'Screenshot of Startpage bookmarks.',
+                title: 'Startpage bookmarks',
             },
             carouselImages: [
                 {
@@ -288,6 +292,7 @@ const projects: IProject[] = [
             readMoreLink: getProjectReadMoreLink('Startpage'),
             routeURL: getProjectRouteURL('Startpage'),
             sourceCode: 'https://github.com/RTCRhino/StartPage',
+            sourceTitle: 'GitHub',
             liveDemo: 'https://rtcrhino.github.io/StartPage/',
             nonLiveDemo: '',
             projectType: ProjType.Personal,
@@ -361,6 +366,7 @@ const projects: IProject[] = [
             readMoreLink: getProjectReadMoreLink('JavaLearningApp'),
             routeURL: getProjectRouteURL('JavaLearningApp'),
             sourceCode: 'https://gallery.appinventor.mit.edu/?galleryid=42738c58-a87f-4c93-b858-b67acdee5558',
+            sourceTitle: 'MIT App Inventor',
             liveDemo: '',
             nonLiveDemo: '',
             projectType: ProjType.University,
@@ -384,6 +390,7 @@ const projects: IProject[] = [
             readMoreLink: getProjectReadMoreLink('FizzBuzzTask'),
             routeURL: getProjectRouteURL('FizzBuzzTask'),
             sourceCode: 'https://github.com/JoeCastle/FizzBuzzTask',
+            sourceTitle: 'GitHub',
             liveDemo: '',
             nonLiveDemo: '',
             projectType: ProjType.Personal,
@@ -403,34 +410,35 @@ const projects: IProject[] = [
             tags: ['tag1', 'tag2', 'tag3'],
             thumbnail: {
                 src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955380/PortfolioScreenshots/Robocode/Thumbnail/Robocode1_o4avab.jpg',
-                alt: 'Robocode robot in battle.',
-                title: 'Robocode robot in battle.',
+                alt: 'Screenshot of Robocode robot in battle.',
+                title: 'Robocode robot in battle',
             },
             carouselImages: [
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955389/PortfolioScreenshots/Robocode/Full/4.%20Final/Robocode1_egy0wr.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the Robocode battle view of my robot duelling an AI enemy at the top of the screen.',
+                    title: 'Robot duelling AI enemy - Robocode robot',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955389/PortfolioScreenshots/Robocode/Full/4.%20Final/Robocode2_qj7d9y.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the Robocode battle view of my robot engaging an AI enemy in the center of the screen.',
+                    title: 'Robot engaging AI enemy - Robocode robot',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955389/PortfolioScreenshots/Robocode/Full/4.%20Final/Robocode3_r3yyj8.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the Robocode battle view of my robot fighting an AI enemy in the center of the screen.',
+                    title: 'Robot fighting AI enemy - Robocode robot',
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955389/PortfolioScreenshots/Robocode/Full/4.%20Final/Robocode4_pjy4g8.png',
-                    alt: 'Screenshot of the projects section of my portfolio.',
-                    title: '',
+                    alt: 'Screenshot of the Robocode battle view of my robot destroying an AI enemy on the right side of the screen.',
+                    title: 'Robot destroying AI enemy - Robocode robot',
                 },
             ],
             readMoreLink: getProjectReadMoreLink('RobocodeRobot'),
             routeURL: getProjectRouteURL('RobocodeRobot'),
             sourceCode: 'https://github.com/JoeCastle/RobocodeRobot',
+            sourceTitle: 'GitHub',
             liveDemo: '',
             nonLiveDemo: '',
             projectType: ProjType.University,

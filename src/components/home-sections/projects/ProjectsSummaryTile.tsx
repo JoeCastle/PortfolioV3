@@ -73,7 +73,7 @@ export const ProjectsSummaryTile = (props: Props): JSX.Element => {
                     <div className="project-summary-tile-techs">{techs}</div>
                     <div className="project-summary-tile-links">
                         {hasSource && (
-                            <a target="_blank" rel="noopener noreferrer" href={project.attributes.sourceCode} title="GitHub">
+                            <a target="_blank" rel="noopener noreferrer" href={project.attributes.sourceCode} title={project.attributes.sourceTitle}>
                                 <i className="fab fa-github"></i>
                             </a>
                         )}
