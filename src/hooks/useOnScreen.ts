@@ -38,7 +38,7 @@ const sectionToNavLinkMap: Record<PageSectionIdType, NavLinkIdType> = {
  * See https://usehooks.com/useOnScreen/
  * @param ref The ref of the element being observed.
  * @param rootMargin The scroll offset. Determines how many pixels of the component (element) can show before it's triggered.
- * @returns
+ * @returns True if on screen, false if not.
  */
 export default function useOnScreen(ref: React.MutableRefObject<Element>, rootMargin = '0px'): boolean {
     // State and setter for storing whether element is visible
