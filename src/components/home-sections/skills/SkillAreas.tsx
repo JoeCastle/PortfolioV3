@@ -14,7 +14,7 @@ export const SkillAreas: React.FC<Props> = (props) => {
     const ref: React.MutableRefObject<HTMLDivElement> = React.useRef() as React.MutableRefObject<HTMLDivElement>;
     useOnScreen(ref, '-300px');
 
-    const summarySkillAreas: JSX.Element[] = skillAreas.filter((item) => item.skillAreaName !== 'default').map((item, i) => <SkillAreasTile key={i} skillArea={item} />);
+    const summarySkillAreas: JSX.Element[] = skillAreas.map((item, i) => <SkillAreasTile key={i} skillArea={item} />);
 
     return (
         <div className="section" id="Skills">

@@ -17,7 +17,7 @@ export const ProjectsSummary: React.FC<Props> = (props) => {
 
     const summaryProjects: JSX.Element[] = projects
         .slice(0, globals.numOfSummaryProjectsToDisplay + 1)
-        .filter((item) => item.projectName !== 'default' && item.attributes.isDeleted === false)
+        .filter((item) => item.attributes.isDeleted === false)
         .map((item, i) => <ProjectsSummaryTile key={i} project={item} />);
 
     return (

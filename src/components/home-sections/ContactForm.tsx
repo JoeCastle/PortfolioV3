@@ -78,7 +78,7 @@ export const ContactForm: React.FC<Props> = (props) => {
 
         if (fieldErrors.length > 0) {
             const formatter: Intl.ListFormat = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
-            let fieldsErrorString: string = formatter.format(fieldErrors);
+            const fieldsErrorString: string = formatter.format(fieldErrors);
 
             const pluralConnector: string = fieldErrors.length > 1 ? 'are' : 'is';
 

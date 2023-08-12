@@ -1,4 +1,3 @@
-import globals from '../../../utils/globals';
 import React from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import Counter from 'yet-another-react-lightbox/plugins/counter';
@@ -30,7 +29,7 @@ export const ProjectsSummaryTile = (props: Props): JSX.Element => {
     const [isLive] = React.useState<boolean>(project.attributes.liveDemo !== '');
     const [hasSource] = React.useState<boolean>(project.attributes.sourceCode !== '');
 
-    const techs: JSX.Element[] = getProjectSkills(project, globals.numOfTechsToDisplayPerProject).map((item, i) => (
+    const techs: JSX.Element[] = getProjectSkills(project).map((item, i) => (
         <div key={i} className="project-summary-logo-container">
             <img className="project-summary-logo" src={item.img} alt={item.altTag} title={item.title} referrerPolicy="no-referrer" loading="lazy" />
         </div>
