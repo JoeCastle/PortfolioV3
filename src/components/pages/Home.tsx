@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import React from 'react';
 //import { Suspense } from 'react';
 //const Introduction = React.lazy(() => import('../home-sections/Introduction'));

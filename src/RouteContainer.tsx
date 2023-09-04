@@ -5,6 +5,7 @@ import { Home } from './components/pages/Home';
 import { FourZeroFour } from './components/pages/FourZeroFour';
 import { NavMenu } from './components/shared/NavMenu';
 import { Footer } from './components/shared/Footer';
+import ScrollToAnchor from './components/ScrollToAnchor';
 
 //Query strings
 //https://tylermcginnis.com/react-router-query-strings/
@@ -88,6 +89,7 @@ export const RouteContainer = (props: Props, state: State) => {
 
     return (
         <div id="page-parent" className={`theme-container${isDarkMode === true ? ' dark-theme' : ''}`} onScroll={handleScrollToTopButtonVisibility}>
+            <ScrollToAnchor />
             <NavMenu isDarkMode={isDarkMode} {...props} />
 
             <main>

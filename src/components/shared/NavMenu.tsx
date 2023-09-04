@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavHashLink as NavLink } from 'react-router-hash-link';
 import { NavLinkIdType } from '../../hooks/useOnScreen';
 import Logo from '../../images/logo_cropped.png';
+import { Link } from 'react-router-dom';
 
 interface Props {
     isDarkMode: boolean;
@@ -12,7 +12,7 @@ interface Props {
  * @param props
  * @returns
  */
-export const NavMenu: React.FC<Props> = (props) => {
+export const NavMenu: React.FC<Props> = (props: Props) => {
     const { isDarkMode } = props;
 
     return (
@@ -21,9 +21,9 @@ export const NavMenu: React.FC<Props> = (props) => {
                 <div className="container-fluid">
                     <div className="navbar-header">
                         <h1>
-                            <NavLink className="navbar-brand" smooth to={'/#Home'}>
+                            <Link className="navbar-brand" to={'/#Home'}>
                                 <img src={Logo} alt="Joseph Castle" />
-                            </NavLink>
+                            </Link>
                         </h1>
                         <button
                             className="navbar-toggler"
@@ -39,26 +39,25 @@ export const NavMenu: React.FC<Props> = (props) => {
                     </div>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="nav navbar-nav" id="navmenu-ul">
-                            {/* https://css-tricks.com/snippets/jquery/smooth-scrolling/ */}
                             <li>
-                                <NavLink id={NavLinkIdType.About} smooth to="/#About" className={({ isActive }) => 'nav-link' + (isActive ? ' activated' : '')}>
+                                <Link id={NavLinkIdType.About} to="/#About">
                                     <i className="fas fa-info"></i> About
-                                </NavLink>
+                                </Link>
                             </li>
                             <li>
-                                <NavLink id={NavLinkIdType.Projects} smooth to="/#Projects" className={({ isActive }) => 'nav-link' + (isActive ? ' activated' : '')}>
+                                <Link id={NavLinkIdType.Projects} to="/#Projects">
                                     <i className="fas fa-laptop-code"></i> Projects
-                                </NavLink>
+                                </Link>
                             </li>
                             <li>
-                                <NavLink id={NavLinkIdType.Skills} smooth to="/#Skills" className={({ isActive }) => 'nav-link' + (isActive ? ' activated' : '')}>
+                                <Link id={NavLinkIdType.Skills} to="/#Skills">
                                     <i className="fas fa-code"></i> Skills
-                                </NavLink>
+                                </Link>
                             </li>
                             <li>
-                                <NavLink id={NavLinkIdType.Contact} smooth to="/#Contact" className={({ isActive }) => 'nav-link' + (isActive ? ' activated' : '')}>
+                                <Link id={NavLinkIdType.Contact} to="/#Contact">
                                     <i className="fas fa-envelope"></i> Contact
-                                </NavLink>
+                                </Link>
                             </li>
                         </ul>
                     </div>

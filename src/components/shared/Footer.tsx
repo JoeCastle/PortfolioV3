@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavHashLink as NavLink } from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
 import globals from '../../utils/globals';
 
 interface Props {}
@@ -49,26 +49,17 @@ export const Footer: React.FC<Props> = (props) => {
             <div className="divider" />
 
             <ul className="footer-navlinks" id="footer-navlinks">
-                {/* https://css-tricks.com/snippets/jquery/smooth-scrolling/ */}
                 <li>
-                    <NavLink smooth to="/#About">
-                        About
-                    </NavLink>
+                    <Link to="/#About">About</Link>
                 </li>
                 <li>
-                    <NavLink smooth to="/#Projects">
-                        Projects
-                    </NavLink>
+                    <Link to="/#Projects">Projects</Link>
                 </li>
                 <li>
-                    <NavLink smooth to="/#Skills">
-                        Skills
-                    </NavLink>
+                    <Link to="/#Skills">Skills</Link>
                 </li>
                 <li>
-                    <NavLink smooth to="/#Contact">
-                        Contact
-                    </NavLink>
+                    <Link to="/#Contact">Contact</Link>
                 </li>
             </ul>
 

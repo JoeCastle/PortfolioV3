@@ -5,11 +5,16 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './scss/site.scss';
+import { HelmetProvider } from 'react-helmet-async';
+
+const helmetContext = {};
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <React.StrictMode>
-        <App />
+        <HelmetProvider context={helmetContext}>
+            <App />
+        </HelmetProvider>
     </React.StrictMode>,
 );
 
