@@ -40,8 +40,8 @@ export const Home: React.FC<Props> = (props) => {
                     content="Joseph Castle is a full-stack software developer with experience building websites and web applications using React, .NET and SQL."
                 />
                 <meta name="twitter:image" content={process.env.PUBLIC_URL + `/Projects_section.jpg`} />
+                <meta name="robots" content="index, follow" />
             </Helmet>
-            {/*<meta name="theme-color" content={this.props.isDarkMode ? "#000000" : "#000000"} />*/}
             <Introduction {...props} />
             <ProjectsSummary {...props} />
             <SkillAreas {...props} />

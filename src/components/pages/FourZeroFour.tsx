@@ -15,7 +15,7 @@ export const FourZeroFour: React.FC = () => {
                     name="description"
                     content="404 page not found | Joseph Castle is a full-stack software developer with experience building websites and web applications using React, .NET and SQL."
                 />
-                <meta name="robots" content="noindex" />
+                <meta name="robots" content="noindex, follow" />
             </Helmet>
 
             <div className="fourzerofour" id="404">
