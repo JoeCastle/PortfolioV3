@@ -65,7 +65,7 @@ export const Footer: React.FC<Props> = (props) => {
 
             <p className="copyright-text">Copyright &copy; {new Date().getFullYear()} Joseph Castle. All Rights Reserved.</p>
 
-            <p className="version-text">v1.0.3</p>
+            <p className="version-text">v{process.env.REACT_APP_VERSION}</p>
         </div>
     );
 };
