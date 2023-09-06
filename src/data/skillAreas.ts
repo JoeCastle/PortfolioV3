@@ -1,60 +1,40 @@
-import { ISkill, getFrontendSkills, getBackendSkills, getOtherSkills } from './skills';
+import { ISkill, SkillAreaType, getSkillsByArea } from './skills';
 
-export type SkillAreaTypes = 'default' | 'frontend' | 'backend' | 'other';
-
-enum skillAreaType {
-    default = 0,
-    frontEnd = 1,
-    backEnd = 2,
-    other = 3,
-}
+export type SkillAreaOption = 'frontend' | 'backend' | 'other';
 
 export interface ISkillArea {
-    skillAreaName: SkillAreaTypes;
+    skillAreaName: SkillAreaOption;
     title: string;
     description: string;
     fontAwesomeIconClass: string;
-    type: skillAreaType;
+    type: SkillAreaType;
     skills: ISkill[];
-    itemsTitle: string;
 }
 
-let skillAreas: ISkillArea[] = [
-    {
-        skillAreaName: 'default',
-        title: 'default',
-        description: '',
-        fontAwesomeIconClass: '',
-        type: skillAreaType.other,
-        skills: getOtherSkills(),
-        itemsTitle: 'Languages',
-    },
+const skillAreas: ISkillArea[] = [
     {
         skillAreaName: 'frontend',
         title: 'Front-end',
         description: 'Experience building modern front-end web applications.',
         fontAwesomeIconClass: 'fas fa-code',
-        type: skillAreaType.frontEnd,
-        skills: getFrontendSkills(),
-        itemsTitle: 'Languages',
+        type: SkillAreaType.FrontEnd,
+        skills: getSkillsByArea(SkillAreaType.FrontEnd),
     },
     {
         skillAreaName: 'backend',
         title: 'Back-end',
         description: 'Proficient with back-end technologies including databases and SQL.',
         fontAwesomeIconClass: 'fas fa-code-branch',
-        type: skillAreaType.backEnd,
-        skills: getBackendSkills(),
-        itemsTitle: 'Languages',
+        type: SkillAreaType.BackEnd,
+        skills: getSkillsByArea(SkillAreaType.BackEnd),
     },
     {
         skillAreaName: 'other',
         title: 'Other',
         description: 'Knowledge of advanced tools to aid the development of software.',
         fontAwesomeIconClass: 'fas fa-terminal',
-        type: skillAreaType.other,
-        skills: getOtherSkills(),
-        itemsTitle: 'Software',
+        type: SkillAreaType.Other,
+        skills: getSkillsByArea(SkillAreaType.Other),
     },
 ];
 

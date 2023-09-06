@@ -14,10 +14,7 @@ export const SkillsSummary = (): JSX.Element => {
 
     const numOfSummarySkillsToDisplay = 16;
 
-    const summarySkills: JSX.Element[] = skills
-        .slice(0, numOfSummarySkillsToDisplay + 1)
-        .filter((item) => item.skillName != 'default')
-        .map((item, i) => <SkillsSummaryTile key={i} skill={item} />);
+    const summarySkills: JSX.Element[] = skills.slice(0, numOfSummarySkillsToDisplay + 1).map((item, i) => <SkillsSummaryTile key={i} skill={item} />);
 
     return (
         <div className="section" id="Skills">

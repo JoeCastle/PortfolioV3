@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 /**
  * The 404 page displayed when no page exists.
@@ -15,7 +15,7 @@ export const FourZeroFour: React.FC = () => {
                     name="description"
                     content="404 page not found | Joseph Castle is a full-stack software developer with experience building websites and web applications using React, .NET and SQL."
                 />
-                <meta name="robots" content="noindex" />
+                <meta name="robots" content="noindex, follow" />
             </Helmet>
 
             <div className="fourzerofour" id="404">

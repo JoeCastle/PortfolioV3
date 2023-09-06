@@ -1,5 +1,4 @@
-export type SkillTypes =
-    | 'default'
+export type SkillOption =
     | 'html'
     | 'css'
     | 'sass'
@@ -34,14 +33,14 @@ enum SkillType {
     Other = 3,
 }
 
-enum SkillAreaType {
+export enum SkillAreaType {
     FrontEnd = 0,
     BackEnd = 1,
     Other = 2,
 }
 
 export interface ISkill {
-    skillName: SkillTypes;
+    skillName: SkillOption;
     title: string;
     img: string;
     imgSource?: string;
@@ -51,14 +50,6 @@ export interface ISkill {
 }
 
 const skills: ISkill[] = [
-    //{
-    //    skillName: 'default',
-    //    title: 'default',
-    //    img: '',
-    //    altTag: 'default logo',
-    //    type: SkillType.other,
-    //    skillArea: SkillAreaType.other
-    //},
     {
         skillName: 'html',
         title: 'HTML5',
@@ -269,28 +260,14 @@ const skills: ISkill[] = [
 
 export default skills;
 
-export const getFrontendSkills = (): ISkill[] => {
-    return skills.filter((skill) => skill.skillArea === SkillAreaType.FrontEnd && skill.skillName !== 'default');
+export const getSkillsByArea = (area: SkillAreaType): ISkill[] => {
+    return skills.filter((skill) => skill.skillArea === area);
 };
 
-export const getBackendSkills = (): ISkill[] => {
-    return skills.filter((skill) => skill.skillArea === SkillAreaType.BackEnd && skill.skillName !== 'default');
-};
-
-export const getOtherSkills = (): ISkill[] => {
-    return skills.filter((skill) => skill.skillArea === SkillAreaType.Other && skill.skillName !== 'default');
-};
-
-export const getSkill = (skillName: SkillTypes): ISkill => {
+export const getSkill = (skillName: SkillOption): ISkill => {
     return skills.find((skill) => skill.skillName === skillName)!;
 };
 
-export const getSkills = (skillNames: SkillTypes[]): ISkill[] => {
-    let skills: ISkill[] = [];
-
-    for (let i = 0; i < skillNames.length; i++) {
-        skills.push(getSkill(skillNames[i]));
-    }
-
-    return skills;
+export const getSkills = (skillNames: SkillOption[]): ISkill[] => {
+    return skillNames.map((skillName) => getSkill(skillName));
 };

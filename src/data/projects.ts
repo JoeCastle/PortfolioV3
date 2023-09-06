@@ -1,4 +1,5 @@
-import { ISkill, getSkill, getSkills } from './skills';
+import globals from '../utils/globals';
+import { ISkill, getSkills } from './skills';
 
 export type ProjectTypes = 'default' | 'portfolio' | 'trainingApp' | 'arduinoTemperatureSensor' | 'startPage' | 'jla' | 'fizzBuzzTask' | 'robocoderobot';
 
@@ -375,30 +376,6 @@ const projects: IProject[] = [
         },
     },
     {
-        projectName: 'fizzBuzzTask',
-        attributes: {
-            title: 'FizzBuzzTask',
-            disclaimer: '',
-            description: [],
-            technologies: [getSkill('reactjs'), getSkill('sass'), getSkill('typescript'), getSkill('aspnetcore'), getSkill('visualstudio')],
-            tags: [],
-            thumbnail: {
-                src: '',
-                alt: 'Home page of the FizzBuzz coding task.',
-                title: 'Home page of the FizzBuzz coding task.',
-            },
-            readMoreLink: getProjectReadMoreLink('FizzBuzzTask'),
-            routeURL: getProjectRouteURL('FizzBuzzTask'),
-            sourceCode: 'https://github.com/JoeCastle/FizzBuzzTask',
-            sourceTitle: 'GitHub',
-            liveDemo: '',
-            nonLiveDemo: '',
-            projectType: ProjType.Personal,
-            isDeleted: true,
-            yearCompleted: '2019',
-        },
-    },
-    {
         projectName: 'robocoderobot',
         attributes: {
             title: 'Robocode robot',
@@ -451,11 +428,10 @@ const projects: IProject[] = [
 export default projects;
 
 /**
- * Gets a list of ISkills fora project.
+ * Gets a list of ISkills for a project.
  * @param project The project.
- * @param displayNumber The number of skills to return.
  * @returns An array of ISkill items.
  */
-export const getProjectSkills = (project: IProject, displayNumber: number): ISkill[] => {
-    return project.attributes.technologies.slice(0, displayNumber).filter((item) => item.skillName !== 'default');
+export const getProjectSkills = (project: IProject): ISkill[] => {
+    return project.attributes.technologies.slice(0, globals.numOfTechsToDisplayPerProject);
 };

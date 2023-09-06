@@ -21,12 +21,15 @@ const numOfSummaryProjectsToDisplay: number = 8;
 /** The number of technologies to display on each project tile in the projects section on the homepage. */
 const numOfTechsToDisplayPerProject: number = 7;
 
+const isDarkModeDefault: boolean = true;
+
 const globals = {
     obfuscatedEmailAddress,
     gitHubData,
     linkedInData,
     numOfSummaryProjectsToDisplay,
     numOfTechsToDisplayPerProject,
+    isDarkModeDefault,
 };
 
 export default globals;

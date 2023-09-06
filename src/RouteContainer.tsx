@@ -1,10 +1,11 @@
-import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState, UIEvent } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Home } from './components/pages/Home';
 import { FourZeroFour } from './components/pages/FourZeroFour';
 import { NavMenu } from './components/shared/NavMenu';
 import { Footer } from './components/shared/Footer';
+import ScrollToAnchor from './components/ScrollToAnchor';
+import globals from './utils/globals';
 
 //Query strings
 //https://tylermcginnis.com/react-router-query-strings/
@@ -17,11 +18,11 @@ interface State {
 }
 
 //const userDarkTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches === true;
-const isDarkModeDefault = true;
+const isDarkModeDefault = globals.isDarkModeDefault;
 
-export const RouteContainer = (props: Props, state: State) => {
-    const [isDarkMode, setIsDarkMode] = React.useState(true);
-    const [hasMounted, setHasMounted] = React.useState(false);
+export const RouteContainer = (props: Props, state: State): JSX.Element => {
+    const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+    const [hasMounted, setHasMounted] = useState<boolean>(false);
 
     useEffect(() => {
         setHasMounted(true);
@@ -29,8 +30,8 @@ export const RouteContainer = (props: Props, state: State) => {
 
     useEffect(() => {
         if (hasMounted === true) {
-            const themeType = typeof window !== 'undefined' ? localStorage.getItem('isDarkMode') : null;
-            let isDarkMode = isDarkModeDefault;
+            const themeType: string | null = typeof window !== 'undefined' ? localStorage.getItem('isDarkMode') : null;
+            let isDarkMode: boolean = isDarkModeDefault;
 
             if (themeType !== null && themeType !== undefined) {
                 if (themeType === 'true') {
@@ -44,9 +45,9 @@ export const RouteContainer = (props: Props, state: State) => {
         }
     }, [hasMounted]);
 
-    //Scroll to the top of the page.
-    const handleScrollToTop = () => {
-        let element = document.getElementById('page-parent');
+    // Scroll to the top of the page.
+    const handleScrollToTop = (): void => {
+        let element: HTMLElement | null = document.getElementById('page-parent');
 
         if (element) {
             element.classList.add('smooth-scroll');
@@ -57,12 +58,13 @@ export const RouteContainer = (props: Props, state: State) => {
         }
     };
 
-    //Only show the scroll to top button when scrolled.
-    const handleScrollToTopButtonVisibility = (e: any) => {
-        let element = document.getElementById('scroll-to-top-btn');
+    // Only show the scroll to top button when scrolled.
+    const handleScrollToTopButtonVisibility = (e: UIEvent<HTMLDivElement>): void => {
+        let element: HTMLElement | null = document.getElementById('scroll-to-top-btn');
 
         if (element) {
-            if (e.target.scrollTop >= 100) {
+            const scrollTop: number = (e.target as HTMLElement).scrollTop;
+            if (scrollTop >= 100) {
                 element.classList.add('show');
             } else {
                 element.classList.remove('show');
@@ -70,8 +72,8 @@ export const RouteContainer = (props: Props, state: State) => {
         }
     };
 
-    //Change theme
-    const handleChangeTheme = () => {
+    // Change theme
+    const handleChangeTheme = (): void => {
         if (isDarkMode === true) {
             setIsDarkMode(false);
             if (typeof window !== 'undefined') {
@@ -88,31 +90,12 @@ export const RouteContainer = (props: Props, state: State) => {
 
     return (
         <div id="page-parent" className={`theme-container${isDarkMode === true ? ' dark-theme' : ''}`} onScroll={handleScrollToTopButtonVisibility}>
+            <ScrollToAnchor />
             <NavMenu isDarkMode={isDarkMode} {...props} />
 
             <main>
                 <Routes>
                     <Route path={`/`} element={<Home {...props} isDarkMode={state.isDarkMode} />} />
-
-                    {/*https://www.codereadability.com/replacing-if-statements-with-object-lookups/ */}
-                    {/*{projects
-                    .filter(item =>
-                        item.projectName != 'default')
-                    .map((item, i) =>
-                        <Route
-                            key={i}
-                            exact
-                            path={`${props.match.url}${item.attributes.routeURL}`}
-                            render={(props: any) =>
-                                <Project
-                                    key={item}
-                                    projectName={item.projectName}
-                                    {...props}
-                                />
-                            }
-                        />
-                    )}*/}
-
                     {/* Will catch any route not defined and redirect to the 404 page. */}
                     <Route path={`/404`} element={<FourZeroFour {...props} />} />
                     <Route path={`*`} element={<Navigate to="/404" replace />} />
