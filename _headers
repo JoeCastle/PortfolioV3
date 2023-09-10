@@ -1,0 +1,7 @@
+# Set headers for cloudflare.
+
+/*
+  Access-Control-Allow-Origin: https://cloudflareinsights.com
+  Access-Control-Allow-Headers: *
+  Access-Control-Allow-Methods: GET, OPTIONS
+  Access-Control-Max-Age: 86400
