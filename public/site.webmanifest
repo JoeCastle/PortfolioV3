@@ -1,23 +1,23 @@
 {
-  "name": "Joseph Castle",
-  "short_name": "JoeCastle",
-  "description": "Joseph Castle is a full-stack software developer with experience building websites and web applications using React, ASP.NET Core and SQL.",
-  "lang": "en-GB",
-  "theme_color": "#1c6ef7",
-  "background_color": "#131313",
-  "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
-  "icons": [
-    {
-      "src": "android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "android-chrome-256x256.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    }
-  ]
+    "name": "Joseph Castle",
+    "short_name": "JoeCastle",
+    "description": "Joseph Castle is a full-stack software developer with experience building websites and web applications using React, .NET and SQL.",
+    "lang": "en-GB",
+    "theme_color": "#1c6ef7",
+    "background_color": "#131313",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "android-chrome-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ]
 }

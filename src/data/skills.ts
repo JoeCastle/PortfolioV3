@@ -100,7 +100,7 @@ const skills: ISkill[] = [
     },
     {
         skillName: 'aspnetcore',
-        title: 'ASP.NET Core',
+        title: '.NET',
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Aspnetcore_logo_k0ibuu.png',
         imgSource: 'https://github.com/campusMVP/dotnetCoreLogoPack',
         altTag: 'aspnetcore logo',
