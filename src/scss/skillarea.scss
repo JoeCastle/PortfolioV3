@@ -3,21 +3,23 @@
 $mobile-breakpoint: 1150px;
 
 .skillarea-summary-tiles {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    // Box shadow applied to parent so the shadow has no gaps when items are next to each other.
+    box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 5px;
+    background-color: transparent;
     margin-top: 20px;
 
     @media (max-width: $mobile-breakpoint) {
-        flex-direction: column;
-        align-items: center;
+        max-width: 600px;
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: center;
+        margin: 0 auto;
     }
 
     .skillarea-summary-tile {
-        max-width: 33%;
         border-radius: 0px;
-        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.75);
         padding: 25px 20px;
         width: 100%;
 
