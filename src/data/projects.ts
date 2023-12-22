@@ -1,7 +1,7 @@
 import globals from '../utils/globals';
 import { ISkill, getSkills } from './skills';
 
-export type ProjectTypes = 'default' | 'portfolio' | 'trainingApp' | 'arduinoTemperatureSensor' | 'startPage' | 'jla' | 'fizzBuzzTask' | 'robocoderobot';
+export type ProjectTypes = 'portfolio' | 'trainingApp' | 'arduinoTemperatureSensor' | 'startPage' | 'jla' | 'robocoderobot';
 
 enum ProjType {
     Personal = 'Personal',
@@ -61,7 +61,7 @@ const projects: IProject[] = [
             title: 'Portfolio',
             disclaimer: '',
             description: [
-                "This is the website you are currently viewing. It's an online portfolio of my past projects, skills and experience.",
+                "This is the website you are currently viewing. It's an online portfolio of my past projects, skills and experience. Built with accessibility and SEO in mind.",
                 'The primary goals of this project were to serve as a central repository of my projects, and to be a simple and easily maintainable project that can be updated and revised rapidly.',
                 'The biggest challenge I had to overcome was my lack of artistic and design skills. I found it difficult to design a website that was simple, visually appealing and unique.',
             ],
@@ -103,7 +103,7 @@ const projects: IProject[] = [
             routeURL: getProjectRouteURL('Portfolio'),
             sourceCode: 'https://github.com/JoeCastle/PortfolioV3',
             sourceTitle: 'GitHub',
-            liveDemo: '',
+            liveDemo: 'https://joecastle.co.uk',
             nonLiveDemo: '',
             projectType: ProjType.Personal,
             isDeleted: false,
@@ -119,7 +119,7 @@ const projects: IProject[] = [
                 'The Training App was built for the project section of my university dissertation. Its purpose was to support the arguments I made within my report and demonstrate many of the features of web accessibility that I discovered during my research.',
                 'The web application itself allows trainers to create multiple choice quizzes for trainees that are assigned to their group.',
                 'It demonstrates a variety of web accessibility features such as descriptive meta data, high contract themes, readable font etc.',
-                'In order to test the accessibility level of the application I used multiple online automatic accessibility testing tools which include ...',
+                'In order to test the accessibility level of the application I used multiple online automatic accessibility testing tools which include Google Lighthouse, tota11y, WAVE and the W3C Web Accessibility Evaluation Tools List.',
             ],
             technologies: getSkills(['reactjs', 'mobx', 'sass', 'typescript', 'aspnetcore', 'visualstudio', 'tsql', 'sqlservermanagementstudio']),
             tags: [],
