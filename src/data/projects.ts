@@ -245,7 +245,7 @@ const projects: IProject[] = [
             title: 'Startpage',
             disclaimer: '',
             description: [
-                'A basic web page created in collaboration with another developer and built using vanilla HTML, CSS and JavaScript. I was inspired to create this after stumbling upon an online community that showcases personalized "Start pages".',
+                'A simple web page created in collaboration with another developer and built using vanilla HTML, CSS and JavaScript. I was inspired to create this after stumbling upon an online community that showcases personalized "Start pages".',
                 'A "start page" is a web page that you see when you first open your browser. The idea is that you can provide links to your favourite websites, but you\'re able to add any content you want as it\'s just a web page.',
                 'The main goals for this project were to build a website using only vanilla technologies, collaborate with another developer, and create something that I could actually use.',
                 "Overall I would consider this project a success as I achieved two out of the three goals. As it stands, the page doesn't have enough features to warrant me using it as my daily startpage.",
