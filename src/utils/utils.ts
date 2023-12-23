@@ -1,3 +1,5 @@
+import globals from './globals';
+
 /**
  * @deprecated This function should not be used.
  * @param imageIds
@@ -41,10 +43,15 @@ const decodeHTML = (html: string): string => {
     return val;
 };
 
+const navigateToEmail = (subject: string, body: string) => {
+    window.location.href = `mailto:${utils.decodeHTML(globals.obfuscatedEmailAddress)}?subject=${subject}&body=${body}`;
+};
+
 const utils = {
     getGoogleImageExportURL,
     getGoogleImageExportURLs,
     decodeHTML,
+    navigateToEmail,
 };
 
 export default utils;

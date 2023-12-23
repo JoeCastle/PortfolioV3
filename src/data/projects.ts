@@ -3,7 +3,7 @@ import { ISkill, getSkills } from './skills';
 
 export type ProjectTypes = 'portfolio' | 'trainingApp' | 'arduinoTemperatureSensor' | 'startPage' | 'jla' | 'robocoderobot';
 
-enum ProjType {
+export enum ProjType {
     Personal = 'Personal',
     University = 'University',
     Work = 'Work',

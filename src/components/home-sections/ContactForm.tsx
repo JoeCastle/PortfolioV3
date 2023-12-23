@@ -50,9 +50,8 @@ export const ContactForm: React.FC<Props> = (props) => {
             setIsLoading(true);
 
             if (typeof window !== 'undefined') {
-                const address: string = utils.decodeHTML(globals.obfuscatedEmailAddress);
-                window.location.href = `mailto:${address}?subject=${subject}&body=${body}`;
-
+                // Use the utility function for navigation
+                utils.navigateToEmail(subject, body);
                 setInitialValues();
             } else {
                 setFormError('Unable to open email client');
