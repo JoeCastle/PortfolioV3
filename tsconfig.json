@@ -19,5 +19,6 @@
         "noUnusedLocals": true,
         "strictNullChecks": true
     },
-    "include": ["src"]
+    "include": ["src"],
+    "exclude": ["cypress.config.ts", "cypress", "node_modules"]
 }
