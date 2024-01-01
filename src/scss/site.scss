@@ -241,8 +241,8 @@ code {
     color: #e01a76;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+.portfolio-btn {
+    background-color: $standard-blue-background;
+    color: #ffffff;
+    border-color: $standard-blue-background;
 }

@@ -176,7 +176,7 @@ nav.navbar {
     will-change: color, background-color, border-color;
     background: $light-secondary-background-colour;
     color: $light-navbar-font-colour;
-    border: 2px solid $light-secondary-background-colour;
+    border: 1px solid $light-secondary-background-colour;
 
     a {
         transition:
@@ -221,7 +221,7 @@ nav.navbar {
         will-change: color, background-color, border-color;
         color: $dark-navbar-font-colour;
         background-color: $dark-navbar-background-colour;
-        border: 2px solid $dark-navbar-background-colour;
+        border: 1px solid $dark-navbar-background-colour;
 
         a {
             transition:

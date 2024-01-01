@@ -1,6 +1,6 @@
 import utils from '../../utils/utils';
 import globals from '../../utils/globals';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import useOnScreen, { PageSectionIdType } from '../../hooks/useOnScreen';
 
@@ -12,19 +12,28 @@ interface IEmailModel {
 
 interface Props {}
 
+enum FieldStatusEnum {
+    DEFAULT = 'default',
+    ERROR = 'error',
+    SUCCESS = 'success',
+}
+
 /**
  * The contact form section on the homepage.
  * @param props
  * @returns
  */
 export const ContactForm: React.FC<Props> = (props) => {
-    const [isLoading, setIsLoading] = React.useState<boolean>(false);
-    const [fullName, setFullName] = React.useState<string>('');
-    const [subject, setSubject] = React.useState<string>('');
-    const [message, setMessage] = React.useState<string>('');
-    const [formError, setFormError] = React.useState<string>('');
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [fullName, setFullName] = useState<string>('');
+    const [fullNameStatus, setFullNameStatus] = useState<FieldStatusEnum>(FieldStatusEnum.DEFAULT);
+    const [subject, setSubject] = useState<string>('');
+    const [subjectStatus, setSubjectStatus] = useState<FieldStatusEnum>(FieldStatusEnum.DEFAULT);
+    const [message, setMessage] = useState<string>('');
+    const [messageStatus, setMessageStatus] = useState<FieldStatusEnum>(FieldStatusEnum.DEFAULT);
+    const [formError, setFormError] = useState<string>('');
 
-    const ref: React.MutableRefObject<HTMLDivElement> = React.useRef() as React.MutableRefObject<HTMLDivElement>;
+    const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;
     useOnScreen(ref, '-300px');
 
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement> | undefined): void => {
@@ -50,9 +59,8 @@ export const ContactForm: React.FC<Props> = (props) => {
             setIsLoading(true);
 
             if (typeof window !== 'undefined') {
-                const address: string = utils.decodeHTML(globals.obfuscatedEmailAddress);
-                window.location.href = `mailto:${address}?subject=${subject}&body=${body}`;
-
+                // Use the utility function for navigation
+                utils.navigateToEmail(subject, body);
                 setInitialValues();
             } else {
                 setFormError('Unable to open email client');
@@ -62,17 +70,52 @@ export const ContactForm: React.FC<Props> = (props) => {
         }
     };
 
+    const validateFullName = (val: string): boolean => {
+        if (val.replace(' ', '') === '') {
+            setFullNameStatus(FieldStatusEnum.ERROR);
+            return false;
+        } else {
+            setFullNameStatus(FieldStatusEnum.SUCCESS);
+            return true;
+        }
+    };
+
+    const validateSubject = (val: string): boolean => {
+        if (val.replace(' ', '') === '') {
+            setSubjectStatus(FieldStatusEnum.ERROR);
+            return false;
+        } else {
+            setSubjectStatus(FieldStatusEnum.SUCCESS);
+            return true;
+        }
+    };
+
+    const validateMessage = (val: string): boolean => {
+        if (val.replace(' ', '') === '') {
+            setMessageStatus(FieldStatusEnum.ERROR);
+            return false;
+        } else {
+            setMessageStatus(FieldStatusEnum.SUCCESS);
+            return true;
+        }
+    };
+
     const validateForm = (model: IEmailModel): boolean => {
         let fieldErrors: string[] = [];
-        if (model.fullName.replace(' ', '') === '') {
+
+        const isFullNameValid: boolean = validateFullName(model.fullName);
+        const isSubjectValid: boolean = validateSubject(model.subject);
+        const isMessageValid: boolean = validateMessage(model.message);
+
+        if (!isFullNameValid) {
             fieldErrors.push('Full name');
         }
 
-        if (model.subject.replace(' ', '') === '') {
+        if (!isSubjectValid) {
             fieldErrors.push('Subject');
         }
 
-        if (model.message.replace(' ', '') === '') {
+        if (!isMessageValid) {
             fieldErrors.push('Message');
         }
 
@@ -97,6 +140,9 @@ export const ContactForm: React.FC<Props> = (props) => {
         setSubject('');
         setMessage('');
         setFormError('');
+        setFullNameStatus(FieldStatusEnum.DEFAULT);
+        setSubjectStatus(FieldStatusEnum.DEFAULT);
+        setMessageStatus(FieldStatusEnum.DEFAULT);
     };
 
     return (
@@ -132,19 +178,44 @@ export const ContactForm: React.FC<Props> = (props) => {
                                         required
                                         value={fullName}
                                         onChange={(e) => setFullName(e.target.value)}
+                                        valid={fullNameStatus === FieldStatusEnum.SUCCESS}
+                                        invalid={fullNameStatus === FieldStatusEnum.ERROR}
                                     />
                                 </FormGroup>
                                 <FormGroup className="form-group">
                                     <Label for="subject">Subject: </Label>
-                                    <Input type="text" name="subject" id="subject" placeholder="Subject..." required value={subject} onChange={(e) => setSubject(e.target.value)} />
+                                    <Input
+                                        type="text"
+                                        name="subject"
+                                        id="subject"
+                                        placeholder="Subject..."
+                                        required
+                                        value={subject}
+                                        onChange={(e) => setSubject(e.target.value)}
+                                        valid={subjectStatus === FieldStatusEnum.SUCCESS}
+                                        invalid={subjectStatus === FieldStatusEnum.ERROR}
+                                    />
                                 </FormGroup>
                             </div>
                             <FormGroup className="form-group">
                                 <Label for="message">Message: </Label>
-                                <Input type="textarea" name="message" id="message" placeholder="Message..." required value={message} onChange={(e) => setMessage(e.target.value)} />
+                                <Input
+                                    type="textarea"
+                                    name="message"
+                                    id="message"
+                                    placeholder="Message..."
+                                    required
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                    valid={messageStatus === FieldStatusEnum.SUCCESS}
+                                    invalid={messageStatus === FieldStatusEnum.ERROR}
+                                />
                             </FormGroup>
-                            <Button className="submit-email-btn" disabled={isLoading} onClick={handleSubmit}>
+                            <Button className="portfolio-btn" disabled={isLoading} onClick={handleSubmit}>
                                 Submit
+                            </Button>
+                            <Button className="portfolio-btn clear-button" disabled={isLoading} onClick={setInitialValues}>
+                                Clear
                             </Button>
                             <p className={`form-error-message ${formError !== '' ? 'opacity-show' : ''}`}>{formError}</p>
                         </Form>

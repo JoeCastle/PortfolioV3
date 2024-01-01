@@ -39,8 +39,7 @@
 
     .project-summary-tile {
         background-color: $light-secondary-background-colour;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+        border: $light-border;
         transition:
             border $global-animation-time ease-in-out,
             background-color $global-animation-time ease-in-out;
@@ -49,8 +48,7 @@
 
     .skill-summary-tile {
         background-color: $light-secondary-background-colour;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+        border: $light-border;
         transition:
             border $global-animation-time ease-in-out,
             background-color $global-animation-time ease-in-out;
@@ -59,8 +57,7 @@
 
     .skillarea-summary-tile {
         background-color: $light-secondary-background-colour;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+        border: $light-border;
         transition:
             border $global-animation-time ease-in-out,
             background-color $global-animation-time ease-in-out;
@@ -72,7 +69,6 @@
             > a {
                 > div {
                     background: $light-secondary-background-colour;
-                    border: 2px solid rgba(204, 204, 204, 0.1);
                     box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.3);
                     transition:
                         border $global-animation-time ease-in-out,
@@ -144,7 +140,7 @@
     }
 
     .form-control {
-        border: 2px solid rgba(204, 204, 204, 0.1);
+        border: $dark-border;
         background: $dark-secondary-background-colour;
         transition:
             border $global-animation-time ease-in-out,
@@ -154,7 +150,7 @@
 
     .project-summary-tile {
         background-color: $dark-secondary-background-colour;
-        border: 2px solid rgba(204, 204, 204, 0.1);
+        border: $dark-border;
         transition:
             border $global-animation-time ease-in-out,
             background-color $global-animation-time ease-in-out;
@@ -163,7 +159,7 @@
 
     .skill-summary-tile {
         background-color: $dark-secondary-background-colour;
-        border: 2px solid rgba(204, 204, 204, 0.1);
+        border: $dark-border;
         transition:
             border $global-animation-time ease-in-out,
             background-color $global-animation-time ease-in-out;
@@ -172,7 +168,7 @@
 
     .skillarea-summary-tile {
         background-color: $dark-secondary-background-colour;
-        border: 2px solid rgba(204, 204, 204, 0.1);
+        border: $dark-border;
         transition:
             border $global-animation-time ease-in-out,
             background-color $global-animation-time ease-in-out;
@@ -184,7 +180,7 @@
             > a {
                 > div {
                     background: $dark-secondary-background-colour;
-                    border: 2px solid rgba(204, 204, 204, 0.1);
+                    border: $dark-border;
                     transition:
                         border $global-animation-time ease-in-out,
                         background-color $global-animation-time ease-in-out;

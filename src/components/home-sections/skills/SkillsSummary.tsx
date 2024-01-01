@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { SkillsSummaryTile } from './SkillsSummaryTile';
 import skills from '../../../data/skills';
 import useOnScreen, { PageSectionIdType } from '../../../hooks/useOnScreen';
@@ -9,7 +9,7 @@ import useOnScreen, { PageSectionIdType } from '../../../hooks/useOnScreen';
  * @returns
  */
 export const SkillsSummary = (): JSX.Element => {
-    const ref: React.MutableRefObject<HTMLInputElement> = React.useRef() as React.MutableRefObject<HTMLInputElement>;
+    const ref: React.MutableRefObject<HTMLInputElement> = useRef() as React.MutableRefObject<HTMLInputElement>;
     useOnScreen(ref, '-300px');
 
     const numOfSummarySkillsToDisplay = 16;

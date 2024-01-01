@@ -1,5 +1,3 @@
-// Commented out currently unused variables.
-
 $mobile-max-width-breakpoint: 767px;
 $mobile-min-width-breakpoint: 768px;
 $content-max-width: 1350px;
@@ -49,3 +47,8 @@ $dark-navbar-font-colour-hover: #ffffff;
 $light-navbar-background-colour: $light-secondary-background-colour;
 $light-navbar-font-colour: #454545;
 $light-navbar-font-colour-hover: #1c6ef7;
+
+$box-shadow-color: 0.5;
+
+$light-border: 1px solid rgba(0, 0, 0, 0.2);
+$dark-border: 1px solid rgba(204, 204, 204, 0.1);

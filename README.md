@@ -16,7 +16,7 @@ Welcome to my web portfolio! This project showcases my past projects, skills, an
 
 - **Accessibility:** Prioritize inclusivity with accessibility features, ensuring a user-friendly experience for individuals with diverse needs.
 
-- **SEO Optimization:** Enhance visibility and reach a wider audience by implementing SEO best practices, optimizing the site for search engines.
+- **SEO:** Enhance visibility and reach a wider audience by implementing SEO best practices, optimizing the site for search engines.
 
 
 ## Tech Stack
@@ -65,7 +65,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - **components:** React components including pages and sections.
     - **home-sections:** The main sections of the homepage.
     - **pages:** Individual pages.
-    - **shared:** Components chared accross multiple pages.
+    - **shared:** Components shared across multiple pages.
   - **data:** Typescript objects storing data used on the website such as projects and skills.
   - **scss:** SASS files for styling the components and pages.
 
