@@ -177,8 +177,7 @@ const skills: ISkill[] = [
     {
         skillName: 'sqlservermanagementstudio',
         title: 'SSMS',
-        img: '',
-        imgSource: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Database_logo_s7tzjp.png',
+        img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Database_logo_s7tzjp.png',
         altTag: 'sql logo',
         type: SkillType.Software,
         skillArea: SkillAreaType.Other,

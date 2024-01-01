@@ -68,6 +68,8 @@ $mobile-breakpoint: 1150px;
         .skillarea-summary-tile-other {
             display: flex;
             flex-direction: row;
+            max-height: 152px;
+            overflow: auto;
 
             ul.skillarea-summary-tile-techs {
                 list-style-position: inside;

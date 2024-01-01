@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { ProjectsSummaryTile } from './ProjectsSummaryTile';
 import projects from '../../../data/projects';
 import useOnScreen, { PageSectionIdType } from '../../../hooks/useOnScreen';
@@ -12,7 +12,7 @@ interface Props {}
  * @returns
  */
 export const ProjectsSummary: React.FC<Props> = (props) => {
-    const ref: React.MutableRefObject<HTMLDivElement> = React.useRef() as React.MutableRefObject<HTMLDivElement>;
+    const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;
     useOnScreen(ref, '-300px');
 
     const summaryProjects: JSX.Element[] = projects
