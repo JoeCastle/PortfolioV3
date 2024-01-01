@@ -29,7 +29,7 @@ describe('Footer', () => {
 
         // Assert copyright date is current year
         const currentYear = new Date().getFullYear();
-        expect(screen.getByText(`Copyright © ${currentYear} Joseph Castle. All Rights Reserved.`)).toBeInTheDocument();
+        expect(screen.getByText(`Copyright © 2019 - ${currentYear} Joseph Castle. All Rights Reserved.`)).toBeInTheDocument();
 
         // Assert version text
         expect(screen.getByText(`v${process.env.REACT_APP_VERSION}`)).toBeInTheDocument();

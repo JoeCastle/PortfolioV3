@@ -63,7 +63,7 @@ export const Footer: React.FC<Props> = (props) => {
                 </li>
             </ul>
 
-            <p className="copyright-text">Copyright &copy; {new Date().getFullYear()} Joseph Castle. All Rights Reserved.</p>
+            <p className="copyright-text">Copyright &copy; 2019 - {new Date().getFullYear()} Joseph Castle. All Rights Reserved.</p>
 
             <p className="version-text">v{process.env.REACT_APP_VERSION}</p>
         </div>
