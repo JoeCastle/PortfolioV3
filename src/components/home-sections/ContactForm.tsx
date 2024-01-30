@@ -34,7 +34,7 @@ export const ContactForm: React.FC<Props> = (props) => {
     const [formError, setFormError] = useState<string>('');
 
     const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;
-    useOnScreen(ref, '-300px');
+    useOnScreen(ref);
 
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement> | undefined): void => {
         if (!e) {

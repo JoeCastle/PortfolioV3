@@ -38,7 +38,7 @@ describe('Navigation', () => {
         checkNavLinkState(navLinkIds[3]);
 
         // Scroll back to about
-        cy.get('#introduction-content-container').scrollIntoView();
+        cy.get('#about-content-container').scrollIntoView();
         // Active navlink should be About again
         checkNavLinkState(navLinkIds[0]);
     });

@@ -47,11 +47,28 @@ const navigateToEmail = (subject: string, body: string) => {
     window.location.href = `mailto:${utils.decodeHTML(globals.obfuscatedEmailAddress)}?subject=${subject}&body=${body}`;
 };
 
+const getYearsOfExperience = (): number => {
+    // (Started August 2019, but need to consider the additional year from placement)
+    const startDate: Date = new Date('2018-08-01');
+
+    const currentDate: Date = new Date();
+
+    let yearsOfExperience: number = currentDate.getFullYear() - startDate.getFullYear();
+
+    // Check if the current month and day is before your start date
+    if (currentDate.getMonth() < startDate.getMonth() || (currentDate.getMonth() === startDate.getMonth() && currentDate.getDate() < startDate.getDate())) {
+        yearsOfExperience--;
+    }
+
+    return yearsOfExperience;
+};
+
 const utils = {
     getGoogleImageExportURL,
     getGoogleImageExportURLs,
     decodeHTML,
     navigateToEmail,
+    getYearsOfExperience,
 };
 
 export default utils;

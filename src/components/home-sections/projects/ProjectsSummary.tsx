@@ -13,7 +13,7 @@ interface Props {}
  */
 export const ProjectsSummary: React.FC<Props> = (props) => {
     const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;
-    useOnScreen(ref, '-300px');
+    useOnScreen(ref);
 
     const summaryProjects: JSX.Element[] = projects
         .slice(0, globals.numOfSummaryProjectsToDisplay + 1)

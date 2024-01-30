@@ -1,14 +1,15 @@
 import { Helmet } from 'react-helmet-async';
 import React from 'react';
 //import { Suspense } from 'react';
-//const Introduction = React.lazy(() => import('../home-sections/Introduction'));
+//const about = React.lazy(() => import('../home-sections/about'));
 //const ProjectsSummary = React.lazy(() => import('../home-sections/ProjectsSummary'));
 //const ContactForm = React.lazy(() => import('../home-sections/ContactForm'));
 //const SkillAreas = React.lazy(() => import('../home-sections/SkillAreas'));
-import Introduction from '../home-sections/Introduction';
+import About from '../home-sections/About';
 import ProjectsSummary from '../home-sections/projects/ProjectsSummary';
 import ContactForm from '../home-sections/ContactForm';
 import SkillAreas from '../home-sections/skills/SkillAreas';
+import Landing from '../home-sections/Landing';
 
 interface Props {
     isDarkMode: boolean;
@@ -42,7 +43,8 @@ export const Home: React.FC<Props> = (props) => {
                 <meta name="twitter:image" content={process.env.PUBLIC_URL + `/Projects_section.jpg`} />
                 <meta name="robots" content="index, follow" />
             </Helmet>
-            <Introduction {...props} />
+            <Landing {...props} />
+            <About {...props} />
             <ProjectsSummary {...props} />
             <SkillAreas {...props} />
             <ContactForm {...props} />
