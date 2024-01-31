@@ -1,1 +1,35 @@
+# Configuration files
+.env
+.env.local
+
+# Git-related files
+.gitignore
+
+# TypeScript configuration files
+tsconfig.json
+
+# Generated TypeScript declaration files
+*.d.ts
+
+# Cypress configuration and test files
+cypress.json
+cypress/
+cypress.env.json
+cypress/fixtures/
+cypress/integration/
+cypress/plugins/
+cypress/screenshots/
+cypress/videos/
+.nycrc
+
+# LICENSE files
+LICENSE-content
+LICENSE-website
+LICENSE
+
+# Other
 package.json
+package-lock.json
+*.md
+*.txt
+_headers

@@ -1,6 +1,6 @@
 # PortfolioV3
 
-Welcome to my web portfolio! This project showcases my past projects, skills, and experience in a dynamic and interactive way. The portfolio is built using React, SASS, and Typescript.
+Welcome to my web portfolio! This project showcases my past projects, skills, and experience in a dynamic and interactive way. It's built using React, SASS, and Typescript and is based off [Create React App](https://github.com/facebook/create-react-app).
 
 ## Features
 
@@ -65,9 +65,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - **components:** React components including pages and sections.
     - **home-sections:** The main sections of the homepage.
     - **pages:** Individual pages.
-    - **shared:** Components shared across multiple pages.
+    - **shared:** Components shared across multiple components or pages.
   - **data:** Typescript objects storing data used on the website such as projects and skills.
   - **scss:** SASS files for styling the components and pages.
+- **cypress** Tests folder containing Cypress integration and component tests.
+- **public**  Static folder containing index.html, favicon and other assets.
 
 ## Available Scripts
 
@@ -75,8 +77,24 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - `npm run build`
 - `npm test`
 - `npm eject`
+- `npm run pretty`
+- `npm run cypress:open`
+- `npm run cypress-component`
+- `npm run cypress-e2e`
+- `npm run update-project-date`
+   - Updates the date in `.env.local` and `sitemap.xml` to current date.
+
+## TODO:
+
+- [x] Write README.md
+- [ ] Update styling and structure of the About and Landing sections
+- [ ] Update styling and structure of the Contact section
+- [ ] Update general copy
+- [ ] Update project copy
+- [ ] Add cypress tests
+- [ ] Add jest tests
+- [ ] Improve UX by updating styling for buttons and links.
 
 ## License
 
 The code in this project is licensed under the terms of the [LICENSE-website](LICENSE-website), while the content, including text and media, is licensed under the [LICENSE-content](LICENSE-content). See the respective files for detailed licensing information.
-
