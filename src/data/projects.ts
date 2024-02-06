@@ -428,6 +428,14 @@ const projects: IProject[] = [
 export default projects;
 
 /**
+ * Gets a list of the active projects.
+ * @returns An array of IProject items.
+ */
+export const getActiveProjects = (): IProject[] => {
+    return projects.filter((p) => !p.attributes.isDeleted);
+};
+
+/**
  * Gets a list of ISkills for a project.
  * @param project The project.
  * @returns An array of ISkill items.

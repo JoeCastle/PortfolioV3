@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { ProjectsSummaryTile } from './ProjectsSummaryTile';
-import projects from '../../../data/projects';
+import { getActiveProjects } from '../../../data/projects';
 import useOnScreen, { PageSectionIdType } from '../../../hooks/useOnScreen';
 import globals from '../../../utils/globals';
 
@@ -15,9 +15,8 @@ export const ProjectsSummary: React.FC<Props> = (props) => {
     const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;
     useOnScreen(ref);
 
-    const summaryProjects: JSX.Element[] = projects
+    const summaryProjects: JSX.Element[] = getActiveProjects()
         .slice(0, globals.numOfSummaryProjectsToDisplay + 1)
-        .filter((item) => item.attributes.isDeleted === false)
         .map((item, i) => <ProjectsSummaryTile key={i} project={item} />);
 
     return (

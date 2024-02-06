@@ -1,14 +1,19 @@
-@import 'theme.scss';
-@import 'navbar.scss';
-@import 'variables.scss';
-@import 'contact.scss';
-@import 'project.scss';
-@import 'skill.scss';
-@import 'footer.scss';
-@import 'fourzerofour.scss';
-@import 'skillarea.scss';
-@import 'yarl.scss';
-@import 'form.scss';
+@import 'shared/variables.scss';
+@import 'shared/theme.scss';
+@import 'shared/form.scss';
+
+@import 'component/navbar.scss';
+@import 'component/landing.scss';
+@import 'component/contact.scss';
+@import 'component/project.scss';
+@import 'component/skill.scss';
+@import 'component/footer.scss';
+
+@import 'component/skillarea.scss';
+
+@import 'page/fourzerofour.scss';
+
+@import 'override/yarl.scss';
 
 * {
     font-family: 'Maven Pro', sans-serif;

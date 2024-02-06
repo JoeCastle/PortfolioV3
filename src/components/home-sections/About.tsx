@@ -19,17 +19,27 @@ export const About: React.FC<Props> = (props) => {
                     <h2>About</h2>
                 </div>
                 <p>
-                    Throughout my career, I've successfully delivered customised solutions that empower companies to excel in their respective industries by catering to their
-                    unique business requirements. My strong focus on building scalable and efficient applications is driven by a genuine passion for leveraging cutting-edge
-                    technology to drive technical success. I thoroughly enjoy problem-solving and possess a keen ability to analyze and overcome technical challenges, ensuring
-                    seamless and innovative solutions.
+                    I'm a full-stack software developer with extensive hands-on experience in crafting high-quality, bespoke enterprise web applications. I have a deep
+                    understanding of effectively addressing complex technical requirements.
                 </p>
                 <p>
-                    I hold a first-class degree, BSc (Hons) Computer Science (Software Engineering) with Placement, from the University of Wolverhampton. This academic journey has
-                    greatly shaped my expertise in software engineering principles and practices, enhancing my ability to consistently deliver exceptional solutions.
+                    Proficient in a diverse range of technologies, including React, .NET, and SQL Server, I approach projects with precision and creativity, ensuring the best
+                    possible technical outcomes.
                 </p>
-
-                <p>Take a look below at some of my personal projects.</p>
+                <p>
+                    Throughout my career, I've successfully delivered customised solutions that empower companies to excel in their respective industries by catering to their
+                    unique business requirements. My strong focus on building scalable and efficient applications is driven by a genuine passion for leveraging cutting-edge
+                    technology to drive technical success.
+                </p>
+                <p>
+                    I thoroughly enjoy problem-solving and possess a keen ability to analyze and overcome technical challenges, ensuring seamless and innovative solutions. In my
+                    work, I prioritize clean code, documentation, testing, user experience and continuous learning, which enables me to deliver high-quality solutions that align
+                    with best practices and industry standards.
+                </p>
+                <p>
+                    Beyond coding, I value effective communication and teamwork. I enjoy collaborating with cross-functional teams, bridging the gap between technical and
+                    non-technical stakeholders, and turning complex ideas into user-friendly solutions.
+                </p>
             </div>
         </div>
     );

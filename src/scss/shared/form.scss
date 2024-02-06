@@ -1,4 +1,4 @@
-@import 'variables.scss';
+@import '../shared/variables.scss';
 
 .form-group {
     margin-bottom: 15px;
@@ -8,4 +8,8 @@
     background-color: $standard-blue-background;
     color: #ffffff;
     border-color: $standard-blue-background;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    border: none;
+    text-align: center;
+    border-radius: 4px;
 }
