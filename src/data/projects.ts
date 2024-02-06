@@ -61,7 +61,7 @@ const projects: IProject[] = [
             title: 'Portfolio',
             disclaimer: '',
             description: [
-                "This is the website you are currently viewing. It's an online portfolio of my past projects, skills and experience. Built with accessibility and SEO in mind.",
+                "The website you are currently viewing. It's an online portfolio of my past projects, skills and experience. Built with accessibility and SEO in mind.",
                 'The primary goals of this project were to serve as a central repository of my projects, and to be a simple and easily maintainable project that can be updated and revised rapidly.',
                 'The biggest challenge I had to overcome was my lack of artistic and design skills. I found it difficult to design a website that was simple, visually appealing and unique.',
             ],
@@ -187,7 +187,7 @@ const projects: IProject[] = [
             title: 'Arduino Temperature Sensor',
             disclaimer: '',
             description: [
-                'This was completed as part of a group project for my university course. The primary goal of the module was not just programming, but collaborative development between a group of students. Working together with other students do develop a product from start to finish, with communication between group members as a key aspect. This involved planning sprints, allocating tasks and weekly meetings.',
+                'Completed as part of a group project for my university course. The primary goal of the module was not just programming, but collaborative development between a group of students. Working together with other students do develop a product from start to finish, with communication between group members as a key aspect. This involved planning sprints, allocating tasks and weekly meetings.',
                 'As collaboration was the core focus, we would meet weekly, communicate frequently and use version control to manage the code between developers.',
                 'My role on the project was Embedded Developer. It was my job to design and build the Arduino circuit, as well as write the code to collect the temperature data, act on the readings, and post the results to a webpage. Other roles in the group included web developers, project manager, business manager and database administrator.',
                 'I thoroughly enjoyed this module as it was the first time at university that I was able to collaborate with other students in this way. I also learned something new, as I had never use an Arduino before and had no experience with electrical engineering.',
