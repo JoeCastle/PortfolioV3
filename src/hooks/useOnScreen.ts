@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
  * NavLink ids.
  */
 export enum NavLinkIdType {
+    Landing = 'landing-navlink',
     About = 'about-navlink',
     Projects = 'projects-navlink',
     Skills = 'skills-navlink',
@@ -16,7 +17,8 @@ export enum NavLinkIdType {
  * Page section component ids.
  */
 export enum PageSectionIdType {
-    About = 'introduction-content-container',
+    Landing = 'landing-content-container',
+    About = 'about-content-container',
     Projects = 'project-summary-content-container',
     Skills = 'skills-summary-content-container',
     Contact = 'contact-content-container',
@@ -26,6 +28,7 @@ export enum PageSectionIdType {
  * Maps PageSectionIdTypes to their corresponding NavLinkIdTypes
  */
 const sectionToNavLinkMap: Record<PageSectionIdType, NavLinkIdType> = {
+    [PageSectionIdType.Landing]: NavLinkIdType.Landing,
     [PageSectionIdType.About]: NavLinkIdType.About,
     [PageSectionIdType.Projects]: NavLinkIdType.Projects,
     [PageSectionIdType.Skills]: NavLinkIdType.Skills,
@@ -40,7 +43,7 @@ const sectionToNavLinkMap: Record<PageSectionIdType, NavLinkIdType> = {
  * @param rootMargin The scroll offset. Determines how many pixels of the component (element) can show before it's triggered.
  * @returns True if on screen, false if not.
  */
-export default function useOnScreen(ref: React.MutableRefObject<Element>, rootMargin = '0px'): boolean {
+export default function useOnScreen(ref: React.MutableRefObject<Element>, rootMargin = '-300px'): boolean {
     // State and setter for storing whether element is visible
     const [isIntersecting, setIntersecting] = useState<boolean>(false);
 

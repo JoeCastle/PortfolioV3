@@ -24,7 +24,9 @@ export type SkillOption =
     | 'c/c++'
     | 'mitappinventor'
     | 'arduino'
-    | 'gitgithub';
+    | 'gitgithub'
+    | 'vb'
+    | 'vbnet';
 
 enum SkillType {
     Language = 0,
@@ -198,14 +200,14 @@ const skills: ISkill[] = [
         type: SkillType.Software,
         skillArea: SkillAreaType.Other,
     },
-    //{
-    //    skillName: 'knockoutjs',
-    //    title: 'KnockoutJS',
-    //    img: images.mssqlserverLogo,
-    //    altTag: 'knockoutjs logo',
-    //    type: SkillType.language,
-    //    skillArea: SkillAreaType.frontEnd
-    //},
+    {
+        skillName: 'knockoutjs',
+        title: 'KnockoutJS',
+        img: '',
+        altTag: 'KnockoutJS logo',
+        type: SkillType.Language,
+        skillArea: SkillAreaType.FrontEnd,
+    },
     {
         skillName: 'azure',
         title: 'Azure',
@@ -254,6 +256,22 @@ const skills: ISkill[] = [
         altTag: 'Git/GitHub logo',
         type: SkillType.Other,
         skillArea: SkillAreaType.Other,
+    },
+    {
+        skillName: 'vb',
+        title: 'Visual Basic',
+        img: '',
+        altTag: 'Visual Basic logo',
+        type: SkillType.Language,
+        skillArea: SkillAreaType.BackEnd,
+    },
+    {
+        skillName: 'vbnet',
+        title: 'VB.NET',
+        img: '',
+        altTag: 'VB.NET logo',
+        type: SkillType.Language,
+        skillArea: SkillAreaType.BackEnd,
     },
 ];
 

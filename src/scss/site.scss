@@ -1,20 +1,19 @@
-@import 'theme.scss';
-@import 'navbar.scss';
-@import 'variables.scss';
-@import 'contact.scss';
-@import 'project.scss';
-@import 'skill.scss';
-@import 'footer.scss';
-@import 'fourzerofour.scss';
-@import 'skillarea.scss';
-@import 'yarl.scss';
+@import 'shared/variables.scss';
+@import 'shared/theme.scss';
+@import 'shared/form.scss';
 
-// Intersection observer doesn't work on touch screen devices, so we want to show content by default.
-.content-container {
-    @media (hover: none) and (pointer: coarse) {
-        opacity: 1 !important;
-    }
-}
+@import 'component/navbar.scss';
+@import 'component/landing.scss';
+@import 'component/contact.scss';
+@import 'component/project.scss';
+@import 'component/skill.scss';
+@import 'component/footer.scss';
+
+@import 'component/skillarea.scss';
+
+@import 'page/fourzerofour.scss';
+
+@import 'override/yarl.scss';
 
 * {
     font-family: 'Maven Pro', sans-serif;
@@ -62,6 +61,13 @@ body {
     overflow: hidden;
 }
 
+// Intersection observer doesn't work on touch screen devices, so we want to show content by default.
+.content-container {
+    @media (hover: none) and (pointer: coarse) {
+        opacity: 1 !important;
+    }
+}
+
 a {
     color: $global-hyperlink-colour;
 }
@@ -79,54 +85,54 @@ main {
     margin-top: 70px;
     display: flex;
     flex-direction: column;
+}
 
-    #scroll-to-top-btn {
-        box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
-        border: none;
-        color: #ffffff;
-        width: 50px;
-        height: 50px;
-        text-align: center;
-        border-radius: 4px;
-        background-color: $standard-blue-background;
-        position: fixed;
-        bottom: 36px;
-        right: 50px;
-        visibility: hidden;
-        opacity: 0;
-        transition:
-            opacity $global-animation-time ease-in-out,
-            visibility $global-animation-time ease-in-out;
-        will-change: opacity, visibility;
+#scroll-to-top-btn {
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    border: none;
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: $standard-blue-background;
+    position: fixed;
+    bottom: 36px;
+    right: 50px;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+        opacity $global-animation-time ease-in-out,
+        visibility $global-animation-time ease-in-out;
+    will-change: opacity, visibility;
 
-        @media (max-width: 450px) {
-            bottom: 20px;
-            right: 30px;
-        }
+    @media (max-width: 450px) {
+        bottom: 20px;
+        right: 30px;
     }
+}
 
-    #scroll-to-top-btn.show {
-        visibility: visible;
-        opacity: 1;
-        transition:
-            opacity $global-animation-time ease-in-out,
-            visibility $global-animation-time ease-in-out;
-        will-change: opacity, visibility;
-    }
+#scroll-to-top-btn.show {
+    visibility: visible;
+    opacity: 1;
+    transition:
+        opacity $global-animation-time ease-in-out,
+        visibility $global-animation-time ease-in-out;
+    will-change: opacity, visibility;
+}
 
-    #theme-changer-btn {
-        position: fixed;
-        bottom: 28px;
-        left: 28px;
-        color: $standard-blue-background;
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        outline: 0;
+#theme-changer-btn {
+    position: fixed;
+    bottom: 28px;
+    left: 28px;
+    color: $standard-blue-background;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: 0;
 
-        > i {
-            font-size: 18px;
-        }
+    > i {
+        font-size: 18px;
     }
 }
 
@@ -178,7 +184,8 @@ main {
     }
 }
 
-.section.about {
+.section.about,
+.section.landing {
     min-height: calc(100vh - #{$navbar-height});
 }
 
@@ -224,11 +231,8 @@ main {
     cursor: default;
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
-
-#introduction-content-container {
+#about-content-container,
+#landing-content-container {
     max-width: 950px;
 }
 
@@ -239,10 +243,4 @@ a {
 
 code {
     color: #e01a76;
-}
-
-.portfolio-btn {
-    background-color: $standard-blue-background;
-    color: #ffffff;
-    border-color: $standard-blue-background;
 }

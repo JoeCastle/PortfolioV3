@@ -1,4 +1,4 @@
-@import 'variables.scss';
+@import '../shared/variables.scss';
 
 @media (max-width: $mobile-max-width-breakpoint) {
     /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */

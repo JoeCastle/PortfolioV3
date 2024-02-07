@@ -10,7 +10,7 @@ import useOnScreen, { PageSectionIdType } from '../../../hooks/useOnScreen';
  */
 export const SkillsSummary = (): JSX.Element => {
     const ref: React.MutableRefObject<HTMLInputElement> = useRef() as React.MutableRefObject<HTMLInputElement>;
-    useOnScreen(ref, '-300px');
+    useOnScreen(ref);
 
     const numOfSummarySkillsToDisplay = 16;
 
