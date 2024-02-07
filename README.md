@@ -87,7 +87,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## TODO:
 
 - [x] Write README.md
-- [ ] Update styling and structure of the About and Landing sections
+- [x] Update styling and structure of the About and Landing sections
 - [ ] Update styling and structure of the Contact section
 - [ ] Update general copy
 - [ ] Update project copy
