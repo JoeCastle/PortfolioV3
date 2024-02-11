@@ -105,7 +105,7 @@ export const RouteContainer = (props: Props, state: State): JSX.Element => {
                 <Footer {...props} />
             </footer>
 
-            <button id="scroll-to-top-btn" onClick={handleScrollToTop} title="Scroll to top">
+            <button id="scroll-to-top-btn" className={'portfolio-btn'} onClick={handleScrollToTop} title="Scroll to top">
                 <i className="fas fa-arrow-up"></i>
             </button>
 

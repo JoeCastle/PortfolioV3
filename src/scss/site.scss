@@ -72,6 +72,11 @@ a {
     color: $global-hyperlink-colour;
 }
 
+a:hover,
+a:active {
+    color: $dark-blue-background !important;
+}
+
 main {
     width: 100%;
     flex: 1 0 auto;
@@ -88,14 +93,14 @@ main {
 }
 
 #scroll-to-top-btn {
-    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
-    border: none;
-    color: #ffffff;
+    //box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    //border: none;
+    //color: #ffffff;
     width: 50px;
     height: 50px;
-    text-align: center;
-    border-radius: 4px;
-    background-color: $standard-blue-background;
+    //text-align: center;
+    //border-radius: 4px;
+    //background-color: $standard-blue-background;
     position: fixed;
     bottom: 36px;
     right: 50px;
@@ -237,9 +242,6 @@ main {
 }
 
 /* Provide sufficient contrast against white background */
-a {
-    color: #0366d6;
-}
 
 code {
     color: #e01a76;

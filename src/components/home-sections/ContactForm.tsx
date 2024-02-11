@@ -211,10 +211,10 @@ export const ContactForm: React.FC<Props> = (props) => {
                                     invalid={messageStatus === FieldStatusEnum.ERROR}
                                 />
                             </FormGroup>
-                            <Button className="portfolio-btn" disabled={isLoading} onClick={handleSubmit}>
+                            <Button className="portfolio-btn portfolio-btn-primary contact-button" disabled={isLoading} onClick={handleSubmit}>
                                 Submit
                             </Button>
-                            <Button className="portfolio-btn clear-button" disabled={isLoading} onClick={setInitialValues}>
+                            <Button className="portfolio-btn portfolio-btn-secondary contact-button clear-button" disabled={isLoading} onClick={setInitialValues}>
                                 Clear
                             </Button>
                             <p className={`form-error-message ${formError !== '' ? 'opacity-show' : ''}`}>{formError}</p>
