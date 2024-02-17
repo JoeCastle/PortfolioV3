@@ -20,6 +20,10 @@
     border-color: $dark-blue-background !important;
 }
 
+.portfolio-btn:active {
+    transform: translateY(1.5px);
+}
+
 .portfolio-btn-primary,
 .portfolio-btn-primary:focus {
     background-color: $standard-blue-background;

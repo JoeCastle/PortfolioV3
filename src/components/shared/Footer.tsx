@@ -14,7 +14,7 @@ export const Footer: React.FC<Props> = (props) => {
         <div>
             <div>
                 <h3>Joseph Castle</h3>
-                <h4>Software Developer</h4>
+                <h4>Full-Stack Software Developer</h4>
                 <div className="contact-info-footer">
                     <a
                         target="_blank"

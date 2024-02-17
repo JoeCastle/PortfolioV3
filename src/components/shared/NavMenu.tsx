@@ -41,22 +41,22 @@ export const NavMenu: React.FC<Props> = (props: Props) => {
                         <ul className="nav navbar-nav" id="navmenu-ul">
                             <li>
                                 <Link id={NavLinkIdType.About} to="/#About">
-                                    <i className="fas fa-info"></i> About
+                                    About
                                 </Link>
                             </li>
                             <li>
                                 <Link id={NavLinkIdType.Projects} to="/#Projects">
-                                    <i className="fas fa-laptop-code"></i> Projects
+                                    Projects
                                 </Link>
                             </li>
                             <li>
                                 <Link id={NavLinkIdType.Skills} to="/#Skills">
-                                    <i className="fas fa-code"></i> Skills
+                                    Skills
                                 </Link>
                             </li>
                             <li>
                                 <Link id={NavLinkIdType.Contact} to="/#Contact">
-                                    <i className="fas fa-envelope"></i> Contact
+                                    Contact
                                 </Link>
                             </li>
                         </ul>
