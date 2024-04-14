@@ -153,7 +153,7 @@ export const ContactForm: React.FC<Props> = (props) => {
                 </div>
 
                 <div className="contact-form-info">
-                    <div className="contact-info">
+                    <div className="socials">
                         <a target="_blank" rel="noopener noreferrer" href={globals.linkedInData.url} aria-label="LinkedIn link.">
                             <i className="fab fa-linkedin-in"></i> <div>LinkedIn</div>
                         </a>

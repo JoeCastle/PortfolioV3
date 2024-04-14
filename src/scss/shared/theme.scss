@@ -65,7 +65,7 @@
     }
 
     .about {
-        .contact-info {
+        .socials {
             > a {
                 > div {
                     background: $light-secondary-background-colour;
@@ -100,7 +100,7 @@
             will-change: color;
         }
 
-        .contact-info-footer {
+        .socials-footer {
             > a {
                 > div {
                     background-color: $light-secondary-background-colour;
@@ -176,7 +176,7 @@
     }
 
     .about {
-        .contact-info {
+        .socials {
             > a {
                 > div {
                     background: $dark-secondary-background-colour;
@@ -211,7 +211,7 @@
             will-change: color;
         }
 
-        .contact-info-footer {
+        .socials-footer {
             > a {
                 > div {
                     background-color: $dark-secondary-background-colour;

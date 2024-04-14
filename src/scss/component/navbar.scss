@@ -189,8 +189,7 @@ nav.navbar {
 
     a:hover,
     a.active:hover,
-    a.active,
-    a:focus {
+    a.active {
         color: $light-navbar-font-colour-hover !important;
         background-color: $light-navbar-background-colour !important;
     }
@@ -234,8 +233,7 @@ nav.navbar {
 
         a:hover,
         a.active:hover,
-        a.active,
-        a:focus {
+        a.active {
             color: $dark-navbar-font-colour-hover !important;
             background-color: $dark-navbar-background-colour !important;
         }

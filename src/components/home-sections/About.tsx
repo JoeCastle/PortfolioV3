@@ -36,7 +36,7 @@ export const About: React.FC<Props> = (props) => {
                     non-technical stakeholders, and turning complex ideas into user-friendly solutions.
                 </p>
 
-                <div className="contact-info">
+                <div className="socials">
                     <a
                         target="_blank"
                         rel="noopener noreferrer"

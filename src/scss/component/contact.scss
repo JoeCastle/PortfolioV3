@@ -1,10 +1,10 @@
 @import '../shared/variables.scss';
 
-.contact-info {
+.socials {
     display: flex;
     justify-content: space-around;
     flex: 1 0 30%;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 
     @media (max-width: 800px) {
@@ -35,7 +35,7 @@
 }
 
 .about {
-    .contact-info {
+    .socials {
         flex-direction: row;
         justify-content: space-evenly;
         margin-top: 60px;
@@ -75,6 +75,7 @@
     .contact-button {
         width: 150px;
         height: 40px;
+        margin-top: 6px;
     }
 
     .clear-button {
@@ -92,15 +93,18 @@
 .contact-form-info-container {
     .contact-form-info {
         display: flex;
-        flex-direction: row;
+        //flex-direction: row;
+        flex-direction: column;
+        max-width: 825px;
+        margin: 0 auto;
 
-        @media (max-width: 800px) {
-            flex-direction: column;
-        }
+        // @media (max-width: 800px) {
+        //     flex-direction: column;
+        // }
     }
 }
 
-.contact-info-form-info {
+.socials-form-info {
     display: flex;
     flex-direction: row;
 }
