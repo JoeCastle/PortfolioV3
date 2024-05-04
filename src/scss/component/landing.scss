@@ -7,6 +7,10 @@
     margin-bottom: 40px;
     border: none;
     padding-bottom: 0px;
+
+    @media (max-width: 768px) {
+        font-size: 36px;
+    }
 }
 
 .section-title-wrapper-landing {
@@ -15,8 +19,6 @@
     h2 {
         font-weight: bold;
         text-align: center;
-        //font-size: 42px;
-        margin-bottom: 30px;
         padding-bottom: 10px;
         margin-bottom: 20px;
         display: inline-block;

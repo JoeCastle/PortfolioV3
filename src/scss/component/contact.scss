@@ -78,8 +78,23 @@
         margin-top: 6px;
     }
 
-    .clear-button {
-        margin-left: 20px;
+    .contact-form-button-container {
+        display: flex;
+        justify-content: center;
+        padding-top: 15px;
+
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .submit-button {
+            margin-right: 40px;
+
+            @media (max-width: 768px) {
+                margin-right: 10px;
+            }
+        }
     }
 
     .form-error-message {

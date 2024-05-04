@@ -89,8 +89,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [x] Write README.md.
 - [x] Update styling and structure of the About and Landing sections.
 - [x] Improve UX by updating styling for buttons and links.
-- [ ] Update styling and structure of the Contact section.
-- [ ] Update styling and structure of the footer.
+- [x] Update styling and structure of the Contact section.
+- [x] Update styling and structure of the footer.
 - [ ] Update general copy.
 - [ ] Update project copy.
 - [ ] Add cypress tests.

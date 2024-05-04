@@ -78,12 +78,21 @@ const getYearsOfExperience = (): number => {
     return yearsOfExperience;
 };
 
+/**
+ * Validates whether the form input is valid.
+ * @param value The text input by the user.
+ */
+const isFormInputValid = (value: string) => {
+    return value.replace(' ', '') !== '';
+};
+
 const utils = {
     getGoogleImageExportURL,
     getGoogleImageExportURLs,
     decodeHTML,
     navigateToEmail,
     getYearsOfExperience,
+    isFormInputValid,
 };
 
 export default utils;

@@ -25,12 +25,16 @@ enum FieldStatusEnum {
  */
 export const ContactForm: React.FC<Props> = (props) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
+
     const [fullName, setFullName] = useState<string>('');
     const [fullNameStatus, setFullNameStatus] = useState<FieldStatusEnum>(FieldStatusEnum.DEFAULT);
+
     const [subject, setSubject] = useState<string>('');
     const [subjectStatus, setSubjectStatus] = useState<FieldStatusEnum>(FieldStatusEnum.DEFAULT);
+
     const [message, setMessage] = useState<string>('');
     const [messageStatus, setMessageStatus] = useState<FieldStatusEnum>(FieldStatusEnum.DEFAULT);
+
     const [formError, setFormError] = useState<string>('');
 
     const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;
@@ -71,32 +75,32 @@ export const ContactForm: React.FC<Props> = (props) => {
     };
 
     const validateFullName = (val: string): boolean => {
-        if (val.replace(' ', '') === '') {
-            setFullNameStatus(FieldStatusEnum.ERROR);
-            return false;
-        } else {
+        if (utils.isFormInputValid(val)) {
             setFullNameStatus(FieldStatusEnum.SUCCESS);
             return true;
+        } else {
+            setFullNameStatus(FieldStatusEnum.ERROR);
+            return false;
         }
     };
 
     const validateSubject = (val: string): boolean => {
-        if (val.replace(' ', '') === '') {
-            setSubjectStatus(FieldStatusEnum.ERROR);
-            return false;
-        } else {
+        if (utils.isFormInputValid(val)) {
             setSubjectStatus(FieldStatusEnum.SUCCESS);
             return true;
+        } else {
+            setSubjectStatus(FieldStatusEnum.ERROR);
+            return false;
         }
     };
 
     const validateMessage = (val: string): boolean => {
-        if (val.replace(' ', '') === '') {
-            setMessageStatus(FieldStatusEnum.ERROR);
-            return false;
-        } else {
+        if (utils.isFormInputValid(val)) {
             setMessageStatus(FieldStatusEnum.SUCCESS);
             return true;
+        } else {
+            setMessageStatus(FieldStatusEnum.ERROR);
+            return false;
         }
     };
 
@@ -211,12 +215,14 @@ export const ContactForm: React.FC<Props> = (props) => {
                                     invalid={messageStatus === FieldStatusEnum.ERROR}
                                 />
                             </FormGroup>
-                            <Button className="portfolio-btn portfolio-btn-primary contact-button" disabled={isLoading} onClick={handleSubmit}>
-                                Submit
-                            </Button>
-                            <Button className="portfolio-btn portfolio-btn-secondary contact-button clear-button" disabled={isLoading} onClick={setInitialValues}>
-                                Clear
-                            </Button>
+                            <div className="contact-form-button-container">
+                                <Button className="portfolio-btn portfolio-btn-primary contact-button submit-button" disabled={isLoading} onClick={handleSubmit}>
+                                    Submit
+                                </Button>
+                                <Button className="portfolio-btn portfolio-btn-secondary contact-button clear-button" disabled={isLoading} onClick={setInitialValues}>
+                                    Clear
+                                </Button>
+                            </div>
                             <p className={`form-error-message ${formError !== '' ? 'opacity-show' : ''}`}>{formError}</p>
                         </Form>
                     </div>
