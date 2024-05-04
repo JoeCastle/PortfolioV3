@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import globals from '../../utils/globals';
+import utils from '../../utils/utils';
 
 interface Props {}
 
@@ -12,10 +13,14 @@ interface Props {}
 export const Footer: React.FC<Props> = (props) => {
     return (
         <div>
-            <div>
-                <h3>Joseph Castle</h3>
-                <h4>Software Developer</h4>
-                <div className="contact-info-footer">
+            <div className="footer-top-content">
+                <div>
+                    <h3>Joseph Castle</h3>
+                    <p>
+                        A full-stack software developer with {utils.getYearsOfExperience()} years of experience building bespoke web applications with React, .NET and SQL Server.
+                    </p>
+                </div>
+                <div className="socials-footer">
                     <a
                         target="_blank"
                         rel="noopener noreferrer"
@@ -48,7 +53,7 @@ export const Footer: React.FC<Props> = (props) => {
 
             <div className="divider" />
 
-            <ul className="footer-navlinks" id="footer-navlinks">
+            {/* <ul className="footer-navlinks" id="footer-navlinks">
                 <li>
                     <Link to="/#About">About</Link>
                 </li>
@@ -61,11 +66,13 @@ export const Footer: React.FC<Props> = (props) => {
                 <li>
                     <Link to="/#Contact">Contact</Link>
                 </li>
-            </ul>
+            </ul> */}
 
-            <p className="copyright-text">Copyright &copy; 2019 - {new Date().getFullYear()} Joseph Castle. All Rights Reserved.</p>
+            <div className="footer-bottom-content">
+                <p className="copyright-text">Copyright &copy; 2019 - {new Date().getFullYear()} Joseph Castle. All Rights Reserved.</p>
 
-            <p className="version-text">v{process.env.REACT_APP_VERSION}</p>
+                <p className="version-text">v{process.env.REACT_APP_VERSION}</p>
+            </div>
         </div>
     );
 };

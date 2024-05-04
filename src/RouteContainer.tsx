@@ -23,6 +23,7 @@ const isDarkModeDefault = globals.isDarkModeDefault;
 export const RouteContainer = (props: Props, state: State): JSX.Element => {
     const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
     const [hasMounted, setHasMounted] = useState<boolean>(false);
+    const [isScrollToTopButtonDisabled, setIsScrollToTopButtonDisabled] = useState<boolean>(false);
 
     useEffect(() => {
         setHasMounted(true);
@@ -47,14 +48,17 @@ export const RouteContainer = (props: Props, state: State): JSX.Element => {
 
     // Scroll to the top of the page.
     const handleScrollToTop = (): void => {
-        let element: HTMLElement | null = document.getElementById('page-parent');
+        if (!isScrollToTopButtonDisabled) {
+            setIsScrollToTopButtonDisabled(true);
+            let element: HTMLElement | null = document.getElementById('page-parent');
 
-        if (element) {
-            element.classList.add('smooth-scroll');
+            if (element) {
+                element.classList.add('smooth-scroll');
 
-            element.scrollTop = 0;
+                element.scrollTop = 0;
 
-            element.classList.remove('smooth-scroll');
+                element.classList.remove('smooth-scroll');
+            }
         }
     };
 
@@ -68,6 +72,7 @@ export const RouteContainer = (props: Props, state: State): JSX.Element => {
                 element.classList.add('show');
             } else {
                 element.classList.remove('show');
+                setIsScrollToTopButtonDisabled(false);
             }
         }
     };
@@ -105,7 +110,7 @@ export const RouteContainer = (props: Props, state: State): JSX.Element => {
                 <Footer {...props} />
             </footer>
 
-            <button id="scroll-to-top-btn" onClick={handleScrollToTop} title="Scroll to top">
+            <button id="scroll-to-top-btn" className={'portfolio-btn'} onClick={handleScrollToTop} title="Scroll to top">
                 <i className="fas fa-arrow-up"></i>
             </button>
 

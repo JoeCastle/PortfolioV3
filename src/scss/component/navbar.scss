@@ -132,7 +132,7 @@ nav.navbar {
                 cursor: pointer;
                 position: relative;
                 text-decoration: none;
-                font-size: 16px;
+                font-size: 18px;
 
                 @media (max-width: $mobile-max-width-breakpoint) {
                     padding: 10px 20px;
@@ -164,103 +164,6 @@ nav.navbar {
         }
     }
 }
-
-/**
-    START - Handle theming.
-*/
-nav.navbar {
-    transition:
-        color $global-animation-time ease-in-out,
-        background-color $global-animation-time ease-in-out,
-        border-color $global-animation-time ease-in-out;
-    will-change: color, background-color, border-color;
-    background: $light-secondary-background-colour;
-    color: $light-navbar-font-colour;
-    border: 1px solid $light-secondary-background-colour;
-
-    a {
-        transition:
-            color $global-animation-time ease-in-out,
-            background-color $global-animation-time ease-in-out,
-            border-color $global-animation-time ease-in-out;
-        will-change: color, background-color, border-color;
-        color: $light-navbar-font-colour;
-    }
-
-    a:hover,
-    a.active:hover,
-    a.active,
-    a:focus {
-        color: $light-navbar-font-colour-hover !important;
-        background-color: $light-navbar-background-colour !important;
-    }
-
-    .container-fluid {
-        .navbar-collapse {
-            @media (min-width: $mobile-min-width-breakpoint) {
-                a:after {
-                    background-color: $light-navbar-font-colour-hover;
-                }
-            }
-        }
-    }
-
-    .navbar-toggler {
-        border-color: #a2a2a2;
-        transition: border-color $global-animation-time ease-in-out;
-        will-change: border-color;
-    }
-}
-
-.theme-container.dark-theme {
-    nav.navbar {
-        transition:
-            color $global-animation-time ease-in-out,
-            background-color $global-animation-time ease-in-out,
-            border-color $global-animation-time ease-in-out;
-        will-change: color, background-color, border-color;
-        color: $dark-navbar-font-colour;
-        background-color: $dark-navbar-background-colour;
-        border: 1px solid $dark-navbar-background-colour;
-
-        a {
-            transition:
-                color $global-animation-time ease-in-out,
-                background-color $global-animation-time ease-in-out,
-                border-color $global-animation-time ease-in-out;
-            will-change: color, background-color, border-color;
-            color: $dark-navbar-font-colour !important;
-        }
-
-        a:hover,
-        a.active:hover,
-        a.active,
-        a:focus {
-            color: $dark-navbar-font-colour-hover !important;
-            background-color: $dark-navbar-background-colour !important;
-        }
-
-        .container-fluid {
-            .navbar-collapse {
-                @media (min-width: $mobile-min-width-breakpoint) {
-                    a:after {
-                        background-color: $dark-navbar-font-colour-hover;
-                    }
-                }
-            }
-        }
-
-        .navbar-toggler {
-            border-color: #333;
-            transition: border-color $global-animation-time ease-in-out;
-            will-change: border-color;
-        }
-    }
-}
-
-/**
-    END - Handle theming.
-*/
 
 .navbar-expand-md .navbar-toggler {
     @media (min-width: $mobile-min-width-breakpoint) {

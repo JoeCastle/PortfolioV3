@@ -1,224 +1,174 @@
 @import '../shared/variables.scss';
-// Theme styling.
 
-// Light theme.
+@mixin transition-properties($properties) {
+    $transition-list: ();
+    @each $prop in $properties {
+        $transition-list: append($transition-list, $prop $global-animation-time ease-in-out, comma);
+    }
+    transition: $transition-list;
+    will-change: $properties;
+}
+
+// Light theme styles
 .theme-container {
     color: $light-primary-font-colour;
     background-color: $light-primary-background-colour;
-    transition:
-        color $global-animation-time ease-in-out,
-        background-color $global-animation-time ease-in-out;
-    will-change: color, background-color;
+    @include transition-properties((color, background-color));
 
-    .content-container {
-        h2 {
-            border-bottom: 3px solid $light-navbar-font-colour-hover;
-            transition: border-bottom $global-animation-time ease-in-out;
-            will-change: border-bottom;
-        }
+    .content-container h2 {
+        border-bottom: 3px solid $light-navbar-font-colour-hover;
+        @include transition-properties((border-bottom));
     }
 
     input,
     textarea {
-        background-color: #ffffff;
+        background-color: $light-secondary-background-colour;
         color: $light-primary-font-colour;
-        transition:
-            color $global-animation-time ease-in-out,
-            background-color $global-animation-time ease-in-out;
-        will-change: color, background-color;
-    }
-
-    .form-control {
-        border: 1px solid #ccc;
-        background: #ffffff;
-        transition:
-            border $global-animation-time ease-in-out,
-            background $global-animation-time ease-in-out;
-        will-change: border, background;
-    }
-
-    .project-summary-tile {
-        background-color: $light-secondary-background-colour;
         border: $light-border;
-        transition:
-            border $global-animation-time ease-in-out,
-            background-color $global-animation-time ease-in-out;
-        will-change: border, background-color, box-shadow;
+        @include transition-properties((color, background-color, border));
     }
 
-    .skill-summary-tile {
-        background-color: $light-secondary-background-colour;
-        border: $light-border;
-        transition:
-            border $global-animation-time ease-in-out,
-            background-color $global-animation-time ease-in-out;
-        will-change: border, background-color, box-shadow;
-    }
-
+    .project-summary-tile,
+    .skill-summary-tile,
     .skillarea-summary-tile {
         background-color: $light-secondary-background-colour;
         border: $light-border;
-        transition:
-            border $global-animation-time ease-in-out,
-            background-color $global-animation-time ease-in-out;
-        will-change: border, background-color, box-shadow;
+        @include transition-properties((background-color, border));
     }
 
-    .about {
-        .contact-info {
-            > a {
-                > div {
-                    background: $light-secondary-background-colour;
-                    box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.3);
-                    transition:
-                        border $global-animation-time ease-in-out,
-                        background-color $global-animation-time ease-in-out;
-                    will-change: border, background, box-shadow;
-                }
-            }
-        }
+    .about .socials > a > div {
+        background-color: $light-secondary-background-colour;
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.3);
+        @include transition-properties((background-color, box-shadow));
     }
 
-    ul.skillarea-summary-tile-techs {
-        > li {
-            color: $standard-blue-background;
-            transition: color $global-animation-time ease-in-out;
-            will-change: color;
+    ul.skillarea-summary-tile-techs > li {
+        color: $standard-blue-background;
+        @include transition-properties((color));
 
-            > span {
-                color: $light-primary-font-colour;
-                transition: color $global-animation-time ease-in-out;
-                will-change: color;
-            }
+        > span {
+            color: $light-primary-font-colour;
+            @include transition-properties((color));
         }
     }
 
     footer {
+        background-color: $light-secondary-background-colour;
+        @include transition-properties((background-color));
+
         a {
             color: $standard-blue-background;
-            transition: color $global-animation-time ease-in-out;
-            will-change: color;
+            @include transition-properties((color));
         }
 
-        .contact-info-footer {
-            > a {
-                > div {
-                    background-color: $light-secondary-background-colour;
-                    transition: background-color $global-animation-time ease-in-out;
-                    will-change: background-color;
+        .socials-footer > a > div {
+            background-color: $light-secondary-background-colour;
+            @include transition-properties((background-color));
+        }
+    }
+
+    nav.navbar {
+        background: $light-secondary-background-colour;
+        color: $light-navbar-font-colour;
+        border: 1px solid $light-secondary-background-colour;
+
+        @include transition-properties((color, background-color, border-color));
+
+        a {
+            color: $light-navbar-font-colour;
+
+            @include transition-properties((color, background-color, border-color));
+        }
+
+        a:hover,
+        a.active:hover,
+        a.active {
+            color: $light-navbar-font-colour-hover !important;
+            background-color: $light-navbar-background-colour !important;
+        }
+
+        .container-fluid {
+            .navbar-collapse {
+                @media (min-width: $mobile-min-width-breakpoint) {
+                    a:after {
+                        background-color: $light-navbar-font-colour-hover;
+                    }
                 }
             }
+        }
+
+        .navbar-toggler {
+            border-color: #a2a2a2;
+
+            @include transition-properties((border-color));
         }
     }
 }
 
-// Dark theme.
+// Dark theme adjustments
 .theme-container.dark-theme {
     color: $dark-primary-font-colour;
     background-color: $dark-primary-background-colour;
-    transition:
-        color $global-animation-time ease-in-out,
-        background-color $global-animation-time ease-in-out;
-    will-change: color, background-color;
-
-    .content-container {
-        h2 {
-            border-bottom: 3px solid $dark-navbar-font-colour-hover;
-            transition: border-bottom $global-animation-time ease-in-out;
-            will-change: border-bottom;
-        }
-    }
 
     input,
     textarea {
-        background-color: transparent;
+        background-color: $dark-secondary-background-colour;
         color: $dark-primary-font-colour;
-        transition:
-            color $global-animation-time ease-in-out,
-            background-color $global-animation-time ease-in-out;
-        will-change: color, background-color;
-    }
-
-    .form-control {
         border: $dark-border;
-        background: $dark-secondary-background-colour;
-        transition:
-            border $global-animation-time ease-in-out,
-            background $global-animation-time ease-in-out;
-        will-change: border, background;
     }
 
-    .project-summary-tile {
-        background-color: $dark-secondary-background-colour;
-        border: $dark-border;
-        transition:
-            border $global-animation-time ease-in-out,
-            background-color $global-animation-time ease-in-out;
-        will-change: border, background-color;
-    }
-
-    .skill-summary-tile {
-        background-color: $dark-secondary-background-colour;
-        border: $dark-border;
-        transition:
-            border $global-animation-time ease-in-out,
-            background-color $global-animation-time ease-in-out;
-        will-change: border, background-color;
-    }
-
+    .project-summary-tile,
+    .skill-summary-tile,
     .skillarea-summary-tile {
         background-color: $dark-secondary-background-colour;
         border: $dark-border;
-        transition:
-            border $global-animation-time ease-in-out,
-            background-color $global-animation-time ease-in-out;
-        will-change: border, background-color;
     }
 
-    .about {
-        .contact-info {
-            > a {
-                > div {
-                    background: $dark-secondary-background-colour;
-                    border: $dark-border;
-                    transition:
-                        border $global-animation-time ease-in-out,
-                        background-color $global-animation-time ease-in-out;
-                    will-change: border, background;
-                }
-            }
-        }
+    .about .socials > a > div {
+        background-color: $dark-secondary-background-colour;
+        border: $dark-border;
     }
 
-    ul.skillarea-summary-tile-techs {
-        > li {
-            color: $standard-blue-background;
-            transition: color $global-animation-time ease-in-out;
-            will-change: color;
+    ul.skillarea-summary-tile-techs > li > span {
+        color: $dark-primary-font-colour;
+    }
 
-            > span {
-                color: $dark-primary-font-colour;
-                transition: color $global-animation-time ease-in-out;
-                will-change: color;
-            }
-        }
+    footer .socials-footer > a > div {
+        background-color: $dark-secondary-background-colour;
     }
 
     footer {
+        background-color: $dark-navbar-background-colour;
+    }
+
+    nav.navbar {
+        color: $dark-navbar-font-colour;
+        background-color: $dark-navbar-background-colour;
+        border: 1px solid $dark-navbar-background-colour;
+
         a {
-            color: $dark-primary-font-colour;
-            transition: color $global-animation-time ease-in-out;
-            will-change: color;
+            color: $dark-navbar-font-colour !important;
         }
 
-        .contact-info-footer {
-            > a {
-                > div {
-                    background-color: $dark-secondary-background-colour;
-                    transition: background-color $global-animation-time ease-in-out;
-                    will-change: background-color;
+        a:hover,
+        a.active:hover,
+        a.active {
+            color: $dark-navbar-font-colour-hover !important;
+            background-color: $dark-navbar-background-colour !important;
+        }
+
+        .container-fluid {
+            .navbar-collapse {
+                @media (min-width: $mobile-min-width-breakpoint) {
+                    a:after {
+                        background-color: $dark-navbar-font-colour-hover;
+                    }
                 }
             }
+        }
+
+        .navbar-toggler {
+            border-color: #333;
         }
     }
 }
