@@ -82,7 +82,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - `npm run cypress-component`
 - `npm run cypress-e2e`
 - `npm run update-project-date`
-   - Updates the date in `.env.local` and `sitemap.xml` to current date.
+   - Updates the date in `.env.local` and `sitemap.xml` to the current date.
 
 ## TODO:
 

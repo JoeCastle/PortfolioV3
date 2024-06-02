@@ -1,5 +1,4 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
 import globals from '../../utils/globals';
 import utils from '../../utils/utils';
 
@@ -52,21 +51,6 @@ export const Footer: React.FC<Props> = (props) => {
             </div>
 
             <div className="divider" />
-
-            {/* <ul className="footer-navlinks" id="footer-navlinks">
-                <li>
-                    <Link to="/#About">About</Link>
-                </li>
-                <li>
-                    <Link to="/#Projects">Projects</Link>
-                </li>
-                <li>
-                    <Link to="/#Skills">Skills</Link>
-                </li>
-                <li>
-                    <Link to="/#Contact">Contact</Link>
-                </li>
-            </ul> */}
 
             <div className="footer-bottom-content">
                 <p className="copyright-text">Copyright &copy; 2019 - {new Date().getFullYear()} Joseph Castle. All Rights Reserved.</p>

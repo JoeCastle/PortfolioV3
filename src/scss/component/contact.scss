@@ -108,14 +108,9 @@
 .contact-form-info-container {
     .contact-form-info {
         display: flex;
-        //flex-direction: row;
         flex-direction: column;
         max-width: 825px;
         margin: 0 auto;
-
-        // @media (max-width: 800px) {
-        //     flex-direction: column;
-        // }
     }
 }
 

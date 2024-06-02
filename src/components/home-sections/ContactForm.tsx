@@ -63,7 +63,6 @@ export const ContactForm: React.FC<Props> = (props) => {
             setIsLoading(true);
 
             if (typeof window !== 'undefined') {
-                // Use the utility function for navigation
                 utils.navigateToEmail(subject, body);
                 setInitialValues();
             } else {
@@ -74,34 +73,26 @@ export const ContactForm: React.FC<Props> = (props) => {
         }
     };
 
-    const validateFullName = (val: string): boolean => {
+    const validateField = (val: string, setStatus: (status: FieldStatusEnum) => void): boolean => {
         if (utils.isFormInputValid(val)) {
-            setFullNameStatus(FieldStatusEnum.SUCCESS);
+            setStatus(FieldStatusEnum.SUCCESS);
             return true;
         } else {
-            setFullNameStatus(FieldStatusEnum.ERROR);
+            setStatus(FieldStatusEnum.ERROR);
             return false;
         }
+    };
+
+    const validateFullName = (val: string): boolean => {
+        return validateField(val, setFullNameStatus);
     };
 
     const validateSubject = (val: string): boolean => {
-        if (utils.isFormInputValid(val)) {
-            setSubjectStatus(FieldStatusEnum.SUCCESS);
-            return true;
-        } else {
-            setSubjectStatus(FieldStatusEnum.ERROR);
-            return false;
-        }
+        return validateField(val, setSubjectStatus);
     };
 
     const validateMessage = (val: string): boolean => {
-        if (utils.isFormInputValid(val)) {
-            setMessageStatus(FieldStatusEnum.SUCCESS);
-            return true;
-        } else {
-            setMessageStatus(FieldStatusEnum.ERROR);
-            return false;
-        }
+        return validateField(val, setMessageStatus);
     };
 
     const validateForm = (model: IEmailModel): boolean => {
