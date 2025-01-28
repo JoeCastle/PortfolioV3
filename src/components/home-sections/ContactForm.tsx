@@ -1,8 +1,9 @@
 import utils from '../../utils/utils';
 import globals from '../../utils/globals';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback, memo } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import useOnScreen, { PageSectionIdType } from '../../hooks/useOnScreen';
+import { InputType } from 'reactstrap/types/lib/Input';
 
 interface IEmailModel {
     fullName: string;
@@ -17,6 +18,27 @@ enum FieldStatusEnum {
     ERROR = 'error',
     SUCCESS = 'success',
 }
+
+interface FormInputProps {
+    label: string;
+    type: InputType | undefined;
+    name: string;
+    id: string;
+    placeholder: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    valid: boolean;
+    invalid: boolean;
+}
+
+const FormInput: React.FC<FormInputProps> = memo(({ label, type, name, id, placeholder, value, onChange, valid, invalid }) => {
+    return (
+        <FormGroup className="form-group">
+            <Label for={id}>{label}</Label>
+            <Input type={type} name={name} id={id} placeholder={placeholder} value={value} onChange={onChange} valid={valid} invalid={invalid} />
+        </FormGroup>
+    );
+});
 
 /**
  * The contact form section on the homepage.
@@ -40,6 +62,11 @@ export const ContactForm: React.FC<Props> = (props) => {
     const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;
     useOnScreen(ref);
 
+    /**
+     * Handles submitting the contact form.
+     * @param e
+     * @returns
+     */
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement> | undefined): void => {
         if (!e) {
             return;
@@ -63,7 +90,6 @@ export const ContactForm: React.FC<Props> = (props) => {
             setIsLoading(true);
 
             if (typeof window !== 'undefined') {
-                // Use the utility function for navigation
                 utils.navigateToEmail(subject, body);
                 setInitialValues();
             } else {
@@ -74,36 +100,45 @@ export const ContactForm: React.FC<Props> = (props) => {
         }
     };
 
-    const validateFullName = (val: string): boolean => {
+    /**
+     * Handles validating form field and setting the status message.
+     */
+    const validateField = useCallback((val: string, setStatus: (status: FieldStatusEnum) => void): boolean => {
         if (utils.isFormInputValid(val)) {
-            setFullNameStatus(FieldStatusEnum.SUCCESS);
+            setStatus(FieldStatusEnum.SUCCESS);
             return true;
         } else {
-            setFullNameStatus(FieldStatusEnum.ERROR);
+            setStatus(FieldStatusEnum.ERROR);
             return false;
         }
-    };
+    }, []);
 
-    const validateSubject = (val: string): boolean => {
-        if (utils.isFormInputValid(val)) {
-            setSubjectStatus(FieldStatusEnum.SUCCESS);
-            return true;
-        } else {
-            setSubjectStatus(FieldStatusEnum.ERROR);
-            return false;
-        }
-    };
+    const validateFullName = useCallback(
+        (val: string): boolean => {
+            return validateField(val, setFullNameStatus);
+        },
+        [validateField],
+    );
 
-    const validateMessage = (val: string): boolean => {
-        if (utils.isFormInputValid(val)) {
-            setMessageStatus(FieldStatusEnum.SUCCESS);
-            return true;
-        } else {
-            setMessageStatus(FieldStatusEnum.ERROR);
-            return false;
-        }
-    };
+    const validateSubject = useCallback(
+        (val: string): boolean => {
+            return validateField(val, setSubjectStatus);
+        },
+        [validateField],
+    );
 
+    const validateMessage = useCallback(
+        (val: string): boolean => {
+            return validateField(val, setMessageStatus);
+        },
+        [validateField],
+    );
+
+    /**
+     * Handles validating the contact form.
+     * @param model
+     * @returns True if valid, false if not.
+     */
     const validateForm = (model: IEmailModel): boolean => {
         let fieldErrors: string[] = [];
 
@@ -149,6 +184,30 @@ export const ContactForm: React.FC<Props> = (props) => {
         setMessageStatus(FieldStatusEnum.DEFAULT);
     };
 
+    const handleFullNameChange = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            setFullName(e.target.value);
+            validateFullName(e.target.value);
+        },
+        [validateFullName],
+    );
+
+    const handleSubjectChange = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            setSubject(e.target.value);
+            validateSubject(e.target.value);
+        },
+        [validateSubject],
+    );
+
+    const handleMessageChange = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            setMessage(e.target.value);
+            validateMessage(e.target.value);
+        },
+        [validateMessage],
+    );
+
     return (
         <div className="contact-form-info-container section" id="Contact">
             <div className="content-container" id={`${PageSectionIdType.Contact}`} ref={ref}>
@@ -172,49 +231,40 @@ export const ContactForm: React.FC<Props> = (props) => {
                     <div className="contact-form">
                         <Form>
                             <div className="form-input-wrapper">
-                                <FormGroup className="form-group">
-                                    <Label for="fullName">Full name: </Label>
-                                    <Input
-                                        type="text"
-                                        name="fullName"
-                                        id="fullName"
-                                        placeholder="Full name..."
-                                        required
-                                        value={fullName}
-                                        onChange={(e) => setFullName(e.target.value)}
-                                        valid={fullNameStatus === FieldStatusEnum.SUCCESS}
-                                        invalid={fullNameStatus === FieldStatusEnum.ERROR}
-                                    />
-                                </FormGroup>
-                                <FormGroup className="form-group">
-                                    <Label for="subject">Subject: </Label>
-                                    <Input
-                                        type="text"
-                                        name="subject"
-                                        id="subject"
-                                        placeholder="Subject..."
-                                        required
-                                        value={subject}
-                                        onChange={(e) => setSubject(e.target.value)}
-                                        valid={subjectStatus === FieldStatusEnum.SUCCESS}
-                                        invalid={subjectStatus === FieldStatusEnum.ERROR}
-                                    />
-                                </FormGroup>
-                            </div>
-                            <FormGroup className="form-group">
-                                <Label for="message">Message: </Label>
-                                <Input
-                                    type="textarea"
-                                    name="message"
-                                    id="message"
-                                    placeholder="Message..."
-                                    required
-                                    value={message}
-                                    onChange={(e) => setMessage(e.target.value)}
-                                    valid={messageStatus === FieldStatusEnum.SUCCESS}
-                                    invalid={messageStatus === FieldStatusEnum.ERROR}
+                                <FormInput
+                                    label="Full name:"
+                                    type="text"
+                                    name="fullName"
+                                    id="fullName"
+                                    placeholder="Full name..."
+                                    value={fullName}
+                                    onChange={handleFullNameChange}
+                                    valid={fullNameStatus === FieldStatusEnum.SUCCESS}
+                                    invalid={fullNameStatus === FieldStatusEnum.ERROR}
                                 />
-                            </FormGroup>
+                                <FormInput
+                                    label="Subject:"
+                                    type="text"
+                                    name="subject"
+                                    id="subject"
+                                    placeholder="Subject..."
+                                    value={subject}
+                                    onChange={handleSubjectChange}
+                                    valid={subjectStatus === FieldStatusEnum.SUCCESS}
+                                    invalid={subjectStatus === FieldStatusEnum.ERROR}
+                                />
+                            </div>
+                            <FormInput
+                                label="Message:"
+                                type="textarea"
+                                name="message"
+                                id="message"
+                                placeholder="Message..."
+                                value={message}
+                                onChange={handleMessageChange}
+                                valid={messageStatus === FieldStatusEnum.SUCCESS}
+                                invalid={messageStatus === FieldStatusEnum.ERROR}
+                            />
                             <div className="contact-form-button-container">
                                 <Button className="portfolio-btn portfolio-btn-primary contact-button submit-button" disabled={isLoading} onClick={handleSubmit}>
                                     Submit
