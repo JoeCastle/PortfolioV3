@@ -21,8 +21,8 @@ export const About: React.FC<Props> = (props) => {
                     <h2>About</h2>
                 </div>
                 <p>
-                    I'm a full-stack software developer with {utils.getYearsOfExperience()} years of experience building software. Throughout my career, I've successfully delivered
-                    customised solutions that empower companies to excel in their respective industries by catering to their unique business requirements. My strong focus on
+                    I'm a Senior Full-Stack Software Developer with {utils.getYearsOfExperience()} years of experience building software. Throughout my career, I've successfully
+                    delivered custom solutions that empower companies to excel in their respective industries by catering to their unique business requirements. My focus on
                     building scalable and efficient applications is driven by a genuine passion for leveraging cutting-edge technology to drive technical success. I have a deep
                     understanding of effectively addressing complex technical requirements.
                 </p>

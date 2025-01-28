@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import Counter from 'yet-another-react-lightbox/plugins/counter';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
@@ -6,7 +6,7 @@ import Captions from 'yet-another-react-lightbox/plugins/captions';
 import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/counter.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
-import { getProjectSkills, IImage, IProject } from '../../../data/projects';
+import { getProjectSkills, IProject } from '../../../data/projects';
 
 //Clicking on the summary tile will navigate to a separate page.
 //Should be able to navigate to the page directly using URL.
@@ -21,40 +21,40 @@ interface Props extends IProjectProps {}
  * @param props
  * @returns
  */
-export const ProjectsSummaryTile = (props: Props): JSX.Element => {
-    const project: IProject = props.project;
-
+export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element => {
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
-    const [hasImages] = React.useState<boolean>(project.attributes.carouselImages !== undefined && project.attributes.carouselImages.length > 0);
-    const [isLive] = React.useState<boolean>(project.attributes.liveDemo !== '');
-    const [hasSource] = React.useState<boolean>(project.attributes.sourceCode !== '');
 
-    const techs: JSX.Element[] = getProjectSkills(project).map((item, i) => (
-        <div key={i} className="project-summary-logo-container">
-            <img className="project-summary-logo" src={item.img} alt={item.altTag} title={item.title} referrerPolicy="no-referrer" loading="lazy" />
-        </div>
-    ));
+    const hasImages: boolean = project.attributes.carouselImages !== undefined ? project.attributes.carouselImages?.length > 0 : false;
+    const isLive: boolean = !!project.attributes.liveDemo;
+    const hasSource: boolean = !!project.attributes.sourceCode;
 
-    const handleSetIsOpen = (isOpen: boolean): void => {
-        if (hasImages) {
-            setIsOpen(isOpen);
-        }
-    };
+    const techs: JSX.Element[] = React.useMemo(() => {
+        return getProjectSkills(project).map((item, i) => (
+            <div key={i} className="project-summary-logo-container">
+                <img className="project-summary-logo" src={item.img} alt={item.altTag} title={item.title} referrerPolicy="no-referrer" loading="lazy" />
+            </div>
+        ));
+    }, [project]);
 
-    const getLightboxSlides = (images: IImage[] | undefined): SlideImage[] => {
-        return images ? images.map((i) => getLightboxSlide(i)) : [];
-    };
+    const lightboxSlides = React.useMemo(() => {
+        return (
+            project.attributes.carouselImages?.map((image) => ({
+                src: image.src,
+                alt: image.alt,
+                title: image.title,
+                description: image.alt,
+            })) || []
+        );
+    }, [project.attributes.carouselImages]);
 
-    const getLightboxSlide = (image: IImage): SlideImage => {
-        const imageSlideData: SlideImage = {
-            src: image.src,
-            alt: image.alt,
-            title: image.title,
-            description: image.alt,
-        };
-
-        return imageSlideData;
-    };
+    const handleSetIsOpen = React.useCallback(
+        (isOpen: boolean): void => {
+            if (hasImages) {
+                setIsOpen(isOpen);
+            }
+        },
+        [hasImages],
+    );
 
     return (
         <div className="project-summary-tile">
@@ -85,13 +85,15 @@ export const ProjectsSummaryTile = (props: Props): JSX.Element => {
                 </div>
             </div>
 
-            <Lightbox
-                plugins={[Counter, Zoom, Captions]}
-                open={isOpen && hasImages}
-                close={() => setIsOpen(false)}
-                slides={getLightboxSlides(project.attributes.carouselImages)}
-                counter={{ container: { style: { top: 'unset', bottom: 0, left: 'unset', right: 0 } } }}
-            />
+            <Suspense fallback={<div>Loading lightbox...</div>}>
+                <Lightbox
+                    plugins={[Counter, Zoom, Captions]}
+                    open={isOpen && hasImages}
+                    close={() => setIsOpen(false)}
+                    slides={lightboxSlides}
+                    counter={{ container: { style: { top: 'unset', bottom: 0, left: 'unset', right: 0 } } }}
+                />
+            </Suspense>
         </div>
     );
-};
+});

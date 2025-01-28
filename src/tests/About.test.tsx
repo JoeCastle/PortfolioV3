@@ -10,7 +10,7 @@ describe('about', () => {
 
         // Assert that specific content is present in the rendered component
         // expect(screen.getByText(/Hey there, I'm Joe/i)).toBeInTheDocument();
-        // expect(screen.getByText(/full-stack software developer based in the UK/i)).toBeInTheDocument();
+        // expect(screen.getByText(/Senior Full-Stack Software Developer based in the UK/i)).toBeInTheDocument();
         // expect(screen.getByText(/extensive hands-on experience in crafting high-quality, bespoke enterprise web applications/i)).toBeInTheDocument();
     });
 

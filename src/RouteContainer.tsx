@@ -1,4 +1,4 @@
-import { useEffect, useState, UIEvent } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Home } from './components/pages/Home';
 import { FourZeroFour } from './components/pages/FourZeroFour';
@@ -7,9 +7,6 @@ import { Footer } from './components/shared/Footer';
 import ScrollToAnchor from './components/ScrollToAnchor';
 import globals from './utils/globals';
 
-//Query strings
-//https://tylermcginnis.com/react-router-query-strings/
-
 interface Props {}
 
 interface State {
@@ -17,13 +14,12 @@ interface State {
     hasMounted: boolean;
 }
 
-//const userDarkTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches === true;
-const isDarkModeDefault = globals.isDarkModeDefault;
+const isDarkModeDefault: boolean = globals.isDarkModeDefault;
 
 export const RouteContainer = (props: Props, state: State): JSX.Element => {
     const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
     const [hasMounted, setHasMounted] = useState<boolean>(false);
-    const [isScrollToTopButtonDisabled, setIsScrollToTopButtonDisabled] = useState<boolean>(false);
+    const isScrollToTopButtonDisabled = useRef<boolean>(false); // Using ref to reduce re-renders.
 
     useEffect(() => {
         setHasMounted(true);
@@ -46,24 +42,30 @@ export const RouteContainer = (props: Props, state: State): JSX.Element => {
         }
     }, [hasMounted]);
 
-    // Scroll to the top of the page.
-    const handleScrollToTop = (): void => {
-        if (!isScrollToTopButtonDisabled) {
-            setIsScrollToTopButtonDisabled(true);
+    /**
+     * Handle scrolling to the top of the page. Includes smooth scrolling.
+     */
+    const handleScrollToTop = useCallback((): void => {
+        if (!isScrollToTopButtonDisabled.current) {
+            isScrollToTopButtonDisabled.current = true;
             let element: HTMLElement | null = document.getElementById('page-parent');
 
             if (element) {
                 element.classList.add('smooth-scroll');
-
                 element.scrollTop = 0;
-
                 element.classList.remove('smooth-scroll');
             }
-        }
-    };
 
-    // Only show the scroll to top button when scrolled.
-    const handleScrollToTopButtonVisibility = (e: UIEvent<HTMLDivElement>): void => {
+            setTimeout(() => {
+                isScrollToTopButtonDisabled.current = false;
+            }, 500);
+        }
+    }, []);
+
+    /**
+     * Only show the scroll to top button when scrolled.
+     */
+    const handleScrollToTopButtonVisibility = useCallback((e: React.UIEvent<HTMLDivElement>): void => {
         let element: HTMLElement | null = document.getElementById('scroll-to-top-btn');
 
         if (element) {
@@ -72,13 +74,15 @@ export const RouteContainer = (props: Props, state: State): JSX.Element => {
                 element.classList.add('show');
             } else {
                 element.classList.remove('show');
-                setIsScrollToTopButtonDisabled(false);
+                isScrollToTopButtonDisabled.current = false;
             }
         }
-    };
+    }, []);
 
-    // Change theme
-    const handleChangeTheme = (): void => {
+    /**
+     * Handle changing the theme of the app.
+     */
+    const handleChangeTheme = useCallback((): void => {
         if (isDarkMode === true) {
             setIsDarkMode(false);
             if (typeof window !== 'undefined') {
@@ -86,12 +90,11 @@ export const RouteContainer = (props: Props, state: State): JSX.Element => {
             }
         } else {
             setIsDarkMode(true);
-
             if (typeof window !== 'undefined') {
                 localStorage.setItem('isDarkMode', 'true');
             }
         }
-    };
+    }, [isDarkMode]);
 
     return (
         <div id="page-parent" className={`theme-container${isDarkMode === true ? ' dark-theme' : ''}`} onScroll={handleScrollToTopButtonVisibility}>

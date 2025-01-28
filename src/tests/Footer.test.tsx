@@ -14,7 +14,7 @@ describe('Footer', () => {
         expect(screen.getByText('Joseph Castle')).toBeInTheDocument();
 
         // Assert role text renders
-        expect(screen.getByText('Full-Stack Software Developer')).toBeInTheDocument();
+        expect(screen.getByText('Senior Full-Stack Software Developer')).toBeInTheDocument();
 
         // Assert contact links render
         expect(screen.getByRole('link', { name: /LinkedIn/i })).toBeInTheDocument();

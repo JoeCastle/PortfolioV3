@@ -16,7 +16,8 @@ export const Footer: React.FC<Props> = (props) => {
                 <div>
                     <h3>Joseph Castle</h3>
                     <p>
-                        A full-stack software developer with {utils.getYearsOfExperience()} years of experience building bespoke web applications with React, .NET and SQL Server.
+                        A Senior Full-Stack Software Developer with {utils.getYearsOfExperience()} years of experience building bespoke web applications with React, .NET and SQL
+                        Server.
                     </p>
                 </div>
                 <div className="socials-footer">

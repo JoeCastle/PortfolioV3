@@ -30,8 +30,8 @@ const numOfTechsToDisplayPerProject: number = 7;
 const isDarkModeDefault: boolean = true;
 
 const metaData: MetaDataType = {
-    title: 'Joseph Castle | Full-Stack Software Developer',
-    description: 'Joseph Castle is a full-stack software developer with experience building websites and web applications using React, .NET and SQL.',
+    title: 'Joseph Castle | Senior Full-Stack Software Developer',
+    description: 'Joseph Castle is a Senior Full-Stack Software Developer with experience building websites and web applications using React, .NET and SQL.',
     keywords:
         'joe, joseph, castle, joseph castle, joe castle, full stack software developer, full stack developer, software developer, web developer, react, javascript, typescript, c#, .net, dotnet, sql server, sql, t-sql',
 };

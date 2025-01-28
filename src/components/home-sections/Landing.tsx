@@ -29,8 +29,8 @@ export const Landing: React.FC<Props> = (props) => {
                 </div>
 
                 <p style={{ textAlign: 'center' }}>
-                    A full-stack software developer with extensive hands-on experience in crafting high-quality, bespoke enterprise web applications. Proficient with React, .NET,
-                    and SQL Server.
+                    A Senior Full-Stack Software Developer with extensive hands-on experience in crafting high-quality, bespoke enterprise web applications. Proficient with React,
+                    .NET, and SQL Server.
                 </p>
 
                 <div className="projects-btn-container">
