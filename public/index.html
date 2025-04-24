@@ -4,6 +4,7 @@
         <!-- General -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
+        <meta http-equiv="Content-Language" content="en-GB" />
         <base href="%PUBLIC_URL%/" />
         <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
         <link rel="canonical" href="%PUBLIC_URL%" />
@@ -18,29 +19,43 @@
         <meta
             name="description"
             content="Joseph Castle is a Senior Full-Stack Software Developer with experience building websites and web applications using React, .NET and SQL."
-            data-rh="true"
         />
         <meta
             name="keywords"
-            content="joe, joseph, castle, joseph castle, joe castle, full stack software developer, full stack developer, software developer, web developer, react, javascript, typescript, c#, .net, dotnet, sql server, sql, t-sql"
+            content="joseph castle, joe castle, full stack software developer, software developer, web developer, senior software engineer, senior developer, full stack developer, full stack software engineer, react developer, typescript developer, .NET developer, C# developer, SQL Server expert, UK software engineer"
         />
-        <meta name="robots" content="index, follow" data-rh="true" />
+        <meta name="robots" content="index, follow" />
 
         <!-- Social media -->
-        <meta property="og:title" content="Joseph Castle | Senior Full-Stack Software Developer" data-rh="true" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Joseph Castle | Senior Full-Stack Software Developer" />
         <meta
             property="og:description"
             content="Joseph Castle is a Senior Full-Stack Software Developer with experience building websites and web applications using React, .NET and SQL."
-            data-rh="true"
         />
-        <meta property="og:image" content="%PUBLIC_URL%/Projects_section.jpg" data-rh="true" />
-        <meta name="twitter:title" content="Joseph Castle | Senior Full-Stack Software Developer" data-rh="true" />
+        <meta property="og:url" content="%PUBLIC_URL%" />
+        <meta property="og:image" content="%PUBLIC_URL%/Projects_section.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Joseph Castle | Senior Full-Stack Software Developer" />
         <meta
             name="twitter:description"
             content="Joseph Castle is a Senior Full-Stack Software Developer with experience building websites and web applications using React, .NET and SQL."
-            data-rh="true"
         />
-        <meta name="twitter:image" content="%PUBLIC_URL%/Projects_section.jpg" data-rh="true" />
+        <meta name="twitter:image" content="%PUBLIC_URL%/Projects_section.jpg" />
+
+        <!-- Structured data for SEO -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Joseph Castle",
+                "jobTitle": "Senior Software Developer",
+                "url": "https://joecastle.co.uk",
+                "description": "Joseph Castle is a Senior Full-Stack Software Developer with experience building websites and web applications using React, .NET and SQL.",
+                "sameAs": ["https://github.com/JoeCastle", "https://linkedin.com/in/joseph-castle-19170b188"],
+                "knowsAbout": ["React", "TypeScript", ".NET", "SQL Server", "C#", "Web Performance", "Agile", "Clean Architecture"]
+            }
+        </script>
 
         <!-- Icons, images and themes -->
         <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
