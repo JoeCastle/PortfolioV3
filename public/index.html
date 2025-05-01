@@ -13,6 +13,26 @@
         <meta version="%REACT_APP_VERSION_DATE%" />
         <meta versionNumber="%REACT_APP_VERSION%" />
 
+        <!-- Preconnect -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://use.fontawesome.com" />
+
+        <!-- Google Fonts (async + fallback) -->
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" media="print" onload="this.media='all'" />
+        <noscript>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" />
+        </noscript>
+
+        <!-- Font Awesome (consider replacing with SVG icons or react-icons) -->
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+            crossorigin="anonymous"
+        />
+
         <!-- SEO -->
         <meta name="author" content="Joseph Castle" />
         <title>Joseph Castle | Senior Full-Stack Software Developer</title>
@@ -66,16 +86,6 @@
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="msapplication-TileImage" content="%PUBLIC_URL%/mstile-144x144.png" />
         <meta name="theme-color" content="#1c6ef7" />
-
-        <!-- Fonts -->
-        <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-            crossorigin="anonymous"
-            async
-        />
-        <link href="https://fonts.googleapis.com/css?family=Maven+Pro&display=swap" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <!-- import this BEFORE any scripts for re-render testing -->
