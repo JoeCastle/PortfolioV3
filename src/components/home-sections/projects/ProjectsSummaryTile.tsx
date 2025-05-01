@@ -6,25 +6,20 @@ import Captions from 'yet-another-react-lightbox/plugins/captions';
 import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/counter.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
-import { getProjectSkills, IProject } from '../../../data/projects';
+import { getProjectSkills, IImage, IProject } from '../../../data/projects';
 
-//Clicking on the summary tile will navigate to a separate page.
-//Should be able to navigate to the page directly using URL.
 interface IProjectProps {
     project: IProject;
 }
 
 interface Props extends IProjectProps {}
 
-/**
- * A project tile for the project summary section.
- * @param props
- * @returns
- */
 export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element => {
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
+    const preloadedImageUrls: Set<string> = new Set<string>();
 
-    const hasImages: boolean = project.attributes.carouselImages !== undefined ? project.attributes.carouselImages?.length > 0 : false;
+    const hasImages: boolean = project.attributes.carouselImages !== undefined ? project.attributes.carouselImages.length > 0 : false;
+
     const isLive: boolean = !!project.attributes.liveDemo;
     const hasSource: boolean = !!project.attributes.sourceCode;
 
@@ -56,9 +51,44 @@ export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element 
         [hasImages],
     );
 
+    const preloadTimeoutRef = React.useRef<number | null>(null);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const preloadImages: () => void = React.useCallback(() => {
+        if (!hasImages || !project.attributes.carouselImages) return;
+
+        const images: IImage[] = project.attributes.carouselImages;
+        const index: number = 0; // preload the first image only
+
+        const url: string = images[index].src;
+
+        if (!preloadedImageUrls.has(url)) {
+            const img: HTMLImageElement = new Image();
+            img.src = url;
+            preloadedImageUrls.add(url);
+        }
+    }, [hasImages, project.attributes.carouselImages]);
+
     return (
         <div className="project-summary-tile">
-            <div className={`project-summary-img-container ${hasImages ? 'cursor-pointer' : 'cursor-default'}`} onClick={() => handleSetIsOpen(true)}>
+            <div
+                className={`project-summary-img-container ${hasImages ? 'cursor-pointer' : 'cursor-default'}`}
+                onClick={() => handleSetIsOpen(true)}
+                onMouseEnter={() => {
+                    if (preloadTimeoutRef.current === null) {
+                        preloadTimeoutRef.current = window.setTimeout(() => {
+                            preloadImages();
+                            preloadTimeoutRef.current = null;
+                        }, 150); // 150ms delay — adjust as needed
+                    }
+                }}
+                onMouseLeave={() => {
+                    if (preloadTimeoutRef.current !== null) {
+                        clearTimeout(preloadTimeoutRef.current);
+                        preloadTimeoutRef.current = null;
+                    }
+                }}
+            >
                 <img src={project.attributes.thumbnail.src} alt={project.attributes.thumbnail.alt} referrerPolicy="no-referrer" loading="lazy" />
             </div>
             <div className="project-summary-tile-content">
@@ -91,7 +121,11 @@ export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element 
                     open={isOpen && hasImages}
                     close={() => setIsOpen(false)}
                     slides={lightboxSlides}
-                    counter={{ container: { style: { top: 'unset', bottom: 0, left: 'unset', right: 0 } } }}
+                    counter={{
+                        container: {
+                            style: { top: 'unset', bottom: 0, left: 'unset', right: 0 },
+                        },
+                    }}
                 />
             </Suspense>
         </div>
