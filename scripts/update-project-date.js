@@ -6,7 +6,7 @@ const path = require('path');
 const updateSitemap = async () => {
     try {
         // Read sitemap.xml
-        const filePath = path.join(__dirname, 'public', 'sitemap.xml'); // Adjust the path as needed
+        const filePath = path.join(__dirname, '..', 'public', 'sitemap.xml'); // Go up one directory to project root
         const fileContent = await fs.readFile(filePath, 'utf-8');
 
         // Parse the XML content
@@ -27,7 +27,7 @@ const updateSitemap = async () => {
         const updatedSitemap = builder.buildObject(parsedSitemap);
 
         // Write the updated XML back to sitemap.xml
-        await fs.writeFile('public/sitemap.xml', updatedSitemap, 'utf-8');
+        await fs.writeFile(path.join(__dirname, '..', 'public', 'sitemap.xml'), updatedSitemap, 'utf-8');
         console.log('Updated sitemap.xml');
     } catch (error) {
         console.error('Error updating sitemap.xml:', error);

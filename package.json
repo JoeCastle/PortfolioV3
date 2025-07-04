@@ -41,7 +41,7 @@
     },
     "scripts": {
         "start": "react-scripts -r @cypress/instrument-cra start",
-        "build": "npm run fetch-recent-posts && update-project-date && react-scripts build",
+        "build": "npm run fetch-recent-posts && npm run update-project-date && react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "pretty": "prettier --write \"**/*.{js,jsx,tsx,ts,scss,css,json}\"",
