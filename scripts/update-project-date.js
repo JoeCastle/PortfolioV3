@@ -34,25 +34,25 @@ const updateSitemap = async () => {
     }
 };
 
-// Function to update the "REACT_APP_VERSION_DATE" value in .env.local
-const updateEnvLocalVersionDate = async () => {
-    try {
-        const envLocalPath = path.join(__dirname, '.env.local');
-        const envLocalContent = await fs.readFile(envLocalPath, 'utf-8');
+// // Function to update the "REACT_APP_VERSION_DATE" value in .env.local
+// const updateEnvLocalVersionDate = async () => {
+//     try {
+//         const envLocalPath = path.join(__dirname, '.env.local');
+//         const envLocalContent = await fs.readFile(envLocalPath, 'utf-8');
 
-        // Define the regular expression pattern to match the "REACT_APP_VERSION_DATE" line
-        const pattern = /^REACT_APP_VERSION_DATE=(.*)$/m;
+//         // Define the regular expression pattern to match the "REACT_APP_VERSION_DATE" line
+//         const pattern = /^REACT_APP_VERSION_DATE=(.*)$/m;
 
-        // Replace the "REACT_APP_VERSION_DATE" line with the updated value
-        const updatedEnvLocalContent = envLocalContent.replace(pattern, `REACT_APP_VERSION_DATE=${Date.now().toString()}`);
+//         // Replace the "REACT_APP_VERSION_DATE" line with the updated value
+//         const updatedEnvLocalContent = envLocalContent.replace(pattern, `REACT_APP_VERSION_DATE=${Date.now().toString()}`);
 
-        // Write the updated content back to .env.local
-        await fs.writeFile(envLocalPath, updatedEnvLocalContent, 'utf-8');
-        console.log('Updated .env.local REACT_APP_VERSION_DATE.');
-    } catch (error) {
-        console.error('Error updating .env.local REACT_APP_VERSION_DATE:', error);
-    }
-};
+//         // Write the updated content back to .env.local
+//         await fs.writeFile(envLocalPath, updatedEnvLocalContent, 'utf-8');
+//         console.log('Updated .env.local REACT_APP_VERSION_DATE.');
+//     } catch (error) {
+//         console.error('Error updating .env.local REACT_APP_VERSION_DATE:', error);
+//     }
+// };
 
 updateSitemap();
-updateEnvLocalVersionDate();
+// updateEnvLocalVersionDate();

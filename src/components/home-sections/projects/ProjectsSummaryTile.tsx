@@ -12,11 +12,11 @@ interface IProjectProps {
     project: IProject;
 }
 
-interface Props extends IProjectProps {}
+interface Props extends IProjectProps { }
 
 export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element => {
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
-    const preloadedImageUrls: Set<string> = new Set<string>();
+    const preloadedImageUrlsRef = React.useRef<Set<string>>(new Set<string>());
 
     const hasImages: boolean = project.attributes.carouselImages !== undefined ? project.attributes.carouselImages.length > 0 : false;
 
@@ -42,7 +42,7 @@ export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element 
         );
     }, [project.attributes.carouselImages]);
 
-    const handleSetIsOpen = React.useCallback(
+    const handleSetIsOpen: (isOpen: boolean) => void = React.useCallback(
         (isOpen: boolean): void => {
             if (hasImages) {
                 setIsOpen(isOpen);
@@ -53,6 +53,9 @@ export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element 
 
     const preloadTimeoutRef = React.useRef<number | null>(null);
 
+    /**
+     * Preload the carouselImages as you hover over the thumbnail. Looks like the image loads quickly when you click the lightbox.
+     */
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const preloadImages: () => void = React.useCallback(() => {
         if (!hasImages || !project.attributes.carouselImages) return;
@@ -62,10 +65,10 @@ export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element 
 
         const url: string = images[index].src;
 
-        if (!preloadedImageUrls.has(url)) {
+        if (!preloadedImageUrlsRef.current.has(url)) {
             const img: HTMLImageElement = new Image();
             img.src = url;
-            preloadedImageUrls.add(url);
+            preloadedImageUrlsRef.current.add(url);
         }
     }, [hasImages, project.attributes.carouselImages]);
 
@@ -79,7 +82,7 @@ export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element 
                         preloadTimeoutRef.current = window.setTimeout(() => {
                             preloadImages();
                             preloadTimeoutRef.current = null;
-                        }, 150); // 150ms delay — adjust as needed
+                        }, 150); // 150ms delay
                     }
                 }}
                 onMouseLeave={() => {
