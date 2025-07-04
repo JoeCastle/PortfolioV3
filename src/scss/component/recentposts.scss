@@ -19,19 +19,24 @@
     ul.recent-posts-list {
       list-style: none;
       padding: 0;
-      margin: 0 auto 24px auto;
+      margin: 0 auto 30px auto;
       max-width: 700px;
       li {
         background: $light-secondary-background-colour;
         border: $light-border;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        margin-bottom: 18px;
-        padding: 18px 22px;
+        border-radius: 5px;
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
+        margin-bottom: 30px;
+        padding: 15px 20px;
         transition: box-shadow 0.2s, background-color $global-animation-time ease-in-out, border $global-animation-time ease-in-out;
         &:hover {
-          box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+          box-shadow: 4px 4px 16px -4px rgba(0, 0, 0, $box-shadow-color);
         }
+        
+        &:first-child {
+          margin-top: 15px;
+        }
+        
         a {
           text-decoration: none;
           color: inherit;

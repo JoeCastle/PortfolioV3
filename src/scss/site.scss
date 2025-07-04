@@ -44,7 +44,7 @@ html {
 html,
 body,
 #react-app,
-#root > .container-fluid,
+#root>.container-fluid,
 #page-parent {
     height: 100%;
     padding: 0px;
@@ -131,14 +131,16 @@ main {
     box-shadow: none;
     outline: 0;
 
-    > i {
+    >i {
         font-size: 18px;
     }
 }
 
 #Projects,
 #Skills {
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+    @media screen and (-ms-high-contrast: active),
+    (-ms-high-contrast: none) {
         height: auto !important;
     }
 }
@@ -153,7 +155,8 @@ main {
 
     // Required to vertically center items for IE11 - https://medium.com/codeart-mk/internet-explorer-hacks-796200e5741c
     // Target IE11 only as this will break other browsers.
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @media screen and (-ms-high-contrast: active),
+    (-ms-high-contrast: none) {
         height: 1px;
     }
 
@@ -189,11 +192,11 @@ main {
 }
 
 .socials {
-    > a {
+    >a {
         text-decoration: none;
     }
 
-    > a:hover,
+    >a:hover,
     a:active {
         text-decoration: underline;
     }

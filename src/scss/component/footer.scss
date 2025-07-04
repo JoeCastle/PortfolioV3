@@ -17,28 +17,7 @@ footer {
         padding: 0px 20px;
     }
 
-    ul.footer-navlinks {
-        list-style: none;
-        padding: 0px;
-        display: flex;
-        justify-content: center;
-        font-weight: bold;
-        flex-wrap: wrap;
-        display: none; // Not necessary as navbar is always viewable.
 
-        > li {
-            padding: 0px 10px;
-
-            @media (max-width: 768px) {
-                padding: 0px 5px;
-            }
-
-            > a {
-                font-size: 21px;
-                text-decoration: underline;
-            }
-        }
-    }
 
     .socials-footer {
         display: flex;
