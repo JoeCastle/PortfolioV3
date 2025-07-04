@@ -11,6 +11,7 @@ import ContactForm from '../home-sections/ContactForm';
 import SkillAreas from '../home-sections/skills/SkillAreas';
 import Landing from '../home-sections/Landing';
 import globals from '../../utils/globals';
+import RecentPosts from '../home-sections/RecentPosts';
 
 interface Props {
     isDarkMode: boolean;
@@ -39,6 +40,7 @@ export const Home: React.FC<Props> = (props) => {
             <About {...props} />
             <ProjectsSummary {...props} />
             <SkillAreas {...props} />
+            <RecentPosts {...props} />
             <ContactForm {...props} />
         </div>
     );
