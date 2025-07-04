@@ -10,6 +10,8 @@ Welcome to my web portfolio! This project showcases my past projects, skills, an
 
 - **Skills Section:** Discover the range of skills I possess, categorized for clarity. From programming languages to frameworks and tools, get insights into my technical proficiency.
 
+- **Blog Integration:** Recent blog posts are displayed on the homepage, with automatic fetching from the external blog at [blog.joecastle.co.uk](https://blog.joecastle.co.uk). Features intelligent caching and fallback to backup data.
+
 - **Contact form:** Contact form with relevant contact information throughout the site.
 
 - **Responsive Design:** The portfolio is designed to be responsive, ensuring a seamless experience across various devices and screen sizes.
@@ -66,7 +68,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     - **home-sections:** The main sections of the homepage.
     - **pages:** Individual pages.
     - **shared:** Components shared across multiple components or pages.
-  - **data:** Typescript objects storing data used on the website such as projects and skills.
+  - **data:** Typescript objects storing data used on the website such as projects, skills, and blog posts backup data.
   - **scss:** SASS files for styling the components and pages.
 - **cypress** Tests folder containing Cypress integration and component tests.
 - **public**  Static folder containing index.html, favicon and other assets.
@@ -74,13 +76,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 - `npm start`
-- `npm run build`
+- `npm run build` 
+    - Creates a production build. This script automatically runs `fetch-recent-posts` and `update-project-date` before building the application.
 - `npm test`
 - `npm eject`
 - `npm run pretty`
 - `npm run cypress:open`
 - `npm run cypress-component`
 - `npm run cypress-e2e`
+- `npm run fetch-recent-posts`
+   - Fetches the latest blog posts from the external blog and updates the backup data.
 - `npm run update-project-date`
    - Updates the date in `.env.local` and `sitemap.xml` to the current date.
 
@@ -91,6 +96,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [x] Improve UX by updating styling for buttons and links.
 - [x] Update styling and structure of the Contact section.
 - [x] Update styling and structure of the footer.
+- [x] Add blog integration with external blog.
 - [ ] Update general copy.
 - [ ] Update project copy.
 - [ ] Add cypress tests.

@@ -10,6 +10,7 @@ export enum NavLinkIdType {
     About = 'about-navlink',
     Projects = 'projects-navlink',
     Skills = 'skills-navlink',
+    Blog = 'blog-navlink',
     Contact = 'contact-navlink',
 }
 
@@ -21,6 +22,7 @@ export enum PageSectionIdType {
     About = 'about-content-container',
     Projects = 'project-summary-content-container',
     Skills = 'skills-summary-content-container',
+    Blog = 'blog-summary-content-container',
     Contact = 'contact-content-container',
 }
 
@@ -32,6 +34,7 @@ const sectionToNavLinkMap: Record<PageSectionIdType, NavLinkIdType> = {
     [PageSectionIdType.About]: NavLinkIdType.About,
     [PageSectionIdType.Projects]: NavLinkIdType.Projects,
     [PageSectionIdType.Skills]: NavLinkIdType.Skills,
+    [PageSectionIdType.Blog]: NavLinkIdType.Blog,
     [PageSectionIdType.Contact]: NavLinkIdType.Contact,
 };
 

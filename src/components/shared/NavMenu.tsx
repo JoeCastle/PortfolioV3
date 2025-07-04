@@ -55,6 +55,11 @@ export const NavMenu: React.FC<Props> = (props: Props) => {
                                 </Link>
                             </li>
                             <li>
+                                <Link id={NavLinkIdType.Blog} to="/#Blog">
+                                    Blog
+                                </Link>
+                            </li>
+                            <li>
                                 <Link id={NavLinkIdType.Contact} to="/#Contact">
                                     Contact
                                 </Link>

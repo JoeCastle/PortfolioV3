@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "junior-developer-questions",
+    "title": "Junior Developer Questions Answered: Language, Portfolio, Career",
+    "summary": "Junior developers ask: which language to learn, how to build a portfolio, get experience, and thrive in their first tech job. Includes real advice, tips, and resources.",
+    "date": "2025-05-26",
+    "tags": [
+      "junior developer",
+      "developer advice",
+      "software development",
+      "programming languages",
+      "coding projects",
+      "tech career"
+    ]
+  },
+  {
+    "slug": "junior-developer-guide",
+    "title": "Essential Guide for Junior Software Developers: Tips, Mindset, and Best Practices",
+    "summary": "Essential guide for junior software developers: practical tips, mindset shifts, real‑world stories and resources to help you thrive in your tech career.",
+    "date": "2025-05-24",
+    "tags": [
+      "junior developer",
+      "developer advice",
+      "software development",
+      "imposter syndrome",
+      "code quality",
+      "tech career"
+    ]
+  },
+  {
+    "slug": "welcome-to-my-blog",
+    "title": "Welcome to My Blog",
+    "summary": "A brief introduction to my blog, my background, and what you can expect as a reader.",
+    "date": "2025-04-27",
+    "tags": [
+      "introduction",
+      "developer blog",
+      "developer advice",
+      "software development",
+      "junior developer",
+      "career tips"
+    ]
+  }
+]
