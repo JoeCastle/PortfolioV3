@@ -14,7 +14,7 @@
         flex: 1 0 auto; //IE fix
     }
 
-    > a {
+    >a {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -22,11 +22,11 @@
         margin: 10px;
         max-width: 60px;
 
-        > i {
+        >i {
             font-size: 21px;
         }
 
-        > div {
+        >div {
             @media (max-width: 450px) {
                 display: none;
             }
@@ -41,8 +41,8 @@
         margin-top: 60px;
         flex-wrap: wrap;
 
-        > a {
-            > div {
+        >a {
+            >div {
                 background: $dark-secondary-background-colour;
                 padding: 20px;
                 border-radius: 15px;
@@ -52,7 +52,7 @@
                 box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
                 border: $dark-border;
 
-                > i {
+                >i {
                     font-size: 28px;
                 }
             }
@@ -114,11 +114,6 @@
     }
 }
 
-.socials-form-info {
-    display: flex;
-    flex-direction: row;
-}
-
 .form-control::placeholder {
     color: #6c757d !important;
 }
@@ -136,7 +131,7 @@
     flex-direction: row;
     justify-content: space-between;
 
-    > .form-group {
+    >.form-group {
         width: 49%;
 
         @media (max-width: 600px) {

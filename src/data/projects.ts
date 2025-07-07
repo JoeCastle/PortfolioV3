@@ -1,9 +1,9 @@
 import globals from '../utils/globals';
 import { ISkill, getSkills } from './skills';
 
-export type ProjectTypes = 'portfolio' | 'trainingApp' | 'arduinoTemperatureSensor' | 'startPage' | 'jla' | 'robocoderobot';
+export type ProjectTypes = 'portfolio' | 'trainingApp' | 'arduinoTemperatureSensor' | 'startPage' | 'jla' | 'robocoderobot' | 'joebloggs';
 
-export enum ProjType {
+export enum ProjectType {
     Personal = 'Personal',
     University = 'University',
     Work = 'Work',
@@ -26,7 +26,7 @@ interface IAttributes {
     sourceTitle: string;
     liveDemo: string;
     nonLiveDemo: string; // For snapshots, videos or other examples. (If the site has been taken down or changed.)
-    projectType: ProjType; //University, Personal, Work, Freelance
+    projectType: ProjectType; //University, Personal, Work, Freelance
     yearCompleted?: string; //2018, 2017* - Initially completed in 2017 at uni, but built my own web page once I left.
     isDeleted: boolean;
 }
@@ -56,12 +56,73 @@ const getProjectReadMoreLink = (projectName: string): string => {
  */
 const projects: IProject[] = [
     {
+        projectName: 'joebloggs',
+        attributes: {
+            title: 'JoeBloggs',
+            disclaimer: '',
+            description: [
+                "A fast, responsive personal blog built with Next.js and TypeScript. It supports Markdown-based posts, automatic SEO metadata, dark/light mode, and is statically generated for performance and scalability.",
+                'JoeBloggs is a personal blog project designed to be fast, modern, and highly maintainable. Built using Next.js, React, and TypeScript, it leverages static site generation (SSG) for optimal performance and SEO. Posts are written in Markdown files with structured frontmatter, making content creation and management simple and developer-friendly. Each post is enhanced with automatically generated metadata including dynamic page titles, Open Graph tags, and Twitter Cards.',
+                'The blog prioritises readability and usability across devices. It uses a clean, mobile-first layout styled with SCSS and includes built-in dark and light modes for user comfort. Readers can easily toggle themes, and features like estimated reading time and word count help set expectations before diving into an article.',
+                'Content organisation is intuitive: posts and their related images are stored together in dedicated folders, while components and utilities are modular and well-structured. GitHub-flavoured Markdown is supported via remark-gfm, allowing for tables, strikethroughs, and task lists. During build, public-facing files like sitemap.xml, rss.xml, and robots.txt are automatically generated to improve discoverability and compliance with search engine standards.',
+            ],
+            technologies: getSkills(['nextjs', 'reactjs', 'sass', 'typescript', 'visualstudiocode']),
+            tags: [],
+            thumbnail: {
+                src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1751922195/PortfolioScreenshots/Blog/Thumbnail/BlogList_dcyhes.png',
+                alt: 'Screenshot of the blog post list page (homepage) of JoeBloggs.',
+                title: 'Blog post list - JoeBloggs',
+            },
+            carouselImages: [
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1751921938/PortfolioScreenshots/Blog/Full/BlogList_c9kugy.png',
+                    alt: 'Screenshot of the blog post list page (homepage) of JoeBloggs.',
+                    title: 'Blog post list - JoeBloggs',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1751921938/PortfolioScreenshots/Blog/Full/BlogList_Light_s5pyqk.png',
+                    alt: 'Screenshot of the light theme on the blog post list page (homepage) of JoeBloggs.',
+                    title: 'Blog post list (light theme) - JoeBloggs',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1751921938/PortfolioScreenshots/Blog/Full/BlogPost_p6nsjm.png',
+                    alt: 'Screenshot of a blog post on JoeBloggs.',
+                    title: 'Blog post - JoeBloggs',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1751921938/PortfolioScreenshots/Blog/Full/BlogList_mobile_yvmclp.png',
+                    alt: 'Screenshot of the blog post list page (homepage) of JoeBloggs when viewed on a mobile.',
+                    title: 'Blog post list mobile view - JoeBloggs',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1751921938/PortfolioScreenshots/Blog/Full/BlogPost_mobile_wclrye.png',
+                    alt: 'Screenshot of a blog post on JoeBloggs when viewed on a mobile.',
+                    title: 'Blog post mobile view - Portfolio',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1751921938/PortfolioScreenshots/Blog/Full/BlogPost_mobile_2_zdprge.png',
+                    alt: 'Screenshot of a blog post on JoeBloggs when viewed on a mobile, with the reading progress.',
+                    title: 'Blog post mobile view, with reading progress - Portfolio',
+                },
+            ],
+            readMoreLink: getProjectReadMoreLink('JoeBloggs'),
+            routeURL: getProjectRouteURL('JoeBloggs'),
+            sourceCode: 'https://github.com/JoeCastle/JoeBloggsV3',
+            sourceTitle: 'GitHub',
+            liveDemo: 'https://blog.joecastle.co.uk?utm_source=portfolio&utm_medium=project-list',
+            nonLiveDemo: '',
+            projectType: ProjectType.Personal,
+            isDeleted: false,
+            yearCompleted: '2025',
+        },
+    },
+    {
         projectName: 'portfolio',
         attributes: {
             title: 'Portfolio',
             disclaimer: '',
             description: [
-                "The website you are currently viewing. It's an online portfolio of my past projects, skills and experience. Built with accessibility and SEO in mind.",
+                "The website you are currently viewing. An online portfolio of my past projects, skills and experience. Built with accessibility and SEO in mind.",
                 'The primary goals of this project were to serve as a central repository of my projects, and to be a simple and easily maintainable project that can be updated and revised rapidly.',
                 'The biggest challenge I had to overcome was my lack of artistic and design skills. I found it difficult to design a website that was simple, visually appealing and unique.',
             ],
@@ -105,7 +166,7 @@ const projects: IProject[] = [
             sourceTitle: 'GitHub',
             liveDemo: 'https://joecastle.co.uk',
             nonLiveDemo: '',
-            projectType: ProjType.Personal,
+            projectType: ProjectType.Personal,
             isDeleted: false,
             yearCompleted: '2023',
         },
@@ -176,7 +237,7 @@ const projects: IProject[] = [
             sourceTitle: 'GitHub',
             liveDemo: '',
             nonLiveDemo: '',
-            projectType: ProjType.University,
+            projectType: ProjectType.University,
             isDeleted: false,
             yearCompleted: '2019',
         },
@@ -234,7 +295,7 @@ const projects: IProject[] = [
             sourceTitle: 'GitHub',
             liveDemo: '',
             nonLiveDemo: '',
-            projectType: ProjType.University,
+            projectType: ProjectType.University,
             isDeleted: false,
             yearCompleted: '2017',
         },
@@ -296,7 +357,7 @@ const projects: IProject[] = [
             sourceTitle: 'GitHub',
             liveDemo: 'https://rtcrhino.github.io/StartPage/',
             nonLiveDemo: '',
-            projectType: ProjType.Personal,
+            projectType: ProjectType.Personal,
             isDeleted: false,
             yearCompleted: '2019',
         },
@@ -370,7 +431,7 @@ const projects: IProject[] = [
             sourceTitle: 'MIT App Inventor',
             liveDemo: '',
             nonLiveDemo: '',
-            projectType: ProjType.University,
+            projectType: ProjectType.University,
             isDeleted: false,
             yearCompleted: '2016',
         },
@@ -418,7 +479,7 @@ const projects: IProject[] = [
             sourceTitle: 'GitHub',
             liveDemo: '',
             nonLiveDemo: '',
-            projectType: ProjType.University,
+            projectType: ProjectType.University,
             isDeleted: false,
             yearCompleted: '2017',
         },

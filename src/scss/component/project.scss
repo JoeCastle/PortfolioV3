@@ -1,5 +1,12 @@
 @import '../shared/variables.scss';
 
+.view-more-projects-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
 .project-summary-tiles {
     display: flex;
     flex-direction: row;
@@ -14,7 +21,7 @@
         border-radius: 5px;
         max-height: 210px;
         height: 210px;
-        margin: 15px;
+        margin: 10px;
         box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
         position: relative;
         min-width: 600px;
@@ -28,7 +35,7 @@
             height: 100%;
             max-height: 100%;
             min-width: 100%;
-            margin: 15px 0px;
+            margin: 10px 0px;
         }
 
         @media (max-width: 520px) {
@@ -145,10 +152,10 @@
                     margin: 0px;
                 }
 
-                > a {
+                >a {
                     margin-left: 10px;
 
-                    > i {
+                    >i {
                         font-size: 22px;
                     }
                 }
@@ -169,7 +176,7 @@
         justify-content: space-between;
         align-items: center;
 
-        > div {
+        >div {
             display: flex;
             flex-direction: column;
         }
@@ -177,7 +184,7 @@
         .project-links {
             flex-direction: row;
 
-            > a:first-of-type {
+            >a:first-of-type {
                 margin-right: 10px;
             }
         }
