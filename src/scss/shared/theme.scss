@@ -1,12 +1,15 @@
 @import '../shared/variables.scss';
 
 @mixin transition-properties($properties) {
-    $transition-list: ();
-    @each $prop in $properties {
-        $transition-list: append($transition-list, $prop $global-animation-time ease-in-out, comma);
-    }
-    transition: $transition-list;
-    will-change: $properties;
+    $transition-list: (
+    );
+
+@each $prop in $properties {
+    $transition-list: append($transition-list, $prop $global-animation-time ease-in-out, comma);
+}
+
+transition: $transition-list;
+will-change: $properties;
 }
 
 // Light theme styles
@@ -36,17 +39,35 @@
         @include transition-properties((background-color, border));
     }
 
-    .about .socials > a > div {
+    .project-summary-tile-read-more {
+        color: $standard-blue-background;
+    }
+
+    .project-details-modal-content {
+        background-color: $light-secondary-background-colour;
+        color: $light-primary-font-colour;
+        border: $light-border;
+        @include transition-properties((background-color, color, border));
+    }
+
+    .project-details-modal-tech-pill {
+        background-color: $light-primary-background-colour;
+        border: $light-border;
+        color: $light-primary-font-colour;
+        @include transition-properties((background-color, color, border));
+    }
+
+    .about .socials>a>div {
         background-color: $light-secondary-background-colour;
         box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.3);
         @include transition-properties((background-color, box-shadow));
     }
 
-    ul.skillarea-summary-tile-techs > li {
+    ul.skillarea-summary-tile-techs>li {
         color: $standard-blue-background;
         @include transition-properties((color));
 
-        > span {
+        >span {
             color: $light-primary-font-colour;
             @include transition-properties((color));
         }
@@ -61,7 +82,7 @@
             @include transition-properties((color));
         }
 
-        .socials-footer > a > div {
+        .socials-footer>a>div {
             background-color: $light-secondary-background-colour;
             @include transition-properties((background-color));
         }
@@ -124,16 +145,40 @@
         border: $dark-border;
     }
 
-    .about .socials > a > div {
+    .project-summary-tile-read-more {
+        color: $dark-primary-font-colour;
+    }
+
+    .project-details-modal-content {
+        background-color: $dark-secondary-background-colour;
+        color: $dark-primary-font-colour;
+        border: $dark-border;
+    }
+
+    .project-details-modal-header {
+        border-bottom-color: rgba(204, 204, 204, 0.1);
+
+        .btn-close {
+            filter: invert(1) grayscale(1);
+        }
+    }
+
+    .project-details-modal-tech-pill {
+        background-color: $dark-primary-background-colour;
+        color: $dark-primary-font-colour;
+        border: $dark-border;
+    }
+
+    .about .socials>a>div {
         background-color: $dark-secondary-background-colour;
         border: $dark-border;
     }
 
-    ul.skillarea-summary-tile-techs > li > span {
+    ul.skillarea-summary-tile-techs>li>span {
         color: $dark-primary-font-colour;
     }
 
-    footer .socials-footer > a > div {
+    footer .socials-footer>a>div {
         background-color: $dark-secondary-background-colour;
     }
 

@@ -122,9 +122,11 @@ const projects: IProject[] = [
             title: 'Portfolio',
             disclaimer: '',
             description: [
-                "The website you are currently viewing. An online portfolio of my past projects, skills and experience. Built with accessibility and SEO in mind.",
-                'The primary goals of this project were to serve as a central repository of my projects, and to be a simple and easily maintainable project that can be updated and revised rapidly.',
-                'The biggest challenge I had to overcome was my lack of artistic and design skills. I found it difficult to design a website that was simple, visually appealing and unique.',
+                'The website you are currently viewing: a responsive, single-page portfolio built with React, TypeScript, SCSS, and Bootstrap to present projects, skills, and contact details in a clean, accessible format.',
+                'This project is designed around maintainability and clear content structure. Key sections (About, Projects, Skills, Blog, and Contact) are implemented as modular components, with shared styling and reusable UI patterns to keep updates straightforward as the portfolio evolves.',
+                'The Projects section supports both summary and detail-first browsing. Each tile provides a concise overview, while the modal view adds richer project context, technology badges, direct source/demo links, and an image gallery/lightbox for deeper visual walkthroughs.',
+                'A dedicated Blog section integrates recent posts from blog.joecastle.co.uk, with local backup data and client-side caching/fetch throttling to improve resilience and reduce unnecessary network requests. Build-time scripts also refresh backup post data and update sitemap metadata.',
+                'SEO and discoverability are treated as first-class concerns: page metadata is managed with react-helmet-async, Open Graph/Twitter tags are provided, and robots/sitemap files are maintained for search indexing. Accessibility is also a core priority, with semantic structure, descriptive labels, keyboard-friendly controls, and strong cross-device responsiveness throughout.',
             ],
             technologies: getSkills(['reactjs', 'sass', 'typescript', 'visualstudiocode']),
             tags: [],
@@ -481,7 +483,7 @@ const projects: IProject[] = [
             nonLiveDemo: '',
             projectType: ProjectType.University,
             isDeleted: false,
-            yearCompleted: '2017',
+            yearCompleted: '2015',
         },
     },
 ];

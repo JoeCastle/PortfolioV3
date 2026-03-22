@@ -27,7 +27,7 @@ const numOfSummaryProjectsToDisplay: number = 6;
 /** The number of technologies to display on each project tile in the projects section on the homepage. */
 const numOfTechsToDisplayPerProject: number = 7;
 
-const isDarkModeDefault: boolean = true;
+const isDarkModeDefault: boolean = false;
 
 const metaData: MetaDataType = {
     title: 'Joseph Castle | Senior Full-Stack Software Developer',
