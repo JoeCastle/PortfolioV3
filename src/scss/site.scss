@@ -78,6 +78,19 @@ a:active {
     color: $dark-blue-background !important;
 }
 
+main a,
+footer a {
+    transition: color $global-animation-time ease-in-out, text-decoration-color $global-animation-time ease-in-out;
+    text-underline-offset: 3px;
+}
+
+main a:focus-visible,
+footer a:focus-visible {
+    outline: 2px solid rgba(28, 110, 247, 0.35);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
 main {
     width: 100%;
     flex: 1 0 auto;
@@ -120,7 +133,9 @@ main {
     opacity: 0;
     transition:
         opacity $global-animation-time ease-in-out,
-        visibility $global-animation-time ease-in-out;
+        visibility $global-animation-time ease-in-out,
+        transform 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
     will-change: opacity, visibility;
 
     @media (max-width: 450px) {
@@ -138,6 +153,11 @@ main {
     will-change: opacity, visibility;
 }
 
+#scroll-to-top-btn.show:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.45);
+}
+
 #theme-changer-btn {
     position: fixed;
     bottom: 28px;
@@ -148,10 +168,21 @@ main {
     border: none;
     box-shadow: none;
     outline: 0;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 
     >i {
         font-size: 18px;
     }
+}
+
+#theme-changer-btn:hover {
+    transform: translateY(-1px);
+}
+
+#theme-changer-btn:focus-visible,
+#scroll-to-top-btn:focus-visible {
+    outline: 2px solid rgba(28, 110, 247, 0.35);
+    outline-offset: 3px;
 }
 
 #Projects,

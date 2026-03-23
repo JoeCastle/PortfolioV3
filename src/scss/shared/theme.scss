@@ -94,6 +94,11 @@ will-change: $properties;
 
     .project-summary-tile-read-more {
         color: $standard-blue-background;
+
+        &:hover,
+        &:focus-visible {
+            color: $dark-blue-background;
+        }
     }
 
     .project-details-modal-content {
@@ -253,6 +258,11 @@ will-change: $properties;
 
     .project-summary-tile-read-more {
         color: $dark-primary-font-colour;
+
+        &:hover,
+        &:focus-visible {
+            color: $standard-blue-background;
+        }
     }
 
     .project-details-modal-content {

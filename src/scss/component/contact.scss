@@ -21,6 +21,11 @@
         color: $global-hyperlink-colour;
         margin: 10px;
         max-width: 60px;
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+            transform: translateY(-1px);
+        }
 
         >i {
             font-size: 21px;
@@ -51,6 +56,11 @@
                 justify-content: center;
                 box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
                 border: $dark-border;
+                transition: box-shadow 0.2s ease-in-out;
+
+                &:hover {
+                    box-shadow: 6px 6px 14px -6px rgba(0, 0, 0, 0.24);
+                }
 
                 >i {
                     font-size: 28px;

@@ -18,6 +18,7 @@ describe('ProjectsSummaryTile', () => {
             projectName: 'portfolio',
             attributes: {
                 title: 'Portfolio',
+                isComplete: true,
                 disclaimer: '',
                 description: ['Summary paragraph', 'Detailed paragraph'],
                 technologies: [

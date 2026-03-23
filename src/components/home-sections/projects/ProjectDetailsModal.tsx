@@ -17,6 +17,7 @@ interface Props {
 
 export const ProjectDetailsModal: React.FC<Props> = ({ project, isOpen, toggle }): JSX.Element => {
     const [isGalleryOpen, setIsGalleryOpen] = React.useState<boolean>(false);
+    const projectStatusText: string = project.attributes.isComplete ? 'Complete' : 'In development';
 
     const hasSource: boolean = !!project.attributes.sourceCode;
     const isLive: boolean = !!project.attributes.liveDemo;
@@ -60,6 +61,7 @@ export const ProjectDetailsModal: React.FC<Props> = ({ project, isOpen, toggle }
                     <p className="project-details-modal-subtitle">
                         {project.attributes.projectType}
                         {project.attributes.yearCompleted ? ` • ${project.attributes.yearCompleted}` : ''}
+                        {` • ${projectStatusText}`}
                     </p>
                 </div>
             </ModalHeader>

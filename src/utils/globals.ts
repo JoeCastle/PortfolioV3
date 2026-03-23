@@ -25,7 +25,7 @@ const linkedInData: SocialDataType = {
 const numOfSummaryProjectsToDisplay: number = 6;
 
 /** The number of technologies to display on each project tile in the projects section on the homepage. */
-const numOfTechsToDisplayPerProject: number = 7;
+const numOfTechsToDisplayPerProject: number = 5;
 
 const isDarkModeDefault: boolean = false;
 
