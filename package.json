@@ -48,6 +48,7 @@
         "cypress:open": "cypress open",
         "cypress-component": "cypress run --component",
         "cypress-e2e": "cypress run",
+        "cypress-e2e:coverage": "cypress run && npx nyc report --reporter=text-summary --reporter=html",
         "fetch-recent-posts": "node scripts/fetch-recent-posts.js",
         "update-project-date": "node scripts/update-project-date.js"
     },

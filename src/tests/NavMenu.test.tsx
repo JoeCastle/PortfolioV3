@@ -3,18 +3,27 @@ import { BrowserRouter } from 'react-router-dom';
 import { NavMenu } from '../components/shared/NavMenu';
 
 describe('NavMenu', () => {
-    it('renders the navigation links correctly', () => {
-        // Render the component with a Router wrapper
+    it('renders all navigation links with expected anchors', () => {
         render(
             <BrowserRouter>
                 <NavMenu isDarkMode={false} />
             </BrowserRouter>,
         );
 
-        // Verify that navigation links are rendered
-        expect(screen.getByText('About')).toBeInTheDocument();
-        expect(screen.getByText('Projects')).toBeInTheDocument();
-        expect(screen.getByText('Skills')).toBeInTheDocument();
-        expect(screen.getByText('Contact')).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/#About');
+        expect(screen.getByRole('link', { name: 'Projects' })).toHaveAttribute('href', '/#Projects');
+        expect(screen.getByRole('link', { name: 'Skills' })).toHaveAttribute('href', '/#Skills');
+        expect(screen.getByRole('link', { name: 'Blog' })).toHaveAttribute('href', '/#Blog');
+        expect(screen.getByRole('link', { name: 'Contact' })).toHaveAttribute('href', '/#Contact');
+    });
+
+    it('applies dark mode class when enabled', () => {
+        const { container } = render(
+            <BrowserRouter>
+                <NavMenu isDarkMode={true} />
+            </BrowserRouter>,
+        );
+
+        expect(container.querySelector('nav')).toHaveClass('navbar-dark');
     });
 });

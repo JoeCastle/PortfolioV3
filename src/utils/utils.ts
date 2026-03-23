@@ -83,7 +83,7 @@ const getYearsOfExperience = (): number => {
  * @param value The text input by the user.
  */
 const isFormInputValid = (value: string) => {
-    return value.replace(' ', '') !== '';
+    return value.trim() !== '';
 };
 
 const utils = {
