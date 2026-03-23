@@ -48,7 +48,7 @@ describe('ProjectsSummaryTile', () => {
     };
 
     it('opens the project details modal when Read more is clicked', async () => {
-        render(<ProjectsSummaryTile project={mockProject} />);
+        render(<ProjectsSummaryTile project={mockProject} isDarkMode={false} />);
 
         expect(screen.queryByText('Detailed paragraph')).not.toBeInTheDocument();
 
@@ -72,7 +72,7 @@ describe('ProjectsSummaryTile', () => {
             },
         };
 
-        render(<ProjectsSummaryTile project={projectWithoutLinks} />);
+        render(<ProjectsSummaryTile project={projectWithoutLinks} isDarkMode={false} />);
 
         await userEvent.click(screen.getByRole('button', { name: /Read more/i }));
 
@@ -80,5 +80,21 @@ describe('ProjectsSummaryTile', () => {
 
         expect(within(dialog).queryByRole('link', { name: /Source code/i })).not.toBeInTheDocument();
         expect(within(dialog).queryByRole('link', { name: /Live demo/i })).not.toBeInTheDocument();
+    });
+
+    it('updates modal theme class when theme prop changes', async () => {
+        const { rerender } = render(<ProjectsSummaryTile project={mockProject} isDarkMode={false} />);
+
+        await userEvent.click(screen.getByRole('button', { name: /Read more/i }));
+
+        let modalRoot: Element | null = document.querySelector('.project-details-modal');
+        expect(modalRoot).toBeInTheDocument();
+        expect(modalRoot).toHaveClass('project-details-modal-light');
+
+        rerender(<ProjectsSummaryTile project={mockProject} isDarkMode={true} />);
+
+        modalRoot = document.querySelector('.project-details-modal');
+        expect(modalRoot).toBeInTheDocument();
+        expect(modalRoot).toHaveClass('project-details-modal-dark');
     });
 });

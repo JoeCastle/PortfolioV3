@@ -11,11 +11,12 @@ import ProjectDetailsModal from './ProjectDetailsModal';
 
 interface IProjectProps {
     project: IProject;
+    isDarkMode: boolean;
 }
 
 interface Props extends IProjectProps { }
 
-export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element => {
+export const ProjectsSummaryTile = React.memo(({ project, isDarkMode }: Props): JSX.Element => {
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
     const [isDetailsModalOpen, setIsDetailsModalOpen] = React.useState<boolean>(false);
     const preloadedImageUrlsRef = React.useRef<Set<string>>(new Set<string>());
@@ -25,13 +26,31 @@ export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element 
     const isLive: boolean = !!project.attributes.liveDemo;
     const hasSource: boolean = !!project.attributes.sourceCode;
 
+    const getFallbackLogoText = React.useCallback((title: string): string => {
+        const parts = title
+            .split(/\s+/)
+            .map((part) => part.trim())
+            .filter(Boolean);
+
+        if (parts.length === 0) return '?';
+        if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+
+        return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+    }, []);
+
     const techs: JSX.Element[] = React.useMemo(() => {
         return getProjectSkills(project).map((item, i) => (
-            <div key={i} className="project-summary-logo-container">
-                <img className="project-summary-logo" src={item.img} alt={item.altTag} title={item.title} referrerPolicy="no-referrer" loading="lazy" />
+            <div key={i} className="project-summary-logo-container" title={item.title}>
+                {item.img.trim().length > 0 ? (
+                    <img className="project-summary-logo" src={item.img} alt={item.altTag} title={item.title} referrerPolicy="no-referrer" loading="lazy" />
+                ) : (
+                    <span className="project-summary-logo-fallback" aria-label={item.title}>
+                        {getFallbackLogoText(item.title)}
+                    </span>
+                )}
             </div>
         ));
-    }, [project]);
+    }, [getFallbackLogoText, project]);
 
     const lightboxSlides = React.useMemo(() => {
         return (
@@ -139,7 +158,7 @@ export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element 
                 />
             </Suspense>
 
-            <ProjectDetailsModal project={project} isOpen={isDetailsModalOpen} toggle={() => setIsDetailsModalOpen((prev) => !prev)} />
+            <ProjectDetailsModal project={project} isOpen={isDetailsModalOpen} toggle={() => setIsDetailsModalOpen((prev) => !prev)} isDarkMode={isDarkMode} />
         </div>
     );
 });

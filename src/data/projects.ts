@@ -1,7 +1,7 @@
 import globals from '../utils/globals';
 import { ISkill, getSkills } from './skills';
 
-export type ProjectTypes = 'portfolio' | 'trainingApp' | 'arduinoTemperatureSensor' | 'startPage' | 'jla' | 'robocoderobot' | 'joebloggs';
+export type ProjectTypes = 'portfolio' | 'trainingApp' | 'arduinoTemperatureSensor' | 'startPage' | 'jla' | 'robocoderobot' | 'joebloggs' | 'flashcardsynth';
 
 export enum ProjectType {
     Personal = 'Personal',
@@ -57,13 +57,87 @@ const getProjectReadMoreLink = (projectName: string): string => {
  */
 const projects: IProject[] = [
     {
+        projectName: 'flashcardsynth',
+        attributes: {
+            title: 'FlashcardSynth',
+            isComplete: false,
+            disclaimer:
+                'Active development. Core deck/study workflows are implemented; billing/subscription handling via Stripe is scaffolded and still being finalized for full production rollout.',
+            description: [
+                'FlashcardSynth is an AI-assisted flashcard platform for creating, refining, organizing, and studying decks with a spaced-repetition workflow.',
+                'I built it because most flashcard tools I tried were either too limited for serious iteration or too complex for everyday study. The goal was a cleaner, faster workflow that keeps powerful features accessible without overwhelming the user.',
+                'Implemented features include deck and flashcard CRUD, study sessions with grading/scheduling, review hub flows, AI generation from notes and URLs, and multi-format import/export with validation and sanitization.',
+                'The app emphasizes accessibility, user-configurable study preferences, and maintainable full-stack architecture with typed APIs and structured data flows.',
+                'Built with Next.js (App Router), React, TypeScript, PostgreSQL, Drizzle ORM, Tailwind CSS v4, and shadcn/ui.',
+            ],
+            technologies: getSkills(['nextjs', 'reactjs', 'typescript', 'tailwindcss', 'postgresql', 'visualstudiocode']),
+            tags: ['SaaS', 'EdTech', 'AI', 'Spaced Repetition', 'Accessibility', 'Full-Stack'],
+            thumbnail: {
+                src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303482/PortfolioScreenshots/FlashcardSynth/Thumbnail/Review_Hub_wk1gkv.png',
+                alt: 'Screenshot of the review hub page of FlashcardSynth.',
+                title: 'Review Hub - FlashcardSynth',
+            },
+            carouselImages: [
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303459/PortfolioScreenshots/FlashcardSynth/Full/Review_Hub_hiw4uq.png',
+                    alt: 'Screenshot of the review hub page of FlashcardSynth.',
+                    title: 'Review Hub - FlashcardSynth',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303456/PortfolioScreenshots/FlashcardSynth/Full/Landing_Page_qywp8f.png',
+                    alt: 'Screenshot of the landing page of FlashcardSynth.',
+                    title: 'Landing Page (incomplete) - FlashcardSynth',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303454/PortfolioScreenshots/FlashcardSynth/Full/Create_Deck_Options_pgimkw.png',
+                    alt: 'Screenshot of the create deck page of FlashcardSynth.',
+                    title: 'Create Deck - FlashcardSynth',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303455/PortfolioScreenshots/FlashcardSynth/Full/AI_Deck_Refinement_meayeo.png',
+                    alt: 'Screenshot of the AI deck refinement page of FlashcardSynth.',
+                    title: 'AI Deck Refinement - FlashcardSynth',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303457/PortfolioScreenshots/FlashcardSynth/Full/Deck_List_dfgemx.png',
+                    alt: 'Screenshot of the deck list page of FlashcardSynth.',
+                    title: 'Deck List - FlashcardSynth',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303458/PortfolioScreenshots/FlashcardSynth/Full/Review_Session_1_khgryn.png',
+                    alt: 'Screenshot of the review session (question) page of FlashcardSynth.',
+                    title: 'Review Session (question) - FlashcardSynth',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303459/PortfolioScreenshots/FlashcardSynth/Full/Review_Session_2_gzioan.png',
+                    alt: 'Screenshot of the review session (answer) page of FlashcardSynth.',
+                    title: 'Review Session (answer) - FlashcardSynth',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303461/PortfolioScreenshots/FlashcardSynth/Full/Settings_Accessibility_ngtvgw.png',
+                    alt: 'Screenshot of the settings and accessibility page of FlashcardSynth.',
+                    title: 'Settings & Accessibility - FlashcardSynth',
+                },
+            ],
+            readMoreLink: getProjectReadMoreLink('FlashcardSynth'),
+            routeURL: getProjectRouteURL('FlashcardSynth'),
+            sourceCode: '',
+            sourceTitle: '',
+            liveDemo: '',
+            nonLiveDemo: '',
+            projectType: ProjectType.Personal,
+            isDeleted: false,
+            yearCompleted: '2025-present',
+        },
+    },
+    {
         projectName: 'joebloggs',
         attributes: {
             title: 'JoeBloggs',
             isComplete: true,
             disclaimer: '',
             description: [
-                'A production-style personal blog platform built with Next.js and TypeScript, designed for strong performance, SEO, and a maintainable content workflow.',
+                'A personal blog platform built with Next.js and TypeScript, designed for strong performance, SEO, and a maintainable content workflow.',
                 'Posts are authored in Markdown with structured frontmatter, then statically generated for fast page loads and predictable deployments. The project includes automated metadata handling (Open Graph/Twitter), responsive layout behaviour, and dark/light theme support to deliver a polished reader experience across devices.',
                 'From an engineering perspective, the codebase focuses on modular component design and content scalability: post content, images, and utilities are organised to keep publishing and maintenance straightforward. Supporting files such as sitemap and robots are generated as part of the workflow to improve discoverability and search indexing.',
             ],
