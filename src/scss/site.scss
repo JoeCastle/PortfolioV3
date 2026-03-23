@@ -99,6 +99,7 @@ main {
     position: fixed;
     bottom: 36px;
     right: 50px;
+    z-index: 12;
     visibility: hidden;
     opacity: 0;
     transition:
@@ -125,6 +126,7 @@ main {
     position: fixed;
     bottom: 28px;
     left: 28px;
+    z-index: 12;
     color: $standard-blue-background;
     background: transparent;
     border: none;
@@ -150,6 +152,9 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     padding: 20px;
     min-height: calc(100vh - #{$navbar-height});
 
@@ -242,4 +247,64 @@ main {
 
 code {
     color: #e01a76;
+}
+
+#Home {
+    position: relative;
+    isolation: isolate;
+
+    &::before,
+    &::after {
+        content: '';
+        pointer-events: none;
+        z-index: 0;
+        transition: opacity $global-animation-time ease-in-out;
+    }
+
+    &::before {
+        position: absolute;
+        inset: 0;
+    }
+
+    &::after {
+        position: fixed;
+        top: #{$navbar-height};
+        left: 0;
+        right: 0;
+        bottom: #{$footer-height};
+    }
+
+    @media (max-width: 767px) {
+        &::after {
+            position: absolute;
+            inset: 0;
+        }
+    }
+
+    .section {
+        transition: background-color $global-animation-time ease-in-out;
+        z-index: 1;
+
+        @media (min-width: 768px) {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+
+        @media (max-width: 767px) {
+            padding-top: 42px;
+            padding-bottom: 42px;
+        }
+    }
+
+    .section+.section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(92%, 1200px);
+        height: 1px;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0));
+        z-index: 0;
+    }
 }
