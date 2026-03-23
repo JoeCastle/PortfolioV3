@@ -1,3 +1,6 @@
+/**
+ * List of all possible skills such as languages, software, and other technologies.
+ */
 export type SkillOption =
     | 'html'
     | 'css'
@@ -27,8 +30,17 @@ export type SkillOption =
     | 'gitgithub'
     | 'vb'
     | 'vbnet'
-    | 'nextjs';
+    | 'nextjs'
+    | 'postgresql'
+    | 'drizzle'
+    | 'stripe'
+    | 'shadcnui'
+    | 'tailwindcss'
+    | 'pgadmin4';
 
+/**
+ * The type of skill. Language, software, operating system or other.
+ */
 enum SkillType {
     Language = 0,
     Software = 1,
@@ -36,12 +48,18 @@ enum SkillType {
     Other = 3,
 }
 
+/**
+ * The area of software development the skill is most relevant to. Front-end, back-end or other.
+ */
 export enum SkillAreaType {
     FrontEnd = 0,
     BackEnd = 1,
     Other = 2,
 }
 
+/**
+ * Interface representing a skill such as a programming language, software, or other technology. Each skill has a name, title, image, alt tag, type and area of relevance. The skillName property is used as a unique identifier for the skill and should be in lowercase with no spaces. The title property is the display name of the skill. The img property is the URL of an image representing the skill. The altTag property is the alt text for the image. The type property indicates whether the skill is a language, software, operating system or other. The skillArea property indicates whether the skill is most relevant to front-end development, back-end development or other.
+ */
 export interface ISkill {
     skillName: SkillOption;
     title: string;
@@ -52,6 +70,9 @@ export interface ISkill {
     skillArea: SkillAreaType;
 }
 
+/**
+ * List of all skills such as programming languages, software, and other technologies. Each skill has a unique skillName which is used as an identifier, a title for display purposes, an image URL, alt text for the image, a type indicating whether it's a language, software, operating system or other, and a skillArea indicating whether it's most relevant to front-end development, back-end development or other. This list is used throughout the site to display skills on project tiles and in the skills section.
+ */
 const skills: ISkill[] = [
     {
         skillName: 'html',
@@ -283,18 +304,57 @@ const skills: ISkill[] = [
         type: SkillType.Language,
         skillArea: SkillAreaType.FrontEnd,
     },
+    {
+        skillName: 'postgresql',
+        title: 'PostgreSQL',
+        img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303425/PortfolioScreenshots/Skills/Full/tinypng/Postgresql_logo_idk8zx.png',
+        altTag: 'PostgreSQL logo',
+        type: SkillType.Software,
+        skillArea: SkillAreaType.BackEnd,
+    },
+    {
+        skillName: 'pgadmin4',
+        title: 'pgAdmin 4',
+        img: '',
+        altTag: 'pgAdmin 4 logo',
+        type: SkillType.Software,
+        skillArea: SkillAreaType.Other,
+    },
+    {
+        skillName: 'tailwindcss',
+        title: 'Tailwind CSS',
+        img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303425/PortfolioScreenshots/Skills/Full/tinypng/Tailwind_logo_swetk9.png',
+        altTag: 'Tailwind CSS logo',
+        type: SkillType.Language,
+        skillArea: SkillAreaType.FrontEnd,
+    },
 ];
 
 export default skills;
 
+/**
+ * Get a list of skills filtered by the specified area of software development (front-end, back-end or other). This function is used to retrieve skills relevant to a particular area when displaying them on project tiles and in the skills section.
+ * @param area The area of software development to filter skills by.
+ * @returns An array of skills that belong to the specified area.
+ */
 export const getSkillsByArea = (area: SkillAreaType): ISkill[] => {
     return skills.filter((skill) => skill.skillArea === area);
 };
 
+/**
+ * Get a skill by its unique skillName identifier. This function is used to retrieve skill details when displaying them on project tiles and in the skills section.
+ * @param skillName The unique identifier of the skill to retrieve.
+ * @returns The skill object that matches the specified skillName.
+ */
 export const getSkill = (skillName: SkillOption): ISkill => {
     return skills.find((skill) => skill.skillName === skillName)!;
 };
 
+/**
+ * Get a list of skills based on an array of skillName identifiers. This function is used to retrieve multiple skills when displaying them on project tiles and in the skills section.
+ * @param skillNames An array of unique identifiers of the skills to retrieve.
+ * @returns An array of skill objects that match the specified skillName identifiers.
+ */
 export const getSkills = (skillNames: SkillOption[]): ISkill[] => {
     return skillNames.map((skillName) => getSkill(skillName));
 };

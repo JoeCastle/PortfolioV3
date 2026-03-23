@@ -13,9 +13,10 @@ interface Props {
     project: IProject;
     isOpen: boolean;
     toggle: () => void;
+    isDarkMode: boolean;
 }
 
-export const ProjectDetailsModal: React.FC<Props> = ({ project, isOpen, toggle }): JSX.Element => {
+export const ProjectDetailsModal: React.FC<Props> = ({ project, isOpen, toggle, isDarkMode }): JSX.Element => {
     const [isGalleryOpen, setIsGalleryOpen] = React.useState<boolean>(false);
     const projectStatusText: string = project.attributes.isComplete ? 'Complete' : 'In development';
 
@@ -23,7 +24,18 @@ export const ProjectDetailsModal: React.FC<Props> = ({ project, isOpen, toggle }
     const isLive: boolean = !!project.attributes.liveDemo;
     const hasDisclaimer: boolean = project.attributes.disclaimer.trim().length > 0;
     const hasGallery: boolean = !!project.attributes.carouselImages && project.attributes.carouselImages.length > 0;
-    const isDarkMode: boolean = typeof window !== 'undefined' ? window.localStorage.getItem('isDarkMode') !== 'false' : true;
+
+    const getFallbackLogoText = React.useCallback((title: string): string => {
+        const parts = title
+            .split(/\s+/)
+            .map((part) => part.trim())
+            .filter(Boolean);
+
+        if (parts.length === 0) return '?';
+        if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+
+        return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+    }, []);
 
     const gallerySlides = React.useMemo(
         () =>
@@ -104,7 +116,13 @@ export const ProjectDetailsModal: React.FC<Props> = ({ project, isOpen, toggle }
                         <div className="project-details-modal-technologies">
                             {project.attributes.technologies.map((tech, i) => (
                                 <div key={i} className="project-details-modal-tech-item" title={tech.title}>
-                                    <img className="project-details-modal-tech-logo" src={tech.img} alt={tech.altTag} loading="lazy" referrerPolicy="no-referrer" />
+                                    {tech.img.trim().length > 0 ? (
+                                        <img className="project-details-modal-tech-logo" src={tech.img} alt={tech.altTag} loading="lazy" referrerPolicy="no-referrer" />
+                                    ) : (
+                                        <span className="project-details-modal-tech-logo-fallback" aria-label={tech.title}>
+                                            {getFallbackLogoText(tech.title)}
+                                        </span>
+                                    )}
                                     <span className="project-details-modal-tech-title">{tech.title}</span>
                                 </div>
                             ))}

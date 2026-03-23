@@ -5,7 +5,9 @@ import useOnScreen, { PageSectionIdType } from '../../../hooks/useOnScreen';
 import globals from '../../../utils/globals';
 import { Button } from 'reactstrap';
 
-interface Props { }
+interface Props {
+    isDarkMode: boolean;
+}
 
 /**
  * The project summary section on the homepage.
@@ -13,6 +15,7 @@ interface Props { }
  * @returns
  */
 export const ProjectsSummary: React.FC<Props> = (props) => {
+    const { isDarkMode } = props;
     const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;
     useOnScreen(ref);
 
@@ -21,7 +24,7 @@ export const ProjectsSummary: React.FC<Props> = (props) => {
     const activeProjects: IProject[] = getActiveProjects();
     const displayLimit: number = globals.numOfSummaryProjectsToDisplay;
     const projectsToShow: IProject[] = showAll ? activeProjects : activeProjects.slice(0, displayLimit);
-    const summaryProjects: JSX.Element[] = projectsToShow.map((item, i) => <ProjectsSummaryTile key={i} project={item} />);
+    const summaryProjects: JSX.Element[] = projectsToShow.map((item, i) => <ProjectsSummaryTile key={i} project={item} isDarkMode={isDarkMode} />);
 
     const handleToggle = (): void => {
         setShowAll((prev) => !prev)

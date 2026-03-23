@@ -103,7 +103,7 @@ export const RouteContainer = (props: Props, state: State): JSX.Element => {
 
             <main>
                 <Routes>
-                    <Route path={`/`} element={<Home {...props} isDarkMode={state.isDarkMode} />} />
+                    <Route path={`/`} element={<Home {...props} isDarkMode={isDarkMode} />} />
                     {/* Will catch any route not defined and redirect to the 404 page. */}
                     <Route path={`/404`} element={<FourZeroFour {...props} />} />
                     <Route path={`*`} element={<Navigate to="/404" replace />} />
