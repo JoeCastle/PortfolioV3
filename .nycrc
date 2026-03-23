@@ -1,6 +1,12 @@
 {
     "all": true,
     "excludeAfterRemap": true,
-    "include": ["src/**/*.js", "src/**/*.jsx"],
-    "exclude": ["cypress/**/*.js", "src/**/*.cy.js", "src/**/*.cy.jsx", "src/**/*.test.js", "src/**/*.test.jsx"]
+    "include": [
+        "src/**/*.{js,jsx,ts,tsx}"
+    ],
+    "exclude": [
+        "cypress/**/*.{js,jsx,ts,tsx}",
+        "src/**/*.cy.{js,jsx,ts,tsx}",
+        "src/**/*.test.{js,jsx,ts,tsx}"
+    ]
 }

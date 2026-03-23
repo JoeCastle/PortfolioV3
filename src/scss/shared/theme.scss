@@ -1,12 +1,15 @@
 @import '../shared/variables.scss';
 
 @mixin transition-properties($properties) {
-    $transition-list: ();
-    @each $prop in $properties {
-        $transition-list: append($transition-list, $prop $global-animation-time ease-in-out, comma);
-    }
-    transition: $transition-list;
-    will-change: $properties;
+    $transition-list: (
+    );
+
+@each $prop in $properties {
+    $transition-list: append($transition-list, $prop $global-animation-time ease-in-out, comma);
+}
+
+transition: $transition-list;
+will-change: $properties;
 }
 
 // Light theme styles
@@ -14,6 +17,52 @@
     color: $light-primary-font-colour;
     background-color: $light-primary-background-colour;
     @include transition-properties((color, background-color));
+
+    #Home {
+        background-color: $light-primary-background-colour;
+
+        &::before {
+            background: none;
+            opacity: 0;
+        }
+
+        &::after {
+            background:
+                repeating-linear-gradient(0deg, rgba(16, 24, 40, 0.055) 0px, rgba(16, 24, 40, 0.055) 1px, transparent 1px, transparent 46px),
+                repeating-linear-gradient(90deg, rgba(16, 24, 40, 0.045) 0px, rgba(16, 24, 40, 0.045) 1px, transparent 1px, transparent 46px),
+                repeating-linear-gradient(135deg, rgba(16, 24, 40, 0.022) 0px, rgba(16, 24, 40, 0.022) 1px, transparent 1px, transparent 24px);
+            opacity: 0.72;
+        }
+
+        .section {
+            background-color: transparent;
+        }
+
+        #landing-header {
+            color: #2f3644;
+        }
+
+        #Landing.section p {
+            color: rgba(47, 54, 68, 0.9);
+        }
+
+        .section+.section::before {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
+        }
+
+        @media (max-width: 900px) {
+            &::after {
+                opacity: 0.47;
+            }
+        }
+
+        @media (max-width: 600px) {
+            &::after {
+                opacity: 0.36;
+            }
+        }
+
+    }
 
     .content-container h2 {
         border-bottom: 3px solid $light-navbar-font-colour-hover;
@@ -36,17 +85,48 @@
         @include transition-properties((background-color, border));
     }
 
-    .about .socials > a > div {
-        background-color: $light-secondary-background-colour;
-        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.3);
-        @include transition-properties((background-color, box-shadow));
+    #Home>.section:not(.landing)>.content-container {
+        background-color: lighten($light-primary-background-colour, 2%);
+        border: $light-border;
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
+        @include transition-properties((background-color, border, box-shadow));
     }
 
-    ul.skillarea-summary-tile-techs > li {
+    .project-summary-tile-read-more {
+        color: $standard-blue-background;
+
+        &:hover,
+        &:focus-visible {
+            color: $dark-blue-background;
+        }
+    }
+
+    .project-details-modal-content {
+        background-color: $light-secondary-background-colour;
+        color: $light-primary-font-colour;
+        border: $light-border;
+        @include transition-properties((background-color, color, border));
+    }
+
+    .project-details-modal-tech-pill {
+        background-color: $light-primary-background-colour;
+        border: $light-border;
+        color: $light-primary-font-colour;
+        @include transition-properties((background-color, color, border));
+    }
+
+    .about .socials>a>div {
+        background-color: $light-secondary-background-colour;
+        border: $light-border;
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+        @include transition-properties((background-color, border, box-shadow));
+    }
+
+    ul.skillarea-summary-tile-techs>li {
         color: $standard-blue-background;
         @include transition-properties((color));
 
-        > span {
+        >span {
             color: $light-primary-font-colour;
             @include transition-properties((color));
         }
@@ -61,7 +141,7 @@
             @include transition-properties((color));
         }
 
-        .socials-footer > a > div {
+        .socials-footer>a>div {
             background-color: $light-secondary-background-colour;
             @include transition-properties((background-color));
         }
@@ -110,6 +190,52 @@
     color: $dark-primary-font-colour;
     background-color: $dark-primary-background-colour;
 
+    #Home {
+        background-color: $dark-primary-background-colour;
+
+        &::before {
+            background: none;
+            opacity: 0;
+        }
+
+        &::after {
+            background:
+                repeating-linear-gradient(0deg, rgba(226, 232, 240, 0.06) 0px, rgba(226, 232, 240, 0.06) 1px, transparent 1px, transparent 46px),
+                repeating-linear-gradient(90deg, rgba(226, 232, 240, 0.05) 0px, rgba(226, 232, 240, 0.05) 1px, transparent 1px, transparent 46px),
+                repeating-linear-gradient(135deg, rgba(226, 232, 240, 0.024) 0px, rgba(226, 232, 240, 0.024) 1px, transparent 1px, transparent 24px);
+            opacity: 0.45;
+        }
+
+        .section {
+            background-color: transparent;
+        }
+
+        #landing-header {
+            color: #edf2fb;
+        }
+
+        #Landing.section p {
+            color: rgba(232, 237, 246, 0.9);
+        }
+
+        .section+.section::before {
+            background: linear-gradient(90deg, rgba(189, 194, 204, 0), rgba(189, 194, 204, 0.1), rgba(189, 194, 204, 0));
+        }
+
+        @media (max-width: 900px) {
+            &::after {
+                opacity: 0.36;
+            }
+        }
+
+        @media (max-width: 600px) {
+            &::after {
+                opacity: 0.28;
+            }
+        }
+
+    }
+
     input,
     textarea {
         background-color: $dark-secondary-background-colour;
@@ -124,16 +250,52 @@
         border: $dark-border;
     }
 
-    .about .socials > a > div {
+    #Home>.section:not(.landing)>.content-container {
+        background-color: lighten($dark-primary-background-colour, 2%);
+        border: $dark-border;
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
+    }
+
+    .project-summary-tile-read-more {
+        color: $dark-primary-font-colour;
+
+        &:hover,
+        &:focus-visible {
+            color: $standard-blue-background;
+        }
+    }
+
+    .project-details-modal-content {
         background-color: $dark-secondary-background-colour;
+        color: $dark-primary-font-colour;
         border: $dark-border;
     }
 
-    ul.skillarea-summary-tile-techs > li > span {
+    .project-details-modal-header {
+        border-bottom-color: rgba(204, 204, 204, 0.1);
+
+        .btn-close {
+            filter: invert(1) grayscale(1);
+        }
+    }
+
+    .project-details-modal-tech-pill {
+        background-color: $dark-primary-background-colour;
+        color: $dark-primary-font-colour;
+        border: $dark-border;
+    }
+
+    .about .socials>a>div {
+        background-color: $dark-secondary-background-colour;
+        border: $dark-border;
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+    }
+
+    ul.skillarea-summary-tile-techs>li>span {
         color: $dark-primary-font-colour;
     }
 
-    footer .socials-footer > a > div {
+    footer .socials-footer>a>div {
         background-color: $dark-secondary-background-colour;
     }
 

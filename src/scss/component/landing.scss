@@ -45,7 +45,22 @@
 }
 
 .landing {
+    position: relative;
+
+    .content-container {
+        position: relative;
+        z-index: 1;
+        padding: 0 14px;
+
+        @media (max-width: 767px) {
+            padding: 0 10px;
+        }
+    }
+
     p {
         font-size: 18px;
+        max-width: 780px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

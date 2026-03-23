@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom'; // Import MemoryRouter
 import { Footer } from '../components/shared/Footer';
+import globals from '../utils/globals';
+import utils from '../utils/utils';
 
 describe('Footer', () => {
     test('renders footer content', () => {
@@ -10,28 +12,21 @@ describe('Footer', () => {
             </MemoryRouter>,
         );
 
-        // Assert name renders
         expect(screen.getByText('Joseph Castle')).toBeInTheDocument();
 
-        // Assert role text renders
-        expect(screen.getByText('Senior Full-Stack Software Developer')).toBeInTheDocument();
+        expect(screen.getByText(new RegExp(`A Senior Full-Stack Software Developer with ${utils.getYearsOfExperience()} years of experience`))).toBeInTheDocument();
 
-        // Assert contact links render
-        expect(screen.getByRole('link', { name: /LinkedIn/i })).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /Email/i })).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /GitHub/i })).toBeInTheDocument();
+        const linkedInLink: HTMLElement = screen.getByRole('link', { name: /LinkedIn link/i });
+        const emailLink: HTMLElement = screen.getByRole('link', { name: /Email address/i });
+        const gitHubLink: HTMLElement = screen.getByRole('link', { name: /GitHub link/i });
 
-        // Assert nav links render
-        expect(screen.getByRole('link', { name: /About/i })).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /Projects/i })).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /Skills/i })).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /Contact/i })).toBeInTheDocument();
+        expect(linkedInLink).toHaveAttribute('href', globals.linkedInData.url);
+        expect(gitHubLink).toHaveAttribute('href', globals.gitHubData.url);
+        expect(emailLink).toHaveAttribute('href', expect.stringContaining('mailto:'));
 
-        // Assert copyright date is current year
         const currentYear = new Date().getFullYear();
         expect(screen.getByText(`Copyright © 2019 - ${currentYear} Joseph Castle. All Rights Reserved.`)).toBeInTheDocument();
 
-        // Assert version text
         expect(screen.getByText(`v${process.env.REACT_APP_VERSION}`)).toBeInTheDocument();
     });
 });

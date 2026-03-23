@@ -22,7 +22,7 @@
         max-height: 210px;
         height: 210px;
         margin: 10px;
-        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
         position: relative;
         min-width: 600px;
 
@@ -83,12 +83,57 @@
             font-size: $font-size;
             line-height: $line-height;
             -webkit-line-clamp: $lines-to-show;
+            line-clamp: $lines-to-show;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
             margin-top: 10px;
             margin-bottom: 10px;
             flex: 1; //https://stackoverflow.com/questions/11960636/how-to-make-a-div-stretch-its-height-between-two-other-divs-and-center-its-conte
+        }
+
+        .project-summary-tile-read-more {
+            width: fit-content;
+            padding: 0;
+            font-size: 14px;
+            margin-right: 14px;
+            margin-bottom: 5px;
+            border: none;
+            background: transparent;
+            box-shadow: none;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: color 0.2s ease-in-out, text-decoration-thickness 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+            &:hover,
+            &:active,
+            &:focus {
+                background: transparent !important;
+                transform: none;
+                border: none;
+                box-shadow: none;
+                text-decoration-thickness: 2px;
+                opacity: 0.86;
+            }
+
+            &:focus-visible {
+                outline: 2px solid rgba(28, 110, 247, 0.35);
+                outline-offset: 2px;
+                border-radius: 4px;
+            }
+
+            >i {
+                margin-left: 6px;
+                font-size: 12px;
+                transition: transform 0.2s ease-in-out;
+            }
+
+            &:hover>i,
+            &:focus-visible>i {
+                transform: translateX(2px);
+            }
         }
 
         .project-summary-tile-other {
@@ -154,6 +199,11 @@
 
                 >a {
                     margin-left: 10px;
+                    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+
+                    &:hover {
+                        transform: translateY(-1px);
+                    }
 
                     >i {
                         font-size: 22px;
@@ -221,6 +271,260 @@
         h1 {
             margin: 0px;
             margin-right: 5px;
+        }
+    }
+}
+
+.project-details-modal {
+    .modal-dialog {
+        max-width: 920px;
+        margin: 1.25rem auto;
+
+        @media (max-width: 575px) {
+            margin: 0.5rem;
+        }
+    }
+}
+
+.project-details-modal-content {
+    border-radius: 8px;
+}
+
+.project-details-modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+    .btn-close {
+        margin-right: 0;
+    }
+}
+
+.project-details-modal-title-wrapper {
+    padding-right: 30px;
+}
+
+.project-details-modal-title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+
+    @media (max-width: 575px) {
+        font-size: 24px;
+    }
+}
+
+.project-details-modal-subtitle {
+    margin: 6px 0 0;
+    opacity: 0.85;
+    font-size: 14px;
+}
+
+.project-details-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-details-modal-overview {
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+    }
+}
+
+.project-details-modal-thumbnail-wrapper {
+    width: 100%;
+    max-width: 360px;
+    max-height: 220px;
+    border-radius: 6px;
+    overflow: hidden;
+
+    @media (max-width: 767px) {
+        max-width: 100%;
+        max-height: 260px;
+    }
+}
+
+.project-details-modal-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-details-modal-thumbnail-btn {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.project-details-modal-quick-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.project-details-modal-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.project-details-modal-link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #ffffff !important;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: #ffffff !important;
+        text-decoration: none;
+    }
+}
+
+.project-details-modal-gallery-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background: transparent;
+    padding: 6px 0;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease-in-out, text-decoration-thickness 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration-thickness: 2px;
+        opacity: 0.86;
+    }
+
+    &:focus-visible {
+        outline: 2px solid rgba(28, 110, 247, 0.35);
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+
+    >i {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    &:hover>i,
+    &:focus-visible>i {
+        transform: translateX(1px);
+    }
+}
+
+.project-details-modal-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.project-details-modal-tech-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.project-details-modal-tech-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+
+    @media (max-width: 520px) {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.project-details-modal-tech-title {
+    font-size: 13px;
+    font-weight: 600;
+
+    @media (max-width: 520px) {
+        font-size: 12px;
+    }
+}
+
+.project-details-modal-description {
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.project-details-modal-disclaimer {
+    margin-bottom: 0;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.project-details-modal-light {
+    .project-details-modal-content {
+        background-color: $light-secondary-background-colour;
+        color: $light-primary-font-colour;
+        border: $light-border;
+    }
+
+    .project-details-modal-tech-item {
+        background-color: $light-primary-background-colour;
+        border: $light-border;
+    }
+
+    .project-summary-tile-read-more,
+    .project-details-modal-gallery-link {
+        color: $standard-blue-background;
+
+        &:hover,
+        &:focus-visible {
+            color: $dark-blue-background;
+        }
+    }
+}
+
+.project-details-modal-dark {
+    .project-details-modal-content {
+        background-color: $dark-secondary-background-colour;
+        color: $dark-primary-font-colour;
+        border: $dark-border;
+    }
+
+    .project-details-modal-header {
+        border-bottom-color: rgba(204, 204, 204, 0.1);
+
+        .btn-close {
+            filter: invert(1) grayscale(1);
+        }
+    }
+
+    .project-details-modal-tech-item {
+        background-color: $dark-primary-background-colour;
+        border: $dark-border;
+    }
+
+    .project-summary-tile-read-more,
+    .project-details-modal-gallery-link {
+        color: $dark-primary-font-colour;
+
+        &:hover,
+        &:focus-visible {
+            color: $standard-blue-background;
         }
     }
 }

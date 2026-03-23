@@ -1,25 +1,28 @@
 import { render, screen } from '@testing-library/react';
 import About from '../components/home-sections/About';
+import globals from '../utils/globals';
+import utils from '../utils/utils';
 
 // Mock the entire useOnScreen module
 jest.mock('../hooks/useOnScreen');
 
-describe('about', () => {
-    it('renders about content', () => {
+describe('About', () => {
+    it('renders section heading and dynamic experience text', () => {
         render(<About />);
 
-        // Assert that specific content is present in the rendered component
-        // expect(screen.getByText(/Hey there, I'm Joe/i)).toBeInTheDocument();
-        // expect(screen.getByText(/Senior Full-Stack Software Developer based in the UK/i)).toBeInTheDocument();
-        // expect(screen.getByText(/extensive hands-on experience in crafting high-quality, bespoke enterprise web applications/i)).toBeInTheDocument();
+        expect(screen.getByRole('heading', { name: 'About' })).toBeInTheDocument();
+        expect(screen.getByText(new RegExp(`${utils.getYearsOfExperience()} years of experience building software`))).toBeInTheDocument();
     });
 
-    it('renders contact links', () => {
+    it('renders social links with expected targets', () => {
         render(<About />);
 
-        // Assert that contact links are present with appropriate labels
-        expect(screen.getByRole('link', { name: /LinkedIn/i })).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /Email/i })).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /GitHub/i })).toBeInTheDocument();
+        const linkedInLink: HTMLElement = screen.getByRole('link', { name: /LinkedIn link/i });
+        const emailLink: HTMLElement = screen.getByRole('link', { name: /Email address/i });
+        const gitHubLink: HTMLElement = screen.getByRole('link', { name: /GitHub link/i });
+
+        expect(linkedInLink).toHaveAttribute('href', globals.linkedInData.url);
+        expect(gitHubLink).toHaveAttribute('href', globals.gitHubData.url);
+        expect(emailLink).toHaveAttribute('href', expect.stringContaining('mailto:'));
     });
 });

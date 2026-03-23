@@ -7,6 +7,7 @@ import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/counter.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
 import { getProjectSkills, IImage, IProject } from '../../../data/projects';
+import ProjectDetailsModal from './ProjectDetailsModal';
 
 interface IProjectProps {
     project: IProject;
@@ -16,6 +17,7 @@ interface Props extends IProjectProps { }
 
 export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element => {
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
+    const [isDetailsModalOpen, setIsDetailsModalOpen] = React.useState<boolean>(false);
     const preloadedImageUrlsRef = React.useRef<Set<string>>(new Set<string>());
 
     const hasImages: boolean = project.attributes.carouselImages !== undefined ? project.attributes.carouselImages.length > 0 : false;
@@ -102,7 +104,12 @@ export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element 
                     {project.attributes.description[0]}
                 </div>
                 <div className="project-summary-tile-other">
-                    <div className="project-summary-tile-techs">{techs}</div>
+                    <div className="project-summary-tile-techs">
+                        <button type="button" className="project-summary-tile-read-more" onClick={() => setIsDetailsModalOpen(true)}>
+                            Read more <i className="fas fa-arrow-right" aria-hidden="true"></i>
+                        </button>
+                        {techs}
+                    </div>
                     <div className="project-summary-tile-links">
                         {hasSource && (
                             <a target="_blank" rel="noopener noreferrer" href={project.attributes.sourceCode} title={project.attributes.sourceTitle}>
@@ -131,6 +138,8 @@ export const ProjectsSummaryTile = React.memo(({ project }: Props): JSX.Element 
                     }}
                 />
             </Suspense>
+
+            <ProjectDetailsModal project={project} isOpen={isDetailsModalOpen} toggle={() => setIsDetailsModalOpen((prev) => !prev)} />
         </div>
     );
 });

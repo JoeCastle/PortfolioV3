@@ -14,6 +14,7 @@ export enum ProjectType {
 interface IAttributes {
     title: string;
     description: string[]; //Array allows for multiple paragraphs to be included. Can map different index to a new element.
+    isComplete: boolean;
     disclaimer: string;
     summary?: string; //A short description, probably used on the home page.
     technologies: ISkill[];
@@ -59,12 +60,12 @@ const projects: IProject[] = [
         projectName: 'joebloggs',
         attributes: {
             title: 'JoeBloggs',
+            isComplete: true,
             disclaimer: '',
             description: [
-                "A fast, responsive personal blog built with Next.js and TypeScript. It supports Markdown-based posts, automatic SEO metadata, dark/light mode, and is statically generated for performance and scalability.",
-                'JoeBloggs is a personal blog project designed to be fast, modern, and highly maintainable. Built using Next.js, React, and TypeScript, it leverages static site generation (SSG) for optimal performance and SEO. Posts are written in Markdown files with structured frontmatter, making content creation and management simple and developer-friendly. Each post is enhanced with automatically generated metadata including dynamic page titles, Open Graph tags, and Twitter Cards.',
-                'The blog prioritises readability and usability across devices. It uses a clean, mobile-first layout styled with SCSS and includes built-in dark and light modes for user comfort. Readers can easily toggle themes, and features like estimated reading time and word count help set expectations before diving into an article.',
-                'Content organisation is intuitive: posts and their related images are stored together in dedicated folders, while components and utilities are modular and well-structured. GitHub-flavoured Markdown is supported via remark-gfm, allowing for tables, strikethroughs, and task lists. During build, public-facing files like sitemap.xml, rss.xml, and robots.txt are automatically generated to improve discoverability and compliance with search engine standards.',
+                'A production-style personal blog platform built with Next.js and TypeScript, designed for strong performance, SEO, and a maintainable content workflow.',
+                'Posts are authored in Markdown with structured frontmatter, then statically generated for fast page loads and predictable deployments. The project includes automated metadata handling (Open Graph/Twitter), responsive layout behaviour, and dark/light theme support to deliver a polished reader experience across devices.',
+                'From an engineering perspective, the codebase focuses on modular component design and content scalability: post content, images, and utilities are organised to keep publishing and maintenance straightforward. Supporting files such as sitemap and robots are generated as part of the workflow to improve discoverability and search indexing.',
             ],
             technologies: getSkills(['nextjs', 'reactjs', 'sass', 'typescript', 'visualstudiocode']),
             tags: [],
@@ -120,11 +121,14 @@ const projects: IProject[] = [
         projectName: 'portfolio',
         attributes: {
             title: 'Portfolio',
+            isComplete: true,
             disclaimer: '',
             description: [
-                "The website you are currently viewing. An online portfolio of my past projects, skills and experience. Built with accessibility and SEO in mind.",
-                'The primary goals of this project were to serve as a central repository of my projects, and to be a simple and easily maintainable project that can be updated and revised rapidly.',
-                'The biggest challenge I had to overcome was my lack of artistic and design skills. I found it difficult to design a website that was simple, visually appealing and unique.',
+                'The website you are currently viewing: a responsive, single-page portfolio built with React, TypeScript, SCSS, and Bootstrap to present projects, skills, and contact details in a clean, accessible format.',
+                'This project is designed around maintainability and clear content structure. Key sections (About, Projects, Skills, Blog, and Contact) are implemented as modular components, with shared styling and reusable UI patterns to keep updates straightforward as the portfolio evolves.',
+                'The Projects section supports both summary and detail-first browsing. Each tile provides a concise overview, while the modal view adds richer project context, technology badges, direct source/demo links, and an image gallery/lightbox for deeper visual walkthroughs.',
+                'A dedicated Blog section integrates recent posts from blog.joecastle.co.uk, with local backup data and client-side caching/fetch throttling to improve resilience and reduce unnecessary network requests. Build-time scripts also refresh backup post data and update sitemap metadata.',
+                'SEO and discoverability are treated as first-class concerns: page metadata is managed with react-helmet-async, Open Graph/Twitter tags are provided, and robots/sitemap files are maintained for search indexing. Accessibility is also a core priority, with semantic structure, descriptive labels, keyboard-friendly controls, and strong cross-device responsiveness throughout.',
             ],
             technologies: getSkills(['reactjs', 'sass', 'typescript', 'visualstudiocode']),
             tags: [],
@@ -175,12 +179,13 @@ const projects: IProject[] = [
         projectName: 'trainingApp',
         attributes: {
             title: 'Training App',
+            isComplete: true,
             disclaimer: '',
             description: [
-                'The Training App was built for the project section of my university dissertation. Its purpose was to support the arguments I made within my report and demonstrate many of the features of web accessibility that I discovered during my research.',
-                'The web application itself allows trainers to create multiple choice quizzes for trainees that are assigned to their group.',
-                'It demonstrates a variety of web accessibility features such as descriptive meta data, high contract themes, readable font etc.',
-                'In order to test the accessibility level of the application I used multiple online automatic accessibility testing tools which include Google Lighthouse, tota11y, WAVE and the W3C Web Accessibility Evaluation Tools List.',
+                'A full-stack training platform built as the practical component of my dissertation, focused on delivering accessible learning workflows for trainers and trainees.',
+                'The system supports role-based usage: trainers can create groups, assign users, build quizzes, review outcomes, and export results to CSV, while trainees can complete assigned quizzes and track completed/uncompleted work. It combines a React/TypeScript front end with a .NET backend and SQL Server data layer.',
+                'Accessibility was a core requirement rather than an add-on. I implemented features such as high-contrast themes, clear typography, and descriptive metadata, then validated outcomes with tools including Lighthouse, tota11y, WAVE, and W3C accessibility references.',
+                'This project demonstrates end-to-end delivery, from requirements and architecture through implementation and evaluation, with strong emphasis on inclusivity, usability, and maintainable engineering practices.',
             ],
             technologies: getSkills(['reactjs', 'mobx', 'sass', 'typescript', 'aspnetcore', 'visualstudio', 'tsql', 'sqlservermanagementstudio']),
             tags: [],
@@ -246,14 +251,13 @@ const projects: IProject[] = [
         projectName: 'arduinoTemperatureSensor',
         attributes: {
             title: 'Arduino Temperature Sensor',
+            isComplete: true,
             disclaimer: '',
             description: [
-                'Completed as part of a group project for my university course. The primary goal of the module was not just programming, but collaborative development between a group of students. Working together with other students do develop a product from start to finish, with communication between group members as a key aspect. This involved planning sprints, allocating tasks and weekly meetings.',
-                'As collaboration was the core focus, we would meet weekly, communicate frequently and use version control to manage the code between developers.',
-                'My role on the project was Embedded Developer. It was my job to design and build the Arduino circuit, as well as write the code to collect the temperature data, act on the readings, and post the results to a webpage. Other roles in the group included web developers, project manager, business manager and database administrator.',
-                'I thoroughly enjoyed this module as it was the first time at university that I was able to collaborate with other students in this way. I also learned something new, as I had never use an Arduino before and had no experience with electrical engineering.',
-                'The product itself was simple. We were given a pre-defined project brief, an Arduino kit, and randomly assigned roles and responsibilities. We had to create and design a system that would read the temperature of a room, light an LED depending on the temperature (Green = cold, yellow = fine, red = hot), and send the data to a webpage where to use could visualize the historical data. The user would also be able to define which temperature was considered too hot or too cold.',
-                "Unfortunately I wasn't given access to the website code, as that was the responsibility of the web developers, so to demonstrate this project I'd need to re-create the website from scratch. I'd also need to purchase my own Arduino kit.",
+                'A collaborative university group project focused on delivering an end-to-end temperature monitoring solution using Arduino, with teamwork and delivery process as primary learning outcomes.',
+                'I worked as the Embedded Developer, designing the circuit and implementing logic to read temperature values, trigger LED status indicators (cold/ok/hot), and provide data output for the connected web experience.',
+                'The module emphasised cross-functional collaboration: we planned and tracked work in weekly cycles, split responsibilities across technical and non-technical roles, and relied on clear communication and version control to keep progress aligned.',
+                'Beyond technical delivery, this project strengthened practical team skills, including coordination, role ownership, and integration between hardware and software contributors, which are directly transferable to real product teams.',
             ],
             technologies: getSkills(['c/c++', 'arduino']),
             tags: [],
@@ -304,13 +308,12 @@ const projects: IProject[] = [
         projectName: 'startPage',
         attributes: {
             title: 'Startpage',
+            isComplete: true,
             disclaimer: '',
             description: [
-                'A simple web page created in collaboration with another developer and built using vanilla HTML, CSS and JavaScript. I was inspired to create this after stumbling upon an online community that showcases personalized "Start pages".',
-                'A "start page" is a web page that you see when you first open your browser. The idea is that you can provide links to your favourite websites, but you\'re able to add any content you want as it\'s just a web page.',
-                'The main goals for this project were to build a website using only vanilla technologies, collaborate with another developer, and create something that I could actually use.',
-                "Overall I would consider this project a success as I achieved two out of the three goals. As it stands, the page doesn't have enough features to warrant me using it as my daily startpage.",
-                'Though I would like to revisit it to add more features and polish the existing features.',
+                'A lightweight start page built with vanilla HTML, CSS, and JavaScript to deliver a clear, practical goal: open the browser and land on a clean, personalised launch screen for everyday links.',
+                'This project also had a mentoring angle. I collaborated with a junior developer and supported styling decisions, sharing front-end fundamentals and practical CSS patterns during implementation.',
+                'Functionality was intentionally simple, with focus on reliable core interactions (organising and managing bookmarks/categories) rather than over-engineering. It demonstrates clean problem framing, scoped delivery, and pragmatic trade-off decisions.',
             ],
             technologies: getSkills(['html', 'css', 'javascript', 'visualstudiocode']),
             tags: [],
@@ -366,10 +369,12 @@ const projects: IProject[] = [
         projectName: 'jla',
         attributes: {
             title: 'Java Learning App',
+            isComplete: true,
             disclaimer: '',
             description: [
-                'A prototype mobile application designed to help students learn the Java programming language. Built using MIT App Inventor. The app includes a wiki, tutorials and quizzes for a fully contained learning experience. Though in reality the app was a proof of concept MVP rather than a fully fledged application, as there was only a few weeks to accomplish everything.',
-                'I created this as part of my university course. The goal of this module was to design, create and evaluate a piece of software by following the software development lifecycle. This helped me to appreciate how valuable analysis and design are when developing software.',
+                'A mobile learning app prototype built with MIT App Inventor to help students practice Java concepts through guided content and quizzes.',
+                'This was delivered for a university module centred on the full software project lifecycle: planning, design, implementation, testing, and evaluation. The work was intentionally scoped as an MVP, balancing time constraints with a coherent end-to-end user journey.',
+                'The project demonstrates my ability to adapt to unfamiliar platforms, translate requirements into usable product flows, and apply structured evaluation to improve quality and learning outcomes.',
             ],
             technologies: getSkills(['mitappinventor']),
             tags: [],
@@ -440,9 +445,12 @@ const projects: IProject[] = [
         projectName: 'robocoderobot',
         attributes: {
             title: 'Robocode robot',
+            isComplete: true,
             disclaimer: '',
             description: [
-                'A robot built for the Robocode programming game, that utilizes advanced features such as circling, strafing, linear predictive targeting, wall avoidance, opponent detection, following, evading and dodging.',
+                'A Java-based autonomous robot built for the Robocode programming game, designed to combine movement strategy, targeting logic, and adaptive battle behaviour.',
+                'Core capabilities include circling and strafing movement, linear predictive targeting, wall avoidance, closest-opponent detection, pursuit logic, and evasive dodging behaviours. Together these features improve survivability while maintaining offensive pressure.',
+                'This university-era project strengthened my understanding of algorithmic thinking, state-driven behaviour, and real-time decision-making in constrained environments.',
             ],
             technologies: getSkills(['java']),
             tags: [],
@@ -481,7 +489,7 @@ const projects: IProject[] = [
             nonLiveDemo: '',
             projectType: ProjectType.University,
             isDeleted: false,
-            yearCompleted: '2017',
+            yearCompleted: '2015',
         },
     },
 ];

@@ -29,10 +29,11 @@
                 background: $light-secondary-background-colour;
                 border: $light-border;
                 border-radius: 5px;
-                box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
+                box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
                 margin-bottom: 30px;
                 padding: 30px;
                 transition: box-shadow 0.2s, background-color $global-animation-time ease-in-out, border $global-animation-time ease-in-out;
+                will-change: transform, box-shadow;
 
                 @media (max-width: $mobile-min-width-breakpoint) {
                     padding: 15px 20px;
@@ -40,7 +41,8 @@
                 }
 
                 &:hover {
-                    box-shadow: 4px 4px 16px -4px rgba(0, 0, 0, $box-shadow-color);
+                    transform: translateY(-2px);
+                    box-shadow: 4px 4px 16px -4px rgba(0, 0, 0, 0.2);
                 }
 
                 &:first-child {
@@ -93,11 +95,14 @@
             letter-spacing: 1px;
             box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
             transition: background-color 0.2s, transform 0.1s;
+            will-change: transform, box-shadow;
 
             &:hover {
                 background-color: $dark-blue-background !important;
                 color: #fff !important;
                 text-decoration: none;
+                transform: translateY(-1px);
+                box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.45);
             }
 
             &:active {

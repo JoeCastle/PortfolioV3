@@ -7,7 +7,7 @@ import { Footer } from './components/shared/Footer';
 import ScrollToAnchor from './components/ScrollToAnchor';
 import globals from './utils/globals';
 
-interface Props {}
+interface Props { }
 
 interface State {
     isDarkMode: boolean;
@@ -17,7 +17,7 @@ interface State {
 const isDarkModeDefault: boolean = globals.isDarkModeDefault;
 
 export const RouteContainer = (props: Props, state: State): JSX.Element => {
-    const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+    const [isDarkMode, setIsDarkMode] = useState<boolean>(isDarkModeDefault);
     const [hasMounted, setHasMounted] = useState<boolean>(false);
     const isScrollToTopButtonDisabled = useRef<boolean>(false); // Using ref to reduce re-renders.
 

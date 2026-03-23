@@ -78,6 +78,19 @@ a:active {
     color: $dark-blue-background !important;
 }
 
+main a,
+footer a {
+    transition: color $global-animation-time ease-in-out, text-decoration-color $global-animation-time ease-in-out;
+    text-underline-offset: 3px;
+}
+
+main a:focus-visible,
+footer a:focus-visible {
+    outline: 2px solid rgba(28, 110, 247, 0.35);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
 main {
     width: 100%;
     flex: 1 0 auto;
@@ -93,17 +106,36 @@ main {
     flex-direction: column;
 }
 
+#Home>.section:not(.landing)>.content-container {
+    border-radius: 18px;
+    border: 1px solid transparent;
+    padding: 34px 34px 30px;
+
+    @media (max-width: 768px) {
+        padding: 26px 22px 24px;
+        border-radius: 14px;
+    }
+
+    @media (max-width: 450px) {
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+}
+
 #scroll-to-top-btn {
     width: 50px;
     height: 50px;
     position: fixed;
     bottom: 36px;
     right: 50px;
+    z-index: 12;
     visibility: hidden;
     opacity: 0;
     transition:
         opacity $global-animation-time ease-in-out,
-        visibility $global-animation-time ease-in-out;
+        visibility $global-animation-time ease-in-out,
+        transform 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
     will-change: opacity, visibility;
 
     @media (max-width: 450px) {
@@ -121,19 +153,36 @@ main {
     will-change: opacity, visibility;
 }
 
+#scroll-to-top-btn.show:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 10px -3px rgba(0, 0, 0, 0.45);
+}
+
 #theme-changer-btn {
     position: fixed;
     bottom: 28px;
     left: 28px;
+    z-index: 12;
     color: $standard-blue-background;
     background: transparent;
     border: none;
     box-shadow: none;
     outline: 0;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 
     >i {
         font-size: 18px;
     }
+}
+
+#theme-changer-btn:hover {
+    transform: translateY(-1px);
+}
+
+#theme-changer-btn:focus-visible,
+#scroll-to-top-btn:focus-visible {
+    outline: 2px solid rgba(28, 110, 247, 0.35);
+    outline-offset: 3px;
 }
 
 #Projects,
@@ -150,6 +199,9 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     padding: 20px;
     min-height: calc(100vh - #{$navbar-height});
 
@@ -242,4 +294,64 @@ main {
 
 code {
     color: #e01a76;
+}
+
+#Home {
+    position: relative;
+    isolation: isolate;
+
+    &::before,
+    &::after {
+        content: '';
+        pointer-events: none;
+        z-index: 0;
+        transition: opacity $global-animation-time ease-in-out;
+    }
+
+    &::before {
+        position: absolute;
+        inset: 0;
+    }
+
+    &::after {
+        position: fixed;
+        top: #{$navbar-height};
+        left: 0;
+        right: 0;
+        bottom: #{$footer-height};
+    }
+
+    @media (max-width: 767px) {
+        &::after {
+            position: absolute;
+            inset: 0;
+        }
+    }
+
+    .section {
+        transition: background-color $global-animation-time ease-in-out;
+        z-index: 1;
+
+        @media (min-width: 768px) {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+
+        @media (max-width: 767px) {
+            padding-top: 42px;
+            padding-bottom: 42px;
+        }
+    }
+
+    .section+.section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(92%, 1200px);
+        height: 1px;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0));
+        z-index: 0;
+    }
 }

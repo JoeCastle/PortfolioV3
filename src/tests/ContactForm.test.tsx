@@ -1,4 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import ContactForm from '../components/home-sections/ContactForm';
 import utils from '../utils/utils';
 
@@ -15,38 +16,47 @@ describe('ContactForm', () => {
         expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
     });
 
-    it('validates and shows error messages for empty fields when submitted', async () => {
+    it('validates and shows a useful error message for empty submission', async () => {
         render(<ContactForm />);
 
-        fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
-        expect(await screen.findByText(/Full name.*missing or invalid/i)).toBeInTheDocument();
-        expect(await screen.findByText(/Subject.*missing or invalid/i)).toBeInTheDocument();
-        expect(await screen.findByText(/Message.*missing or invalid/i)).toBeInTheDocument();
+        expect(await screen.findByText('Full name, Subject, and Message are missing or invalid.')).toBeInTheDocument();
     });
 
-    it('submits the form and clears input fields on successful submission', () => {
+    it('submits with valid data and encodes line breaks in email body', async () => {
         render(<ContactForm />);
 
-        // Simulate user input
-        fireEvent.change(screen.getByLabelText('Full name:'), { target: { value: 'John Doe' } });
-        fireEvent.change(screen.getByLabelText('Subject:'), { target: { value: 'Test Subject' } });
-        fireEvent.change(screen.getByLabelText('Message:'), { target: { value: 'Test Message' } });
-
-        // Mock the utility function to prevent actual navigation
         const mockNavigateToEmail = jest.fn();
         jest.spyOn(utils, 'navigateToEmail').mockImplementation(mockNavigateToEmail);
 
-        // Simulate form submission
-        fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+        await userEvent.type(screen.getByLabelText('Full name:'), 'John Doe');
+        await userEvent.type(screen.getByLabelText('Subject:'), 'Test Subject');
+        await userEvent.type(screen.getByLabelText('Message:'), 'Line one{enter}Line two');
 
-        // Assertions
-        // Verify that input fields are cleared after submission
+        await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+        expect(mockNavigateToEmail).toHaveBeenCalledWith('Test Subject', 'Hi Joe, %0D%0A%0D%0ALine one%0D%0ALine two %0D%0A%0D%0ARegards,%0D%0AJohn Doe');
         expect(screen.getByLabelText('Full name:')).toHaveValue('');
         expect(screen.getByLabelText('Subject:')).toHaveValue('');
         expect(screen.getByLabelText('Message:')).toHaveValue('');
+    });
 
-        // Verify that the utility function was called with the expected arguments
-        expect(mockNavigateToEmail).toHaveBeenCalledWith('Test Subject', 'Hi Joe, %0D%0A%0D%0ATest Message %0D%0A%0D%0ARegards,%0D%0AJohn Doe');
+    it('clears values and previous form errors when Clear is clicked', async () => {
+        render(<ContactForm />);
+
+        await userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+        expect(await screen.findByText('Full name, Subject, and Message are missing or invalid.')).toBeInTheDocument();
+
+        await userEvent.type(screen.getByLabelText('Full name:'), 'Jane Doe');
+        await userEvent.type(screen.getByLabelText('Subject:'), 'Hello');
+        await userEvent.type(screen.getByLabelText('Message:'), 'Message');
+
+        await userEvent.click(screen.getByRole('button', { name: 'Clear' }));
+
+        expect(screen.getByLabelText('Full name:')).toHaveValue('');
+        expect(screen.getByLabelText('Subject:')).toHaveValue('');
+        expect(screen.getByLabelText('Message:')).toHaveValue('');
+        expect(screen.queryByText('Full name, Subject, and Message are missing or invalid.')).not.toBeInTheDocument();
     });
 });
