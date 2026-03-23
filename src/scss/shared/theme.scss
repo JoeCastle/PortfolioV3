@@ -85,6 +85,13 @@ will-change: $properties;
         @include transition-properties((background-color, border));
     }
 
+    #Home>.section:not(.landing)>.content-container {
+        background-color: lighten($light-primary-background-colour, 2%);
+        border: $light-border;
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
+        @include transition-properties((background-color, border, box-shadow));
+    }
+
     .project-summary-tile-read-more {
         color: $standard-blue-background;
     }
@@ -105,8 +112,9 @@ will-change: $properties;
 
     .about .socials>a>div {
         background-color: $light-secondary-background-colour;
-        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.3);
-        @include transition-properties((background-color, box-shadow));
+        border: $light-border;
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
+        @include transition-properties((background-color, border, box-shadow));
     }
 
     ul.skillarea-summary-tile-techs>li {
@@ -237,6 +245,12 @@ will-change: $properties;
         border: $dark-border;
     }
 
+    #Home>.section:not(.landing)>.content-container {
+        background-color: lighten($dark-primary-background-colour, 2%);
+        border: $dark-border;
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
+    }
+
     .project-summary-tile-read-more {
         color: $dark-primary-font-colour;
     }
@@ -264,6 +278,7 @@ will-change: $properties;
     .about .socials>a>div {
         background-color: $dark-secondary-background-colour;
         border: $dark-border;
+        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
     }
 
     ul.skillarea-summary-tile-techs>li>span {

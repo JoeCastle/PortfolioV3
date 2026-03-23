@@ -106,6 +106,10 @@
 }
 
 .contact-form-info-container {
+    >.content-container {
+        max-width: 980px;
+    }
+
     .contact-form-info {
         display: flex;
         flex-direction: column;

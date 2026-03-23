@@ -4,7 +4,7 @@ $mobile-breakpoint: 1150px;
 
 .skillarea-summary-tiles {
     // Box shadow applied to parent so the shadow has no gaps when items are next to each other.
-    box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
+    box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     border-radius: 5px;
@@ -55,6 +55,7 @@ $mobile-breakpoint: 1150px;
             font-size: 24px;
             margin: 10px 0px 5px;
         }
+
         //https://stackoverflow.com/a/53156390/5547950
         $font-size: 14px;
         $line-height: 1.4;
@@ -79,7 +80,7 @@ $mobile-breakpoint: 1150px;
                 flex-wrap: wrap;
                 width: 100%;
 
-                > li {
+                >li {
                     margin-right: 8px;
                     font-size: 14px;
                     margin-bottom: 5px;
@@ -87,7 +88,7 @@ $mobile-breakpoint: 1150px;
                     max-width: calc(50% - 8px);
                     width: calc(50% - 8px);
 
-                    > span {
+                    >span {
                         font-size: inherit;
                         margin-left: -5px;
                     }
@@ -133,7 +134,7 @@ $mobile-breakpoint: 1150px;
         justify-content: space-between;
         align-items: center;
 
-        > div {
+        >div {
             display: flex;
             flex-direction: column;
         }
