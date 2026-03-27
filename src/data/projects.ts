@@ -1,7 +1,16 @@
 import globals from '../utils/globals';
 import { ISkill, getSkills } from './skills';
 
-export type ProjectTypes = 'portfolio' | 'trainingApp' | 'arduinoTemperatureSensor' | 'startPage' | 'jla' | 'robocoderobot' | 'joebloggs' | 'flashcardsynth';
+export type ProjectTypes =
+    | 'aihandbook'
+    | 'flashcardsynth'
+    | 'joebloggs'
+    | 'portfolio'
+    | 'trainingApp'
+    | 'startPage'
+    | 'arduinoTemperatureSensor'
+    | 'jla'
+    | 'robocoderobot';
 
 export enum ProjectType {
     Personal = 'Personal',
@@ -13,10 +22,10 @@ export enum ProjectType {
 
 interface IAttributes {
     title: string;
-    description: string[]; //Array allows for multiple paragraphs to be included. Can map different index to a new element.
+    description: string[]; // Array allows for multiple paragraphs to be included. Can map different index to a new element.
     isComplete: boolean;
     disclaimer: string;
-    summary?: string; //A short description, probably used on the home page.
+    summary?: string; // A short description, probably used on the home page.
     technologies: ISkill[];
     tags: string[];
     thumbnail: IImage;
@@ -27,8 +36,8 @@ interface IAttributes {
     sourceTitle: string;
     liveDemo: string;
     nonLiveDemo: string; // For snapshots, videos or other examples. (If the site has been taken down or changed.)
-    projectType: ProjectType; //University, Personal, Work, Freelance
-    yearCompleted?: string; //2018, 2017* - Initially completed in 2017 at uni, but built my own web page once I left.
+    projectType: ProjectType; // University, Personal, Work, Freelance
+    yearCompleted?: string; // 2018, 2017* - Initially completed in 2017 at uni, but built my own web page once I left.
     isDeleted: boolean;
 }
 
@@ -57,18 +66,107 @@ const getProjectReadMoreLink = (projectName: string): string => {
  */
 const projects: IProject[] = [
     {
+        projectName: 'aihandbook',
+        attributes: {
+            title: 'AI Handbook',
+            isComplete: false,
+            disclaimer:
+                'Active development. Core cross-platform learning and content workflows are implemented, while selected integrations and polish passes are still being refined.',
+            summary:
+                'A cross-platform AI knowledge platform designed to structure fast-moving concepts into maintainable, scalable learning systems across web and mobile.',
+            description: [
+                'AI Handbook is a cross-platform knowledge platform designed to turn rapidly evolving AI topics into structured, maintainable learning systems.',
+                'The system is built as a TypeScript monorepo with shared UI and domain packages, enabling reuse across Next.js (web) and Expo React Native (mobile) while keeping platform-specific concerns isolated.',
+                'A CMS-first architecture drives content rendering, routing, metadata, and discovery across guides, walkthroughs, and concept collections.',
+                'A key area of the system is the AI-assisted content pipeline, where schema-aware generation, typed validation, and transformation steps ensure generated content is consistent, reviewable, and safe to integrate.',
+                'The backend focuses on clear data access patterns and security boundaries, including authentication, row-level access control, and controlled integration with external services.',
+                'The platform is designed for extensibility, with support for search, subscriptions, and scalable content delivery as the product evolves.',
+            ],
+            technologies: getSkills([
+                'nextjs',
+                'reactjs',
+                'typescript',
+                'tamagui',
+                'supabase',
+                'postgresql',
+                'reactnative',
+                'sanity',
+                'visualstudiocode',
+            ]),
+            tags: [
+                'SaaS Side Project',
+                'AI',
+                'Cross-Platform',
+                'Content Platform',
+                'Monorepo',
+                'Full-Stack',
+                'CMS',
+                'Developer Tooling',
+            ],
+            thumbnail: {
+                src: 'https://your-image-host.com/PortfolioScreenshots/AIHandbook/Thumbnail/Learning_Path_Overview.png',
+                alt: 'Screenshot of the learning path overview in AI Handbook.',
+                title: 'Learning Paths - AI Handbook',
+            },
+            carouselImages: [
+                {
+                    src: 'https://your-image-host.com/PortfolioScreenshots/AIHandbook/Thumbnail/Learning_Path_Overview.png',
+                    alt: 'Screenshot of the learning path overview in AI Handbook.',
+                    title: 'Learning Paths - AI Handbook',
+                },
+                {
+                    src: 'https://your-image-host.com/PortfolioScreenshots/AIHandbook/Full/Guide_Detail_Page.png',
+                    alt: 'Screenshot of a guide detail page with structured sections.',
+                    title: 'Guide Detail - AI Handbook',
+                },
+                {
+                    src: 'https://your-image-host.com/PortfolioScreenshots/AIHandbook/Full/Walkthrough_Steps_View.png',
+                    alt: 'Screenshot of a walkthrough with ordered step content.',
+                    title: 'Walkthrough Steps - AI Handbook',
+                },
+                {
+                    src: 'https://your-image-host.com/PortfolioScreenshots/AIHandbook/Full/Search_and_Filter_Results.png',
+                    alt: 'Screenshot of search and filtered content results.',
+                    title: 'Search and Discovery - AI Handbook',
+                },
+                {
+                    src: 'https://your-image-host.com/PortfolioScreenshots/AIHandbook/Full/Sanity_Studio_Content_Model.png',
+                    alt: 'Screenshot of CMS content modelling in Sanity Studio.',
+                    title: 'CMS Content Operations - AI Handbook',
+                },
+                {
+                    src: 'https://your-image-host.com/PortfolioScreenshots/AIHandbook/Full/Mobile_Expo_Screen.png',
+                    alt: 'Screenshot of the mobile app view in Expo.',
+                    title: 'Mobile Experience - AI Handbook',
+                },
+            ],
+            readMoreLink: getProjectReadMoreLink('AIHandbook'),
+            routeURL: getProjectRouteURL('AIHandbook'),
+            sourceCode: '',
+            sourceTitle: '',
+            liveDemo: '',
+            nonLiveDemo: '',
+            projectType: ProjectType.Personal,
+            isDeleted: false,
+            yearCompleted: '2025-present',
+        },
+    },
+    {
         projectName: 'flashcardsynth',
         attributes: {
             title: 'FlashcardSynth',
             isComplete: false,
             disclaimer:
-                'Active development. Core deck/study workflows are implemented; billing/subscription handling via Stripe is scaffolded and still being finalized for full production rollout.',
+                'Active development. Core deck creation, review, and study workflows are implemented, with AI and subscription features still being implemented.',
+            summary:
+                'An AI-assisted flashcard platform designed to streamline content creation and optimise learning through structured spaced-repetition workflows.',
             description: [
-                'FlashcardSynth is an AI-assisted flashcard platform for creating, refining, organizing, and studying decks with a spaced-repetition workflow.',
-                'I built it because most flashcard tools I tried were either too limited for serious iteration or too complex for everyday study. The goal was a cleaner, faster workflow that keeps powerful features accessible without overwhelming the user.',
-                'Implemented features include deck and flashcard CRUD, study sessions with grading/scheduling, review hub flows, AI generation from notes and URLs, and multi-format import/export with validation and sanitization.',
-                'The app emphasizes accessibility, user-configurable study preferences, and maintainable full-stack architecture with typed APIs and structured data flows.',
-                'Built with Next.js (App Router), React, TypeScript, PostgreSQL, Drizzle ORM, Tailwind CSS v4, and shadcn/ui.',
+                'FlashcardSynth is an AI-assisted learning platform focused on efficient content creation and structured study workflows using spaced repetition.',
+                'The system is designed to balance simplicity and flexibility, allowing users to create, refine, and study flashcard decks without unnecessary complexity.',
+                'A core part of the platform is the scheduling engine, which manages review cycles, grading, and repetition logic while handling user-specific learning preferences.',
+                'AI is integrated into the workflow to generate and refine flashcards from notes and external sources, with validation and transformation steps to ensure consistency and usability.',
+                'The backend uses typed APIs and structured data models to support reliable CRUD operations, validation, and multi-format import/export workflows.',
+                'The system is built to evolve, with support for analytics, study insights, and additional learning strategies over time.',
             ],
             technologies: getSkills(['nextjs', 'reactjs', 'typescript', 'tailwindcss', 'postgresql', 'visualstudiocode']),
             tags: ['SaaS', 'EdTech', 'AI', 'Spaced Repetition', 'Accessibility', 'Full-Stack'],
@@ -136,10 +234,14 @@ const projects: IProject[] = [
             title: 'JoeBloggs',
             isComplete: true,
             disclaimer: '',
+            summary:
+                'A performance-focused blog platform built with Next.js and TypeScript, designed for scalable content publishing, SEO, and maintainable content workflows.',
             description: [
-                'A personal blog platform built with Next.js and TypeScript, designed for strong performance, SEO, and a maintainable content workflow.',
-                'Posts are authored in Markdown with structured frontmatter, then statically generated for fast page loads and predictable deployments. The project includes automated metadata handling (Open Graph/Twitter), responsive layout behaviour, and dark/light theme support to deliver a polished reader experience across devices.',
-                'From an engineering perspective, the codebase focuses on modular component design and content scalability: post content, images, and utilities are organised to keep publishing and maintenance straightforward. Supporting files such as sitemap and robots are generated as part of the workflow to improve discoverability and search indexing.',
+                'A blog platform built with Next.js and TypeScript, focused on performance, scalability, and maintainable content publishing.',
+                'Content is authored in Markdown with structured frontmatter and statically generated for fast load times and predictable deployments.',
+                'The system includes automated metadata handling, responsive layouts, and theme support to deliver a consistent reading experience across devices.',
+                'The codebase is structured around modular components and scalable content organisation, making it easy to extend and maintain.',
+                'Supporting features such as sitemap generation and SEO metadata ensure strong discoverability and search indexing.',
             ],
             technologies: getSkills(['nextjs', 'reactjs', 'sass', 'typescript', 'visualstudiocode']),
             tags: [],
@@ -197,12 +299,14 @@ const projects: IProject[] = [
             title: 'Portfolio',
             isComplete: true,
             disclaimer: '',
+            summary:
+                'A modular portfolio platform designed to showcase projects, skills, and content through structured components, dynamic data, and SEO-aware delivery.',
             description: [
-                'The website you are currently viewing: a responsive, single-page portfolio built with React, TypeScript, SCSS, and Bootstrap to present projects, skills, and contact details in a clean, accessible format.',
-                'This project is designed around maintainability and clear content structure. Key sections (About, Projects, Skills, Blog, and Contact) are implemented as modular components, with shared styling and reusable UI patterns to keep updates straightforward as the portfolio evolves.',
-                'The Projects section supports both summary and detail-first browsing. Each tile provides a concise overview, while the modal view adds richer project context, technology badges, direct source/demo links, and an image gallery/lightbox for deeper visual walkthroughs.',
-                'A dedicated Blog section integrates recent posts from blog.joecastle.co.uk, with local backup data and client-side caching/fetch throttling to improve resilience and reduce unnecessary network requests. Build-time scripts also refresh backup post data and update sitemap metadata.',
-                'SEO and discoverability are treated as first-class concerns: page metadata is managed with react-helmet-async, Open Graph/Twitter tags are provided, and robots/sitemap files are maintained for search indexing. Accessibility is also a core priority, with semantic structure, descriptive labels, keyboard-friendly controls, and strong cross-device responsiveness throughout.',
+                'A modular portfolio platform designed to present projects, skills, and content in a structured and maintainable way.',
+                'The system is built using reusable components and shared patterns, allowing content sections such as projects, skills, and blog integration to remain consistent and easy to extend.',
+                'Project content is driven by structured data, enabling flexible rendering, filtering, and future expansion without tightly coupling logic to UI components.',
+                'The platform includes SEO-aware metadata, sitemap generation, and performance-focused delivery to ensure discoverability and fast load times.',
+                'Additional features such as blog integration, caching strategies, and responsive layouts support a robust and scalable personal platform.',
             ],
             technologies: getSkills(['reactjs', 'sass', 'typescript', 'visualstudiocode']),
             tags: [],
@@ -252,14 +356,17 @@ const projects: IProject[] = [
     {
         projectName: 'trainingApp',
         attributes: {
-            title: 'Training App',
+            title: 'Training & Assessment Platform',
             isComplete: true,
             disclaimer: '',
+            summary:
+                'A full-stack training platform supporting role-based workflows for trainers and trainees, focused on accessible learning, structured assessment, and scalable data handling.',
             description: [
-                'A full-stack training platform built as the practical component of my dissertation, focused on delivering accessible learning workflows for trainers and trainees.',
-                'The system supports role-based usage: trainers can create groups, assign users, build quizzes, review outcomes, and export results to CSV, while trainees can complete assigned quizzes and track completed/uncompleted work. It combines a React/TypeScript front end with a .NET backend and SQL Server data layer.',
-                'Accessibility was a core requirement rather than an add-on. I implemented features such as high-contrast themes, clear typography, and descriptive metadata, then validated outcomes with tools including Lighthouse, tota11y, WAVE, and W3C accessibility references.',
-                'This project demonstrates end-to-end delivery, from requirements and architecture through implementation and evaluation, with strong emphasis on inclusivity, usability, and maintainable engineering practices.',
+                'A full-stack training platform supporting role-based workflows for trainers and trainees, designed to manage learning, assessment, and progress tracking.',
+                'The system enables trainers to create groups, assign users, build quizzes, and analyse results, while trainees can complete assigned work and track their progress.',
+                'The application combines a React/TypeScript frontend with a .NET backend and SQL Server data layer to support structured data handling and scalable workflows.',
+                'Accessibility was treated as a core requirement, with features such as high-contrast themes, clear typography, and semantic structure validated using industry tools.',
+                'The project demonstrates end-to-end system design, from requirements and architecture through implementation and evaluation.',
             ],
             technologies: getSkills(['reactjs', 'mobx', 'sass', 'typescript', 'aspnetcore', 'visualstudio', 'tsql', 'sqlservermanagementstudio']),
             tags: [],
@@ -306,7 +413,7 @@ const projects: IProject[] = [
                 },
                 {
                     src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955384/PortfolioScreenshots/DissertationArtefact/Full/4.%20Final/Artefact8_zb6e9c.png',
-                    alt: 'Screenshot of the view  quiz results page of the training app.',
+                    alt: 'Screenshot of the view quiz results page of the training app.',
                     title: 'View quiz results - Training App',
                 },
             ],
@@ -317,6 +424,70 @@ const projects: IProject[] = [
             liveDemo: '',
             nonLiveDemo: '',
             projectType: ProjectType.University,
+            isDeleted: false,
+            yearCompleted: '2019',
+        },
+    },
+    {
+        projectName: 'startPage',
+        attributes: {
+            title: 'Startpage',
+            isComplete: true,
+            disclaimer: '',
+            summary:
+                'A lightweight browser start page focused on fast access to frequently used resources, with emphasis on simplicity, usability, and maintainable front-end design.',
+            description: [
+                'A lightweight browser start page designed for fast access to frequently used resources with minimal friction.',
+                'The system focuses on simplicity and usability, allowing users to organise and manage bookmarks and categories efficiently.',
+                'The implementation prioritises clean front-end structure and maintainability over unnecessary complexity.',
+                'The project also included mentoring a junior developer, providing guidance on styling decisions, component structure, and practical front-end patterns.',
+            ],
+            technologies: getSkills(['html', 'css', 'javascript', 'visualstudiocode']),
+            tags: [],
+            thumbnail: {
+                src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955383/PortfolioScreenshots/Startpage/Thumbnail/startpage_img_1_z5rcxh.jpg',
+                alt: 'Screenshot of Startpage bookmarks.',
+                title: 'Startpage bookmarks',
+            },
+            carouselImages: [
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_1_mtsibz.jpg',
+                    alt: 'Screenshot of the startpage bookmarks.',
+                    title: 'Bookmarks - Startpage',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_2_sy9tvt.jpg',
+                    alt: 'Screenshot of the add new bookmark modal dialog.',
+                    title: 'Add new bookmark modal dialog - Startpage',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_3_nu0fiw.jpg',
+                    alt: 'Screenshot of the add new category modal dialog.',
+                    title: 'Add new category modal dialog - Startpage',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_4_najscb.jpg',
+                    alt: 'Screenshot of the edit category modal dialog.',
+                    title: 'Edit category modal dialog - Startpage',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_5_c94jbi.jpg',
+                    alt: 'Screenshot of the startpage bookmarks with edit icon and delete icon shown when hovering over category title.',
+                    title: 'Category edit and delete icons - Startpage',
+                },
+                {
+                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_6_otw4qn.jpg',
+                    alt: 'Screenshot of the startpage bookmarks with delete icon shown when hovering over bookmark.',
+                    title: 'Bookmark delete icon - Startpage',
+                },
+            ],
+            readMoreLink: getProjectReadMoreLink('StartPage'),
+            routeURL: getProjectRouteURL('StartPage'),
+            sourceCode: 'https://github.com/RTCRhino/StartPage',
+            sourceTitle: 'GitHub',
+            liveDemo: 'https://rtcrhino.github.io/StartPage/',
+            nonLiveDemo: '',
+            projectType: ProjectType.Personal,
             isDeleted: false,
             yearCompleted: '2019',
         },
@@ -374,69 +545,8 @@ const projects: IProject[] = [
             liveDemo: '',
             nonLiveDemo: '',
             projectType: ProjectType.University,
-            isDeleted: false,
+            isDeleted: true,
             yearCompleted: '2017',
-        },
-    },
-    {
-        projectName: 'startPage',
-        attributes: {
-            title: 'Startpage',
-            isComplete: true,
-            disclaimer: '',
-            description: [
-                'A lightweight start page built with vanilla HTML, CSS, and JavaScript to deliver a clear, practical goal: open the browser and land on a clean, personalised launch screen for everyday links.',
-                'This project also had a mentoring angle. I collaborated with a junior developer and supported styling decisions, sharing front-end fundamentals and practical CSS patterns during implementation.',
-                'Functionality was intentionally simple, with focus on reliable core interactions (organising and managing bookmarks/categories) rather than over-engineering. It demonstrates clean problem framing, scoped delivery, and pragmatic trade-off decisions.',
-            ],
-            technologies: getSkills(['html', 'css', 'javascript', 'visualstudiocode']),
-            tags: [],
-            thumbnail: {
-                src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955383/PortfolioScreenshots/Startpage/Thumbnail/startpage_img_1_z5rcxh.jpg',
-                alt: 'Screenshot of Startpage bookmarks.',
-                title: 'Startpage bookmarks',
-            },
-            carouselImages: [
-                {
-                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_1_mtsibz.jpg',
-                    alt: 'Screenshot of the startpage bookmarks.',
-                    title: 'Bookmarks - Startpage',
-                },
-                {
-                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_2_sy9tvt.jpg',
-                    alt: 'Screenshot of the add new bookmark modal dialog.',
-                    title: 'Add new bookmark modal dialog - Startpage',
-                },
-                {
-                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_3_nu0fiw.jpg',
-                    alt: 'Screenshot of the add new category modal dialog.',
-                    title: 'Add new category modal dialog - Startpage',
-                },
-                {
-                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_4_najscb.jpg',
-                    alt: 'Screenshot of the edit category modal dialog.',
-                    title: 'Edit category modal dialog - Startpage',
-                },
-                {
-                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_5_c94jbi.jpg',
-                    alt: 'Screenshot of the startpage bookmarks with edit icon and delete icon shown when hovering over category title.',
-                    title: 'Category edit and delete icons - Startpage',
-                },
-                {
-                    src: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1667955378/PortfolioScreenshots/Startpage/Full/Final/startpage_img_6_otw4qn.jpg',
-                    alt: 'Screenshot of the startpage bookmarks with delete icon shown when hovering over bookmark.',
-                    title: 'Bookmark delete icon - Startpage',
-                },
-            ],
-            readMoreLink: getProjectReadMoreLink('Startpage'),
-            routeURL: getProjectRouteURL('Startpage'),
-            sourceCode: 'https://github.com/RTCRhino/StartPage',
-            sourceTitle: 'GitHub',
-            liveDemo: 'https://rtcrhino.github.io/StartPage/',
-            nonLiveDemo: '',
-            projectType: ProjectType.Personal,
-            isDeleted: false,
-            yearCompleted: '2019',
         },
     },
     {
@@ -511,7 +621,7 @@ const projects: IProject[] = [
             liveDemo: '',
             nonLiveDemo: '',
             projectType: ProjectType.University,
-            isDeleted: false,
+            isDeleted: true,
             yearCompleted: '2016',
         },
     },
@@ -562,7 +672,7 @@ const projects: IProject[] = [
             liveDemo: '',
             nonLiveDemo: '',
             projectType: ProjectType.University,
-            isDeleted: false,
+            isDeleted: true,
             yearCompleted: '2015',
         },
     },

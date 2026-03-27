@@ -31,9 +31,10 @@ const isDarkModeDefault: boolean = false;
 
 const metaData: MetaDataType = {
     title: 'Joseph Castle | Senior Full-Stack Software Developer',
-    description: 'Joseph Castle is a Senior Full-Stack Software Developer with experience building websites and web applications using React, .NET and SQL.',
+    description:
+        'Senior Full-Stack Software Developer with 7+ years of experience building scalable, data-driven web applications using React, TypeScript, and .NET. Experienced in system design, performance optimisation, and end-to-end feature ownership.',
     keywords:
-        'joseph castle, joe castle, full stack software developer, software developer, web developer, senior software engineer, senior developer, full stack developer, full stack software engineer, react developer, typescript developer, .NET developer, C# developer, SQL Server expert, UK software engineer',
+        'joseph castle, joe castle, senior software developer, full stack developer, full stack engineer, react developer, typescript developer, .net developer, c# developer, web application developer, software engineer UK, remote software developer',
 };
 
 const globals = {

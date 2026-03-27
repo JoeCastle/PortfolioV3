@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import useOnScreen, { PageSectionIdType } from '../../hooks/useOnScreen';
 import { Button } from 'reactstrap';
 
-interface Props {}
+interface Props { }
 
 /**
  * The landing section on the homepage.
@@ -29,8 +29,7 @@ export const Landing: React.FC<Props> = (props) => {
                 </div>
 
                 <p style={{ textAlign: 'center' }}>
-                    A Senior Full-Stack Software Developer with extensive hands-on experience in crafting high-quality, bespoke enterprise web applications. Proficient with React,
-                    .NET, and SQL Server.
+                    Senior Full-Stack Software Developer with 7+ years' experience delivering end-to-end web applications, improving performance, and solving complex business problems.
                 </p>
 
                 <div className="projects-btn-container">
