@@ -11,7 +11,7 @@ interface IEmailModel {
     message: string;
 }
 
-interface Props {}
+interface Props { }
 
 enum FieldStatusEnum {
     DEFAULT = 'default',
@@ -211,9 +211,11 @@ export const ContactForm: React.FC<Props> = (props) => {
     return (
         <div className="contact-form-info-container section" id="Contact">
             <div className="content-container" id={`${PageSectionIdType.Contact}`} ref={ref}>
-                <div className="section-title-wrapper">
-                    <h2>Contact</h2>
-                </div>
+                <header className="section-header">
+                    <p className="section-eyebrow">Get In Touch</p>
+                    <h2 className="section-title">Contact</h2>
+                    <p className="section-intro">If you have an opportunity, a question, or want to discuss a project, I would be glad to connect.</p>
+                </header>
 
                 <div className="contact-form-info">
                     <div className="socials">

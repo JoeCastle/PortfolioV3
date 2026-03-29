@@ -19,9 +19,10 @@ export const SkillsSummary = (): JSX.Element => {
     return (
         <div className="section" id="Skills">
             <div className="content-container" id={`${PageSectionIdType.Skills}`} ref={ref}>
-                <div className="section-title-wrapper">
-                    <h2>Skills</h2>
-                </div>
+                <header className="section-header">
+                    <p className="section-eyebrow">Core Stack</p>
+                    <h2 className="section-title">Skills</h2>
+                </header>
                 <div className="skill-summary-tiles">{summarySkills}</div>
             </div>
         </div>

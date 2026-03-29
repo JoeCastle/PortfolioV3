@@ -3,7 +3,7 @@ import { SkillAreasTile } from './SkillAreasTile';
 import skillAreas from '../../../data/skillAreas';
 import useOnScreen from '../../../hooks/useOnScreen';
 
-interface Props {}
+interface Props { }
 
 /**
  * The skills (skill areas) sections on the homepage.
@@ -19,9 +19,11 @@ export const SkillAreas: React.FC<Props> = (props) => {
     return (
         <div className="section" id="Skills">
             <div className="content-container" id="skills-summary-content-container" ref={ref}>
-                <div className="section-title-wrapper">
-                    <h2>Skills</h2>
-                </div>
+                <header className="section-header">
+                    <p className="section-eyebrow">Core Stack</p>
+                    <h2 className="section-title">Skills</h2>
+                    <p className="section-intro">Technologies and domains I rely on most when building and scaling production software.</p>
+                </header>
                 <div className="skillarea-summary-tiles">{summarySkillAreas}</div>
             </div>
         </div>

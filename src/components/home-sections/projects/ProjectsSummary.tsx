@@ -37,9 +37,11 @@ export const ProjectsSummary: React.FC<Props> = (props) => {
     return (
         <div className="section projects-section" id="Projects">
             <div className="content-container projects-container" id={`${PageSectionIdType.Projects}`} ref={ref}>
-                <div className="section-title-wrapper">
-                    <h2>Projects</h2>
-                </div>
+                <header className="section-header">
+                    <p className="section-eyebrow">Selected Work</p>
+                    <h2 className="section-title">Projects</h2>
+                    <p className="section-intro">A curated set of recent work spanning full-stack applications, architecture, and product-focused delivery.</p>
+                </header>
 
                 <div className="project-summary-tiles">
                     {summaryProjects}

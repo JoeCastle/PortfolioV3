@@ -218,6 +218,59 @@ main {
     }
 
     .content-container {
+        .section-header {
+            margin: 0 0 28px;
+            width: 100%;
+            text-align: left;
+
+            @media (max-width: 768px) {
+                margin-bottom: 22px;
+            }
+        }
+
+        .section-eyebrow {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.7;
+            margin: 0 0 10px;
+        }
+
+        .section-title {
+            display: block;
+            width: 100%;
+            font-size: 46px;
+            font-weight: bold;
+            line-height: 1.1;
+            margin: 0;
+            padding-bottom: 10px;
+            text-align: left;
+
+            @media (max-width: 768px) {
+                font-size: 38px;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 32px;
+            }
+        }
+
+        .section-intro {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 680px;
+            margin: 12px 0 0;
+
+            @media (max-width: 768px) {
+                font-size: 17px;
+                max-width: 100%;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 16px;
+            }
+        }
+
         .section-title-wrapper {
             text-align: center;
 

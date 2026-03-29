@@ -73,9 +73,11 @@ export const RecentPosts: React.FC<Props> = (props) => {
     return (
         <div className="recent-posts-container section recent-posts" id="Blog">
             <div className="content-container" id={`${PageSectionIdType.Blog}`} ref={ref}>
-                <div className="section-title-wrapper">
-                    <h2>Blog</h2>
-                </div>
+                <header className="section-header">
+                    <p className="section-eyebrow">Writing</p>
+                    <h2 className="section-title">Blog</h2>
+                    <p className="section-intro">Recent posts on software engineering, practical architecture, and modern development workflows.</p>
+                </header>
                 {loading && (
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 12 }}>
                         <i className="fas fa-spinner fa-spin" style={{ fontSize: 20 }} aria-label="Loading new posts" />

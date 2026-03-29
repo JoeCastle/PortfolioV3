@@ -64,7 +64,8 @@ will-change: $properties;
 
     }
 
-    .content-container h2 {
+    .content-container .section-title,
+    .content-container .section-title-wrapper h2 {
         border-bottom: 3px solid $light-navbar-font-colour-hover;
         @include transition-properties((border-bottom));
     }

@@ -17,13 +17,13 @@ export const About: React.FC<Props> = () => {
     return (
         <div className="section about" id="About">
             <div className="content-container about-container" id={`${PageSectionIdType.About}`} ref={ref}>
-                <div className="about-header">
-                    <p className="about-eyebrow">Background</p>
-                    <h2>About</h2>
-                    <p className="about-intro">
+                <header className="section-header">
+                    <p className="section-eyebrow">Background</p>
+                    <h2 className="section-title">About</h2>
+                    <p className="section-intro">
                         Senior Full-Stack Software Developer with {utils.getYearsOfExperience()}+ years building robust, data-driven web applications across the full stack.
                     </p>
-                </div>
+                </header>
 
                 <div className="about-body">
                     <div className="about-column">
