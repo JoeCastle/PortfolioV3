@@ -9,6 +9,7 @@
 @import 'component/skill.scss';
 @import 'component/footer.scss';
 @import 'component/recentposts.scss';
+@import 'component/about.scss';
 
 @import 'component/skillarea.scss';
 
@@ -106,7 +107,7 @@ main {
     flex-direction: column;
 }
 
-#Home>.section:not(.landing)>.content-container {
+#Home>.section:not(.landing):not(.about)>.content-container {
     border-radius: 18px;
     border: 1px solid transparent;
     padding: 34px 34px 30px;
@@ -283,10 +284,6 @@ main {
 
 .cursor-default {
     cursor: default;
-}
-
-#about-content-container {
-    max-width: 950px;
 }
 
 /* Provide sufficient contrast against white background */
