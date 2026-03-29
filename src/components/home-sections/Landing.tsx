@@ -9,12 +9,20 @@ interface Props { }
  * @param props
  * @returns
  */
-export const Landing: React.FC<Props> = (props) => {
+export const Landing: React.FC<Props> = () => {
     const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;
     useOnScreen(ref);
 
     const handleScrollToProjects = (): void => {
-        let element: HTMLElement | null = document.getElementById('Projects');
+        const element: HTMLElement | null = document.getElementById('Projects');
+
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const handleScrollToContact = (): void => {
+        const element: HTMLElement | null = document.getElementById('Contact');
 
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
@@ -23,19 +31,45 @@ export const Landing: React.FC<Props> = (props) => {
 
     return (
         <div className="section landing" id="Landing">
-            <div className="content-container" id={`${PageSectionIdType.Landing}`} ref={ref}>
-                <div className="section-title-wrapper-landing">
-                    <h2 id="landing-header">Hey, I'm Joseph Castle</h2>
-                </div>
+            <div className="content-container landing-inner-container" id={`${PageSectionIdType.Landing}`} ref={ref}>
+                <div className="landing-inner">
+                    <div className="landing-left">
+                        <p className="landing-role">Senior Full-Stack Developer</p>
 
-                <p style={{ textAlign: 'center' }}>
-                    Senior Full-Stack Software Developer with 7+ years' experience delivering end-to-end web applications, improving performance, and solving complex business problems.
-                </p>
+                        <h1 className="landing-heading">
+                            I build scalable, production-ready web applications
+                        </h1>
 
-                <div className="projects-btn-container">
-                    <Button className="portfolio-btn projects-btn" onClick={handleScrollToProjects}>
-                        Projects
-                    </Button>
+                        <p className="landing-subtext">
+                            7+ years working with React, TypeScript, .NET, and Azure - focused on performance, maintainability, and real-world impact.
+                        </p>
+
+                        <div className="landing-actions">
+                            <Button
+                                className="portfolio-btn projects-btn landing-btn-primary"
+                                onClick={handleScrollToProjects}
+                            >
+                                View Projects
+                            </Button>
+
+                            <Button
+                                className="portfolio-btn projects-btn landing-btn-secondary"
+                                onClick={handleScrollToContact}
+                            >
+                                Contact Me
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div className="landing-right">
+                        <pre className="code-snippet">
+                            {`const developer = {
+  name: "Joseph Castle",
+  stack: ["React", "TypeScript", ".NET", "Azure"],
+  focus: "Scalable Web Applications"
+};`}
+                        </pre>
+                    </div>
                 </div>
             </div>
         </div>
