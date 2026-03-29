@@ -1,29 +1,12 @@
 .section.recent-posts {
     .content-container {
-        .section-title-wrapper {
-            text-align: center;
-
-            h2 {
-                font-weight: bold;
-                text-align: center;
-                font-size: 42px;
-                padding-bottom: 10px;
-                margin-bottom: 20px;
-                display: inline-block;
-
-                @media (max-width: 450px) {
-                    font-size: 30px;
-                    padding-bottom: 5px;
-                    margin: 10px 0px;
-                }
-            }
-        }
+        max-width: 980px;
 
         ul.recent-posts-list {
             list-style: none;
             padding: 0;
-            margin: 0 auto 30px auto;
-            max-width: 700px;
+            margin: 0 0 30px;
+            max-width: 100%;
 
             li {
                 background: $light-secondary-background-colour;
@@ -43,10 +26,6 @@
                 &:hover {
                     transform: translateY(-2px);
                     box-shadow: 4px 4px 16px -4px rgba(0, 0, 0, 0.2);
-                }
-
-                &:first-child {
-                    margin-top: 15px;
                 }
 
                 a {
@@ -112,7 +91,7 @@
 
         // Center the button container
         .blog-link-btn-container {
-            text-align: center;
+            text-align: left;
         }
     }
 }

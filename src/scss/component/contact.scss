@@ -39,37 +39,6 @@
     }
 }
 
-.about {
-    .socials {
-        flex-direction: row;
-        justify-content: space-evenly;
-        margin-top: 60px;
-        flex-wrap: wrap;
-
-        >a {
-            >div {
-                background: $dark-secondary-background-colour;
-                padding: 20px;
-                border-radius: 15px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, $box-shadow-color);
-                border: $dark-border;
-                transition: box-shadow 0.2s ease-in-out;
-
-                &:hover {
-                    box-shadow: 6px 6px 14px -6px rgba(0, 0, 0, 0.24);
-                }
-
-                >i {
-                    font-size: 28px;
-                }
-            }
-        }
-    }
-}
-
 .contact-form {
     flex: 1 0 70%;
 

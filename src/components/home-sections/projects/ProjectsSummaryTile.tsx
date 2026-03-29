@@ -42,7 +42,14 @@ export const ProjectsSummaryTile = React.memo(({ project, isDarkMode }: Props): 
         return getProjectSkills(project).map((item, i) => (
             <div key={i} className="project-summary-logo-container" title={item.title}>
                 {item.img.trim().length > 0 ? (
-                    <img className="project-summary-logo" src={item.img} alt={item.altTag} title={item.title} referrerPolicy="no-referrer" loading="lazy" />
+                    <img
+                        className="project-summary-logo"
+                        src={item.img}
+                        alt={item.altTag}
+                        title={item.title}
+                        referrerPolicy="no-referrer"
+                        loading="lazy"
+                    />
                 ) : (
                     <span className="project-summary-logo-fallback" aria-label={item.title}>
                         {getFallbackLogoText(item.title)}
@@ -82,7 +89,7 @@ export const ProjectsSummaryTile = React.memo(({ project, isDarkMode }: Props): 
         if (!hasImages || !project.attributes.carouselImages) return;
 
         const images: IImage[] = project.attributes.carouselImages;
-        const index: number = 0; // preload the first image only
+        const index: number = 0;
 
         const url: string = images[index].src;
 
@@ -103,7 +110,7 @@ export const ProjectsSummaryTile = React.memo(({ project, isDarkMode }: Props): 
                         preloadTimeoutRef.current = window.setTimeout(() => {
                             preloadImages();
                             preloadTimeoutRef.current = null;
-                        }, 150); // 150ms delay
+                        }, 150);
                     }
                 }}
                 onMouseLeave={() => {
@@ -113,33 +120,62 @@ export const ProjectsSummaryTile = React.memo(({ project, isDarkMode }: Props): 
                     }
                 }}
             >
-                <img src={project.attributes.thumbnail.src} alt={project.attributes.thumbnail.alt} referrerPolicy="no-referrer" loading="lazy" />
+                <img
+                    src={project.attributes.thumbnail.src}
+                    alt={project.attributes.thumbnail.alt}
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                />
             </div>
+
             <div className="project-summary-tile-content">
-                <div className="project-summary-tile-title" title={project.attributes.title}>
-                    {project.attributes.title}
-                </div>
-                <div className="project-summary-tile-desc" title={project.attributes.description[0]}>
-                    {project.attributes.description[0]}
-                </div>
-                <div className="project-summary-tile-other">
-                    <div className="project-summary-tile-techs">
-                        <button type="button" className="project-summary-tile-read-more" onClick={() => setIsDetailsModalOpen(true)}>
-                            Read more <i className="fas fa-arrow-right" aria-hidden="true"></i>
-                        </button>
-                        {techs}
+                <div className="project-summary-tile-top">
+                    <div className="project-summary-tile-title" title={project.attributes.title}>
+                        {project.attributes.title}
                     </div>
+
                     <div className="project-summary-tile-links">
                         {hasSource && (
-                            <a target="_blank" rel="noopener noreferrer" href={project.attributes.sourceCode} title={project.attributes.sourceTitle}>
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={project.attributes.sourceCode}
+                                title={project.attributes.sourceTitle}
+                                aria-label={`${project.attributes.title} source code`}
+                            >
                                 <i className="fab fa-github"></i>
                             </a>
                         )}
+
                         {isLive && (
-                            <a target="_blank" rel="noopener noreferrer" href={project.attributes.liveDemo} title="Live/demo">
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={project.attributes.liveDemo}
+                                title="Live/demo"
+                                aria-label={`${project.attributes.title} live demo`}
+                            >
                                 <i className="fas fa-globe"></i>
                             </a>
                         )}
+                    </div>
+                </div>
+
+                <div className="project-summary-tile-desc" title={project.attributes.description[0]}>
+                    {project.attributes.description[0]}
+                </div>
+
+                <div className="project-summary-tile-footer">
+                    <button
+                        type="button"
+                        className="project-summary-tile-read-more"
+                        onClick={() => setIsDetailsModalOpen(true)}
+                    >
+                        Read more <i className="fas fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+
+                    <div className="project-summary-tile-techs">
+                        {techs}
                     </div>
                 </div>
             </div>
@@ -158,7 +194,12 @@ export const ProjectsSummaryTile = React.memo(({ project, isDarkMode }: Props): 
                 />
             </Suspense>
 
-            <ProjectDetailsModal project={project} isOpen={isDetailsModalOpen} toggle={() => setIsDetailsModalOpen((prev) => !prev)} isDarkMode={isDarkMode} />
+            <ProjectDetailsModal
+                project={project}
+                isOpen={isDetailsModalOpen}
+                toggle={() => setIsDetailsModalOpen((prev) => !prev)}
+                isDarkMode={isDarkMode}
+            />
         </div>
     );
 });

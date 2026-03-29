@@ -488,7 +488,7 @@ const skills: ISkill[] = [
     {
         skillName: 'tamagui',
         title: 'Tamagui',
-        img: '',
+        img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774794166/PortfolioScreenshots/Skills/Full/tinypng/Tamagui_Logo_sgxd1q.png',
         altTag: 'Tamagui logo',
         type: SkillType.Language,
         category: SkillCategory.Frontend,
@@ -497,7 +497,7 @@ const skills: ISkill[] = [
     {
         skillName: 'supabase',
         title: 'Supabase',
-        img: '',
+        img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774794160/PortfolioScreenshots/Skills/Full/tinypng/Supabase_Logo_nfrxei.png',
         altTag: 'Supabase logo',
         type: SkillType.Language,
         category: SkillCategory.Data,
