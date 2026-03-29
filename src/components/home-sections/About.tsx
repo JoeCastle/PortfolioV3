@@ -3,7 +3,7 @@ import useOnScreen, { PageSectionIdType } from '../../hooks/useOnScreen';
 import globals from '../../utils/globals';
 import utils from '../../utils/utils';
 
-interface Props {}
+interface Props { }
 
 /**
  * The about section on the homepage.
@@ -21,19 +21,16 @@ export const About: React.FC<Props> = (props) => {
                     <h2>About</h2>
                 </div>
                 <p>
-                    I'm a Senior Full-Stack Software Developer with {utils.getYearsOfExperience()} years of experience building software. Throughout my career, I've successfully
-                    delivered custom solutions that empower companies to excel in their respective industries by catering to their unique business requirements. My focus on
-                    building scalable and efficient applications is driven by a genuine passion for leveraging cutting-edge technology to drive technical success. I have a deep
-                    understanding of effectively addressing complex technical requirements.
+                    I'm a Senior Full-Stack Software Developer with {utils.getYearsOfExperience()}+ years' experience building and improving data-driven web applications across a range of industries. My main background is in React, TypeScript, .NET, and SQL Server, and I enjoy working across the full stack to deliver robust, maintainable solutions.
                 </p>
                 <p>
-                    I thoroughly enjoy problem-solving and possess a keen ability to analyze and overcome technical challenges, ensuring seamless and innovative solutions. In my
-                    work, I prioritize clean code, documentation, testing, user experience and continuous learning, which enables me to deliver high-quality solutions that align
-                    with best practices and industry standards. I approach projects with precision and creativity, ensuring the best possible technical outcomes.
+                    Much of my experience has involved building bespoke systems with complex business rules, large datasets, and performance-sensitive workflows. I've worked on everything from frontend implementation and backend logic to database design, reporting, and deployment, with a strong focus on reliability, usability, and long-term maintainability.
                 </p>
                 <p>
-                    Beyond coding, I value effective communication and teamwork. I enjoy collaborating with cross-functional teams, bridging the gap between technical and
-                    non-technical stakeholders, and turning complex ideas into user-friendly solutions.
+                    I'm particularly interested in solving practical problems: improving slow or inefficient systems, designing cleaner workflows, and turning complex requirements into software that is easier to use and support. I also enjoy mentoring other developers, asking the right questions early, and challenging decisions when something could be done better or more safely.
+                </p>
+                <p>
+                    Outside of my main work, I build personal projects to explore modern tools and architectures, including cross-platform and AI-assisted applications.
                 </p>
 
                 <div className="socials">

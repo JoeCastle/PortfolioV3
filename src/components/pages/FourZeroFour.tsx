@@ -13,7 +13,7 @@ export const FourZeroFour: React.FC = () => {
                 <title>Page not found - Joseph Castle</title>
                 <meta
                     name="description"
-                    content="404 page not found | Joseph Castle is a Senior Full-Stack Software Developer with experience building websites and web applications using React, .NET and SQL."
+                    content="404 page not found | Senior Full-Stack Software Developer with 7+ years of experience building scalable, data-driven web applications using React, TypeScript, and .NET. Experienced in system design, performance optimisation, and end-to-end feature ownership."
                 />
                 <meta name="robots" content="noindex, follow" />
             </Helmet>

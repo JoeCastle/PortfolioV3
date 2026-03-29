@@ -14,7 +14,10 @@ export type SkillOption =
     | 'visualstudiocode'
     | 'reactjs'
     | 'mobx'
+    | 'materialui'
+    | 'styledcomponents'
     | 'sql'
+    | 'dapper'
     | 'tsql'
     | 'mssqlserver'
     | 'sqlservermanagementstudio'
@@ -23,20 +26,23 @@ export type SkillOption =
     | 'knockoutjs'
     | 'azure'
     | 'azuredevops'
+    | 'serilog'
     | 'arduino'
     | 'c/c++'
     | 'mitappinventor'
-    | 'arduino'
     | 'gitgithub'
     | 'vb'
     | 'vbnet'
     | 'nextjs'
     | 'postgresql'
     | 'drizzle'
-    | 'stripe'
     | 'shadcnui'
     | 'tailwindcss'
-    | 'pgadmin4';
+    | 'pgadmin4'
+    | 'tamagui'
+    | 'supabase'
+    | 'reactnative'
+    | 'sanity';
 
 /**
  * The type of skill. Language, software, operating system or other.
@@ -57,6 +63,42 @@ export enum SkillAreaType {
     Other = 2,
 }
 
+export enum SkillCategory {
+    Frontend = 0,
+    Backend = 1,
+    Data = 2,
+    CloudAndPractices = 3,
+}
+
+export interface ISkillCategoryMeta {
+    category: SkillCategory;
+    title: string;
+    description: string;
+}
+
+export const skillCategoryMeta: ISkillCategoryMeta[] = [
+    {
+        category: SkillCategory.Frontend,
+        title: 'Front-end',
+        description: 'Building modern, responsive web applications with React and TypeScript, focusing on usability, performance, and maintainable UI architecture.',
+    },
+    {
+        category: SkillCategory.Backend,
+        title: 'Back-end',
+        description: 'Developing backend services and APIs with .NET and C#, handling business logic, data processing, and system integration.',
+    },
+    {
+        category: SkillCategory.Data,
+        title: 'Data & Databases',
+        description: 'Designing and optimising relational data models, queries, and performance using SQL Server, PostgreSQL, and T-SQL.',
+    },
+    {
+        category: SkillCategory.CloudAndPractices,
+        title: 'Cloud & Practices',
+        description: 'Working with cloud-hosted applications, monitoring, deployment workflows, version control, and integration patterns used to support reliable software delivery.',
+    },
+];
+
 /**
  * Interface representing a skill such as a programming language, software, or other technology. Each skill has a name, title, image, alt tag, type and area of relevance. The skillName property is used as a unique identifier for the skill and should be in lowercase with no spaces. The title property is the display name of the skill. The img property is the URL of an image representing the skill. The altTag property is the alt text for the image. The type property indicates whether the skill is a language, software, operating system or other. The skillArea property indicates whether the skill is most relevant to front-end development, back-end development or other.
  */
@@ -67,7 +109,10 @@ export interface ISkill {
     imgSource?: string;
     altTag: string;
     type: SkillType;
-    skillArea: SkillAreaType;
+    category: SkillCategory;
+    skillArea?: SkillAreaType;
+    showInSkillsSection?: boolean;
+    isCore?: boolean;
 }
 
 /**
@@ -80,6 +125,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/HTML5_Logo_512_g2wzbj.png',
         altTag: 'html logo',
         type: SkillType.Language,
+        category: SkillCategory.Frontend,
         skillArea: SkillAreaType.FrontEnd,
     },
     {
@@ -88,6 +134,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/CSS3_logo_aoxm2w.png',
         altTag: 'css logo',
         type: SkillType.Language,
+        category: SkillCategory.Frontend,
         skillArea: SkillAreaType.FrontEnd,
     },
     {
@@ -96,6 +143,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/SASS_logo_rvd8vv.png',
         altTag: 'sass logo',
         type: SkillType.Language,
+        category: SkillCategory.Frontend,
         skillArea: SkillAreaType.FrontEnd,
     },
     {
@@ -104,7 +152,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/Less_logo_rxyq98.png',
         altTag: 'less logo',
         type: SkillType.Language,
+        category: SkillCategory.Frontend,
         skillArea: SkillAreaType.FrontEnd,
+        showInSkillsSection: false,
     },
     {
         skillName: 'javascript',
@@ -112,6 +162,7 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/JavaScript_logo_pp1fw7.png',
         altTag: 'javascript logo',
         type: SkillType.Language,
+        category: SkillCategory.Frontend,
         skillArea: SkillAreaType.FrontEnd,
     },
     {
@@ -120,7 +171,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/Typescript_logo_jfy09t.png',
         altTag: 'typescript logo',
         type: SkillType.Language,
+        category: SkillCategory.Frontend,
         skillArea: SkillAreaType.FrontEnd,
+        isCore: true,
     },
     {
         skillName: 'aspnetcore',
@@ -129,7 +182,9 @@ const skills: ISkill[] = [
         imgSource: 'https://github.com/campusMVP/dotnetCoreLogoPack',
         altTag: 'aspnetcore logo',
         type: SkillType.Other,
+        category: SkillCategory.Backend,
         skillArea: SkillAreaType.BackEnd,
+        isCore: true,
     },
     {
         skillName: 'csharp',
@@ -137,7 +192,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Csharp_logo_gx7nfp.png',
         altTag: 'c# logo',
         type: SkillType.Language,
+        category: SkillCategory.Backend,
         skillArea: SkillAreaType.BackEnd,
+        isCore: true,
     },
     {
         skillName: 'visualstudio',
@@ -146,7 +203,9 @@ const skills: ISkill[] = [
         imgSource: 'https://logos.fandom.com/wiki/Microsoft_Visual_Studio',
         altTag: 'visual studio logo',
         type: SkillType.Software,
+        category: SkillCategory.CloudAndPractices,
         skillArea: SkillAreaType.Other,
+        showInSkillsSection: false,
     },
     {
         skillName: 'visualstudiocode',
@@ -154,7 +213,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/Visualstudiocode_logo_xsstui.png',
         altTag: 'visual studio code logo',
         type: SkillType.Software,
+        category: SkillCategory.CloudAndPractices,
         skillArea: SkillAreaType.Other,
+        showInSkillsSection: false,
     },
     {
         skillName: 'reactjs',
@@ -162,7 +223,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/React_logo_aicspt.png',
         altTag: 'React logo',
         type: SkillType.Language,
+        category: SkillCategory.Frontend,
         skillArea: SkillAreaType.FrontEnd,
+        isCore: true,
     },
     {
         skillName: 'mobx',
@@ -170,6 +233,25 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Mobx_logo_aricjz.png',
         altTag: 'MobX logo',
         type: SkillType.Language,
+        category: SkillCategory.Frontend,
+        skillArea: SkillAreaType.FrontEnd,
+    },
+    {
+        skillName: 'materialui',
+        title: 'Material UI',
+        img: '',
+        altTag: 'Material UI logo',
+        type: SkillType.Other,
+        category: SkillCategory.Frontend,
+        skillArea: SkillAreaType.FrontEnd,
+    },
+    {
+        skillName: 'styledcomponents',
+        title: 'styled-components',
+        img: '',
+        altTag: 'styled-components logo',
+        type: SkillType.Other,
+        category: SkillCategory.Frontend,
         skillArea: SkillAreaType.FrontEnd,
     },
     {
@@ -179,6 +261,17 @@ const skills: ISkill[] = [
         imgSource: 'https://www.kisspng.com/png-oracle-database-computer-icons-logo-encapsulated-p-852860/download-png.html',
         altTag: 'SQL logo',
         type: SkillType.Language,
+        category: SkillCategory.Data,
+        skillArea: SkillAreaType.BackEnd,
+        isCore: true,
+    },
+    {
+        skillName: 'dapper',
+        title: 'Dapper',
+        img: '',
+        altTag: 'Dapper logo',
+        type: SkillType.Other,
+        category: SkillCategory.Data,
         skillArea: SkillAreaType.BackEnd,
     },
     {
@@ -188,7 +281,9 @@ const skills: ISkill[] = [
         imgSource: 'https://www.kisspng.com/png-oracle-database-computer-icons-logo-encapsulated-p-852860/download-png.html',
         altTag: 'T-SQL logo',
         type: SkillType.Language,
+        category: SkillCategory.Data,
         skillArea: SkillAreaType.BackEnd,
+        isCore: true,
     },
     {
         skillName: 'mssqlserver',
@@ -196,7 +291,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Mssqlserver_logo_brlbri.png',
         altTag: 'MS SQL Server logo',
         type: SkillType.Software,
+        category: SkillCategory.Data,
         skillArea: SkillAreaType.Other,
+        isCore: true,
     },
     {
         skillName: 'sqlservermanagementstudio',
@@ -204,7 +301,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Database_logo_s7tzjp.png',
         altTag: 'Database logo',
         type: SkillType.Software,
+        category: SkillCategory.Data,
         skillArea: SkillAreaType.Other,
+        showInSkillsSection: false,
     },
     {
         skillName: 'java',
@@ -212,7 +311,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/Java_logo_i5y8ct.png',
         altTag: 'Java logo',
         type: SkillType.Language,
+        category: SkillCategory.Backend,
         skillArea: SkillAreaType.BackEnd,
+        showInSkillsSection: false,
     },
     {
         skillName: 'eclipse',
@@ -220,7 +321,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716411/PortfolioScreenshots/Skills/Full/tinypng/Eclipse_logo_hag6hu.png',
         altTag: 'Eclipse logo',
         type: SkillType.Software,
+        category: SkillCategory.CloudAndPractices,
         skillArea: SkillAreaType.Other,
+        showInSkillsSection: false,
     },
     {
         skillName: 'knockoutjs',
@@ -228,7 +331,9 @@ const skills: ISkill[] = [
         img: '',
         altTag: 'KnockoutJS logo',
         type: SkillType.Language,
+        category: SkillCategory.Frontend,
         skillArea: SkillAreaType.FrontEnd,
+        showInSkillsSection: false,
     },
     {
         skillName: 'azure',
@@ -237,7 +342,9 @@ const skills: ISkill[] = [
         imgSource: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg',
         altTag: 'Azure logo',
         type: SkillType.Other,
+        category: SkillCategory.CloudAndPractices,
         skillArea: SkillAreaType.Other,
+        isCore: true,
     },
     {
         skillName: 'azuredevops',
@@ -245,6 +352,16 @@ const skills: ISkill[] = [
         img: '',
         altTag: 'Azure Devops logo',
         type: SkillType.Other,
+        category: SkillCategory.CloudAndPractices,
+        skillArea: SkillAreaType.Other,
+    },
+    {
+        skillName: 'serilog',
+        title: 'Serilog',
+        img: '',
+        altTag: 'Serilog logo',
+        type: SkillType.Other,
+        category: SkillCategory.CloudAndPractices,
         skillArea: SkillAreaType.Other,
     },
     {
@@ -253,7 +370,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/Arduino_logo_tq24vc.png',
         altTag: 'Arduino logo',
         type: SkillType.Other,
+        category: SkillCategory.CloudAndPractices,
         skillArea: SkillAreaType.Other,
+        showInSkillsSection: false,
     },
     {
         skillName: 'c/c++',
@@ -261,7 +380,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/C__Logo_agunhv.png',
         altTag: 'C/C++ logo',
         type: SkillType.Language,
+        category: SkillCategory.Backend,
         skillArea: SkillAreaType.BackEnd,
+        showInSkillsSection: false,
     },
     {
         skillName: 'mitappinventor',
@@ -269,7 +390,9 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1677716410/PortfolioScreenshots/Skills/Full/tinypng/AppInventor_logo_oqzbsm.png',
         altTag: 'MIT App Inventor logo',
         type: SkillType.Other,
+        category: SkillCategory.CloudAndPractices,
         skillArea: SkillAreaType.Other,
+        showInSkillsSection: false,
     },
     {
         skillName: 'gitgithub',
@@ -277,7 +400,9 @@ const skills: ISkill[] = [
         img: '',
         altTag: 'Git/GitHub logo',
         type: SkillType.Other,
+        category: SkillCategory.CloudAndPractices,
         skillArea: SkillAreaType.Other,
+        isCore: true,
     },
     {
         skillName: 'vb',
@@ -285,7 +410,9 @@ const skills: ISkill[] = [
         img: '',
         altTag: 'Visual Basic logo',
         type: SkillType.Language,
+        category: SkillCategory.Backend,
         skillArea: SkillAreaType.BackEnd,
+        showInSkillsSection: false,
     },
     {
         skillName: 'vbnet',
@@ -293,7 +420,9 @@ const skills: ISkill[] = [
         img: '',
         altTag: 'VB.NET logo',
         type: SkillType.Language,
+        category: SkillCategory.Backend,
         skillArea: SkillAreaType.BackEnd,
+        showInSkillsSection: false,
     },
     {
         skillName: 'nextjs',
@@ -302,7 +431,9 @@ const skills: ISkill[] = [
         imgSource: 'https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png',
         altTag: 'Next.js logo',
         type: SkillType.Language,
+        category: SkillCategory.Frontend,
         skillArea: SkillAreaType.FrontEnd,
+        isCore: true,
     },
     {
         skillName: 'postgresql',
@@ -310,7 +441,19 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303425/PortfolioScreenshots/Skills/Full/tinypng/Postgresql_logo_idk8zx.png',
         altTag: 'PostgreSQL logo',
         type: SkillType.Software,
+        category: SkillCategory.Data,
         skillArea: SkillAreaType.BackEnd,
+        isCore: true,
+    },
+    {
+        skillName: 'drizzle',
+        title: 'Drizzle ORM',
+        img: '',
+        altTag: 'Drizzle ORM logo',
+        type: SkillType.Software,
+        category: SkillCategory.Data,
+        skillArea: SkillAreaType.BackEnd,
+        isCore: true,
     },
     {
         skillName: 'pgadmin4',
@@ -318,7 +461,9 @@ const skills: ISkill[] = [
         img: '',
         altTag: 'pgAdmin 4 logo',
         type: SkillType.Software,
+        category: SkillCategory.Data,
         skillArea: SkillAreaType.Other,
+        showInSkillsSection: false,
     },
     {
         skillName: 'tailwindcss',
@@ -326,7 +471,58 @@ const skills: ISkill[] = [
         img: 'https://res.cloudinary.com/doswdcvtx/image/upload/v1774303425/PortfolioScreenshots/Skills/Full/tinypng/Tailwind_logo_swetk9.png',
         altTag: 'Tailwind CSS logo',
         type: SkillType.Language,
+        category: SkillCategory.Frontend,
         skillArea: SkillAreaType.FrontEnd,
+        isCore: true,
+    },
+    {
+        skillName: 'shadcnui',
+        title: 'shadcn/ui',
+        img: '',
+        altTag: 'shadcn/ui logo',
+        type: SkillType.Software,
+        category: SkillCategory.CloudAndPractices,
+        skillArea: SkillAreaType.Other,
+        showInSkillsSection: false,
+    },
+    {
+        skillName: 'tamagui',
+        title: 'Tamagui',
+        img: '',
+        altTag: 'Tamagui logo',
+        type: SkillType.Language,
+        category: SkillCategory.Frontend,
+        skillArea: SkillAreaType.FrontEnd,
+    },
+    {
+        skillName: 'supabase',
+        title: 'Supabase',
+        img: '',
+        altTag: 'Supabase logo',
+        type: SkillType.Language,
+        category: SkillCategory.Data,
+        skillArea: SkillAreaType.BackEnd,
+        isCore: true,
+    },
+    {
+        skillName: 'reactnative',
+        title: 'React Native',
+        img: '',
+        altTag: 'React Native logo',
+        type: SkillType.Language,
+        category: SkillCategory.Frontend,
+        skillArea: SkillAreaType.FrontEnd,
+        showInSkillsSection: false,
+    },
+    {
+        skillName: 'sanity',
+        title: 'Sanity',
+        img: '',
+        altTag: 'Sanity logo',
+        type: SkillType.Other,
+        category: SkillCategory.CloudAndPractices,
+        skillArea: SkillAreaType.Other,
+        isCore: true,
     },
 ];
 
@@ -338,7 +534,27 @@ export default skills;
  * @returns An array of skills that belong to the specified area.
  */
 export const getSkillsByArea = (area: SkillAreaType): ISkill[] => {
-    return skills.filter((skill) => skill.skillArea === area);
+    if (area === SkillAreaType.Other) {
+        return [...getSkillsByCategory(SkillCategory.Data), ...getSkillsByCategory(SkillCategory.CloudAndPractices)];
+    }
+
+    if (area === SkillAreaType.FrontEnd) {
+        return getSkillsByCategory(SkillCategory.Frontend);
+    }
+
+    return getSkillsByCategory(SkillCategory.Backend);
+};
+
+export const getSkillsByCategory = (category: SkillCategory): ISkill[] => {
+    return skills.filter((s) => s.category === category && s.showInSkillsSection !== false);
+};
+
+export const getCoreSkills = (): ISkill[] => {
+    return skills.filter((s) => s.isCore);
+};
+
+export const getVisibleSkills = (): ISkill[] => {
+    return skills.filter((s) => s.showInSkillsSection !== false);
 };
 
 /**

@@ -77,31 +77,50 @@ $mobile-breakpoint: 1150px;
         }
 
         .skillarea-summary-tile-other {
-            display: flex;
-            flex-direction: row;
-            max-height: 152px;
-            overflow: auto;
+            .skills-list-desktop {
+                display: block;
+            }
 
-            ul.skillarea-summary-tile-techs {
-                list-style-position: inside;
-                padding: 0px;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
+            .skills-list-mobile {
+                display: none;
+            }
+
+            .skills-list-columns {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                column-gap: 12px;
                 width: 100%;
 
-                >li {
-                    margin-right: 8px;
-                    font-size: 14px;
-                    margin-bottom: 5px;
-                    white-space: nowrap;
-                    max-width: calc(50% - 8px);
-                    width: calc(50% - 8px);
+                @media (max-width: 698px) {
+                    grid-template-columns: 1fr;
+                    row-gap: 4px;
+                }
 
-                    >span {
-                        font-size: inherit;
-                        margin-left: -5px;
+                ul.skillarea-summary-tile-techs {
+                    list-style-position: inside;
+                    margin: 0;
+                    padding: 0;
+
+                    >li {
+                        font-size: 14px;
+                        margin-bottom: 5px;
+                        white-space: nowrap;
+
+                        >span {
+                            font-size: inherit;
+                            margin-left: -5px;
+                        }
                     }
+                }
+            }
+
+            @media (max-width: 698px) {
+                .skills-list-desktop {
+                    display: none;
+                }
+
+                .skills-list-mobile {
+                    display: block;
                 }
             }
         }

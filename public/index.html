@@ -1,100 +1,111 @@
 ﻿<!doctype html>
 <html lang="en">
-    <head>
-        <!-- General -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
-        <meta http-equiv="Content-Language" content="en-GB" />
-        <base href="%PUBLIC_URL%/" />
-        <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
-        <link rel="canonical" href="%PUBLIC_URL%" />
 
-        <!-- Versioning -->
-        <meta version="%REACT_APP_VERSION_DATE%" />
-        <meta versionNumber="%REACT_APP_VERSION%" />
+<head>
+    <!-- General -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
+    <meta http-equiv="Content-Language" content="en-GB" />
+    <base href="%PUBLIC_URL%/" />
+    <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+    <link rel="canonical" href="%PUBLIC_URL%" />
 
-        <!-- Preconnect -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="preconnect" href="https://use.fontawesome.com" />
+    <!-- Versioning -->
+    <meta version="%REACT_APP_VERSION_DATE%" />
+    <meta versionNumber="%REACT_APP_VERSION%" />
 
-        <!-- Google Fonts (async + fallback) -->
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" media="print" onload="this.media='all'" />
-        <noscript>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" />
-        </noscript>
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://use.fontawesome.com" />
 
-        <!-- Font Awesome (consider replacing with SVG icons or react-icons) -->
-        <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-            crossorigin="anonymous"
-        />
+    <!-- Google Fonts (async + fallback) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" media="print"
+        onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" />
+    </noscript>
 
-        <!-- SEO -->
-        <meta name="author" content="Joseph Castle" />
-        <title>Joseph Castle | Senior Full-Stack Software Developer</title>
-        <meta
-            name="description"
-            content="Joseph Castle is a Senior Full-Stack Software Developer with experience building websites and web applications using React, .NET and SQL."
-        />
-        <meta
-            name="keywords"
-            content="joseph castle, joe castle, full stack software developer, software developer, web developer, senior software engineer, senior developer, full stack developer, full stack software engineer, react developer, typescript developer, .NET developer, C# developer, SQL Server expert, UK software engineer"
-        />
-        <meta name="robots" content="index, follow" />
+    <!-- Font Awesome (consider replacing with SVG icons or react-icons) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
-        <!-- Social media -->
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Joseph Castle | Senior Full-Stack Software Developer" />
-        <meta
-            property="og:description"
-            content="Joseph Castle is a Senior Full-Stack Software Developer with experience building websites and web applications using React, .NET and SQL."
-        />
-        <meta property="og:url" content="%PUBLIC_URL%" />
-        <meta property="og:image" content="%PUBLIC_URL%/Projects_section.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Joseph Castle | Senior Full-Stack Software Developer" />
-        <meta
-            name="twitter:description"
-            content="Joseph Castle is a Senior Full-Stack Software Developer with experience building websites and web applications using React, .NET and SQL."
-        />
-        <meta name="twitter:image" content="%PUBLIC_URL%/Projects_section.jpg" />
+    <!-- SEO -->
+    <meta name="author" content="Joseph Castle" />
+    <title>Joseph Castle | Senior Full-Stack Software Developer</title>
+    <meta name="description"
+        content="Senior Full-Stack Software Developer with 7+ years of experience building scalable, data-driven web applications using React, TypeScript, and .NET. Experienced in system design, performance optimisation, and end-to-end feature ownership." />
+    <meta name="keywords"
+        content="joseph castle, senior software developer, full stack developer, full stack engineer, react developer, typescript developer, .net developer, c# developer, web application developer, software engineer UK, remote software developer" />
+    <meta name="robots" content="index, follow" />
 
-        <!-- Structured data for SEO -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Person",
-                "name": "Joseph Castle",
-                "jobTitle": "Senior Software Developer",
-                "url": "https://joecastle.co.uk",
-                "description": "Joseph Castle is a Senior Full-Stack Software Developer with experience building websites and web applications using React, .NET and SQL.",
-                "sameAs": ["https://github.com/JoeCastle", "https://linkedin.com/in/joseph-castle-19170b188"],
-                "knowsAbout": ["React", "TypeScript", ".NET", "SQL Server", "C#", "Web Performance", "Agile", "Clean Architecture"]
-            }
-        </script>
+    <!-- Social media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Joseph Castle | Senior Full-Stack Software Developer" />
+    <meta property="og:description"
+        content="Senior Full-Stack Software Developer building scalable, data-driven web applications with React, TypeScript, and .NET." />
+    <meta property="og:url" content="%PUBLIC_URL%" />
+    <meta property="og:image" content="%PUBLIC_URL%/Hero_section.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Joseph Castle | Senior Full-Stack Software Developer" />
+    <meta name="twitter:description"
+        content="Senior Full-Stack Software Developer building scalable, data-driven web applications with React, TypeScript, and .NET." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/Hero_section.png" />
 
-        <!-- Icons, images and themes -->
-        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
-        <link rel="mask-icon" href="%PUBLIC_URL%/safari-pinned-tab.svg" color="#1c6ef7" />
-        <meta name="msapplication-TileColor" content="#2d89ef" />
-        <meta name="msapplication-TileImage" content="%PUBLIC_URL%/mstile-144x144.png" />
-        <meta name="theme-color" content="#1c6ef7" />
-    </head>
-    <body>
-        <!-- import this BEFORE any scripts for re-render testing -->
-        <!-- <script src="//unpkg.com/react-scan/dist/auto.global.js"></script> -->
-        <noscript> You need to enable JavaScript to run this app. </noscript>
-        <div id="root"></div>
+    <!-- Structured data for SEO -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Joseph Castle",
+            "jobTitle": "Senior Full-Stack Software Developer",
+            "url": "https://joecastle.co.uk",
+            "description": "Senior Full-Stack Software Developer with 7+ years of experience building scalable web applications, specialising in React, TypeScript, and .NET.",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "GB"
+            },
+            "sameAs": [
+                "https://github.com/JoeCastle",
+                "https://linkedin.com/in/joseph-castle-19170b188"
+            ],
+            "knowsAbout": [
+                "React",
+                "TypeScript",
+                ".NET",
+                "C#",
+                "SQL Server",
+                "PostgreSQL",
+                "System Design",
+                "API Development",
+                "Web Performance",
+                "Full Stack Development"
+            ]
+        }
+    </script>
 
-        <!-- Cloudflare Web Analytics -->
-        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "89b80b5e08cf4f429de91993d5b5d448"}'></script>
-        <!-- End Cloudflare Web Analytics -->
-    </body>
+    <!-- Icons, images and themes -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+    <link rel="mask-icon" href="%PUBLIC_URL%/safari-pinned-tab.svg" color="#1c6ef7" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta name="msapplication-TileImage" content="%PUBLIC_URL%/mstile-144x144.png" />
+    <meta name="theme-color" content="#1c6ef7" />
+</head>
+
+<body>
+    <!-- import this BEFORE any scripts for re-render testing -->
+    <!-- <script src="//unpkg.com/react-scan/dist/auto.global.js"></script> -->
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <div id="root"></div>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "89b80b5e08cf4f429de91993d5b5d448"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</body>
+
 </html>

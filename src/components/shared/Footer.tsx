@@ -2,7 +2,7 @@ import React from 'react';
 import globals from '../../utils/globals';
 import utils from '../../utils/utils';
 
-interface Props {}
+interface Props { }
 
 /**
  * The footer component at the bottom of every page.
@@ -16,8 +16,8 @@ export const Footer: React.FC<Props> = (props) => {
                 <div>
                     <h3>Joseph Castle</h3>
                     <p>
-                        A Senior Full-Stack Software Developer with {utils.getYearsOfExperience()} years of experience building bespoke web applications with React, .NET and SQL
-                        Server.
+                        Senior Full-Stack Software Developer with {utils.getYearsOfExperience()}+ years of experience designing and delivering scalable web applications, specialising in React, TypeScript,
+                        and .NET.
                     </p>
                 </div>
                 <div className="socials-footer">
