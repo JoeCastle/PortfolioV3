@@ -107,7 +107,7 @@ main {
     flex-direction: column;
 }
 
-#Home>.section:not(.landing):not(.about)>.content-container {
+#Home>.section:not(.landing)>.content-container {
     border-radius: 18px;
     border: 1px solid transparent;
     padding: 34px 34px 30px;

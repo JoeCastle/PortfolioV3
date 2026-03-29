@@ -1,233 +1,250 @@
 @import '../shared/variables.scss';
 
+.projects-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .view-more-projects-btn-container {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 22px;
+}
+
+.view-more-projects-btn {
+    min-width: 170px;
 }
 
 .project-summary-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+
+    @media (max-width: 980px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-summary-tile {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    min-width: 0;
+    min-height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 
-    .project-summary-tile {
-        flex-direction: row;
-        display: flex;
+    @media (max-width: 700px) {
+        flex-direction: column;
+        min-height: unset;
+    }
+
+    .project-summary-img-container {
         width: 100%;
-        max-width: calc(50% - 30px);
-        border-radius: 5px;
-        max-height: 210px;
-        height: 210px;
-        margin: 10px;
-        box-shadow: 4px 4px 12px -4px rgba(0, 0, 0, 0.2);
-        position: relative;
-        min-width: 600px;
+        max-width: 185px;
+        min-width: 185px;
+        display: flex;
+        flex: 0 0 185px;
+        overflow: hidden;
 
-        @media (max-width: 698px) {
-            width: 100%;
+        @media (max-width: 700px) {
             max-width: 100%;
-            flex: 1 1 auto;
-            flex-direction: column;
-            display: flex;
-            height: 100%;
-            max-height: 100%;
             min-width: 100%;
-            margin: 10px 0px;
+            flex: unset;
+            aspect-ratio: 16 / 9;
         }
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    .project-summary-tile-content {
+        padding: 18px 18px 16px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
 
         @media (max-width: 520px) {
-            min-width: 100%;
+            padding: 16px;
         }
+    }
 
-        .project-summary-img-container {
-            max-width: 200px;
-            width: 100%;
-            display: flex;
-            flex: 1 0 auto; // Required for IE 11
+    .project-summary-tile-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 10px;
+    }
 
-            @media (max-width: 698px) {
-                max-width: 100%;
-            }
+    .project-summary-tile-title {
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 1.25;
+        text-align: left;
+        min-width: 0;
+    }
 
-            img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                border-radius: 5px;
-            }
-        }
+    .project-summary-tile-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
 
-        .project-summary-tile-content {
-            padding: 15px 20px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+        >a {
+            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
 
-        .project-summary-tile-title {
-            font-weight: bold;
-            font-size: 16px;
-            text-align: left;
-        }
-
-        //https://stackoverflow.com/a/53156390/5547950
-        $font-size: 14px;
-        $line-height: 1.4;
-        $lines-to-show: 5;
-
-        .project-summary-tile-desc {
-            display: -webkit-box;
-            font-size: $font-size;
-            line-height: $line-height;
-            -webkit-line-clamp: $lines-to-show;
-            line-clamp: $lines-to-show;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            flex: 1; //https://stackoverflow.com/questions/11960636/how-to-make-a-div-stretch-its-height-between-two-other-divs-and-center-its-conte
-        }
-
-        .project-summary-tile-read-more {
-            width: fit-content;
-            padding: 0;
-            font-size: 14px;
-            margin-right: 14px;
-            margin-bottom: 5px;
-            border: none;
-            background: transparent;
-            box-shadow: none;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            font-weight: 600;
-            white-space: nowrap;
-            transition: color 0.2s ease-in-out, text-decoration-thickness 0.2s ease-in-out, opacity 0.2s ease-in-out;
-
-            &:hover,
-            &:active,
-            &:focus {
-                background: transparent !important;
-                transform: none;
-                border: none;
-                box-shadow: none;
-                text-decoration-thickness: 2px;
-                opacity: 0.86;
-            }
-
-            &:focus-visible {
-                outline: 2px solid rgba(28, 110, 247, 0.35);
-                outline-offset: 2px;
-                border-radius: 4px;
+            &:hover {
+                transform: translateY(-1px);
             }
 
             >i {
-                margin-left: 6px;
-                font-size: 12px;
-                transition: transform 0.2s ease-in-out;
-            }
-
-            &:hover>i,
-            &:focus-visible>i {
-                transform: translateX(2px);
+                font-size: 21px;
             }
         }
+    }
 
-        .project-summary-tile-other {
+    $font-size: 15px;
+    $line-height: 1.55;
+    $lines-to-show: 4;
+
+    .project-summary-tile-desc {
+        display: -webkit-box;
+        font-size: $font-size;
+        line-height: $line-height;
+        -webkit-line-clamp: $lines-to-show;
+        line-clamp: $lines-to-show;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 0;
+        margin-bottom: 24px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .project-summary-tile-footer {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 14px;
+        margin-top: auto;
+
+        @media (max-width: 520px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+    }
+
+    .project-summary-tile-read-more {
+        width: fit-content;
+        padding: 0;
+        font-size: 14px;
+        border: none;
+        background: transparent;
+        box-shadow: none;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: color 0.2s ease-in-out, text-decoration-thickness 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background: transparent !important;
+            transform: none;
+            border: none;
+            box-shadow: none;
+            text-decoration-thickness: 2px;
+            opacity: 0.86;
+        }
+
+        &:focus-visible {
+            outline: 2px solid rgba(28, 110, 247, 0.35);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        >i {
+            margin-left: 6px;
+            font-size: 12px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        &:hover>i,
+        &:focus-visible>i {
+            transform: translateX(2px);
+        }
+    }
+
+    .project-summary-tile-techs {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+        min-width: 0;
+
+        @media (max-width: 520px) {
+            justify-content: flex-start;
+        }
+
+        .project-summary-logo-container {
+            max-width: 30px;
+            max-height: 30px;
+            width: 30px;
+            height: 30px;
             display: flex;
-            flex-direction: row;
+            align-items: center;
+            justify-content: center;
 
-            .project-summary-tile-techs {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                flex-wrap: wrap;
-                width: 100%; // Required for IE 11
+            @media (max-width: 520px) {
+                max-width: 26px;
+                max-height: 26px;
+                width: 26px;
+                height: 26px;
+            }
 
-                .project-summary-logo-container {
-                    max-width: 30px;
-                    max-height: 30px;
-                    margin-right: 15px;
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-bottom: 5px;
+            .project-summary-logo {
+                width: auto;
+                height: auto;
+                max-width: 30px;
+                max-height: 30px;
 
-                    @media (max-width: 520px) {
-                        max-width: 25px;
-                        max-height: 25px;
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-
-                    .project-summary-logo {
-                        width: auto;
-                        height: auto;
-                        max-width: 30px;
-                        max-height: 30px;
-
-                        @media (max-width: 520px) {
-                            max-width: 25px;
-                            max-height: 25px;
-                        }
-                    }
-
-                    .project-summary-logo-fallback {
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 50%;
-                        display: inline-flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 10px;
-                        font-weight: 700;
-                        line-height: 1;
-                        text-transform: uppercase;
-                        border: 1px solid rgba(128, 128, 128, 0.35);
-
-                        @media (max-width: 520px) {
-                            width: 25px;
-                            height: 25px;
-                            font-size: 9px;
-                        }
-                    }
+                @media (max-width: 520px) {
+                    max-width: 26px;
+                    max-height: 26px;
                 }
             }
 
-            .project-summary-tile-links {
-                display: flex;
-                flex: 1;
-                align-items: flex-end;
-                justify-content: flex-end;
-                position: absolute;
-                right: 0;
-                top: 0;
-                margin: 15px;
+            .project-summary-logo-fallback {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 10px;
+                font-weight: 700;
+                line-height: 1;
+                text-transform: uppercase;
+                border: 1px solid rgba(128, 128, 128, 0.35);
 
-                @media (max-width: 698px) {
-                    position: relative;
-                    margin: 0px;
-                }
-
-                >a {
-                    margin-left: 10px;
-                    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
-
-                    &:hover {
-                        transform: translateY(-1px);
-                    }
-
-                    >i {
-                        font-size: 22px;
-                    }
+                @media (max-width: 520px) {
+                    width: 26px;
+                    height: 26px;
+                    font-size: 8px;
                 }
             }
         }

@@ -24,25 +24,31 @@ export const ProjectsSummary: React.FC<Props> = (props) => {
     const activeProjects: IProject[] = getActiveProjects();
     const displayLimit: number = globals.numOfSummaryProjectsToDisplay;
     const projectsToShow: IProject[] = showAll ? activeProjects : activeProjects.slice(0, displayLimit);
-    const summaryProjects: JSX.Element[] = projectsToShow.map((item, i) => <ProjectsSummaryTile key={i} project={item} isDarkMode={isDarkMode} />);
+    const summaryProjects: JSX.Element[] = projectsToShow.map((item, i) => (
+        <ProjectsSummaryTile key={i} project={item} isDarkMode={isDarkMode} />
+    ));
 
     const handleToggle = (): void => {
-        setShowAll((prev) => !prev)
+        setShowAll((prev) => !prev);
     };
 
     const shouldShowToggle: boolean = activeProjects.length > displayLimit;
 
     return (
-        <div className="section" id="Projects">
-            <div className="content-container" id={`${PageSectionIdType.Projects}`} ref={ref}>
+        <div className="section projects-section" id="Projects">
+            <div className="content-container projects-container" id={`${PageSectionIdType.Projects}`} ref={ref}>
                 <div className="section-title-wrapper">
                     <h2>Projects</h2>
                 </div>
-                <div className="project-summary-tiles">{summaryProjects}</div>
+
+                <div className="project-summary-tiles">
+                    {summaryProjects}
+                </div>
+
                 {shouldShowToggle && (
                     <div className="view-more-projects-btn-container">
                         <Button
-                            className="portfolio-btn portfolio-btn-primary contact-button submit-button view-more-projects-btn"
+                            className="portfolio-btn portfolio-btn-primary view-more-projects-btn"
                             onClick={handleToggle}
                             aria-expanded={showAll}
                         >
