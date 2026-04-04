@@ -6,7 +6,9 @@ describe('Footer', () => {
         cy.get('footer h3').should('contain.text', 'Joseph Castle');
         cy.get('footer').within(() => {
             cy.get('a[aria-label="LinkedIn link."]').should('have.attr', 'href').and('include', 'linkedin.com');
+            cy.get('a[aria-label="LinkedIn link."]').should('have.attr', 'target', '_blank');
             cy.get('a[aria-label="GitHub link."]').should('have.attr', 'href').and('include', 'github.com/JoeCastle');
+            cy.get('a[aria-label="GitHub link."]').should('have.attr', 'target', '_blank');
             cy.get('a[aria-label="Email address."]').should('have.attr', 'href').and('include', 'mailto:');
         });
 

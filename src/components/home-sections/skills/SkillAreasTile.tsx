@@ -7,6 +7,11 @@ interface ISkillAreaProps {
 
 interface Props extends ISkillAreaProps { }
 
+/**
+ * Splits a list into alternating left/right columns.
+ * @param items Source item list.
+ * @returns A tuple containing left and right column arrays.
+ */
 const splitIntoColumns = <T,>(items: T[]): [T[], T[]] => {
     const leftColumn: T[] = [];
     const rightColumn: T[] = [];
@@ -24,8 +29,8 @@ const splitIntoColumns = <T,>(items: T[]): [T[], T[]] => {
 
 /**
  * A skill area tile for the skills section.
- * @param props
- * @returns
+ * @param props Skill area tile props.
+ * @returns A rendered skill area tile.
  */
 export const SkillAreasTile = (props: Props): JSX.Element => {
     const skillArea: ISkillArea = props.skillArea;

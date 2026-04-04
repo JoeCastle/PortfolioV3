@@ -16,6 +16,11 @@ interface State {
 
 const isDarkModeDefault: boolean = globals.isDarkModeDefault;
 
+/**
+ * Defines top-level app routes, theme toggling, and shared page controls.
+ * @param props Component props.
+ * @returns The routed app container.
+ */
 export const RouteContainer = (props: Props, state: State): JSX.Element => {
     const [isDarkMode, setIsDarkMode] = useState<boolean>(isDarkModeDefault);
     const [hasMounted, setHasMounted] = useState<boolean>(false);
@@ -64,6 +69,7 @@ export const RouteContainer = (props: Props, state: State): JSX.Element => {
 
     /**
      * Only show the scroll to top button when scrolled.
+        * @param e Scroll event from the page container.
      */
     const handleScrollToTopButtonVisibility = useCallback((e: React.UIEvent<HTMLDivElement>): void => {
         let element: HTMLElement | null = document.getElementById('scroll-to-top-btn');

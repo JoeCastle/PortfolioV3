@@ -1,20 +1,25 @@
 describe('Navigation', () => {
-    it('has expected nav link anchors and updates hash when clicked', () => {
+    beforeEach(() => {
         cy.visit('/');
+    });
 
-        cy.get('#about-navlink').should('have.attr', 'href', '/#About').click();
-        cy.location('hash').should('eq', '#About');
+    it('exposes canonical section anchors for all primary nav items', () => {
+        const navLinks: Array<{ selector: string; href: string; hash: string }> = [
+            { selector: '#about-navlink', href: '/#About', hash: '#About' },
+            { selector: '#projects-navlink', href: '/#Projects', hash: '#Projects' },
+            { selector: '#skills-navlink', href: '/#Skills', hash: '#Skills' },
+            { selector: '#blog-navlink', href: '/#Blog', hash: '#Blog' },
+            { selector: '#contact-navlink', href: '/#Contact', hash: '#Contact' },
+        ];
 
-        cy.get('#projects-navlink').should('have.attr', 'href', '/#Projects').click();
-        cy.location('hash').should('eq', '#Projects');
+        navLinks.forEach(({ selector, href, hash }) => {
+            cy.get(selector).should('be.visible').and('have.attr', 'href', href).click();
+            cy.location('hash').should('eq', hash);
+        });
+    });
 
-        cy.get('#skills-navlink').should('have.attr', 'href', '/#Skills').click();
-        cy.location('hash').should('eq', '#Skills');
-
-        cy.get('#blog-navlink').should('have.attr', 'href', '/#Blog').click();
-        cy.location('hash').should('eq', '#Blog');
-
-        cy.get('#contact-navlink').should('have.attr', 'href', '/#Contact').click();
-        cy.location('hash').should('eq', '#Contact');
+    it('shows portfolio brand link with expected home anchor', () => {
+        cy.get('.navbar-brand').should('have.attr', 'href', '/#Home');
+        cy.get('.navbar-brand img').should('have.attr', 'alt', 'Joseph Castle');
     });
 });

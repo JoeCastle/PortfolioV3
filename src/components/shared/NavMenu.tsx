@@ -9,8 +9,8 @@ interface Props {
 
 /**
  * The navbar at the top of the page.
- * @param props
- * @returns
+ * @param props Nav menu props.
+ * @returns The site navigation header.
  */
 export const NavMenu: React.FC<Props> = (props: Props) => {
     const { isDarkMode } = props;

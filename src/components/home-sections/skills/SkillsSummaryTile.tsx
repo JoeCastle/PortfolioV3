@@ -8,8 +8,8 @@ interface Props extends ISkillProps {}
 
 /**
  * A skill summary tile for the skills section.
- * @param props
- * @returns
+ * @param props Skill summary tile props.
+ * @returns A rendered skill summary tile.
  */
 export const SkillsSummaryTile = (props: Props): JSX.Element => {
     const skill: ISkill = props.skill;

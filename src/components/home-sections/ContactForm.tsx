@@ -42,8 +42,8 @@ const FormInput: React.FC<FormInputProps> = memo(({ label, type, name, id, place
 
 /**
  * The contact form section on the homepage.
- * @param props
- * @returns
+ * @param props Contact form props.
+ * @returns Contact form section UI.
  */
 export const ContactForm: React.FC<Props> = (props) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -64,8 +64,7 @@ export const ContactForm: React.FC<Props> = (props) => {
 
     /**
      * Handles submitting the contact form.
-     * @param e
-     * @returns
+        * @param e Submit button click event.
      */
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement> | undefined): void => {
         if (!e) {
@@ -102,6 +101,9 @@ export const ContactForm: React.FC<Props> = (props) => {
 
     /**
      * Handles validating form field and setting the status message.
+        * @param val Field value to validate.
+        * @param setStatus State setter for field status.
+        * @returns True when valid, false when invalid.
      */
     const validateField = useCallback((val: string, setStatus: (status: FieldStatusEnum) => void): boolean => {
         if (utils.isFormInputValid(val)) {
@@ -136,7 +138,7 @@ export const ContactForm: React.FC<Props> = (props) => {
 
     /**
      * Handles validating the contact form.
-     * @param model
+        * @param model Form model to validate.
      * @returns True if valid, false if not.
      */
     const validateForm = (model: IEmailModel): boolean => {
@@ -174,6 +176,9 @@ export const ContactForm: React.FC<Props> = (props) => {
         return true;
     };
 
+    /**
+     * Resets the form values and validation state.
+     */
     const setInitialValues = (): void => {
         setFullName('');
         setSubject('');

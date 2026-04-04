@@ -27,7 +27,7 @@ export enum PageSectionIdType {
 }
 
 /**
- * Maps PageSectionIdTypes to their corresponding NavLinkIdTypes
+ * Maps each page section id to the corresponding nav link id.
  */
 const sectionToNavLinkMap: Record<PageSectionIdType, NavLinkIdType> = {
     [PageSectionIdType.Landing]: NavLinkIdType.Landing,
@@ -40,8 +40,11 @@ const sectionToNavLinkMap: Record<PageSectionIdType, NavLinkIdType> = {
 
 /**
  * This hook is used to determine whether a component (element) is on screen.
- * It is specifically used for the nav links to apply styling for the component currently in view. The styling will change ass you scroll or if you click a different nav link.
+ * It is specifically used for the nav links to apply styling for the component currently in view. The styling changes as you scroll or click a different nav link.
  * See https://usehooks.com/useOnScreen/
+ * Also informed by:
+ * https://stackoverflow.com/questions/61951380/intersection-observer-fails-sometimes-when-i-scroll-fast
+ * https://www.smashingmagazine.com/2018/01/deferring-lazy-loading-intersection-observer-api/
  * @param ref The ref of the element being observed.
  * @param rootMargin The scroll offset. Determines how many pixels of the component (element) can show before it's triggered.
  * @returns True if on screen, false if not.

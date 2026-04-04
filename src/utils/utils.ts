@@ -1,43 +1,11 @@
 import globals from './globals';
 
-/**
- * @deprecated This function should not be used.
- * @param imageIds
- */
-const getGoogleImageExportURL = (imageId: string): string => {
-    if (imageId !== '' && imageId !== null && imageId !== undefined) {
-        //return "https://drive.google.com/uc?export=view&id=" + imageId;
-        return 'https://drive.google.com/uc?id=' + imageId;
-    }
-
-    return '';
-};
-
-/**
- * @deprecated This function should not be used.
- * @param imageIds
- */
-const getGoogleImageExportURLs = (imageIds: string[]): string[] => {
-    let urls: string[] = [];
-
-    if (imageIds.length > 0) {
-        for (let i = 0; i < imageIds.length; i++) {
-            let url = getGoogleImageExportURL(imageIds[i]);
-
-            if (url !== '') {
-                urls.push(url);
-            }
-        }
-    }
-
-    return urls;
-};
 
 /**
  * https://gomakethings.com/decoding-html-entities-with-vanilla-javascript/
  * @deprecated No longer required.
- * @param html
- * @returns
+ * @param html The encoded HTML string.
+ * @returns The decoded plain-text value.
  */
 const decodeHTML = (html: string): string => {
     var txt = document.createElement('textarea');
@@ -53,7 +21,7 @@ const decodeHTML = (html: string): string => {
  * @param subject Subject of the email.
  * @param body Body of the email.
  */
-const navigateToEmail = (subject: string, body: string) => {
+const navigateToEmail = (subject: string, body: string): void => {
     window.location.href = `mailto:${utils.decodeHTML(globals.obfuscatedEmailAddress)}?subject=${subject}&body=${body}`;
 };
 
@@ -81,14 +49,13 @@ const getYearsOfExperience = (): number => {
 /**
  * Validates whether the form input is valid.
  * @param value The text input by the user.
+ * @returns True when the value contains non-whitespace characters.
  */
-const isFormInputValid = (value: string) => {
+const isFormInputValid = (value: string): boolean => {
     return value.trim() !== '';
 };
 
 const utils = {
-    getGoogleImageExportURL,
-    getGoogleImageExportURLs,
     decodeHTML,
     navigateToEmail,
     getYearsOfExperience,

@@ -7,8 +7,8 @@ interface Props { }
 
 /**
  * The skills (skill areas) sections on the homepage.
- * @param props
- * @returns
+ * @param props Skill areas props.
+ * @returns Skills area section content.
  */
 export const SkillAreas: React.FC<Props> = (props) => {
     const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;

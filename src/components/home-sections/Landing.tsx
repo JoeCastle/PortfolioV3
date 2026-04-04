@@ -6,13 +6,16 @@ interface Props { }
 
 /**
  * The landing section on the homepage.
- * @param props
- * @returns
+ * @param props Landing section props.
+ * @returns The landing section content.
  */
 export const Landing: React.FC<Props> = () => {
     const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;
     useOnScreen(ref);
 
+    /**
+     * Smooth-scrolls to the projects section.
+     */
     const handleScrollToProjects = (): void => {
         const element: HTMLElement | null = document.getElementById('Projects');
 
@@ -21,6 +24,9 @@ export const Landing: React.FC<Props> = () => {
         }
     };
 
+    /**
+     * Smooth-scrolls to the contact section.
+     */
     const handleScrollToContact = (): void => {
         const element: HTMLElement | null = document.getElementById('Contact');
 

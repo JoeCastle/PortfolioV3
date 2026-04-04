@@ -16,6 +16,11 @@ interface Props {
     isDarkMode: boolean;
 }
 
+/**
+ * Modal showing full project details, technologies, and gallery links.
+ * @param props Modal props and selected project data.
+ * @returns Project details modal element.
+ */
 export const ProjectDetailsModal: React.FC<Props> = ({ project, isOpen, toggle, isDarkMode }): JSX.Element => {
     const [isGalleryOpen, setIsGalleryOpen] = React.useState<boolean>(false);
     const projectStatusText: string = project.attributes.isComplete ? 'Complete' : 'In development';
@@ -25,6 +30,11 @@ export const ProjectDetailsModal: React.FC<Props> = ({ project, isOpen, toggle, 
     const hasDisclaimer: boolean = project.attributes.disclaimer.trim().length > 0;
     const hasGallery: boolean = !!project.attributes.carouselImages && project.attributes.carouselImages.length > 0;
 
+    /**
+     * Creates an initial-based fallback label when a technology logo is unavailable.
+     * @param title Technology title text.
+     * @returns Two-character fallback text.
+     */
     const getFallbackLogoText = React.useCallback((title: string): string => {
         const parts = title
             .split(/\s+/)

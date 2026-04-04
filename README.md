@@ -1,107 +1,89 @@
 # PortfolioV3
 
-Welcome to my web portfolio! This project showcases my past projects, skills, and experience in a dynamic and interactive way. It's built using React, SASS, and Typescript and is based off [Create React App](https://github.com/facebook/create-react-app).
+A personal portfolio website built with React and TypeScript. It is designed to showcase projects, technical skills, and recent blog content to peers, collaborators, and potential hiring managers.
 
-## Features
+## Highlights
 
-- **Single Page Design:** The homepage provides easy access to relevant information through scrolling or navigation links.
-
-- **Project Showcase:** Explore a collection of my past projects, each with its own details, technologies used, and links to live demos or repositories.
-
-- **Skills Section:** Discover the range of skills I possess, categorized for clarity. From programming languages to frameworks and tools, get insights into my technical proficiency.
-
-- **Blog Integration:** Recent blog posts are displayed on the homepage, with automatic fetching from the external blog at [blog.joecastle.co.uk](https://blog.joecastle.co.uk). Features intelligent caching and fallback to backup data.
-
-- **Contact form:** Contact form with relevant contact information throughout the site.
-
-- **Responsive Design:** The portfolio is designed to be responsive, ensuring a seamless experience across various devices and screen sizes.
-
-- **Accessibility:** Prioritize inclusivity with accessibility features, ensuring a user-friendly experience for individuals with diverse needs.
-
-- **SEO:** Enhance visibility and reach a wider audience by implementing SEO best practices, optimizing the site for search engines.
-
+- Single-page portfolio with section-based navigation
+- Project showcase with expandable details
+- Skills and experience summaries
+- Blog feed integration from external source with local backup data
+- Contact section with direct social and email links
+- Responsive layout across mobile and desktop
+- SEO metadata and social sharing tags
+- Accessibility-aware UI and practical automated test coverage
 
 ## Tech Stack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-- React
-- SASS
-- Typescript
-- Bootstrap
+- React 18
+- TypeScript
+- SCSS + Bootstrap/Reactstrap
+- React Router
+- React Helmet Async
+- Create React App (react-scripts)
+
+## Testing
+
+This project uses Jest, Cypress, and Playwright.
+
+See the full testing strategy and commands in [TESTING.md](TESTING.md).
 
 ## Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) installed on your machine.
+- Node.js (LTS recommended)
+- npm
 
-### Installation
+### Install
 
-1.  Clone the repository to your local machine:
-    ```
-    git clone https://github.com/JoeCastle/PortfolioV3.git
-    ```
+```bash
+git clone https://github.com/JoeCastle/PortfolioV3.git
+cd PortfolioV3
+npm install
+```
 
-2. Navigate to the project directory:
-   ```
-   cd PortfolioV3
-   ```
+### Run Locally
 
-3. Install dependencies:
-   ```
-   npm install
-   ```
+```bash
+npm start
+```
 
-### Running the Project
+Open http://localhost:3000.
 
-1. Start the development server:
-   ```
-   npm start
-   ```
+## Scripts
 
-2. Open your browser and visit [http://localhost:3000](http://localhost:3000) to view the web portfolio.
+- `npm start`: starts the app in development mode
+- `npm run build`: fetches recent posts, updates project date metadata, then builds production assets
+- `npm test`: runs Jest tests via `react-scripts test`
+- `npm run pretty`: runs Prettier across JS/TS/SCSS/CSS/JSON
+- `npm run cypress:open`: opens Cypress UI
+- `npm run cypress-component`: runs Cypress component tests
+- `npm run cypress-e2e`: runs Cypress e2e tests
+- `npm run cypress-e2e:coverage`: runs Cypress e2e and generates NYC reports
+- `npm run playwright:test`: runs Playwright tests
+- `npm run playwright:test:headed`: runs Playwright in headed mode
+- `npm run playwright:test:update-snapshots`: updates Playwright visual snapshots
+- `npm run serve:build`: serves the `build` directory on `127.0.0.1:3000`
+- `npm run fetch-recent-posts`: fetches recent blog posts and validates SEO data contract
+- `npm run update-project-date`: updates sitemap/project date metadata
 
 ## Project Structure
 
-- **src:** Contains the source code for the React application.
-  - **components:** React components including pages and sections.
-    - **home-sections:** The main sections of the homepage.
-    - **pages:** Individual pages.
-    - **shared:** Components shared across multiple components or pages.
-  - **data:** Typescript objects storing data used on the website such as projects, skills, and blog posts backup data.
-  - **scss:** SASS files for styling the components and pages.
-- **cypress** Tests folder containing Cypress integration and component tests.
-- **public**  Static folder containing index.html, favicon and other assets.
+- `src/`: application source code
+- `src/components/`: page, section, and shared React components
+- `src/data/`: portfolio/project/skills/blog backup data
+- `src/scss/`: styling architecture
+- `cypress/`: Cypress component and e2e tests
+- `e2e/`: Playwright tests and reliability helpers
+- `scripts/`: build-time and data maintenance scripts
+- `public/`: static public assets
 
-## Available Scripts
+## Deployment
 
-- `npm start`
-- `npm run build` 
-    - Creates a production build. This script automatically runs `fetch-recent-posts` and `update-project-date` before building the application.
-- `npm test`
-- `npm eject`
-- `npm run pretty`
-- `npm run cypress:open`
-- `npm run cypress-component`
-- `npm run cypress-e2e`
-- `npm run fetch-recent-posts`
-   - Fetches the latest blog posts from the external blog and updates the backup data.
-- `npm run update-project-date`
-   - Updates the date in `.env.local` and `sitemap.xml` to the current date.
-
-## TODO:
-
-- [x] Write README.md.
-- [x] Update styling and structure of the About and Landing sections.
-- [x] Improve UX by updating styling for buttons and links.
-- [x] Update styling and structure of the Contact section.
-- [x] Update styling and structure of the footer.
-- [x] Add blog integration with external blog.
-- [ ] Update general copy.
-- [ ] Update project copy.
-- [ ] Add cypress tests.
-- [ ] Add jest tests.
+Deployment notes and hosting considerations are documented in [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## License
 
-The code in this project is licensed under the terms of the [LICENSE-website](LICENSE-website), while the content, including text and media, is licensed under the [LICENSE-content](LICENSE-content). See the respective files for detailed licensing information.
+- Website/application code: [LICENSE-website](LICENSE-website)
+- Content (text/media): [LICENSE-content](LICENSE-content)
