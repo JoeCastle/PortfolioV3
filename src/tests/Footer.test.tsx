@@ -14,7 +14,9 @@ describe('Footer', () => {
 
         expect(screen.getByText('Joseph Castle')).toBeInTheDocument();
 
-        expect(screen.getByText(new RegExp(`A Senior Full-Stack Software Developer with ${utils.getYearsOfExperience()} years of experience`))).toBeInTheDocument();
+        expect(
+            screen.getByText(new RegExp(`Senior Full-Stack Software Developer with\\s*${utils.getYearsOfExperience()}\\s*\\+ years of experience`, 'i')),
+        ).toBeInTheDocument();
 
         const linkedInLink: HTMLElement = screen.getByRole('link', { name: /LinkedIn link/i });
         const emailLink: HTMLElement = screen.getByRole('link', { name: /Email address/i });

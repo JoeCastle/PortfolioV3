@@ -14,8 +14,8 @@ interface Props { }
 
 /**
  * The blog section on the homepage.
- * @param props
- * @returns
+ * @param props Recent posts section props.
+ * @returns Recent posts list and blog link.
  */
 export const RecentPosts: React.FC<Props> = (props) => {
     const [posts, setPosts] = useState<RecentPost[]>(backupPosts as RecentPost[]);

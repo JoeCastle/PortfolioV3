@@ -5,8 +5,7 @@ import useOnScreen, { PageSectionIdType } from '../../../hooks/useOnScreen';
 
 /**
  * The skills (skill summary) sections on the homepage. Currently unused.
- * @param props
- * @returns
+ * @returns The skills summary section content.
  */
 export const SkillsSummary = (): JSX.Element => {
     const ref: React.MutableRefObject<HTMLInputElement> = useRef() as React.MutableRefObject<HTMLInputElement>;

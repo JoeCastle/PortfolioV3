@@ -26,6 +26,11 @@ export const ProjectsSummaryTile = React.memo(({ project, isDarkMode }: Props): 
     const isLive: boolean = !!project.attributes.liveDemo;
     const hasSource: boolean = !!project.attributes.sourceCode;
 
+    /**
+     * Creates an initial-based fallback label when a technology logo is unavailable.
+     * @param title Technology title text.
+     * @returns Two-character fallback text.
+     */
     const getFallbackLogoText = React.useCallback((title: string): string => {
         const parts = title
             .split(/\s+/)
@@ -70,6 +75,10 @@ export const ProjectsSummaryTile = React.memo(({ project, isDarkMode }: Props): 
         );
     }, [project.attributes.carouselImages]);
 
+    /**
+     * Opens or closes the project image lightbox when image data exists.
+     * @param isOpen Whether the lightbox should be open.
+     */
     const handleSetIsOpen: (isOpen: boolean) => void = React.useCallback(
         (isOpen: boolean): void => {
             if (hasImages) {

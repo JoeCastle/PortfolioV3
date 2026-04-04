@@ -19,8 +19,8 @@ interface Props {
 
 /**
  * The home page. Contains many sections including projects and skills.
- * @param props
- * @returns
+ * @param props Home page props.
+ * @returns The home page section layout.
  */
 export const Home: React.FC<Props> = (props) => {
     return (

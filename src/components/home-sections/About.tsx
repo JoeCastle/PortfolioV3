@@ -7,8 +7,8 @@ interface Props { }
 
 /**
  * The about section on the homepage.
- * @param props
- * @returns
+ * @param props About section props.
+ * @returns The about section content.
  */
 export const About: React.FC<Props> = () => {
     const ref: React.MutableRefObject<HTMLDivElement> = useRef() as React.MutableRefObject<HTMLDivElement>;

@@ -27,3 +27,9 @@ cypress/videos
 cypress/screenshots
 .nyc_output
 coverage
+
+# playwright
+playwright-report
+test-results
+blob-report
+e2e/**/*.spec.ts-snapshots/

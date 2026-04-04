@@ -6,8 +6,8 @@ interface Props { }
 
 /**
  * The footer component at the bottom of every page.
- * @param props
- * @returns
+ * @param props Footer props.
+ * @returns Footer content including socials and version info.
  */
 export const Footer: React.FC<Props> = (props) => {
     return (

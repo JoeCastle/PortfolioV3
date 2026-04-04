@@ -11,8 +11,8 @@ interface Props {
 
 /**
  * The project summary section on the homepage.
- * @param props
- * @returns
+ * @param props Project summary props.
+ * @returns The projects section content.
  */
 export const ProjectsSummary: React.FC<Props> = (props) => {
     const { isDarkMode } = props;
@@ -28,6 +28,9 @@ export const ProjectsSummary: React.FC<Props> = (props) => {
         <ProjectsSummaryTile key={i} project={item} isDarkMode={isDarkMode} />
     ));
 
+    /**
+     * Toggles between limited and full project list views.
+     */
     const handleToggle = (): void => {
         setShowAll((prev) => !prev);
     };

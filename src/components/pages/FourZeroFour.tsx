@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 
 /**
  * The 404 page displayed when no page exists.
- * @returns
+ * @returns The not-found page content and metadata.
  */
 export const FourZeroFour: React.FC = () => {
     return (

@@ -1,26 +1,6 @@
 import utils from '../utils/utils';
 
 describe('utils', () => {
-    describe('getGoogleImageExportURL', () => {
-        it('returns a valid google image URL when image id is provided', () => {
-            expect(utils.getGoogleImageExportURL('abc123')).toBe('https://drive.google.com/uc?id=abc123');
-        });
-
-        it('returns empty string when image id is empty', () => {
-            expect(utils.getGoogleImageExportURL('')).toBe('');
-        });
-    });
-
-    describe('getGoogleImageExportURLs', () => {
-        it('maps each image id to a google image URL', () => {
-            expect(utils.getGoogleImageExportURLs(['a1', 'b2'])).toEqual(['https://drive.google.com/uc?id=a1', 'https://drive.google.com/uc?id=b2']);
-        });
-
-        it('returns an empty array when no ids are provided', () => {
-            expect(utils.getGoogleImageExportURLs([])).toEqual([]);
-        });
-    });
-
     describe('decodeHTML', () => {
         it('decodes encoded HTML entities', () => {
             expect(utils.decodeHTML('joe&#64;example.com')).toBe('joe@example.com');

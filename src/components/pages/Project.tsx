@@ -12,8 +12,8 @@ interface Props extends IProjectProps {}
 
 /**
  * The project page. Currently unused.
- * @param props
- * @returns
+ * @param props Project page props.
+ * @returns The detailed project page.
  */
 export const Project: React.FC<Props> = (props) => {
     const { projectName } = props;
@@ -27,6 +27,9 @@ export const Project: React.FC<Props> = (props) => {
         handleScrollReset();
     }, []);
 
+    /**
+     * Resets the scroll position of the page container.
+     */
     const handleScrollReset = () => {
         let element: HTMLElement | null = document.getElementById('page-parent');
         element!.scrollTop = 0;

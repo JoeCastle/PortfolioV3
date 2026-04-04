@@ -1,5 +1,17 @@
 [
   {
+    "slug": "design-spreadsheet-import-pipeline",
+    "title": "Designing a production-safe spreadsheet import pipeline",
+    "summary": "A practical case study on transforming inconsistent Excel spreadsheets into SQL Server using a production-safe import pipeline, staging tables, and robust ID mapping.",
+    "date": "2026-04-02",
+    "tags": [
+      "data-import",
+      "excel",
+      "sql-server",
+      "vba macro"
+    ]
+  },
+  {
     "slug": "junior-developer-questions",
     "title": "Junior Developer Questions Answered: Language, Portfolio, Career",
     "summary": "Junior developers ask: which language to learn, how to build a portfolio, get experience, and thrive in their first tech job. Includes real advice, tips, and resources.",
@@ -25,20 +37,6 @@
       "imposter syndrome",
       "code quality",
       "tech career"
-    ]
-  },
-  {
-    "slug": "welcome-to-my-blog",
-    "title": "Welcome to My Blog",
-    "summary": "A brief introduction to my blog, my background, and what you can expect as a reader.",
-    "date": "2025-04-27",
-    "tags": [
-      "introduction",
-      "developer blog",
-      "developer advice",
-      "software development",
-      "junior developer",
-      "career tips"
     ]
   }
 ]

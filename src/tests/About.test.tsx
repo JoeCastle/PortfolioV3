@@ -11,7 +11,9 @@ describe('About', () => {
         render(<About />);
 
         expect(screen.getByRole('heading', { name: 'About' })).toBeInTheDocument();
-        expect(screen.getByText(new RegExp(`${utils.getYearsOfExperience()} years of experience building software`))).toBeInTheDocument();
+        expect(
+            screen.getByText(new RegExp(`Senior Full-Stack Software Developer with\\s*${utils.getYearsOfExperience()}\\s*\\+ years building robust`, 'i')),
+        ).toBeInTheDocument();
     });
 
     it('renders social links with expected targets', () => {

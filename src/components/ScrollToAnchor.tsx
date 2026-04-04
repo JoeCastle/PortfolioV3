@@ -2,6 +2,10 @@ import { useEffect, useRef } from 'react';
 import { Location, useLocation } from 'react-router-dom';
 
 // Credit: https://dev.to/mindactuate/scroll-to-anchor-element-with-react-router-v6-38op
+/**
+ * Scrolls smoothly to a hash anchor after route changes.
+ * @returns Null because this helper component has no UI.
+ */
 function ScrollToAnchor(): null {
     const location: Location = useLocation();
     const lastHash: React.MutableRefObject<string> = useRef('');
