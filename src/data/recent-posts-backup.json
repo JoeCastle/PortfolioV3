@@ -1,5 +1,20 @@
 [
   {
+    "slug": "sql-server-performance-what-matters",
+    "title": "SQL Server Performance for Application Developers: What Actually Matters",
+    "summary": "A practical SQL Server performance guide covering SARGable queries, index design, execution plans, and optimisation techniques that improve application performance.",
+    "date": "2026-04-06",
+    "tags": [
+      "sql-server",
+      "performance",
+      "backend",
+      "database",
+      "indexing",
+      "query-optimization",
+      "software-engineering"
+    ]
+  },
+  {
     "slug": "design-spreadsheet-import-pipeline",
     "title": "Designing a production-safe spreadsheet import pipeline",
     "summary": "A practical case study on transforming inconsistent Excel spreadsheets into SQL Server using a production-safe import pipeline, staging tables, and robust ID mapping.",
@@ -22,20 +37,6 @@
       "software development",
       "programming languages",
       "coding projects",
-      "tech career"
-    ]
-  },
-  {
-    "slug": "junior-developer-guide",
-    "title": "Essential Guide for Junior Software Developers: Tips, Mindset, and Best Practices",
-    "summary": "Essential guide for junior software developers: practical tips, mindset shifts, real‑world stories and resources to help you thrive in your tech career.",
-    "date": "2025-05-24",
-    "tags": [
-      "junior developer",
-      "developer advice",
-      "software development",
-      "imposter syndrome",
-      "code quality",
       "tech career"
     ]
   }
