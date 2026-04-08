@@ -1,8 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { ProjectsSummaryTile } from './ProjectsSummaryTile';
-import { getActiveProjects, IProject } from '../../../data/projects';
+import { getHomepageProjects, getHomepageSecondaryProjects, IProject } from '../../../data/projects';
 import useOnScreen, { PageSectionIdType } from '../../../hooks/useOnScreen';
-import globals from '../../../utils/globals';
 import { Button } from 'reactstrap';
 
 interface Props {
@@ -21,9 +20,8 @@ export const ProjectsSummary: React.FC<Props> = (props) => {
 
     const [showAll, setShowAll] = useState<boolean>(false);
 
-    const activeProjects: IProject[] = getActiveProjects();
-    const displayLimit: number = globals.numOfSummaryProjectsToDisplay;
-    const projectsToShow: IProject[] = showAll ? activeProjects : activeProjects.slice(0, displayLimit);
+    const projectsToShow: IProject[] = getHomepageProjects(showAll);
+    const secondaryProjects: IProject[] = getHomepageSecondaryProjects();
     const summaryProjects: JSX.Element[] = projectsToShow.map((item, i) => (
         <ProjectsSummaryTile key={i} project={item} isDarkMode={isDarkMode} />
     ));
@@ -35,15 +33,15 @@ export const ProjectsSummary: React.FC<Props> = (props) => {
         setShowAll((prev) => !prev);
     };
 
-    const shouldShowToggle: boolean = activeProjects.length > displayLimit;
+    const shouldShowToggle: boolean = secondaryProjects.length > 0;
 
     return (
         <div className="section projects-section" id="Projects">
             <div className="content-container projects-container" id={`${PageSectionIdType.Projects}`} ref={ref}>
                 <header className="section-header">
-                    <p className="section-eyebrow">Selected Work</p>
-                    <h2 className="section-title">Projects</h2>
-                    <p className="section-intro">A curated set of recent work spanning full-stack applications, architecture, and product-focused delivery.</p>
+                    <p className="section-eyebrow">PERSONAL WORK</p>
+                    <h2 className="section-title">Featured Projects</h2>
+                    <p className="section-intro">Selected personal projects that reflect my interests in full-stack delivery, structured content systems, AI-assisted workflows, and maintainable software design.</p>
                 </header>
 
                 <div className="project-summary-tiles">

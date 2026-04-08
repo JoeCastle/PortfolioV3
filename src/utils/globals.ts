@@ -29,6 +29,12 @@ const numOfTechsToDisplayPerProject: number = 5;
 
 const isDarkModeDefault: boolean = false;
 
+/** Top offset (in px) used when navigating to hash anchors. */
+const anchorScrollOffsetPx: number = -25;
+
+/** Viewport offset line (in px) used to determine the active nav section while scrolling. */
+const navActiveSectionOffsetPx: number = 130;
+
 const metaData: MetaDataType = {
     title: 'Joseph Castle | Senior Full-Stack Software Developer',
     description:
@@ -44,6 +50,8 @@ const globals = {
     numOfSummaryProjectsToDisplay,
     numOfTechsToDisplayPerProject,
     isDarkModeDefault,
+    anchorScrollOffsetPx,
+    navActiveSectionOffsetPx,
     metaData,
 };
 

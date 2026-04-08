@@ -70,11 +70,29 @@ export const Landing: React.FC<Props> = () => {
 
                     <div className="landing-right">
                         <pre className="code-snippet">
-                            {`const developer = {
-  name: "Joseph Castle",
-  stack: ["React", "TypeScript", ".NET", "SQL Server", "Azure"],
-  focus: "Complex Business Systems",
-};`}
+                            <code className="code-snippet-language" aria-label="Developer profile code example">
+                                <span className="token-keyword">const</span>{' '}
+                                <span className="token-variable">developer</span>{' '}
+                                <span className="token-operator">=</span>{' '}
+                                <span className="token-punctuation">{'{'}</span>
+                                {'\n'}
+                                {'  '}<span className="token-property">name</span><span className="token-punctuation">:</span>{' '}
+                                <span className="token-string">"Joseph Castle"</span><span className="token-punctuation">,</span>
+                                {'\n'}
+                                {'  '}<span className="token-property">stack</span><span className="token-punctuation">:</span>{' '}
+                                <span className="token-punctuation">[</span>
+                                <span className="token-string">"React"</span><span className="token-punctuation">,</span>{' '}
+                                <span className="token-string">"TypeScript"</span><span className="token-punctuation">,</span>{' '}
+                                <span className="token-string">".NET"</span><span className="token-punctuation">,</span>{' '}
+                                <span className="token-string">"SQL Server"</span><span className="token-punctuation">,</span>{' '}
+                                <span className="token-string">"Azure"</span>
+                                <span className="token-punctuation">]</span><span className="token-punctuation">,</span>
+                                {'\n'}
+                                {'  '}<span className="token-property">focus</span><span className="token-punctuation">:</span>{' '}
+                                <span className="token-string">"Complex Business Systems"</span><span className="token-punctuation">,</span>
+                                {'\n'}
+                                <span className="token-punctuation">{'}'}</span><span className="token-punctuation">;</span>
+                            </code>
                         </pre>
                     </div>
                 </div>
