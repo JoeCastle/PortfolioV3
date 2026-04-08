@@ -20,6 +20,7 @@ will-change: $properties;
 
     #Home {
         background-color: $light-primary-background-colour;
+        @include transition-properties((background-color));
 
         &::before {
             background: none;
@@ -79,6 +80,7 @@ will-change: $properties;
     }
 
     .project-summary-tile,
+    .commercial-work-card,
     .skill-summary-tile,
     .skillarea-summary-tile {
         background-color: $light-secondary-background-colour;
@@ -100,6 +102,23 @@ will-change: $properties;
         &:focus-visible {
             color: $dark-blue-background;
         }
+    }
+
+    .commercial-work-card-summary,
+    .commercial-work-impact-list li,
+    .commercial-work-stack-label {
+        color: rgba(47, 54, 68, 0.9);
+    }
+
+    .commercial-work-stack {
+        color: rgba(47, 54, 68, 0.72);
+    }
+
+    .commercial-work-tag {
+        color: rgba(47, 54, 68, 0.75);
+        border: 1px solid rgba(47, 54, 68, 0.18);
+        background: rgba(47, 54, 68, 0.05);
+        @include transition-properties((color, border, background-color));
     }
 
     .project-details-modal-content {
@@ -245,6 +264,7 @@ will-change: $properties;
     }
 
     .project-summary-tile,
+    .commercial-work-card,
     .skill-summary-tile,
     .skillarea-summary-tile {
         background-color: $dark-secondary-background-colour;
@@ -264,6 +284,19 @@ will-change: $properties;
         &:focus-visible {
             color: $standard-blue-background;
         }
+    }
+
+    .commercial-work-card-summary,
+    .commercial-work-impact-list li,
+    .commercial-work-stack-label,
+    .commercial-work-stack {
+        color: rgba(226, 232, 240, 0.86);
+    }
+
+    .commercial-work-tag {
+        color: rgba(226, 232, 240, 0.8);
+        border: 1px solid rgba(226, 232, 240, 0.14);
+        background: rgba(226, 232, 240, 0.07);
     }
 
     .project-details-modal-content {

@@ -11,6 +11,7 @@ describe('NavMenu', () => {
         );
 
         expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('href', '/#About');
+        expect(screen.getByRole('link', { name: 'Commercial' })).toHaveAttribute('href', '/#CommercialWork');
         expect(screen.getByRole('link', { name: 'Projects' })).toHaveAttribute('href', '/#Projects');
         expect(screen.getByRole('link', { name: 'Skills' })).toHaveAttribute('href', '/#Skills');
         expect(screen.getByRole('link', { name: 'Blog' })).toHaveAttribute('href', '/#Blog');

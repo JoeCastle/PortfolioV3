@@ -23,19 +23,19 @@
 }
 
 .about-container {
-    max-width: 950px !important;
+    max-width: 1000px !important;
     margin: 0 auto;
     width: 100%;
 }
 
 .about .section-intro {
-    max-width: 640px;
+    max-width: 660px;
 }
 
 .about-body {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 34px;
     margin-bottom: 28px;
 
     @media (max-width: 900px) {
@@ -50,17 +50,13 @@
 
 .about-column p {
     font-size: 17px;
-    line-height: 1.75;
-    margin: 0 0 18px;
-    color: rgba(0, 0, 0, 0.72);
-
-    &:last-child {
-        margin-bottom: 0;
-    }
+    line-height: 1.8;
+    margin: 0;
+    color: inherit;
 
     @media (max-width: 768px) {
         font-size: 16px;
-        line-height: 1.7;
+        line-height: 1.72;
     }
 }
 

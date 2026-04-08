@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import projects, { IProject, ProjectTypes } from '../../data/projects';
+import projects, { getProjectCaseStudy, getProjectSummary, IProject, ProjectTypes } from '../../data/projects';
 import { Helmet } from 'react-helmet-async';
 
 //Clicking on the summary tile will navigate to a separate page.
@@ -8,7 +8,7 @@ interface IProjectProps {
     projectName: ProjectTypes;
 }
 
-interface Props extends IProjectProps {}
+interface Props extends IProjectProps { }
 
 /**
  * The project page. Currently unused.
@@ -19,6 +19,7 @@ export const Project: React.FC<Props> = (props) => {
     const { projectName } = props;
 
     const project: IProject | undefined = projects.find((project) => project.projectName === projectName);
+    const caseStudy = project ? getProjectCaseStudy(project) : null;
 
     const isLive: boolean = project!.attributes.liveDemo === '' ? false : true;
     const hasSource: boolean = project!.attributes.sourceCode === '' ? false : true;
@@ -39,7 +40,7 @@ export const Project: React.FC<Props> = (props) => {
         <div className="project-summary">
             <Helmet>
                 <title>{project!.attributes.title} | Project - Joseph Castle</title>
-                <meta name="description" content={project!.attributes.summary} />
+                <meta name="description" content={getProjectSummary(project!)} />
             </Helmet>
             <div className="content-container">
                 <div className="proj-content-wrapper project-title-section">
@@ -88,8 +89,12 @@ export const Project: React.FC<Props> = (props) => {
                     </div>
                 </div>
                 <div className="project-desc">
-                    {project!.attributes.description.map((item, i) => (
+                    {caseStudy?.overview && <p>{caseStudy.overview}</p>}
+                    {caseStudy?.highlights.map((item, i) => (
                         <p key={i}>{item}</p>
+                    ))}
+                    {caseStudy?.additionalDetails?.map((item, i) => (
+                        <p key={`additional-${i}`}>{item}</p>
                     ))}
                 </div>
             </div>

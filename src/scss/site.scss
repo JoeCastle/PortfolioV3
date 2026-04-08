@@ -6,6 +6,7 @@
 @import 'component/landing.scss';
 @import 'component/contact.scss';
 @import 'component/project.scss';
+@import 'component/commercialwork.scss';
 @import 'component/skill.scss';
 @import 'component/footer.scss';
 @import 'component/recentposts.scss';
@@ -258,7 +259,7 @@ main {
         .section-intro {
             font-size: 18px;
             line-height: 1.6;
-            max-width: 680px;
+            max-width: 690px;
             margin: 12px 0 0;
 
             @media (max-width: 768px) {

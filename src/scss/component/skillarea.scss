@@ -63,7 +63,7 @@ $mobile-breakpoint: 1150px;
             font-weight: bold;
             text-align: center;
             font-size: 24px;
-            margin: 10px 0px 5px;
+            margin: 10px 0px 6px;
         }
 
         //https://stackoverflow.com/a/53156390/5547950
@@ -72,8 +72,10 @@ $mobile-breakpoint: 1150px;
         $lines-to-show: 5;
 
         .skillarea-summary-tile-desc {
-            margin-top: 15px;
-            margin-bottom: 20px;
+            margin-top: 14px;
+            margin-bottom: 18px;
+            line-height: 1.6;
+            font-size: 15px;
         }
 
         .skillarea-summary-tile-other {
@@ -103,12 +105,13 @@ $mobile-breakpoint: 1150px;
 
                     >li {
                         font-size: 14px;
-                        margin-bottom: 5px;
+                        margin-bottom: 4px;
                         white-space: nowrap;
 
                         >span {
                             font-size: inherit;
                             margin-left: -5px;
+                            font-weight: 500;
                         }
                     }
                 }

@@ -71,6 +71,7 @@
     letter-spacing: 1.5px;
     opacity: 0.7;
     margin-bottom: 14px;
+    transition: color $global-animation-time ease-in-out;
 
     @media (max-width: 600px) {
         font-size: 13px;
@@ -78,30 +79,33 @@
 }
 
 .landing-heading {
-    font-size: 64px;
+    font-size: 58px;
     font-weight: bold;
-    line-height: 1.08;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
     margin-bottom: 18px;
-    max-width: 560px;
+    max-width: 580px;
+    transition: color $global-animation-time ease-in-out;
 
     @media (max-width: 1150px) {
         font-size: 52px;
-        max-width: 500px;
+        max-width: 520px;
     }
 
     @media (max-width: 980px) {
         font-size: 44px;
         max-width: 700px;
+        line-height: 1.08;
     }
 
     @media (max-width: 768px) {
         font-size: 38px;
-        line-height: 1.14;
+        line-height: 1.12;
     }
 
     @media (max-width: 600px) {
         font-size: 33px;
-        line-height: 1.18;
+        line-height: 1.16;
         margin-bottom: 16px;
     }
 
@@ -112,12 +116,14 @@
 
 .landing-subtext {
     font-size: 18px;
-    line-height: 1.6;
-    max-width: 540px;
-    margin-bottom: 22px;
+    line-height: 1.68;
+    max-width: 560px;
+    margin-bottom: 24px;
+    color: rgba(0, 0, 0, 0.74);
+    transition: color $global-animation-time ease-in-out;
 
     @media (max-width: 1150px) {
-        max-width: 500px;
+        max-width: 520px;
     }
 
     @media (max-width: 980px) {
@@ -126,11 +132,12 @@
 
     @media (max-width: 768px) {
         font-size: 17px;
+        line-height: 1.66;
     }
 
     @media (max-width: 600px) {
         font-size: 16px;
-        line-height: 1.65;
+        line-height: 1.68;
         margin-bottom: 20px;
     }
 }
@@ -211,7 +218,7 @@
     font-size: 15px;
     line-height: 1.7;
     width: 100%;
-    max-width: 470px;
+    max-width: 532px;
     margin: 0;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     overflow-x: auto;
@@ -230,6 +237,33 @@
         font-size: 13px;
         line-height: 1.6;
         padding: 16px;
+    }
+
+    .code-snippet-language {
+        display: block;
+        color: inherit;
+        font-family: inherit;
+    }
+
+    .token-keyword {
+        color: #c792ea;
+    }
+
+    .token-variable {
+        color: #82aaff;
+    }
+
+    .token-property {
+        color: #7fdbca;
+    }
+
+    .token-string {
+        color: #ecc48d;
+    }
+
+    .token-operator,
+    .token-punctuation {
+        color: #d6deeb;
     }
 }
 
