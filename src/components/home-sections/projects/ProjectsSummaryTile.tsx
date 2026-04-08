@@ -6,25 +6,25 @@ import Captions from 'yet-another-react-lightbox/plugins/captions';
 import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/counter.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
-import { getProjectSkills, IImage, IProject } from '../../../data/projects';
-import ProjectDetailsModal from './ProjectDetailsModal';
+import { getProjectSkills, getProjectSummary, IImage, IProject } from '../../../data/projects';
 
 interface IProjectProps {
     project: IProject;
     isDarkMode: boolean;
+    onOpenDetails: (project: IProject) => void;
 }
 
 interface Props extends IProjectProps { }
 
-export const ProjectsSummaryTile = React.memo(({ project, isDarkMode }: Props): JSX.Element => {
+export const ProjectsSummaryTile = React.memo(({ project, onOpenDetails }: Props): JSX.Element => {
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
-    const [isDetailsModalOpen, setIsDetailsModalOpen] = React.useState<boolean>(false);
     const preloadedImageUrlsRef = React.useRef<Set<string>>(new Set<string>());
 
     const hasImages: boolean = project.attributes.carouselImages !== undefined ? project.attributes.carouselImages.length > 0 : false;
 
     const isLive: boolean = !!project.attributes.liveDemo;
     const hasSource: boolean = !!project.attributes.sourceCode;
+    const projectSummary: string = getProjectSummary(project);
 
     /**
      * Creates an initial-based fallback label when a technology logo is unavailable.
@@ -170,15 +170,15 @@ export const ProjectsSummaryTile = React.memo(({ project, isDarkMode }: Props): 
                     </div>
                 </div>
 
-                <div className="project-summary-tile-desc" title={project.attributes.description[0]}>
-                    {project.attributes.description[0]}
+                <div className="project-summary-tile-desc" title={projectSummary}>
+                    {projectSummary}
                 </div>
 
                 <div className="project-summary-tile-footer">
                     <button
                         type="button"
                         className="project-summary-tile-read-more"
-                        onClick={() => setIsDetailsModalOpen(true)}
+                        onClick={() => onOpenDetails(project)}
                     >
                         Read more <i className="fas fa-arrow-right" aria-hidden="true"></i>
                     </button>
@@ -202,13 +202,6 @@ export const ProjectsSummaryTile = React.memo(({ project, isDarkMode }: Props): 
                     }}
                 />
             </Suspense>
-
-            <ProjectDetailsModal
-                project={project}
-                isOpen={isDetailsModalOpen}
-                toggle={() => setIsDetailsModalOpen((prev) => !prev)}
-                isDarkMode={isDarkMode}
-            />
         </div>
     );
 });

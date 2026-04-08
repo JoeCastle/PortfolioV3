@@ -7,7 +7,7 @@ import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/counter.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
-import { IProject } from '../../../data/projects';
+import { getProjectCaseStudy, IProject } from '../../../data/projects';
 
 interface Props {
     project: IProject;
@@ -24,6 +24,9 @@ interface Props {
 export const ProjectDetailsModal: React.FC<Props> = ({ project, isOpen, toggle, isDarkMode }): JSX.Element => {
     const [isGalleryOpen, setIsGalleryOpen] = React.useState<boolean>(false);
     const projectStatusText: string = project.attributes.isComplete ? 'Complete' : 'In development';
+    const caseStudy = getProjectCaseStudy(project);
+    const hasHighlights: boolean = caseStudy.highlights.length > 0;
+    const hasAdditionalDetails: boolean = !!caseStudy.additionalDetails && caseStudy.additionalDetails.length > 0;
 
     const hasSource: boolean = !!project.attributes.sourceCode;
     const isLive: boolean = !!project.attributes.liveDemo;
@@ -75,7 +78,7 @@ export const ProjectDetailsModal: React.FC<Props> = ({ project, isOpen, toggle, 
             scrollable
             size="lg"
             className={`project-details-modal ${isDarkMode ? 'project-details-modal-dark' : 'project-details-modal-light'}`}
-            contentClassName="project-details-modal-content"
+            contentClassName="project-details-modal-shell"
         >
             <ModalHeader toggle={toggle} className="project-details-modal-header" wrapTag="div">
                 <div className="project-details-modal-title-wrapper">
@@ -88,65 +91,100 @@ export const ProjectDetailsModal: React.FC<Props> = ({ project, isOpen, toggle, 
                 </div>
             </ModalHeader>
             <ModalBody className="project-details-modal-body">
-                <div className="project-details-modal-overview">
-                    <div className="project-details-modal-thumbnail-wrapper">
-                        <button type="button" className="project-details-modal-thumbnail-btn" onClick={() => setIsGalleryOpen(true)}>
-                            <img
-                                className="project-details-modal-thumbnail"
-                                src={project.attributes.thumbnail.src}
-                                alt={project.attributes.thumbnail.alt}
-                                referrerPolicy="no-referrer"
-                                loading="lazy"
-                            />
-                        </button>
-                    </div>
-
-                    <div className="project-details-modal-quick-info">
-                        <div className="project-details-modal-links">
-                            {hasSource && (
-                                <a
-                                    className="portfolio-btn portfolio-btn-primary project-details-modal-link"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    href={project.attributes.sourceCode}
-                                >
-                                    <i className="fab fa-github" aria-hidden="true"></i> Source code
-                                </a>
-                            )}
-                            {isLive && (
-                                <a className="portfolio-btn portfolio-btn-primary project-details-modal-link" target="_blank" rel="noopener noreferrer" href={project.attributes.liveDemo}>
-                                    <i className="fas fa-globe" aria-hidden="true"></i> Live demo
-                                </a>
-                            )}
-                            <button type="button" className="project-details-modal-gallery-link" onClick={() => setIsGalleryOpen(true)}>
-                                <i className="far fa-images" aria-hidden="true"></i> {hasGallery ? 'Open gallery' : 'Open image'}
+                <div className="project-details-modal-top">
+                    <div className="project-details-modal-overview">
+                        <div className="project-details-modal-thumbnail-wrapper">
+                            <button type="button" className="project-details-modal-thumbnail-btn" onClick={() => setIsGalleryOpen(true)}>
+                                <img
+                                    className="project-details-modal-thumbnail"
+                                    src={project.attributes.thumbnail.src}
+                                    alt={project.attributes.thumbnail.alt}
+                                    referrerPolicy="no-referrer"
+                                    loading="lazy"
+                                />
                             </button>
                         </div>
 
-                        <div className="project-details-modal-technologies">
-                            {project.attributes.technologies.map((tech, i) => (
-                                <div key={i} className="project-details-modal-tech-item" title={tech.title}>
-                                    {tech.img.trim().length > 0 ? (
-                                        <img className="project-details-modal-tech-logo" src={tech.img} alt={tech.altTag} loading="lazy" referrerPolicy="no-referrer" />
-                                    ) : (
-                                        <span className="project-details-modal-tech-logo-fallback" aria-label={tech.title}>
-                                            {getFallbackLogoText(tech.title)}
-                                        </span>
+                        <div className="project-details-modal-quick-info">
+                            <div className="project-details-modal-actions">
+                                <div className="project-details-modal-links">
+                                    {hasSource && (
+                                        <a
+                                            className="portfolio-btn portfolio-btn-primary project-details-modal-link"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            href={project.attributes.sourceCode}
+                                        >
+                                            <i className="fab fa-github" aria-hidden="true"></i> Source code
+                                        </a>
                                     )}
-                                    <span className="project-details-modal-tech-title">{tech.title}</span>
+                                    {isLive && (
+                                        <a className="portfolio-btn portfolio-btn-primary project-details-modal-link" target="_blank" rel="noopener noreferrer" href={project.attributes.liveDemo}>
+                                            <i className="fas fa-globe" aria-hidden="true"></i> Live demo
+                                        </a>
+                                    )}
+                                    <button type="button" className="project-details-modal-gallery-link" onClick={() => setIsGalleryOpen(true)}>
+                                        <i className="far fa-images" aria-hidden="true"></i> {hasGallery ? 'Open gallery' : 'Open image'}
+                                    </button>
                                 </div>
-                            ))}
+                            </div>
+
+                            <div className="project-details-modal-tech">
+                                <div className="project-details-modal-technologies">
+                                    {project.attributes.technologies.map((tech, i) => (
+                                        <div key={i} className="project-details-modal-tech-item" title={tech.title}>
+                                            {tech.img.trim().length > 0 ? (
+                                                <img className="project-details-modal-tech-logo" src={tech.img} alt={tech.altTag} loading="lazy" referrerPolicy="no-referrer" />
+                                            ) : (
+                                                <span className="project-details-modal-tech-logo-fallback" aria-label={tech.title}>
+                                                    {getFallbackLogoText(tech.title)}
+                                                </span>
+                                            )}
+                                            <span className="project-details-modal-tech-title">{tech.title}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="project-details-modal-description">
-                    {project.attributes.description.map((item, i) => (
-                        <p key={i}>{item}</p>
-                    ))}
-                </div>
+                <div className="project-details-modal-content">
+                    <div className="project-details-modal-description">
+                        <section className="project-details-modal-content-section" aria-label="Overview">
+                            <p className="project-details-modal-section-title">Overview</p>
+                            <p>{caseStudy.overview}</p>
+                        </section>
 
-                {hasDisclaimer && <p className="project-details-modal-disclaimer">{project.attributes.disclaimer}</p>}
+                        {hasHighlights && (
+                            <section className="project-details-modal-content-section" aria-label="Key engineering points">
+                                <p className="project-details-modal-section-title">Key engineering points</p>
+                                <ul className="project-details-modal-highlights">
+                                    {caseStudy.highlights.map((item, i) => (
+                                        <li key={i}>{item}</li>
+                                    ))}
+                                </ul>
+                            </section>
+                        )}
+
+                        {hasAdditionalDetails && (
+                            <section className="project-details-modal-content-section" aria-label="Additional notes">
+                                <p className="project-details-modal-section-title">Additional notes</p>
+                                {caseStudy.additionalDetails?.map((item, i) => (
+                                    <p key={i}>{item}</p>
+                                ))}
+                            </section>
+                        )}
+                    </div>
+
+                    {hasDisclaimer && (
+                        <p
+                            className={`project-details-modal-disclaimer ${hasAdditionalDetails ? 'project-details-modal-disclaimer-footer' : ''}`}
+                        >
+                            {project.attributes.disclaimer}
+                        </p>
+                    )}
+                </div>
             </ModalBody>
 
             <Lightbox

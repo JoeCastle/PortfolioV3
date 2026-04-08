@@ -6,6 +6,7 @@ A personal portfolio website built with React and TypeScript. It is designed to 
 
 - Single-page portfolio with section-based navigation
 - Project showcase with expandable details
+- URL deep-link support for project modals via query parameters
 - Skills and experience summaries
 - Blog feed integration from external source with local backup data
 - Contact section with direct social and email links
@@ -67,6 +68,20 @@ Open http://localhost:3000.
 - `npm run serve:build`: serves the `build` directory on `127.0.0.1:3000`
 - `npm run fetch-recent-posts`: fetches recent blog posts and validates SEO data contract
 - `npm run update-project-date`: updates sitemap/project date metadata
+
+## Project Deep Linking
+
+The homepage project modal supports URL query parameters for direct linking.
+
+- Example: `/?project=joebloggs`
+- Example: `/?project=trainingApp`
+
+Behaviour:
+
+- A valid `project` parameter scrolls the page to the Projects section and opens the matching modal.
+- If the project is in the secondary list, the section expands first, then opens the modal.
+- Closing the modal removes the `project` parameter from the URL.
+- Invalid project values are ignored safely.
 
 ## Project Structure
 

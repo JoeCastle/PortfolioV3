@@ -13,6 +13,12 @@ jest.mock('yet-another-react-lightbox/plugins/counter.css', () => ({}), { virtua
 jest.mock('yet-another-react-lightbox/plugins/captions.css', () => ({}), { virtual: true });
 
 describe('ProjectsSummaryTile', () => {
+    const onOpenDetails = jest.fn();
+
+    beforeEach(() => {
+        onOpenDetails.mockClear();
+    });
+
     const mockProject: IProject = {
         projectName: 'portfolio',
         attributes: {
@@ -47,22 +53,16 @@ describe('ProjectsSummaryTile', () => {
         },
     };
 
-    it('opens the project details modal when Read more is clicked', async () => {
-        render(<ProjectsSummaryTile project={mockProject} isDarkMode={false} />);
-
-        expect(screen.queryByText('Detailed paragraph')).not.toBeInTheDocument();
+    it('calls onOpenDetails when Read more is clicked', async () => {
+        render(<ProjectsSummaryTile project={mockProject} isDarkMode={false} onOpenDetails={onOpenDetails} />);
 
         await userEvent.click(screen.getByRole('button', { name: /Read more/i }));
 
-        const dialog: HTMLElement = screen.getByRole('dialog');
-
-        expect(within(dialog).getByText('Detailed paragraph')).toBeInTheDocument();
-        expect(within(dialog).getByText('Portfolio')).toBeInTheDocument();
-        expect(within(dialog).getByRole('link', { name: /Source code/i })).toHaveAttribute('href', 'https://github.com/example/repo');
-        expect(within(dialog).getByRole('link', { name: /Live demo/i })).toHaveAttribute('href', 'https://example.com');
+        expect(onOpenDetails).toHaveBeenCalledTimes(1);
+        expect(onOpenDetails).toHaveBeenCalledWith(mockProject);
     });
 
-    it('hides source and live links when project does not provide them', async () => {
+    it('hides source and live links when project does not provide them', () => {
         const projectWithoutLinks: IProject = {
             ...mockProject,
             attributes: {
@@ -72,29 +72,38 @@ describe('ProjectsSummaryTile', () => {
             },
         };
 
-        render(<ProjectsSummaryTile project={projectWithoutLinks} isDarkMode={false} />);
+        render(<ProjectsSummaryTile project={projectWithoutLinks} isDarkMode={false} onOpenDetails={onOpenDetails} />);
 
-        await userEvent.click(screen.getByRole('button', { name: /Read more/i }));
-
-        const dialog: HTMLElement = screen.getByRole('dialog');
-
-        expect(within(dialog).queryByRole('link', { name: /Source code/i })).not.toBeInTheDocument();
-        expect(within(dialog).queryByRole('link', { name: /Live demo/i })).not.toBeInTheDocument();
+        expect(screen.queryByRole('link', { name: /Portfolio source code/i })).not.toBeInTheDocument();
+        expect(screen.queryByRole('link', { name: /Portfolio live demo/i })).not.toBeInTheDocument();
     });
 
-    it('updates modal theme class when theme prop changes', async () => {
-        const { rerender } = render(<ProjectsSummaryTile project={mockProject} isDarkMode={false} />);
+    it('renders summary text on the card', () => {
+        render(<ProjectsSummaryTile project={mockProject} isDarkMode={false} onOpenDetails={onOpenDetails} />);
 
-        await userEvent.click(screen.getByRole('button', { name: /Read more/i }));
+        const summaryRegion: HTMLElement = screen.getByText('Summary paragraph');
+        expect(summaryRegion).toBeInTheDocument();
+    });
 
-        let modalRoot: Element | null = document.querySelector('.project-details-modal');
-        expect(modalRoot).toBeInTheDocument();
-        expect(modalRoot).toHaveClass('project-details-modal-light');
+    it('renders technology logos with title metadata', () => {
+        render(<ProjectsSummaryTile project={mockProject} isDarkMode={false} onOpenDetails={onOpenDetails} />);
 
-        rerender(<ProjectsSummaryTile project={mockProject} isDarkMode={true} />);
+        const [logoContainer] = screen.getAllByTitle('React');
+        expect(within(logoContainer).getByAltText('React logo')).toBeInTheDocument();
+    });
 
-        modalRoot = document.querySelector('.project-details-modal');
-        expect(modalRoot).toBeInTheDocument();
-        expect(modalRoot).toHaveClass('project-details-modal-dark');
+    it('falls back to summary when description is empty', () => {
+        const summaryOnlyProject: IProject = {
+            ...mockProject,
+            attributes: {
+                ...mockProject.attributes,
+                summary: 'Summary from summary field',
+                description: [],
+            },
+        };
+
+        render(<ProjectsSummaryTile project={summaryOnlyProject} isDarkMode={true} onOpenDetails={onOpenDetails} />);
+
+        expect(screen.getByText('Summary from summary field')).toBeInTheDocument();
     });
 });

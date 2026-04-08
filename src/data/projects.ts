@@ -22,12 +22,19 @@ export enum ProjectType {
 
 export type HomepageTier = 'primary' | 'secondary' | 'hidden';
 
+export interface IProjectCaseStudy {
+    overview: string;
+    highlights: string[];
+    additionalDetails?: string[];
+}
+
 interface IAttributes {
     title: string;
-    description: string[]; // Array allows for multiple paragraphs to be included. Can map different index to a new element.
+    description?: string[]; // Legacy modal content. Prefer caseStudy for new content.
     isComplete: boolean;
     disclaimer: string;
-    summary?: string; // A short description, probably used on the home page.
+    summary?: string; // A short description used on the home page.
+    caseStudy?: IProjectCaseStudy;
     technologies: ISkill[];
     tags: string[];
     thumbnail: IImage;
@@ -76,15 +83,21 @@ const projects: IProject[] = [
             disclaimer:
                 'Active development. Core cross-platform learning and content workflows are implemented, while selected integrations and polish passes are still being refined.',
             summary:
-                'A cross-platform AI knowledge platform designed to structure fast-moving concepts into maintainable, scalable learning systems across web and mobile.',
-            description: [
-                'A cross-platform knowledge platform built to turn evolving AI topics into structured, maintainable learning content across web and mobile.',
-                'The system is organised as a TypeScript monorepo with shared UI and domain packages, allowing web and mobile clients to reuse logic while keeping platform-specific concerns separate.',
-                'A CMS-driven content model controls rendering, routing, metadata, and discovery across guides, articles, and concept collections.',
-                'An AI-assisted content pipeline uses schema-aware generation, typed validation, and transformation steps so generated content can be reviewed and integrated consistently.',
-                'The backend handles authentication, row-level access control, and external service integration through clear data-access boundaries.',
-                'Shared domain models and modular packages make it easier to add features such as search and subscriptions without duplicating logic across web and mobile.',
-            ],
+                'A cross-platform knowledge platform built to turn evolving AI topics into structured learning content across web and mobile.',
+            caseStudy: {
+                overview:
+                    'A cross-platform knowledge platform built to turn evolving AI topics into structured learning content across web and mobile.',
+                highlights: [
+                    'Organised as a TypeScript monorepo with shared UI and domain packages so web and mobile clients can reuse logic while keeping platform-specific concerns separate.',
+                    'Uses a CMS-driven content model to control rendering, routing, metadata, and discovery across guides, articles, and concept collections.',
+                    'Includes an AI-assisted content pipeline with schema-aware generation, typed validation, and transformation steps so generated content can be reviewed and integrated consistently.',
+                    'Handles authentication, row-level access control, and external service integration through clear data-access boundaries.',
+                    'Supports features such as search and subscriptions through shared domain models and modular packages.',
+                ],
+                additionalDetails: [
+                    'Still in active development, with core learning and content workflows implemented and broader product features continuing to be refined.',
+                ],
+            },
             technologies: getSkills([
                 'nextjs',
                 'reactjs',
@@ -183,15 +196,21 @@ const projects: IProject[] = [
             disclaimer:
                 'Active development. Core deck creation, review, and study workflows are implemented, with AI and subscription features still being implemented.',
             summary:
-                'An AI-assisted flashcard platform designed to streamline content creation and optimise learning through structured spaced-repetition workflows.',
-            description: [
                 'An AI-assisted learning platform built around structured content workflows, spaced repetition, and a scheduling engine that supports long-term review and study.',
-                'The system is designed to let users create, refine, and study flashcard decks without unnecessary workflow complexity.',
-                'A core part of the platform is the scheduling engine, which manages review cycles, grading, and repetition logic while handling user-specific learning preferences.',
-                'AI is integrated into the workflow to generate and refine flashcards from notes and external sources, with validation and transformation steps to keep output consistent and usable.',
-                'The backend uses typed APIs and structured data models to support CRUD operations, validation, and multi-format import and export workflows.',
-                'The architecture supports additional learning strategies, analytics, and configurable review logic without requiring changes to core data structures.',
-            ],
+            caseStudy: {
+                overview:
+                    'An AI-assisted learning platform built around structured content workflows, spaced repetition, and a scheduling engine that supports long-term review and study.',
+                highlights: [
+                    'Lets users create, refine, and study flashcard decks without unnecessary workflow complexity.',
+                    'Uses a scheduling engine that manages review cycles, grading, and repetition logic while handling user-specific learning preferences.',
+                    'Integrates AI into deck creation and refinement workflows, with validation and transformation steps to keep output consistent and usable.',
+                    'Uses typed APIs and structured data models to support CRUD operations, validation, and multi-format import and export workflows.',
+                    'Supports additional learning strategies, analytics, and configurable review logic without requiring changes to core data structures.',
+                ],
+                additionalDetails: [
+                    'Still in active development, with core deck creation, review, and study workflows implemented while broader features continue to be built out.',
+                ],
+            },
             technologies: getSkills(['nextjs', 'reactjs', 'typescript', 'tailwindcss', 'postgresql', 'visualstudiocode']),
             tags: ['SaaS', 'EdTech', 'AI', 'Spaced Repetition', 'Accessibility', 'Full-Stack'],
             thumbnail: {
@@ -260,14 +279,20 @@ const projects: IProject[] = [
             isComplete: true,
             disclaimer: '',
             summary:
-                'A performance-focused blog platform built with Next.js and TypeScript, designed for scalable content publishing, SEO, and maintainable content workflows.',
-            description: [
                 'A statically generated publishing platform built with Next.js, with a build pipeline that validates content, generates SEO artifacts, and serves predictable static output.',
-                'The build process indexes posts and series, enforcing metadata structure, ordering rules, and publish state before pages are generated.',
-                'Static artifacts including sitemap, RSS, robots, and recent-post feeds are generated at build time so SEO concerns are part of the delivery pipeline rather than added later.',
-                'Posts and series are modelled as structured data, with route-level metadata and canonical handling to keep rendering and indexing consistent.',
-                'Quality is enforced through unit, integration, and end-to-end tests, including accessibility checks, visual regression, and performance budgets.',
-            ],
+            caseStudy: {
+                overview:
+                    'A statically generated publishing platform built with Next.js, with a build pipeline that validates content, generates SEO artifacts, and serves predictable static output.',
+                highlights: [
+                    'Indexes posts and series at build time, enforcing metadata structure, ordering rules, and publish state before pages are generated.',
+                    'Generates sitemap, RSS, robots, and recent-post feeds as part of the delivery pipeline rather than treating SEO as a later add-on.',
+                    'Models posts and series as structured data, with route-level metadata and canonical handling to keep rendering and indexing consistent.',
+                    'Uses unit, integration, and end-to-end testing, including accessibility checks, visual regression, and performance budgets.',
+                ],
+                additionalDetails: [
+                    'The project treats content as validated application data rather than loose files, making publishing and deployment more predictable.',
+                ],
+            },
             technologies: getSkills(['nextjs', 'reactjs', 'sass', 'typescript', 'visualstudiocode']),
             tags: [],
             thumbnail: {
@@ -326,14 +351,20 @@ const projects: IProject[] = [
             isComplete: true,
             disclaimer: '',
             summary:
-                'A modular portfolio platform designed to showcase projects, skills, and content through structured components, dynamic data, and SEO-aware delivery.',
-            description: [
                 'A React and TypeScript portfolio platform built around structured project data, reusable content sections, and SEO-aware delivery for a long-term maintainable personal site.',
-                'Content for projects, skills, and blog integrations is modelled as typed data rather than hardcoded UI text, helping keep the site easier to extend and maintain.',
-                'The build pipeline includes automated content ingestion and validation so invalid external blog data or SEO contract issues fail fast before deployment.',
-                'Quality is protected through layered testing across unit, Cypress, and Playwright flows, including accessibility checks, visual regression snapshots, and responsive behaviour coverage.',
-                'Release and deployment workflows include versioning, tagging, and controlled rollout steps to keep delivery predictable and reduce the risk of accidental regressions.',
-            ],
+            caseStudy: {
+                overview:
+                    'A React and TypeScript portfolio platform built around structured project data, reusable content sections, and SEO-aware delivery for a long-term maintainable personal site.',
+                highlights: [
+                    'Models projects, skills, and blog integrations as typed content data rather than hardcoded UI text.',
+                    'Includes automated content ingestion and validation so invalid external blog data or SEO contract issues fail fast before deployment.',
+                    'Protects quality through layered testing across unit, Cypress, and Playwright flows, including accessibility checks, visual regression snapshots, and responsive behaviour coverage.',
+                    'Uses versioning, tagging, and controlled rollout steps to keep releases predictable and reduce the risk of accidental regressions.',
+                ],
+                additionalDetails: [
+                    'This project is intentionally treated as a maintainable frontend platform rather than a static personal site.',
+                ],
+            },
             technologies: getSkills(['reactjs', 'sass', 'typescript', 'visualstudiocode']),
             tags: [],
             thumbnail: {
@@ -387,14 +418,20 @@ const projects: IProject[] = [
             isComplete: true,
             disclaimer: '',
             summary:
-                'A full-stack training platform supporting role-based workflows for trainers and trainees, focused on accessible learning, structured assessment, and scalable data handling.',
-            description: [
                 'A full-stack training platform designed around role-based workflows, accessible UI patterns, and structured assessment and progress tracking.',
-                'The system allows trainers to create groups, assign users, build quizzes, and review results, while trainees can complete assigned work and track their progress.',
-                'The application combines a React and TypeScript frontend with a .NET backend and SQL Server data layer to support structured data handling and role-based workflows.',
-                'Accessibility was treated as a core requirement, including high-contrast themes, clear typography, semantic structure, and evaluation against established accessibility guidance.',
-                'The project covers requirements, architecture, implementation, and evaluation, including measurable accessibility outcomes as part of the wider dissertation work.',
-            ],
+            caseStudy: {
+                overview:
+                    'A full-stack training platform designed around role-based workflows, accessible UI patterns, and structured assessment and progress tracking.',
+                highlights: [
+                    'Allows trainers to create groups, assign users, build quizzes, and review results, while trainees can complete assigned work and track progress.',
+                    'Combines a React and TypeScript frontend with a .NET backend and SQL Server data layer for structured data handling and role-based workflows.',
+                    'Treats accessibility as a core requirement, including high-contrast themes, clear typography, semantic structure, and evaluation against established guidance.',
+                    'Covers requirements, architecture, implementation, and evaluation as part of the wider dissertation work.',
+                ],
+                additionalDetails: [
+                    'This project is older and secondary in the portfolio, but remains relevant as an example of accessibility-led development.',
+                ],
+            },
             technologies: getSkills(['reactjs', 'mobx', 'sass', 'typescript', 'aspnetcore', 'visualstudio', 'tsql', 'sqlservermanagementstudio']),
             tags: [],
             thumbnail: {
@@ -724,6 +761,49 @@ export const getActiveProjects = (): IProject[] => {
  */
 export const getProjectSkills = (project: IProject): ISkill[] => {
     return project.attributes.technologies.slice(0, globals.numOfTechsToDisplayPerProject);
+};
+
+const getLegacyProjectOverview = (project: IProject): string => {
+    const summary: string | undefined = project.attributes.summary?.trim();
+    if (summary) {
+        return summary;
+    }
+
+    const firstDescriptionParagraph: string | undefined = project.attributes.description?.[0]?.trim();
+    return firstDescriptionParagraph ?? '';
+};
+
+/**
+ * Gets structured modal content for a project, with fallback support for legacy description arrays.
+ * @param project The project.
+ * @returns Structured case study content.
+ */
+export const getProjectCaseStudy = (project: IProject): IProjectCaseStudy => {
+    if (project.attributes.caseStudy) {
+        return project.attributes.caseStudy;
+    }
+
+    const descriptionParagraphs: string[] = project.attributes.description ?? [];
+    const [overview, ...rest] = descriptionParagraphs;
+
+    return {
+        overview: overview ?? getLegacyProjectOverview(project),
+        highlights: rest,
+    };
+};
+
+/**
+ * Gets the short summary text for project cards.
+ * @param project The project.
+ * @returns Summary text.
+ */
+export const getProjectSummary = (project: IProject): string => {
+    const summary: string | undefined = project.attributes.summary?.trim();
+    if (summary) {
+        return summary;
+    }
+
+    return getProjectCaseStudy(project).overview;
 };
 
 const HOMEPAGE_PRIMARY_ORDER: ProjectTypes[] = ['aihandbook', 'flashcardsynth', 'portfolio', 'joebloggs'];
