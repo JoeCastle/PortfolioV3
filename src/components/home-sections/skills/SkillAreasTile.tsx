@@ -8,21 +8,14 @@ interface ISkillAreaProps {
 interface Props extends ISkillAreaProps { }
 
 /**
- * Splits a list into alternating left/right columns.
+ * Splits a list into left/right columns by midpoint.
  * @param items Source item list.
  * @returns A tuple containing left and right column arrays.
  */
 const splitIntoColumns = <T,>(items: T[]): [T[], T[]] => {
-    const leftColumn: T[] = [];
-    const rightColumn: T[] = [];
-
-    items.forEach((item, index) => {
-        if (index % 2 === 0) {
-            leftColumn.push(item);
-        } else {
-            rightColumn.push(item);
-        }
-    });
+    const midpoint = Math.ceil(items.length / 2);
+    const leftColumn = items.slice(0, midpoint);
+    const rightColumn = items.slice(midpoint);
 
     return [leftColumn, rightColumn];
 };

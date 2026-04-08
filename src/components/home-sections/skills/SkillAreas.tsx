@@ -22,7 +22,9 @@ export const SkillAreas: React.FC<Props> = (props) => {
                 <header className="section-header">
                     <p className="section-eyebrow">Core Stack</p>
                     <h2 className="section-title">Skills</h2>
-                    <p className="section-intro">Technologies and domains I rely on most when building and scaling production software.</p>
+                    <p className="section-intro">
+                        Core technical strengths I rely on when building, improving, and supporting internal systems in active use.
+                    </p>
                 </header>
                 <div className="skillarea-summary-tiles">{summarySkillAreas}</div>
             </div>
