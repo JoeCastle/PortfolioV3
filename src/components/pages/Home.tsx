@@ -6,6 +6,7 @@ import React from 'react';
 //const ContactForm = React.lazy(() => import('../home-sections/ContactForm'));
 //const SkillAreas = React.lazy(() => import('../home-sections/SkillAreas'));
 import About from '../home-sections/About';
+import CommercialWorkSection from '../home-sections/commercial-work/CommercialWorkSection';
 import ProjectsSummary from '../home-sections/projects/ProjectsSummary';
 import ContactForm from '../home-sections/ContactForm';
 import SkillAreas from '../home-sections/skills/SkillAreas';
@@ -38,6 +39,7 @@ export const Home: React.FC<Props> = (props) => {
             </Helmet>
             <Landing {...props} />
             <About {...props} />
+            <CommercialWorkSection />
             <ProjectsSummary {...props} />
             <SkillAreas {...props} />
             <RecentPosts {...props} />

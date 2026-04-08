@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import useOnScreen, { PageSectionIdType } from '../../hooks/useOnScreen';
 import globals from '../../utils/globals';
-import utils from '../../utils/utils';
 
 interface Props { }
 
@@ -21,28 +20,20 @@ export const About: React.FC<Props> = () => {
                     <p className="section-eyebrow">Background</p>
                     <h2 className="section-title">About</h2>
                     <p className="section-intro">
-                        Senior Full-Stack Software Developer with {utils.getYearsOfExperience()}+ years building robust, data-driven web applications across the full stack.
+                        Senior Full-Stack Software Developer with 7+ years building and improving internal business systems with complex workflows, large datasets, and performance-critical paths.
                     </p>
                 </header>
 
                 <div className="about-body">
                     <div className="about-column">
                         <p>
-                            My main background is in React, TypeScript, .NET, SQL Server, and Azure. I enjoy working across the full stack to build software that is reliable, maintainable, and practical to evolve over time.
-                        </p>
-
-                        <p>
-                            Much of my experience has involved bespoke systems with complex business rules, large datasets, and performance-sensitive workflows. I have worked across frontend implementation, backend logic, database design, reporting, and deployment.
+                            My main background is in <strong>React, TypeScript, .NET, SQL Server, and Azure.</strong> I've spent several years building and owning bespoke <strong>systems used by operational teams</strong>, working across the full stack to deliver software that is reliable, maintainable, and practical for day-to-day use. Much of my work involves messy business rules, data-heavy workflows, reporting, deployments, and production support across long-lived codebases, often over multiple years of continued development and improvement.
                         </p>
                     </div>
 
                     <div className="about-column">
                         <p>
-                            I am particularly interested in improving slow or inefficient systems, designing cleaner workflows, and turning complex requirements into software that is easier to use, support, and extend.
-                        </p>
-
-                        <p>
-                            Outside of my main work, I build personal projects to explore modern tools and architectures, including cross-platform and AI-assisted applications. I also enjoy mentoring developers and challenging weak technical decisions early.
+                            I am particularly interested in improving slow or inefficient systems, simplifying complex workflows, and turning unclear requirements into software that is easier to use, support, and maintain. Outside of commercial work, I build personal projects to explore architecture, structured content systems, cross-platform applications, and AI-assisted workflows. I also enjoy mentoring developers and reviewing technical decisions critically and raising concerns early when they introduce unnecessary complexity or risk.
                         </p>
                     </div>
                 </div>

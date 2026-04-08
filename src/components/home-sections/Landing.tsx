@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import useOnScreen, { PageSectionIdType } from '../../hooks/useOnScreen';
 import { Button } from 'reactstrap';
+import utils from '../../utils/utils';
 
 interface Props { }
 
@@ -16,8 +17,8 @@ export const Landing: React.FC<Props> = () => {
     /**
      * Smooth-scrolls to the projects section.
      */
-    const handleScrollToProjects = (): void => {
-        const element: HTMLElement | null = document.getElementById('Projects');
+    const handleScrollToWork = (): void => {
+        const element: HTMLElement | null = document.getElementById('CommercialWork');
 
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
@@ -40,22 +41,22 @@ export const Landing: React.FC<Props> = () => {
             <div className="content-container landing-inner-container" id={`${PageSectionIdType.Landing}`} ref={ref}>
                 <div className="landing-inner">
                     <div className="landing-left">
-                        <p className="landing-role">Senior Full-Stack Developer</p>
+                        <p className="landing-role">Senior Full-Stack Software Developer</p>
 
                         <h1 className="landing-heading">
-                            I build scalable, production-ready web applications
+                            I build and improve complex, data-driven business systems
                         </h1>
 
                         <p className="landing-subtext">
-                            7+ years working with React, TypeScript, .NET, and Azure - focused on performance, maintainability, and real-world impact.
+                            {utils.getYearsOfExperience()}+ years building and evolving internal software with React, TypeScript, .NET, SQL Server, and Azure - focused on performance, maintainability, and operational software used in the real world.
                         </p>
 
                         <div className="landing-actions">
                             <Button
                                 className="portfolio-btn projects-btn landing-btn-primary"
-                                onClick={handleScrollToProjects}
+                                onClick={handleScrollToWork}
                             >
-                                View Projects
+                                View Work
                             </Button>
 
                             <Button
@@ -71,8 +72,8 @@ export const Landing: React.FC<Props> = () => {
                         <pre className="code-snippet">
                             {`const developer = {
   name: "Joseph Castle",
-  stack: ["React", "TypeScript", ".NET", "Azure"],
-  focus: "Scalable Web Applications"
+  stack: ["React", "TypeScript", ".NET", "SQL Server", "Azure"],
+  focus: "Complex Business Systems",
 };`}
                         </pre>
                     </div>

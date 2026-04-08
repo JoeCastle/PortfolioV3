@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 export enum NavLinkIdType {
     Landing = 'landing-navlink',
     About = 'about-navlink',
+    Commercial = 'commercial-navlink',
     Projects = 'projects-navlink',
     Skills = 'skills-navlink',
     Blog = 'blog-navlink',
@@ -20,6 +21,7 @@ export enum NavLinkIdType {
 export enum PageSectionIdType {
     Landing = 'landing-content-container',
     About = 'about-content-container',
+    Commercial = 'commercial-work-content-container',
     Projects = 'project-summary-content-container',
     Skills = 'skills-summary-content-container',
     Blog = 'blog-summary-content-container',
@@ -32,6 +34,7 @@ export enum PageSectionIdType {
 const sectionToNavLinkMap: Record<PageSectionIdType, NavLinkIdType> = {
     [PageSectionIdType.Landing]: NavLinkIdType.Landing,
     [PageSectionIdType.About]: NavLinkIdType.About,
+    [PageSectionIdType.Commercial]: NavLinkIdType.Commercial,
     [PageSectionIdType.Projects]: NavLinkIdType.Projects,
     [PageSectionIdType.Skills]: NavLinkIdType.Skills,
     [PageSectionIdType.Blog]: NavLinkIdType.Blog,

@@ -45,6 +45,11 @@ export const NavMenu: React.FC<Props> = (props: Props) => {
                                 </Link>
                             </li>
                             <li>
+                                <Link id={NavLinkIdType.Commercial} to="/#CommercialWork">
+                                    Commercial
+                                </Link>
+                            </li>
+                            <li>
                                 <Link id={NavLinkIdType.Projects} to="/#Projects">
                                     Projects
                                 </Link>
